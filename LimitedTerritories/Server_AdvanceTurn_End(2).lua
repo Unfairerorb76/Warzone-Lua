@@ -34,7 +34,8 @@ for _, limitTerritories(game.ServerGame.LatestTurnStanding.Territories) do
       local terr = game.ServerGame.LatestTurnStanding.Territories[order.To];
 			terrMod = WL.TerritoryModification.Create(terr.ID);
 			terrMod.SetOwnerOpt=terr.OwnerPlayerID;
-	 end		terrMod.SetArmiesTo =  game.ServerGame.LatestTurnStanding.Territories[order.To];
+	 		terrMod.SetArmiesTo =  game.ServerGame.LatestTurnStanding.Territories[order.To];
+	end
         end 
      end
  end
