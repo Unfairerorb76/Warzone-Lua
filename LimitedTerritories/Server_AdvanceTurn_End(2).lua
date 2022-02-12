@@ -6,7 +6,8 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 for _, limitTerritories(game.ServerGame.LatestTurnStanding.Territories) do 
  
     local count = 0;
-    
+    Print(hi);
+Print("hi");
     players = {};
     
      for _, playerID in pairs(game.ServerGame.Game.PlayingPlayers) do
