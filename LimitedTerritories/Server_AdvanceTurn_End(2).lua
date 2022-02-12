@@ -7,7 +7,7 @@ for _, limitTerritories(game.ServerGame.LatestTurnStanding.Territories) do
  
     local count = 0;
     Print(hi);
-Print("hi");
+    print("Hello, world!");
     players = {};
     
      for _, playerID in pairs(game.ServerGame.Game.PlayingPlayers) do
