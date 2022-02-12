@@ -12,7 +12,7 @@ Print("hi");
     
      for _, playerID in pairs(game.ServerGame.Game.PlayingPlayers) do
        players[PlayerID] = {};
-Print("playerarray");
+print("Hello, world!")
      end
   
      for _, terr in pairs(game.ServerGame.LatestTurnStanding.Territories) do
