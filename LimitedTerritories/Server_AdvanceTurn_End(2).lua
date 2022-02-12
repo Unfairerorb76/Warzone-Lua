@@ -11,12 +11,14 @@ for _, limitTerritories(game.ServerGame.LatestTurnStanding.Territories) do
     
      for _, playerID in pairs(game.ServerGame.Game.PlayingPlayers) do
        players[PlayerID] = {};
+Print(playerarray);
      end
   
      for _, terr in pairs(game.ServerGame.LatestTurnStanding.Territories) do
             if (terr.IsNeutral == false) then
                    players[terr.OwnerPlayerID][terr.ID] = terr.NumArmies.NumArmies;
                    count = count + 1; 
+                   Print(territoryarray);
                end               
      end
     
