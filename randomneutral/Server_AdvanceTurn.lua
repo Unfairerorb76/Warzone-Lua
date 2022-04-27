@@ -1,9 +1,21 @@
 require('Utilities');
 require('WLUtilities');
 
-function Server_AdvanceTurn_Order(game, order, result, skipThisOrder, addNewOrder)
-    if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'BuyNeutral_')) then  --look for the order that we inserted in Client_PresentMenuUI
-
+function Server_AdvanceTurn_Order(game, standing)
+	
+        local randomNumber = math.random(index) --picks a random number from the amount of territories available
+	
+	for _, territory in pairs(standing.Territories) do
+	local index = 
+        local numArmies = territory.NumArmies.NumArmies;
+        if (territory.OwnerPlayerID == WL.PlayerID.Neutral then
+		local newterritory = math.random(territory);
+		territory.NumArmies = WL.territory.Create(newterritory);		
+	end
+    end
+				
+				
+				
 		--in Client_PresentMenuUI, we stuck the territory ID after BuyNeutral_.  Break it out and parse it to a number.
 		local targetTerritoryID = tonumber(string.sub(order.Payload, 12));
 
@@ -29,5 +41,16 @@ function Server_AdvanceTurn_Order(game, order, result, skipThisOrder, addNewOrde
 		local mod = WL.TerritoryModification.Create(targetTerritoryID);
 		mod.SetOwnerOpt = order.PlayerID;
 		addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, "Purchased " .. game.Map.Territories[targetTerritoryID].Name, {}, {mod}));
-	end
+	
 end
+
+
+	for _, territory in pairs(standing.Territories) do
+        local numArmies = territory.NumArmies.NumArmies;
+        if (territory.OwnerPlayerID == WL.PlayerID.Neutral and numArmies == game.Settings.WastelandSize) then
+            local newArmies = math.random(-Mod.Settings.RandomizeAmount, Mod.Settings.RandomizeAmount) + numArmies;
+            if (newArmies < 0) then newArmies = 0 end;
+            if (newArmies > 100000) then newArmies = 100000 end;
+            territory.NumArmies = WL.Armies.Create(newArmies);
+        end
+    end
