@@ -13,3 +13,4 @@ for i=1,Mod.Settings.NumToConvert do
   randomNeutralTerr = neutralTerr[Math.random(#neutralTerr)];
   game.ServerGame.LatestTurnurnStanding.Territories[randomNeutralTerr].OwnerPlayerID = PlayerID;
 end
+end
