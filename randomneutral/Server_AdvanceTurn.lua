@@ -4,7 +4,7 @@ require('WLUtilities');
 function Server_AdvanceTurn_Order(game, standing)
 	
       local neutralTerr = {};
-for terrID, territory in pairs(game.ServerGame.LatestTurnurnStanding.Territories) do
+for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
   if (territory.OwnerPlayerID == WL.PlayerID.Neutral) then
     neutralTerr[#neutralTerr+1] = terrID;
   end
