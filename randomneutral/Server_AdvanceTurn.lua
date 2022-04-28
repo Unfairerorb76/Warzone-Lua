@@ -9,7 +9,7 @@ for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) d
     neutralTerr[#neutralTerr+1] = terrID;
   end
 end
-for i=1,Mod.Settings.NumToConvert do
+for i=1 do
   randomNeutralTerr = neutralTerr[Math.random(#neutralTerr)];
   game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr].OwnerPlayerID = PlayerID;
 end
