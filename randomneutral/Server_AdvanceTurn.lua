@@ -13,11 +13,9 @@ for i=1,Mod.Settings.NumToConvert do
 		
      randomNeutralTerr = terr[Math.random(#terr)];
 	terrMod = WL.TerritoryModification.Create(randomNeutralTerr);
-	terrMod.SetOwnerOpt=terr.OwnerPlayerID;
+	terrMod.SetOwnerOpt=order.PlayerID
 	terrMod.SetArmiesTo = game.ServerGame.LatestTurnStanding.Territories[order.To].NumArmies.NumArmies;
 	addNewOrder(WL.GameOrderEvent.Create(terr.OwnerPlayerID,"new territory",{},{terrMod}));
 		
-  game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr].OwnerPlayerID = PlayerID;
 end
-	
 end
