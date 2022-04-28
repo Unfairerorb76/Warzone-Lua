@@ -1,5 +1,5 @@
 
 function Client_SaveConfigureUI(alert)
     
-    Mod.Settings.CostPerNeutralArmy = numberInputField.GetValue();
+    Mod.Settings.NumToConvert = numberInputField.GetValue();
 end
