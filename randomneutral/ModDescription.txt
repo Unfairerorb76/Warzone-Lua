@@ -1,5 +1,3 @@
-Allows players to purchase neutral territories with gold rather than conquering them by force.  Requires that the game is a commerce game, and will do nothing otherwise.
+Allows players to gain a free neutral every turn.
 
-The game creator can configure how expensive territories are to purchase, based on how many armies are on the neutral territory.
-
-To initiate a purchase, click the button for the mod on the menu, select the territory, and a purchase order will be inserted into your orders list.  The purchase will complete when the turn advances.
+The game creator can configure how many neutrals a player will get per turn
