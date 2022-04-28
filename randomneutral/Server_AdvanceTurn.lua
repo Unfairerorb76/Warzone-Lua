@@ -11,7 +11,7 @@ for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) d
 end
 for i=1,Mod.Settings.NumToConvert do
 		
-     randomNeutralTerr = neutralTerr[Math.random(#neutralTerr)];
+     randomNeutralTerr = terr[Math.random(#terr)];
 	terrMod = WL.TerritoryModification.Create(randomNeutralTerr);
 	terrMod.SetOwnerOpt=terr.OwnerPlayerID;
 	terrMod.SetArmiesTo = game.ServerGame.LatestTurnStanding.Territories[order.To].NumArmies.NumArmies;
