@@ -3,54 +3,13 @@ require('WLUtilities');
 
 function Server_AdvanceTurn_Order(game, standing)
 	
-        local randomNumber = math.random(index) --picks a random number from the amount of territories available
-	
-	for _, territory in pairs(standing.Territories) do
-	local index = 
-        local numArmies = territory.NumArmies.NumArmies;
-        if (territory.OwnerPlayerID == WL.PlayerID.Neutral then
-		local newterritory = math.random(territory);
-		territory.NumArmies = WL.territory.Create(newterritory);		
-	end
-    end
-				
-				
-				
-		--in Client_PresentMenuUI, we stuck the territory ID after BuyNeutral_.  Break it out and parse it to a number.
-		local targetTerritoryID = tonumber(string.sub(order.Payload, 12));
-
-		local targetTerritoryStanding = game.ServerGame.LatestTurnStanding.Territories[targetTerritoryID];
-
-		if (targetTerritoryStanding.OwnerPlayerID ~= WL.PlayerID.Neutral) then
-			return; --can only buy neutral territories, so ignore this purchase request.  This can happen if someone captured the territory before the purchase order happened. Their gold was still spent, which isn't ideal.  We could try to refund it here to make the mod nicer.  In practice this won't happen often since people will put their purchase order at the start of the turn, before attacks.
-		end
-
-		if (order.CostOpt == nil) then
-			return; --shouldn't ever happen, unless another mod interferes
-		end
-
-		local costFromOrder = order.CostOpt[WL.ResourceType.Gold]; --this is the cost from the order.  We can't trust this is accurate, as someone could hack their client and put whatever cost they want in there.  Therefore, we must calculate it ourselves, and only do the purchase if they match
-
-		local realCost = Mod.Settings.CostPerNeutralArmy * targetTerritoryStanding.NumArmies.NumArmies;
-
-		if (realCost > costFromOrder) then
-			return; --don't do the purchase if their cost didn't line up.  This would only really happen if they hacked their client, or if something increased the size of the neutral somehow (perhaps another mod).  if costFromOrder is less than realCost, the player still gets charged their full gold, so we could also issue a partial refund here to make the mod nicer.
-		end
-
-		--All checks passed!  Let's change ownership
-		local mod = WL.TerritoryModification.Create(targetTerritoryID);
-		mod.SetOwnerOpt = order.PlayerID;
-		addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, "Purchased " .. game.Map.Territories[targetTerritoryID].Name, {}, {mod}));
-	
+      local neutralTerr = {};
+for terrID, territory in pairs(game.ServerGame.LatestTurnurnStanding.Territories) do
+  if (territory.OwnerPlayerID == WL.PlayerID.Neutral) then
+    neutralTerr[#neutralTerr+1] = terrID;
+  end
 end
-
-
-	for _, territory in pairs(standing.Territories) do
-        local numArmies = territory.NumArmies.NumArmies;
-        if (territory.OwnerPlayerID == WL.PlayerID.Neutral and numArmies == game.Settings.WastelandSize) then
-            local newArmies = math.random(-Mod.Settings.RandomizeAmount, Mod.Settings.RandomizeAmount) + numArmies;
-            if (newArmies < 0) then newArmies = 0 end;
-            if (newArmies > 100000) then newArmies = 100000 end;
-            territory.NumArmies = WL.Armies.Create(newArmies);
-        end
-    end
+for i=1,Mod.Settings.NumToConvert do
+  randomNeutralTerr = neutralTerr[Math.random(#neutralTerr)];
+  game.ServerGame.LatestTurnurnStanding.Territories[randomNeutralTerr].OwnerPlayerID = PlayerID;
+end
