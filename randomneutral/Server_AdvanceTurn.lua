@@ -1,7 +1,7 @@
 require('Utilities');
 require('WLUtilities');
 
-function Server_AdvanceTurn_Order(game)
+function Server_EndTurn_Order(game)
 	
       local neutralTerr = {};
 for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
