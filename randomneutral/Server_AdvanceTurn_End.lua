@@ -1,7 +1,7 @@
 require('Utilities');
 require('WLUtilities');
 
-function Server_EndTurn_Order(game, addNewOrder)
+function Server_AdvanceTurn_Order(game, addNewOrder)
 	
 local terr = {};  --table of neutral territories
 local randomNeutralTerr;   
