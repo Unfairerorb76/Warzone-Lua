@@ -14,7 +14,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 		end			
 
 			
-	for times = 0, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
+	for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
 		print(times);
   		for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
 			print(4);
