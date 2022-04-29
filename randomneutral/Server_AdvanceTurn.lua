@@ -2,13 +2,13 @@ require('Utilities');
 require('WLUtilities');
 
 function Server_AdvanceTurn_End(game, addNewOrder)
-   print(1);
+   
 	local terr = {};  --table of neutral territories
 	local randomNeutralTerr;   
 	
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
     		if (territory.OwnerPlayerID == WL.PlayerID.Neutral) then
-			print(2);
+			
       			table.insert(terr, terrID);   --gets each territory ID of neutrals
 			end
 		end			
@@ -33,7 +33,7 @@ end
 function getTableLength(t)
 	local a = 0;
 	for i, _ in pairs(t) do
-		print(5);
+		
 		a = a + 1;
 	end
 	return a;
