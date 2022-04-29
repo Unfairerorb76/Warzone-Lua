@@ -28,8 +28,10 @@ for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(--[[amount of aliv
 	terrMod.SetArmiesTo = game.ServerGame.LatestTurnStanding.Territories[order.To].NumArmies.NumArmies;
 	addNewOrder(WL.GameOrderEvent.Create(terr.OwnerPlayerID,"new territory",{},{terrMod}));
 	end	
-							
+	end						
     end
   end
  end
+end
+end
 end
