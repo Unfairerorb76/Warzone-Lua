@@ -13,6 +13,8 @@ function Client_PresentConfigureUI(rootParent, rootParent2)
 	end
     
     local horz = UI.CreateHorizontalLayoutGroup(rootParent);
+    local vertical = UI.CreateVerticalLayoutGroup(rootParent);
+	
 	UI.CreateLabel(horz).SetText('amount of neutrals a player shall gain each turn');
     numberInputField = UI.CreateNumberInputField(horz)
 		.SetSliderMinValue(1)
