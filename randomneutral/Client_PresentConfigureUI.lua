@@ -13,8 +13,8 @@ function Client_PresentConfigureUI(rootParent, rootParent2)
 	end
     
  local vert = UI.CreateVerticalLayoutGroup(rootParent);
-local horz1 = UI.CreateHorizontalLayoutGroup(vert);
-local horz2 = UI.CreateHorizontalLayoutGroup(vert);
+local horz1 = UI.CreateHorizontalLayoutGroup(vert);  --not used
+local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for reference
 	
 	UI.CreateLabel(vert).SetText('amount of neutrals a player shall gain each turn');
     numberInputField = UI.CreateNumberInputField(vert)
