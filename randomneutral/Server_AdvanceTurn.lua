@@ -3,6 +3,9 @@ require('WLUtilities');
 
 function Server_AdvanceTurn_End(game, addNewOrder)
 	
+	-- testing only
+	addNewOrder(WL.GameOrderCustom.Create(WL.PlayerID.Neutral, "testing", "test"), true)
+	
 	local terr = {};  --table of neutral territories
 	local randomNeutralTerr;   
 	
