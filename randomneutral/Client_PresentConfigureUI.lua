@@ -12,11 +12,12 @@ function Client_PresentConfigureUI(rootParent, rootParent2)
 		initialValueArmies = 2;
 	end
     
-    local horz = UI.CreateHorizontalLayoutGroup(rootParent);
-    local vert = UI.CreateVerticalLayoutGroup(rootParent);
+ local vert = UI.CreateVerticalLayoutGroup(rootParent);
+local horz1 = UI.CreateHorizontalLayoutGroup(vert);
+local horz2 = UI.CreateHorizontalLayoutGroup(vert);
 	
-	UI.CreateLabel(horz).SetText('amount of neutrals a player shall gain each turn');
-    numberInputField = UI.CreateNumberInputField(horz)
+	UI.CreateLabel(horz1).SetText('amount of neutrals a player shall gain each turn');
+    numberInputField = UI.CreateNumberInputField(horz1)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
 		.SetValue(initialValueConvert);
@@ -24,6 +25,7 @@ function Client_PresentConfigureUI(rootParent, rootParent2)
 	    
 	UI.CreateLabel(vert).SetText('amount of armies a player shall get with the territory');
     numberInputField = UI.CreateNumberInputField(vert)
+	         UI.CreateLabel(horz2);
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
 		.SetValue(initialValueArmies);
