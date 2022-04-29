@@ -21,7 +21,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 			local rand = Math.random(#terr);
 			local randomNeutralTerr = terr[rand]; --picks random neutral then gives it too player
 			local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);
-			terrMod.SetOwnerOpt=game.ServerGame.Game.PlayingPlayers.PlayerID;
+			terrMod.SetownerOpt = i;
 --			terrMod.SetArmiesTo = game.ServerGame.LatestTurnStanding.Territories[order.To].NumArmies.NumArmies; -- you can leave this out, if this field is nill it will not change anything to the army count
 			addNewOrder(WL.GameOrderEvent.Create(i,"new territory",{},{terrMod}), true);
 			table.remove(terr, rand);
