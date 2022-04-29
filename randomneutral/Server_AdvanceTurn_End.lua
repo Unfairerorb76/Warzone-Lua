@@ -1,9 +1,10 @@
 require('Utilities');
 require('WLUtilities');
 
-function Server_EndTurn_Order(game, order, result, skipThisOrder, addNewOrder)
+function Server_EndTurn_Order(game, addNewOrder)
 	
 local terr = {};
+local randomNeutralTerr;
 	
 for i=1,Mod.Settings.NumToConvert do
 		
