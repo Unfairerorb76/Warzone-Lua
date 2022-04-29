@@ -22,8 +22,8 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);
 		.SetSliderMaxValue(10)
 		.SetValue(initialValueConvert);
 	
-	 UI.CreateLabel(vert).SetText('amount of armies a player shall get with the territory');
-    numberInputField = UI.CreateNumberInputField(horz1);
+	 UI.CreateLabel(horz1).SetText('amount of armies a player shall get with the territory');
+    numberInputField = UI.CreateNumberInputField(horz2);
 	        
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
