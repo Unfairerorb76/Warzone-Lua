@@ -19,9 +19,9 @@ function Client_PresentConfigureUI(rootParent, rootParent2)
 		.SetSliderMaxValue(10)
 		.SetValue(initialValueConvert);
 	
-	    local horz2 = UI.CreateHorizontalLayoutGroup(rootParent2);
-	UI.CreateLabel(horz2).SetText('amount of armies a player shall get with the territory');
-    numberInputField = UI.CreateNumberInputField(horz2)
+	    
+	UI.CreateLabel(horz).SetText('amount of armies a player shall get with the territory');
+    numberInputField = UI.CreateNumberInputField(horz)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
 		.SetValue(initialValueArmies);
