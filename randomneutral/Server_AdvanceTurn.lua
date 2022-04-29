@@ -18,7 +18,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 		print(3);
   		for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
 			print(4);
-			local rand = Math.random(#terr);
+			local rand = math.random(#terr);
 			local randomNeutralTerr = terr[rand]; --picks random neutral then gives it too player
 			local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);
 			terrMod.SetownerOpt = i;
