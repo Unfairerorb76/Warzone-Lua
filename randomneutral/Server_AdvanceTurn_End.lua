@@ -3,8 +3,8 @@ require('WLUtilities');
 
 function Server_EndTurn_Order(game, addNewOrder)
 	
-local terr = {};
-local randomNeutralTerr;
+local terr = {};  --table of neutral territories
+local randomNeutralTerr;   
 	
 for i=1,Mod.Settings.NumToConvert do
 		
