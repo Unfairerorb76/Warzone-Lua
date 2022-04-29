@@ -8,13 +8,16 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 	
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
     		if (territory.OwnerPlayerID == WL.PlayerID.Neutral) then
+			print(2);
       			table.insert(terr, terrID);   --gets each territory ID of neutrals
 			end
 		end			
 
 			
 	for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(getTableLength(game.ServerGame.Game.PlayingPlayers) / #terr)) do
+		print(3);
   		for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
+			print(4);
 			local rand = Math.random(#terr);
 			local randomNeutralTerr = terr[rand]; --picks random neutral then gives it too player
 			local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);
@@ -30,6 +33,7 @@ end
 function getTableLength(t)
 	local a = 0;
 	for i, _ in pairs(t) do
+		print(5);
 		a = a + 1;
 	end
 	return a;
