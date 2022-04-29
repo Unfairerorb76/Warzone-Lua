@@ -10,7 +10,7 @@ for i=1,Mod.Settings.NumToConvert do
 		
 	for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
   if (territory.OwnerPlayerID == WL.PlayerID.Neutral) then
-    terr[#terr+1] = terrID;
+    table.insert(terr, terrID)
   end
 end			
 		
