@@ -2,20 +2,20 @@ require('Utilities');
 require('WLUtilities');
 
 function Server_AdvanceTurn_End(game, addNewOrder)
-	
+   print(1);
 	local terr = {};  --table of neutral territories
 	local randomNeutralTerr;   
 	
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
     		if (territory.OwnerPlayerID == WL.PlayerID.Neutral) then
-      			table.insert(terr, terrID)   --gets each territory ID of neutrals
+      			table.insert(terr, terrID);   --gets each territory ID of neutrals
 			end
 		end			
 
 			
 	for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(getTableLength(game.ServerGame.Game.PlayingPlayers) / #terr)) do
   		for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
-			local rand = Math.random(#terr)
+			local rand = Math.random(#terr);
 			local randomNeutralTerr = terr[rand]; --picks random neutral then gives it too player
 			local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);
 			terrMod.SetOwnerOpt=game.ServerGame.Game.PlayingPlayers.PlayerID;
