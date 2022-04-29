@@ -1,5 +1,5 @@
 
-function Client_PresentConfigureUI(rootParent)
+function Client_PresentConfigureUI(rootParent, rootParent2)
 	local initialValueConvert = Mod.Settings.NumToConvert;
 	local initialValueArmies = Mod.Settings.SetArmiesTo;
 	
@@ -16,13 +16,13 @@ function Client_PresentConfigureUI(rootParent)
     numberInputField = UI.CreateNumberInputField(horz)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
-		.SetValue(initialValue);
+		.SetValue(initialValueConvert);
 	
-	    local horz2 = UI.CreateHorizontalLayoutGroup(rootParent);
-	UI.CreateLabel(horz).SetText('amount of armies a player shall get with the territory');
+	    local horz2 = UI.CreateHorizontalLayoutGroup(rootParent2);
+	UI.CreateLabel(horz2).SetText('amount of armies a player shall get with the territory');
     numberInputField = UI.CreateNumberInputField(horz2)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
-		.SetValue(initialValue);
+		.SetValue(initialValueArmies);
 
 end
