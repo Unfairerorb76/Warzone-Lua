@@ -26,7 +26,11 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
     numberInputField = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
-		.SetValue(initialValueArmies);   
-	
+		.SetValue(initialValueArmies); 
+ 
+        UI.CreateLabel(vert).SetText('amount of armies a player shall get with the territory');
+        booleanInputField = UI.CreateCheckBox(vert)        
+                .SetIsChecked(false)
+                .SetText();
 
 end
