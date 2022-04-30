@@ -3,6 +3,7 @@ function Client_PresentConfigureUI(rootParent, rootParent2)
 	print(1);
 	local initialValueConvert = Mod.Settings.NumToConvert;
 	local initialValueArmies = Mod.Settings.SetArmiesTo;
+        local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
 	
 	if initialValueConvert == nil then
 		initialValueConvert = 2;
@@ -30,7 +31,8 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
  
         UI.CreateLabel(vert).SetText('amount of armies a player shall get with the territory');
         booleanInputField = UI.CreateCheckBox(vert)        
-                .SetIsChecked(false)
+                .SetIsChecked(initalcheckbox)
                 .SetText();
+                
 
 end
