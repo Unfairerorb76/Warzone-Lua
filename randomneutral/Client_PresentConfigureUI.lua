@@ -29,7 +29,7 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
 		.SetSliderMaxValue(10)
 		.SetValue(initialValueArmies); 
  
-        UI.CreateLabel(vert).SetText('amount of armies a player shall get with the territory');
+        UI.CreateLabel(vert).SetText('only base neutrals shall be claimed');
         booleanInputField = UI.CreateCheckBox(vert)        
                 .SetIsChecked(initalcheckbox)
                 .SetText();     
