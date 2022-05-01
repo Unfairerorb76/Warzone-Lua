@@ -60,6 +60,7 @@ If (Mod.Settings.OnlyBaseNeutrals == true) do
 	end						
 end
 end
+end
 
 function getTableLength(t)
 	local a = 0;
