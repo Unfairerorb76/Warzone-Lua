@@ -35,11 +35,12 @@ end
 If (Mod.Settings.OnlyBaseNeutrals == true) do
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
     		if (territory.OwnerPlayerID == WL.PlayerID.Neutral) then
-			
+		     if Armies == Settings.InitialNonDistributionArmies do
+
       			table.insert(terr, terrID);   --gets each territory ID of neutrals
 			end
 		end			
-
+             end
 			
 	for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
 		print(times);
