@@ -31,7 +31,7 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
  
         UI.CreateLabel(vert).SetText('only base neutrals shall be claimed');
         booleanInputField = UI.CreateCheckBox(vert)        
-                .SetIsChecked(initalcheckbox)
-                .SetText();     
+                .SetIsChecked(initalcheckbox);
+                
 
 end
