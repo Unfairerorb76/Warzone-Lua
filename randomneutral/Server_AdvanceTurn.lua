@@ -55,7 +55,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 				table.remove(terr, rand);
 			end	
 		end	
-	end
+	
 
 
 
