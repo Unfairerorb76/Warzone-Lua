@@ -12,6 +12,10 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	if initialValueArmies == nil then
 		initialValueArmies = 2;
 	end
+
+        if initalcheckbox == nil then 
+                initalcheckbox = false; 
+        end
     
  local vert = UI.CreateVerticalLayoutGroup(rootParent);
 local horz1 = UI.CreateHorizontalLayoutGroup(vert);  --not used
