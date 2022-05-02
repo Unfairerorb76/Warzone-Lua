@@ -58,7 +58,7 @@ end
 	
 end
 end
-end end end
+end end
 
 function getTableLength(t)
 	local a = 0;
