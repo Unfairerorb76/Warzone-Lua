@@ -30,6 +30,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 				table.remove(terr, rand);
 			end	
 		end	
+end
 If (Mod.Settings.OnlyBaseNeutrals == true) do	
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
     		if (territory.OwnerPlayerID == WL.PlayerID.Neutral) then
@@ -56,7 +57,7 @@ If (Mod.Settings.OnlyBaseNeutrals == true) do
 		end	
 	end
 end
-
+end
 
 
 function getTableLength(t)
