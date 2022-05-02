@@ -30,7 +30,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 				table.remove(terr, rand);
 			end	
 		end	
-   (Mod.Settings.OnlyBaseNeutrals == true) do
+ if (Mod.Settings.OnlyBaseNeutrals == true) do
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
     		if (territory.OwnerPlayerID == WL.PlayerID.Neutral) then
 		     if (NumArmies == nonDistArmies) then
