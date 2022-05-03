@@ -12,7 +12,7 @@ if (Mod.Settings.OnlyBaseNeutrals == nil) then
 
 
     print(Mod.Settings.OnlyBaseNeutrals);
-	If (Mod.Settings.OnlyBaseNeutrals = false) do
+	If (Mod.Settings.OnlyBaseNeutrals == false) do
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
     		if (territory.OwnerPlayerID == WL.PlayerID.Neutral) then
 			
