@@ -6,7 +6,9 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 	local terr = {};  --table of neutral territories
 	local randomNeutralTerr;   
         local nonDistArmies = game.Settings.InitialNonDistributionArmies;
-	If (Mod.Settings.OnlyBaseNeutrals = false) do
+  
+    print(Mod.Settings.OnlyBaseNeutrals);
+	If (Mod.Settings.OnlyBaseNeutrals == false) do
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
     		if (territory.OwnerPlayerID == WL.PlayerID.Neutral) then
 			
