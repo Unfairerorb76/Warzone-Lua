@@ -37,6 +37,7 @@ if (Mod.Settings.OnlyBaseNeutrals == nil) then
 			end	
 		end	
 end
+print(nonDistArmies);
  if (Mod.Settings.OnlyBaseNeutrals == true) then
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
     		if (territory.OwnerPlayerID == WL.PlayerID.Neutral) then
