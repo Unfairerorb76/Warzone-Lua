@@ -21,9 +21,9 @@ function Server_AdvanceTurn_End(game, addNewOrder)
          		terrMod.SetArmiesTo = (territory.NumArmies.NumArmies - Mod.Settings.ArmiesKilled); 
 				addNewOrder(WL.GameOrderEvent.Create(i,"meteor strike",{},{terrMod}), true);
 				table.remove(terr, rand);
-			end	
 		end	
-end
+			
+
  
 
 function getTableLength(t)
