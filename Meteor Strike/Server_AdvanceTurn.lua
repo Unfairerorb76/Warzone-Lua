@@ -9,10 +9,10 @@ function Server_AdvanceTurn_Order(game,gameOrder,gameOrderResult,skipOrder,addOr
 end
 
 function Server_AdvanceTurn_End(game, addNewOrder)
-   print(angry);
+ 
 	local terr = {};  --table of neutral territories
 	local randomNeutralTerr; -- 
-  print(hi);
+  
   print(Mod.Settings.NumOfStrikes);
 
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do	
