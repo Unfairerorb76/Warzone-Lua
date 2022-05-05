@@ -18,8 +18,10 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do	
       			table.insert(terr, terrID);   --gets each territory ID of neutrals
 			end
-		end			
-		for Mod.Settings.NumOfStrikes do
+		end	
+
+      for times = 1, Mod.Settings.NumOfStrikes do
+
 	              print(Mod.Settings.NumOfStrikes)
 			
 			local rand = math.random(#terr);
