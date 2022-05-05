@@ -1,7 +1,12 @@
 require('Utilities');
 require('WLUtilities');
-function Server_AdvanceTurn_Start(game, addNewOrder)
+function Server_AdvanceTurn_Start(game,addOrder)
+  --empty
+end
 
+function Server_AdvanceTurn_Order(game,gameOrder,gameOrderResult,skipOrder,addOrder)
+  --empty
+end
 
 function Server_AdvanceTurn_End(game, addNewOrder)
    print(angry);
