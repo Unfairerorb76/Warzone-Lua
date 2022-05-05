@@ -17,7 +17,7 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 local horz1 = UI.CreateHorizontalLayoutGroup(vert);  --not used
 local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for reference
 	
-	UI.CreateLabel(vert).SetText('Amount of meteors that will hit each turn');
+	UI.CreateLabel(vert).SetText('Amount of meteors that will hit per turn');
     numberInputField = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(20)
