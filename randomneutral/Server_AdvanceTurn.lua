@@ -41,7 +41,7 @@ print(nonDistArmies);
  if (Mod.Settings.OnlyBaseNeutrals == true) then
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
     		if (territory.OwnerPlayerID == WL.PlayerID.Neutral) then
-		     if (NumArmies == nonDistArmies) then
+		     if (NumArmies.NumArmies == nonDistArmies) then
          print(hi);
       			table.insert(terr, terrID);   --gets each territory ID of neutrals
 			end
