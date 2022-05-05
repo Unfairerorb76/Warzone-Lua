@@ -1,8 +1,7 @@
 
 function Client_SaveConfigureUI(alert)
     
-    Mod.Settings.NumToConvert = numberInputField.GetValue();
-    Mod.Settings.SetArmiesTo = numberInputField2.GetValue();
-    Mod.Settings.OnlyBaseNeutrals = booleanInputField.GetIsChecked();
-  print(Mod.Settings.OnlyBaseNeutrals);
+    Mod.Settings.NumOfArmies = numberInputField.GetValue();
+    Mod.Settings.ArmiesKilled = numberInputField2.GetValue();
+
 end
