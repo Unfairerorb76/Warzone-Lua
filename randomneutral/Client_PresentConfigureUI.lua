@@ -1,8 +1,8 @@
 
 function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	print(1);
-	local initialValueConvert = Mod.Settings.NumToConvert;
-	local initialValueArmies = Mod.Settings.SetArmiesTo;
+	local initialValueConvert = 2
+	local initialValueArmies = 4
         local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
 	
 	if initialValueConvert == nil then
