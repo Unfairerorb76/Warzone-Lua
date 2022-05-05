@@ -2,7 +2,7 @@ require('Utilities');
 require('WLUtilities');
 
 function Server_AdvanceTurn_End(game, addNewOrder)
-   
+   print(angry);
 	local terr = {};  --table of neutral territories
 	local randomNeutralTerr; -- 
   print(hi);
