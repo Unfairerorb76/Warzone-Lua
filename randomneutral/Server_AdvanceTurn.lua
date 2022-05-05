@@ -11,7 +11,7 @@ if (Mod.Settings.OnlyBaseNeutrals == nil) then
       Mod.Settings.OnlyBaseNeutrals = false; end
 
 
-    print(Mod.Settings.OnlyBaseNeutrals);
+    
 	if (Mod.Settings.OnlyBaseNeutrals == false) then
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
     		if (territory.OwnerPlayerID == WL.PlayerID.Neutral) then
@@ -22,9 +22,9 @@ if (Mod.Settings.OnlyBaseNeutrals == nil) then
 
 			
 		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
-			print(times);
+			
   			for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
-				print(4);
+				
 				local rand = math.random(#terr);
 				local randomNeutralTerr = terr[rand]; --picks random neutral then gives it too player
 				if randomNeutralTerr == nill then break; end
@@ -37,7 +37,7 @@ if (Mod.Settings.OnlyBaseNeutrals == nil) then
 			end	
 		end	
 end
-print(nonDistArmies);
+print(nonDistArmies + "nonDistArmies");
  if (Mod.Settings.OnlyBaseNeutrals == true) then
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
     		if (territory.OwnerPlayerID == WL.PlayerID.Neutral) then
@@ -48,9 +48,9 @@ print(nonDistArmies);
 		end			
 			
 		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
-			print(times);
+			
   			for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
-				print(4);
+				
 				local rand = math.random(#terr);
 				local randomNeutralTerr = terr[rand]; --picks random neutral then gives it too player
 				if randomNeutralTerr == nill then break; end
