@@ -19,8 +19,9 @@ function Server_AdvanceTurn_End(game, addNewOrder)
       			table.insert(terr, terrID);   --gets each territory ID of neutrals
 			end
 		end	
+		
+for times = 1, math.min(Mod.Settings.NumOfStrikes, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
 
-      for times = 1, Mod.Settings.NumOfStrikes do
 
 	              print(Mod.Settings.NumOfStrikes)
 			
