@@ -14,7 +14,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 			end
 		end	
 		
-for times = 1, math.min(Mod.Settings.NumOfStrikes, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
+for times = 1, math.min(Mod.Settings.NumOfStrikes) do
 
 
 	              print(Mod.Settings.NumOfStrikes)
