@@ -9,5 +9,4 @@ function Server_AdvanceTurn_End(game, addNewOrder)
   print(Mod.Settings.NumOfStrikes);
 
 
-end
 
