@@ -12,7 +12,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do	
       			table.insert(terr, terrID);   --gets each territory ID of neutrals
 			end
-		end	
+		
 		
 for times = 1, math.min(Mod.Settings.NumOfStrikes) do
 
