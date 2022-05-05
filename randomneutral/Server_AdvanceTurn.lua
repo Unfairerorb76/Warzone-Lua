@@ -42,11 +42,11 @@ end
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
     		if (territory.OwnerPlayerID == WL.PlayerID.Neutral) then
 		     if (territory.NumArmies.NumArmies == nonDistArmies) then
-         print(territory.NumArmies.NumArmies);
+         
       			table.insert(terr, terrID);   --gets each territory ID of neutrals
 			end
 		end			
-			
+	print(Mod.Settings.NumToConvert);		
 		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
 			
   			for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
