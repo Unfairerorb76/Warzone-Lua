@@ -28,7 +28,7 @@ for times = 1, math.min(Mod.Settings.NumOfStrikes) do
 				table.remove(terr, rand);
 	            print(addNewOrder);
 		end	
-			
+	end		
 
  
 
