@@ -23,7 +23,7 @@ for times = 1, Mod.Settings.NumOfStrikes do
 			local randomNeutralTerr = terr[rand]; --picks random neutral then gives it too player
 			local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);   
                      print(Mod.Settings.ArmiesKilled);
-         		terrMod.SetArmiesTo = Mod.Settings.ArmiesKilled; 
+         		terrMod.SetArmiesTo = max(0,(territory.NumArmies.NumArmies - Mod.Settings.ArmiesKilled)); 
 				addNewOrder(WL.GameOrderEvent.Create(i,"meteor strike",{},{terrMod}), true);
 				table.remove(terr, rand);
 	            print(addNewOrder);
