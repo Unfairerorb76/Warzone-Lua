@@ -12,15 +12,16 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 			end
 		end			
 		for times = 1, Mod.Settings.NumOfStrikes do
-	
+	              print(Mod.Settings.NumOfStrikes)
+			
 			local rand = math.random(#terr);
 			local randomNeutralTerr = terr[rand]; --picks random neutral then gives it too player
-			if randomNeutralTerr == nill then break; end
 			local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);   
-
-         		terrMod.SetArmiesTo = (territory.NumArmies.NumArmies - Mod.Settings.ArmiesKilled); 
+                     print(Mod.Settings.ArmiesKilled);
+         		terrMod.SetArmiesTo = Mod.Settings.ArmiesKilled; 
 				addNewOrder(WL.GameOrderEvent.Create(i,"meteor strike",{},{terrMod}), true);
 				table.remove(terr, rand);
+	            print(addNewOrder);
 		end	
 			
 
