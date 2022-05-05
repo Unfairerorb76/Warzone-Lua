@@ -2,7 +2,7 @@
 function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	print(1);
 	local initialValueStrikes = Mod.Settings.NumOfStrikes;
-	local initialValueKilled = Mod.Settings.SetArmiesTo;
+	local initialValueKilled = Mod.Settings.ArmiesKilled;
         
 	
 	if initialValueStrikes == nil then
