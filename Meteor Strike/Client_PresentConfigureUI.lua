@@ -23,7 +23,7 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
 		.SetSliderMaxValue(20)
 		.SetValue(initialValueStrikes);
 	
-	 UI.CreateLabel(vert).SetText('amount of armies that will die per strike');
+	 UI.CreateLabel(vert).SetText('amount of armies that will die per hit');
     numberInputField2 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(15)
