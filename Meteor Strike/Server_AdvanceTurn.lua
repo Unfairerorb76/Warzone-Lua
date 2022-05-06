@@ -16,14 +16,11 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 		
 for times = 1, Mod.Settings.NumOfStrikes do
 
-
-	
-			
 			local rand = math.random(#terr);
 			local randomNeutralTerr = terr[rand]; --picks random neutral then gives it too player
                          territory = game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr]
 			local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);   
-                     
+                     print(Mod.Settings.NumOfStrikes);
 		    
 		    
          		terrMod.SetArmiesTo = math.max(0,(territory.NumArmies.NumArmies - Mod.Settings.ArmiesKilled));
