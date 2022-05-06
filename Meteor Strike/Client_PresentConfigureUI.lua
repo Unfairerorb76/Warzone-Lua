@@ -24,22 +24,29 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 local horz1 = UI.CreateHorizontalLayoutGroup(vert);  --not used
 local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for reference
 	
-	UI.CreateLabel(vert).SetText('Amount of meteors that will hit per turn');
-    numberInputField = UI.CreateNumberInputField(vert)
+		UI.CreateLabel(vert).SetText('Amount of meteors that will hit per turn');
+   	 numberInputField = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(20)
 		.SetValue(initialValueStrikes);
 	
-	 UI.CreateLabel(vert).SetText('amount of armies that will die per hit');
-    numberInputField2 = UI.CreateNumberInputField(vert)
+		 UI.CreateLabel(vert).SetText('amount of armies that will die per hit');
+    	numberInputField2 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(15)
 		.SetValue(initialValueKilled); 
   
-	UI.CreateLabel(vert).SetText('enable DoomsDay Mode');
+		UI.CreateLabel(vert).SetText('enable DoomsDay Mode');
         booleanInputField = UI.CreateCheckBox(vert)        
                 .SetIsChecked(initalcheckbox);
- 
+	
+	if (Mod.Settings.OnlyBaseNeutrals == false) then
+              
+		UI.CreateLabel(vert).SetText('how much territories do you want to survive?');
+    	numberInputField2 = UI.CreateNumberInputField(vert)
+		.SetSliderMinValue(1)
+		.SetSliderMaxValue(15)
+		.SetValue(initialValueKilled); 
                 
 
 end
