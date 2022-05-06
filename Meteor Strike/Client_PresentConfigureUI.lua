@@ -3,6 +3,8 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	print(1);
 	local initialValueStrikes = Mod.Settings.NumOfStrikes;
 	local initialValueKilled = Mod.Settings.ArmiesKilled;
+	local initalcheckbox = Mod.Settings.EnableDoomsDay;
+
         
 	
 	if initialValueStrikes == nil then
@@ -12,6 +14,11 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	if initialValueKilled == nil then
 		initialValueKilled = 2;
 	end
+	
+	 if initalcheckbox == nil then 
+                initalcheckbox = false; 
+        end
+	
     
  local vert = UI.CreateVerticalLayoutGroup(rootParent);
 local horz1 = UI.CreateHorizontalLayoutGroup(vert);  --not used
@@ -28,7 +35,10 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(15)
 		.SetValue(initialValueKilled); 
- 
+  
+	UI.CreateLabel(vert).SetText('only base neutrals shall be claimed');
+        booleanInputField = UI.CreateCheckBox(vert)        
+                .SetIsChecked(initalcheckbox);
  
                 
 
