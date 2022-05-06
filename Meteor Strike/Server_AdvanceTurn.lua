@@ -24,7 +24,7 @@ for times = 1, Mod.Settings.NumOfStrikes do
 		    
 		    
          		terrMod.SetArmiesTo = math.max(0,(territory.NumArmies.NumArmies - Mod.Settings.ArmiesKilled));
-                   
+                   print(terrMod.SetArmiesTo);
 		end	
 	end		
 
