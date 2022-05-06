@@ -7,8 +7,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 	local terr = {};  --table of neutral territories
 	local randomNeutralTerr; -- 
   print(2);
-  print(Mod.Settings.NumOfStrikes);
-print(type(Mod.Settings.NumOfStrikes));
+  
 
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do	
       			table.insert(terr, terrID);   --gets each territory ID of neutrals
@@ -18,14 +17,14 @@ print(type(Mod.Settings.NumOfStrikes));
 for times = 1, Mod.Settings.NumOfStrikes do
 
 
-	              print(Mod.Settings.NumOfStrikes)
+	
 			
 			local rand = math.random(#terr);
 			local randomNeutralTerr = terr[rand]; --picks random neutral then gives it too player
                          territory = game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr]
 			local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);   
                      print(Mod.Settings.ArmiesKilled);
-		
+		     print(territory.NumArmies.NumArmies);
 		    
          		terrMod.SetArmiesTo = max(0,(territory.NumArmies.NumArmies - Mod.Settings.ArmiesKilled)); 
 				addNewOrder(WL.GameOrderEvent.Create(i,"meteor strike",{},{terrMod}), true);
