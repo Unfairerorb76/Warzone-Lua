@@ -28,7 +28,7 @@ for times = 1, Mod.Settings.NumOfStrikes do
 		    
          		terrMod.SetArmiesTo = math.max(0,(territory.NumArmies.NumArmies - Mod.Settings.ArmiesKilled));
                       print(1);
-				addNewOrder(WL.GameOrderEvent.Create("meteor strike",{},{terrMod}));
+				
 		      print(2);	
                             table.remove(terr, rand);
                       print(3);
