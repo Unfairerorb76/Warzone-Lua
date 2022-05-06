@@ -40,7 +40,7 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
         booleanInputField = UI.CreateCheckBox(vert)        
                 .SetIsChecked(initalcheckbox);
 	
-	if (initalcheckbox == false) then
+	if (initalcheckbox == true) then
               
 		UI.CreateLabel(vert).SetText('how much territories do you want to survive?');
     	numberInputField2 = UI.CreateNumberInputField(vert)
