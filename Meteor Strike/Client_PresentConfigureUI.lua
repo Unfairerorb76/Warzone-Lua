@@ -36,7 +36,7 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
 		.SetSliderMaxValue(15)
 		.SetValue(initialValueKilled); 
   
-	UI.CreateLabel(vert).SetText('only base neutrals shall be claimed');
+	UI.CreateLabel(vert).SetText('enable DoomsDay Mode');
         booleanInputField = UI.CreateCheckBox(vert)        
                 .SetIsChecked(initalcheckbox);
  
