@@ -54,7 +54,7 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(100)
 		.SetValue(initialDoomsDay); 
-         end     
+           
 
                UI.CreateLabel(vert).SetText('how much territories do you want to survive?');
     	numberInputField2 = UI.CreateNumberInputField(vert)
