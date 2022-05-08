@@ -62,7 +62,7 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
 		.SetSliderMaxValue(20)
 		.SetValue(initialValueSurvived); 
      
-    end     
+        
 
 
 end
