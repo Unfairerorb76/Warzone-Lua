@@ -20,11 +20,11 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
         end
 
         if initialValueSurvived == nil then
-		initialValueKilled = 1;
+		initialValueSurvived = 1;
 	end
 	
         if InitalDoomsDay == nil then
-		initialValueKilled = 25;
+		initialDoomsDay = 25;
 	end
     
  local vert = UI.CreateVerticalLayoutGroup(rootParent);
@@ -49,17 +49,17 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
         booleanInputField = UI.CreateCheckBox(vert)        
                 .SetIsChecked(initalcheckbox);
               
-		UI.CreateLabel(vert).SetText('how much territories do you want to survive?');
+		UI.CreateLabel(vert).SetText('What turn does the DoomsDay meteor hit?');
     	numberInputField2 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
-		.SetSliderMaxValue(15)
-		.SetValue(initialValueSurvived); 
+		.SetSliderMaxValue(100)
+		.SetValue(initialDoomsDay); 
          end     
 
-UI.CreateLabel(vert).SetText('how much territories do you want to survive?');
+               UI.CreateLabel(vert).SetText('how much territories do you want to survive?');
     	numberInputField2 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
-		.SetSliderMaxValue(15)
+		.SetSliderMaxValue(20)
 		.SetValue(initialValueSurvived); 
      
     end     
