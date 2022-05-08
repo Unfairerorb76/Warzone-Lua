@@ -18,7 +18,14 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	 if initalcheckbox == nil then 
                 initalcheckbox = false; 
         end
+
+        if initialValueSurvived == nil then
+		initialValueKilled = 1;
+	end
 	
+        if InitalDoomsDay == nil then
+		initialValueKilled = 25;
+	end
     
  local vert = UI.CreateVerticalLayoutGroup(rootParent);
 local horz1 = UI.CreateHorizontalLayoutGroup(vert);  --not used
@@ -35,18 +42,27 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(15)
 		.SetValue(initialValueKilled); 
+
+--DoomsDay Mode
   
 		UI.CreateLabel(vert).SetText('enable DoomsDay Mode');
         booleanInputField = UI.CreateCheckBox(vert)        
                 .SetIsChecked(initalcheckbox);
-	
-	if (initalcheckbox == true) then
               
 		UI.CreateLabel(vert).SetText('how much territories do you want to survive?');
     	numberInputField2 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(15)
-		.SetValue(initialValueKilled); 
+		.SetValue(initialValueSurvived); 
          end     
+
+UI.CreateLabel(vert).SetText('how much territories do you want to survive?');
+    	numberInputField2 = UI.CreateNumberInputField(vert)
+		.SetSliderMinValue(1)
+		.SetSliderMaxValue(15)
+		.SetValue(initialValueSurvived); 
+     
+    end     
+
 
 end
