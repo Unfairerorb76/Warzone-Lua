@@ -53,11 +53,8 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
 		UI.CreateLabel(vert).SetText('What turn does the DoomsDay meteor hit?');
 	print(2);
     	numberInputField3 = UI.CreateNumberInputField(vert)
-	print(3);
 		.SetSliderMinValue(1)  
-	print(4);
 		.SetSliderMaxValue(100)
-	print(5);
 		.SetValue(initialDoomsDay); 
 	print(6);
        
