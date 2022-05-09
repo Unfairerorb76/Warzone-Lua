@@ -64,7 +64,7 @@ if (Mod.Settings.EnableDoomsDay == true) then
 		end
 
 		for times = 1, Mod.Settings.TerrSurvived do
-
+                  print(1);
 			local rand = math.random(#terr);
 			local randomTerr = terr[rand]; --picks random territory to survive
 			local terrMod = WL.TerritoryModification.Create(randomTerr);
@@ -75,7 +75,7 @@ if (Mod.Settings.EnableDoomsDay == true) then
 		end
 		
 		for terrID, terrObject in pairs(terr) do
-				
+		   print(2);		
 			local rand = math.random(#terr);
 			local randomTerr = terr[rand]; --picks random neutral then gives it too player	
 			local terrMod = WL.TerritoryModification.Create(randomTerr);
