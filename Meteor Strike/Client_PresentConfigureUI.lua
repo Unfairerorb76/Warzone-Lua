@@ -4,7 +4,8 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	local initialValueStrikes = Mod.Settings.NumOfStrikes;
 	local initialValueKilled = Mod.Settings.ArmiesKilled;
 	local initalcheckbox = Mod.Settings.EnableDoomsDay;
-
+        local initialValueSurvived = Mod.Settings.TerrSurvived;
+	local InitalDoomsDay = Mod.Settings.TurnDoomsDay;
         
 	
 	if initialValueStrikes == nil then
@@ -45,8 +46,8 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
 
 --DoomsDay Mode
   
-		UI.CreateLabel(vert).SetText('enable DoomsDay Mode');
-        booleanInputField = UI.CreateCheckBox(vert)        
+		UI.CreateLabel(vert).SetText('enable DoomsDay Mode:');
+        booleanInputField = UI.CreateCheckBox(horz1)        
                 .SetIsChecked(initalcheckbox);
               
 		UI.CreateLabel(vert).SetText('What turn does the DoomsDay meteor hit?');
