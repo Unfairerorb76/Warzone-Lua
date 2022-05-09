@@ -6,7 +6,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 	local terr = {};  --table of neutral territories
 	local randomNeutralTerr; -- 
 	
-	print(GameTurn.TurnNumber);
+	print(game.ServerGame.Game.TurnNumber);
 	print(Mod.Settings.TurnDoomsDay);
 	
 if (Mod.Settings.EnableDoomsDay == false) then
