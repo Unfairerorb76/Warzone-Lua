@@ -47,7 +47,7 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
 --DoomsDay Mode
   
 		UI.CreateLabel(vert).SetText('enable DoomsDay Mode:');
-        booleanInputField = UI.CreateCheckBox(horz1)        
+        booleanInputField = UI.CreateCheckBox(vert)        
                 .SetIsChecked(initalcheckbox);
               
 		UI.CreateLabel(vert).SetText('What turn does the DoomsDay meteor hit?');
