@@ -34,7 +34,7 @@ end
 	
 if (Mod.Settings.EnableDoomsDay == true) then
 	
-	if (game.ServerGame.Game.TurnNumber <= Mod.Settings.TurnDoomsDay) then --meteors will strike till doomsday hits
+	if (game.ServerGame.Game.TurnNumber < Mod.Settings.TurnDoomsDay) then --meteors will strike till doomsday hits
 		print(10);
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do	
 			table.insert(terr, terrID);   --gets each territory ID of neutrals
@@ -66,14 +66,9 @@ if (Mod.Settings.EnableDoomsDay == true) then
 		for times = 1, Mod.Settings.TerrSurvived do
 
 			local rand = math.random(#terr);
-			local randomTerr = terr[rand]; --picks random neutral then gives it too player
+			local randomTerr = terr[rand]; --picks random territory to survive
 			local terrMod = WL.TerritoryModification.Create(randomTerr);
-			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr]
-			
-		
-			if (territory.OwnerPlayerID ~= WL.PlayerID.Neutral and terrMod.SetArmiesTo == 0) then 
-				terrMod.SetOwnerOpt = WL.PlayerID.Neutral;
-			end
+			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr];
 	
 			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Territory Survived " .. game.Map.Territories[randomTerr].Name, nil, {terrMod}), true);
 			table.remove(terr, rand);
@@ -87,17 +82,12 @@ if (Mod.Settings.EnableDoomsDay == true) then
 			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr]
 				
 			terrMod.SetArmiesTo = 0;
-				
-			if (territory.OwnerPlayerID ~= WL.PlayerID.Neutral and terrMod.SetArmiesTo == 0) then 
-				terrMod.SetOwnerOpt = WL.PlayerID.Neutral;
-			end
+			terrMod.SetOwnerOpt = WL.PlayerID.Neutral;
 			
 			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Meteorstrike at " .. game.Map.Territories[randomTerr].Name, nil, {terrMod}), true);
 			table.remove(terr, rand);
 		end
-			
-			
-			
+				
 	end -- apocolypse time	
 		
 		
