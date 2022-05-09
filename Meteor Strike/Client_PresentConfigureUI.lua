@@ -45,7 +45,7 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
 		.SetValue(initialValueKilled); 
 
 --DoomsDay Mode
-  
+  print(2);
 		UI.CreateLabel(vert).SetText('enable DoomsDay Mode:');
         booleanInputField = UI.CreateCheckBox(vert)        
                 .SetIsChecked(initalcheckbox);
@@ -55,7 +55,7 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(100)
 		.SetValue(initialDoomsDay); 
-           
+      print(3);     
 
                UI.CreateLabel(vert).SetText('how much territories do you want to survive?');
     	numberInputField4 = UI.CreateNumberInputField(vert)
