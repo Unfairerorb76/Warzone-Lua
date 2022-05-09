@@ -49,13 +49,13 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
 		UI.CreateLabel(vert).SetText('enable DoomsDay Mode:');
         booleanInputField = UI.CreateCheckBox(vert)        
                 .SetIsChecked(initalcheckbox);
-              
+        print(3);          
 		UI.CreateLabel(vert).SetText('What turn does the DoomsDay meteor hit?');
     	numberInputField3 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(100)
 		.SetValue(initialDoomsDay); 
-      print(3);     
+       
 
                UI.CreateLabel(vert).SetText('how much territories do you want to survive?');
     	numberInputField4 = UI.CreateNumberInputField(vert)
