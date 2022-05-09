@@ -1,3 +1,5 @@
-Allows players to gain a free neutral every turn.
+Meteor Strike:
 
-The game creator can configure how many neutrals a player will get per turn
+every turn a customisable amount of meteors hit the map, any territories that lose all their armies on the strike turn neutral
+
+Doomsday Mode: after a predetermined amount of turns the entire map is wiped to neutral but some territories will survive, a soft reset of the game
