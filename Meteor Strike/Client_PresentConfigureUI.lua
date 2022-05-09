@@ -5,7 +5,7 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	local initialValueKilled = Mod.Settings.ArmiesKilled;
 	local initalcheckbox = Mod.Settings.EnableDoomsDay;
         local initialValueSurvived = Mod.Settings.TerrSurvived;
-	local InitalDoomsDay = Mod.Settings.TurnDoomsDay;
+	local initalDoomsDay = Mod.Settings.TurnDoomsDay;
         
 	
 	if initialValueStrikes == nil then
