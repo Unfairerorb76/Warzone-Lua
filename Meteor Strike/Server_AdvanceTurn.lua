@@ -6,6 +6,9 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 	local terr = {};  --table of neutral territories
 	local randomNeutralTerr; -- 
 	
+	print(GameTurn.TurnNumber);
+	print(Mod.Settings.TurnDoomsDay);
+	
 if (Mod.Settings.EnableDoomsDay == false) then
 
 	for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do	
