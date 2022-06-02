@@ -50,10 +50,10 @@ if (Mod.Settings.EnableDoomsDay == true) then
 			table.remove(terr2, rand2);
 		end
 		
-		for terrID, terrObject in pairs(terr2) do
+		for terrID, terrObject in pairs(terr) do
 		   		
-			local rand2 = math.random(#terr2);
-			local randomTerr2 = terr2[rand2]; --picks random neutral then gives it too player	
+			local rand2 = math.random(#terr);
+			local randomTerr2 = terr[rand2]; --picks random neutral then gives it too player	
 			local terr2Mod = WL.TerritoryModification.Create(randomTerr2);
 			territory2 = game.ServerGame.LatestTurnStanding.Territories[randomTerr2]
 				
