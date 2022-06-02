@@ -10,7 +10,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 	print(Mod.Settings.TurnDoomsDay);
 	
 if (Mod.Settings.EnableDoomsDay == false) then
-
+      print(1);
 	for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do	
 		table.insert(terr, terrID);   --gets each territory ID of neutrals
 	end
