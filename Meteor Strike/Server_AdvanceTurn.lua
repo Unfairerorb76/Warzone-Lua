@@ -34,7 +34,7 @@ end
 	
 if (Mod.Settings.EnableDoomsDay == true) then
 	
-	if (game.ServerGame.Game.TurnNumber < Mod.Settings.TurnDoomsDay) then --meteors will strike till doomsday hits
+	if (game.ServerGame.Game.TurnNumber == Mod.Settings.TurnDoomsDay) then --meteors will strike till doomsday hits
 		print(10);
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do	
 			table.insert(terr, terrID);   --gets each territory ID of neutrals
