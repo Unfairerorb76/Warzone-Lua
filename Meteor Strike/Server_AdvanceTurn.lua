@@ -56,12 +56,16 @@ if (Mod.Settings.EnableDoomsDay == true) then
 			local randomTerr2 = terr[rand2]; --picks random neutral then gives it too player	
 			local terr2Mod = WL.TerritoryModification.Create(randomTerr2);
 			territory2 = game.ServerGame.LatestTurnStanding.Territories[randomTerr2]
-				
-			terrMod2.SetArmiesTo = 0;
-			terrMod2.SetOwnerOpt = WL.PlayerID.Neutral;
+Print(rand2);			
+Print(randomTerr2);
+print terr2Mod
+
+	
+			terr2Mod.SetArmiesTo = 0;
+			terr2Mod.SetOwnerOpt = WL.PlayerID.Neutral;
 			
 			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Meteorstrike at " .. game.Map.Territories[randomTerr2].Name, nil, {terrMod2}), true);
-			table.remove(terr2, rand2);
+			table.remove(terr, rand2);
 		end
 				
 	end -- apocolypse time	
