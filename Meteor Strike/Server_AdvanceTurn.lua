@@ -58,7 +58,7 @@ if (Mod.Settings.EnableDoomsDay == true) then
 			territory2 = game.ServerGame.LatestTurnStanding.Territories[randomTerr2]
 Print(rand2);			
 Print(randomTerr2);
-print terr2Mod
+print(terr2Mod);
 
 	
 			terr2Mod.SetArmiesTo = 0;
