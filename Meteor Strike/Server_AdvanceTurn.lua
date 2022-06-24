@@ -50,7 +50,7 @@ if (Mod.Settings.EnableDoomsDay == true) then
         print(terrMod);
 print(1000);
 			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Territory Survived " .. game.Map.Territories[randomTerr].Name, nil, {terrMod}), true);
-			table.remove(terr, rand);
+			table.remove(terr, terrID[rand]);
        print(terr);
        print(rand);
 		end
@@ -68,7 +68,7 @@ print(1000);
 			terrMod.SetOwnerOpt = WL.PlayerID.Neutral;
 			
 			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Meteorstrike at " .. game.Map.Territories[randomTerr].Name, nil, {terrMod}), true);
-			table.remove(terr, rand);
+			table.remove(terr, terrID[rand]);
 		end
 				
 	end -- apocolypse time	
