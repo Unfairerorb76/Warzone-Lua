@@ -41,31 +41,31 @@ if (Mod.Settings.EnableDoomsDay == true) then
 
 		for times = 1, Mod.Settings.TerrSurvived do
                   
-			local rand2 = math.random(#terr2);
-			local randomTerr2 = terr2[rand2]; --picks random territory to survive
-			local terr2Mod = WL.TerritoryModification.Create(randomTerr2);
-			territory2 = game.ServerGame.LatestTurnStanding.Territories[randomTerr2];
+			local rand = math.random(#terr);
+			local randomTerr = terr[rand]; --picks random territory to survive
+			local terrMod = WL.TerritoryModification.Create(randomTerr);
+			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr];
 	
-			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Territory Survived " .. game.Map.Territories[randomTerr2].Name, nil, {terr2Mod}), true);
-			table.remove(terr2, rand2);
+			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Territory Survived " .. game.Map.Territories[randomTerr].Name, nil, {terrMod}), true);
+			table.remove(terr, rand);
 		end
 		
 		for terrID, terrObject in pairs(terr) do
 		   		
-			local rand2 = math.random(#terr);
-			local randomTerr2 = terr[rand2]; --picks random neutral then gives it too player	
-			local terr2Mod = WL.TerritoryModification.Create(randomTerr2);
-			territory2 = game.ServerGame.LatestTurnStanding.Territories[randomTerr2]
-Print(rand2);			
-Print(randomTerr2);
-print(terr2Mod);
+			local rand = math.random(#terr);
+			local randomTerr = terr[rand2]; --picks random neutral then gives it too player	
+			local terrMod = WL.TerritoryModification.Create(randomTerr2);
+			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr2]
+Print(rand);			
+Print(randomTerr);
+print(terrMod);
 
 	
-			terr2Mod.SetArmiesTo = 0;
-			terr2Mod.SetOwnerOpt = WL.PlayerID.Neutral;
+			terrMod.SetArmiesTo = 0;
+			terrMod.SetOwnerOpt = WL.PlayerID.Neutral;
 			
-			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Meteorstrike at " .. game.Map.Territories[randomTerr2].Name, nil, {terrMod2}), true);
-			table.remove(terr, rand2);
+			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Meteorstrike at " .. game.Map.Territories[randomTerr].Name, nil, {terrMod}), true);
+			table.remove(terr, rand);
 		end
 				
 	end -- apocolypse time	
