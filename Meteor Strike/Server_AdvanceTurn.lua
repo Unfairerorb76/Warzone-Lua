@@ -37,7 +37,8 @@ print(3);
 	if (game.ServerGame.Game.TurnNumber == Mod.Settings.TurnDoomsDay) then --doomsday time
 		
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do	
-			table.insert(terr, terrID);   --gets each territory ID of neutrals
+			table.insert(terr, terrID);   --gets each territory ID
+print(terrID);
 		end
 print(4);
 		for times = 1, Mod.Settings.TerrSurvived do
@@ -48,7 +49,7 @@ print(4);
 			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr];
 	
 			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Territory Survived " .. game.Map.Territories[randomTerr].Name, nil, {terrMod}), true);
-			table.remove(terr, terrID);
+			table.remove(terr, rand);
 		end
 print(5);
 		for terrID, terrObject in pairs(terr) do
