@@ -36,18 +36,20 @@ if (Mod.Settings.EnableDoomsDay == true) then
 		
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do	
 			table.insert(terr, terrID);   --gets each territory ID
-print(terrID);
+
 		end
 
 		for times = 1, Mod.Settings.TerrSurvived do
                   
 			local rand = math.random(#terr);
+print(rand);
 			local randomTerr = terr[rand]; --picks random territory to survive
 			local terrMod = WL.TerritoryModification.Create(randomTerr);
 			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr];
 	
 			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Territory Survived " .. game.Map.Territories[randomTerr].Name, nil, {terrMod}), true);
 			table.remove(terr, rand);
+
 		end
 
 		for terrID, terrObject in pairs(terr) do
