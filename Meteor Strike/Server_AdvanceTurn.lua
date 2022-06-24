@@ -54,9 +54,9 @@ print(5);
 		for terrID, terrObject in pairs(terr) do
 		   		
 			local rand = math.random(#terr);
-			local randomTerr = terr[rand2]; --picks random neutral then gives it too player	
-			local terrMod = WL.TerritoryModification.Create(randomTerr2);
-			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr2]
+			local randomTerr = terr[rand]; --picks random neutral then gives it too player	
+			local terrMod = WL.TerritoryModification.Create(randomTerr);
+			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr]
 Print(rand);			
 Print(randomTerr);
 print(terrMod);
