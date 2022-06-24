@@ -50,7 +50,8 @@ if (Mod.Settings.EnableDoomsDay == true) then
         print(terrMod);
 			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Territory Survived " .. game.Map.Territories[randomTerr].Name, nil, {terrMod}), true);
 			table.remove(terr, rand);
-
+       print(terr);
+       print(rand);
 		end
 
 		for terrID, terrObject in pairs(terr) do
