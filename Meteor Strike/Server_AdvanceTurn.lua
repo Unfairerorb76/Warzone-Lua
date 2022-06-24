@@ -10,7 +10,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 	print(Mod.Settings.TurnDoomsDay);
 	
 
-      print(1);
+    
 	for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do	
 		table.insert(terr, terrID);   --gets each territory ID of neutrals
 	end
@@ -30,15 +30,16 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 		
 		addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Meteor Strike at " .. game.Map.Territories[randomNeutralTerr].Name, nil, {terrMod}), true);
 	end
-
+print(2);
 	
-if (Mod.Settings.EnableDoomsDay == true) then		
+if (Mod.Settings.EnableDoomsDay == true) then	
+print(3);	
 	if (game.ServerGame.Game.TurnNumber == Mod.Settings.TurnDoomsDay) then --doomsday time
 		
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do	
 			table.insert(terr, terrID);   --gets each territory ID of neutrals
 		end
-
+print(4);
 		for times = 1, Mod.Settings.TerrSurvived do
                   
 			local rand = math.random(#terr);
@@ -49,7 +50,7 @@ if (Mod.Settings.EnableDoomsDay == true) then
 			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Territory Survived " .. game.Map.Territories[randomTerr].Name, nil, {terrMod}), true);
 			table.remove(terr, rand);
 		end
-		
+print(5);
 		for terrID, terrObject in pairs(terr) do
 		   		
 			local rand = math.random(#terr);
