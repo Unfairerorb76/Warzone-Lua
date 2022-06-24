@@ -57,9 +57,7 @@ print(5);
 			local randomTerr = terr[rand]; --picks random neutral then gives it too player	
 			local terrMod = WL.TerritoryModification.Create(randomTerr);
 			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr]
-Print(rand);			
-Print(randomTerr);
-print(terrMod);
+
 
 	
 			terrMod.SetArmiesTo = 0;
