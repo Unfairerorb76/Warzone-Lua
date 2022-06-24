@@ -36,7 +36,7 @@ if (Mod.Settings.EnableDoomsDay == true) then
 		
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do	
 			table.insert(terr, terrID);   --gets each territory ID
-print(terr);
+print(terrID);
 		end
 
 		for times = 1, Mod.Settings.TerrSurvived do
