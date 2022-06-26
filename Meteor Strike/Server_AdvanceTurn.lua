@@ -4,6 +4,7 @@ require('WLUtilities');
 function Server_AdvanceTurn_End(game, addNewOrder)
 
 	local terr = {};  --table of neutral territories
+	local terr2 = {}; 
 	local randomNeutralTerr; -- 
 	
 	
@@ -35,14 +36,14 @@ if (Mod.Settings.EnableDoomsDay == true) then
 	if (game.ServerGame.Game.TurnNumber == Mod.Settings.TurnDoomsDay) then --doomsday time
 		
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do	
-			table.insert(terr, terrID);   --gets each territory ID
+			table.insert(terr2, terrID);   --gets each territory ID
 
 		end
 
 		for times = 1, Mod.Settings.TerrSurvived do
                   
-			local rand = math.random(#terr);
-			local randomTerr = terr[rand]; --picks random territory to survive
+			local rand = math.random(#terr2);
+			local randomTerr = terr2[rand]; --picks random territory to survive
 
 			local terrMod = WL.TerritoryModification.Create(randomTerr);
 			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr];
@@ -50,15 +51,15 @@ if (Mod.Settings.EnableDoomsDay == true) then
         print(terrMod);
 print(1000);
 			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Territory Survived " .. game.Map.Territories[randomTerr].Name, nil, {terrMod}), true);
-			table.remove(terr, rand);
-       print(terr);
+			table.remove(terr2, rand);
+       print(terr2);
        print(rand);
 		end
 
-		for terrID, terrObject in pairs(terr) do
+		for terrID, terrObject in pairs(terr2) do
 		   		
-			local rand = math.random(#terr);
-			local randomTerr = terr[rand]; --picks random neutral then gives it too player	
+			local rand = math.random(#terr2);
+			local randomTerr = terr2[rand]; --picks random neutral then gives it too player	
 			local terrMod = WL.TerritoryModification.Create(randomTerr);
 			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr]
 
@@ -68,7 +69,7 @@ print(1000);
 			terrMod.SetOwnerOpt = WL.PlayerID.Neutral;
 			
 			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Meteorstrike at " .. game.Map.Territories[randomTerr].Name, nil, {terrMod}), true);
-			table.remove(terr, rand);
+			table.remove(terr2, rand);
 		end
 				
 	end -- apocolypse time	
