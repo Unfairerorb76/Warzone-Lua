@@ -42,34 +42,34 @@ if (Mod.Settings.EnableDoomsDay == true) then
 
 		for times = 1, Mod.Settings.TerrSurvived do
                   
-			local rand = math.random(#terr2);
-			local randomTerr = terr2[rand]; --picks random territory to survive
+			local rand2 = math.random(#terr2);
+			local randomTerr2 = terr2[rand]; --picks random territory to survive
 
-			local terrMod = WL.TerritoryModification.Create(randomTerr);
-			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr];
+			local terrMod2 = WL.TerritoryModification.Create(randomTerr2);
+			territory2 = game.ServerGame.LatestTurnStanding.Territories[randomTerr2];
 	print(randomTerr);
         print(terrMod);
 print(1000);
-			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Territory Survived " .. game.Map.Territories[randomTerr].Name, nil, {terrMod}), true);
-			table.remove(terr2, rand);
+			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Territory Survived " .. game.Map.Territories[randomTerr2].Name, nil, {terrMod2}), true);
+			table.remove(terr2, rand2);
        print(terr2);
        print(rand);
 		end
 
 		for terrID, terrObject in pairs(terr2) do
 		   		
-			local rand = math.random(#terr2);
-			local randomTerr = terr2[rand]; --picks random territory	
-			local terrMod = WL.TerritoryModification.Create(randomTerr);
-			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr]
+			local rand3 = math.random(#terr2);
+			local randomTerr3 = terr2[rand3]; --picks random territory	
+			local terrMod3 = WL.TerritoryModification.Create(randomTerr3);
+			territory3 = game.ServerGame.LatestTurnStanding.Territories[randomTerr3]
 
 
 	
 			terrMod.SetArmiesTo = 0;
 			terrMod.SetOwnerOpt = WL.PlayerID.Neutral;
 			
-			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Meteorstrike at " .. game.Map.Territories[randomTerr].Name, nil, {terrMod}), true);
-			table.remove(terr2, rand);
+			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Meteorstrike at " .. game.Map.Territories[randomTerr3].Name, nil, {terrMod3}), true);
+			table.remove(terr2, rand3);
 		end
 				
 	end -- apocolypse time	
