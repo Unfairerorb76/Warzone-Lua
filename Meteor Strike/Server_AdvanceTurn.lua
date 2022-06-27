@@ -47,7 +47,7 @@ print(2);
 			local randomTerr2 = terr2[rand]; --picks random territory to survive
 print(3);
 			local terrMod2 = WL.TerritoryModification.Create(randomTerr2);
-			local territory2 = game.ServerGame.LatestTurnStanding.Territories[randomTerr2];
+			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr2];
 print(4);
 			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Territory Survived " .. game.Map.Territories[randomTerr2].Name, nil, {terrMod2}), true);
 			table.remove(terr2, rand2);
@@ -59,7 +59,7 @@ print(4);
 			local rand3 = math.random(#terr2);
 			local randomTerr3 = terr2[rand3]; --picks random territory	
 			local terrMod3 = WL.TerritoryModification.Create(randomTerr3);
-			territory3 = game.ServerGame.LatestTurnStanding.Territories[randomTerr3]
+			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr3]
 
 
 	
