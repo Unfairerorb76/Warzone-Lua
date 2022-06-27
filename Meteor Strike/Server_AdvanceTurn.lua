@@ -53,7 +53,7 @@ print(2);
 			table.remove(terr2, rand2);
 
 		end
-
+print(3);
 		for terrID, terrObject in pairs(terr2) do
 		   		
 			local rand3 = math.random(#terr2);
@@ -69,7 +69,7 @@ print(2);
 			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Meteorstrike at " .. game.Map.Territories[randomTerr3].Name, nil, {terrMod3}), true);
 			table.remove(terr2, rand3);
 		end
-				
+print(4);				
 	end -- apocolypse time	
 		
 		
