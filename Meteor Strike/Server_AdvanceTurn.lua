@@ -46,7 +46,7 @@ print(2);
 			local rand2 = math.random(#terr2);
 			local randomTerr2 = terr2[rand]; --picks random territory to survive
 print(3);
-			local terrMod2 = WL.TerritoryModification.Create(randomTerr2);
+			local terrMod = WL.TerritoryModification.Create(randomTerr2);
 print(4);
 			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr2];
 print(4);
