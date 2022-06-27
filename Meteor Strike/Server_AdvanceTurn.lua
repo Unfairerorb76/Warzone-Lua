@@ -29,7 +29,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 		
 		addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Meteor Strike at " .. game.Map.Territories[randomNeutralTerr].Name, nil, {terrMod}), true);
 	end
-
+print(1);
 	
 if (Mod.Settings.EnableDoomsDay == true) then	
 	
@@ -40,7 +40,7 @@ if (Mod.Settings.EnableDoomsDay == true) then
                      
 
 		end
-
+print(2);
 		for times = 1, Mod.Settings.TerrSurvived do
                   
 			local rand2 = math.random(#terr2);
