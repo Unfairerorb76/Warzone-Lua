@@ -58,17 +58,17 @@ print(4);
                 for i = 1, #terr2 do
 
 		   		
-			local rand3 = math.random(#terr2);
-			local randomTerr3 = terr2[rand3]; --picks random territory	
-			local terrMod3 = WL.TerritoryModification.Create(randomTerr3);
-			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr3]
+			local rand = math.random(#terr2);
+			local randomTerr = terr2[rand]; --picks random territory	
+			local terrMod = WL.TerritoryModification.Create(randomTerr);
+			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr]
 
 
 	
 			terrMod.SetArmiesTo = 0;
 			terrMod.SetOwnerOpt = WL.PlayerID.Neutral;
 			
-			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Meteorstrike at " .. game.Map.Territories[randomTerr3].Name, nil, {terrMod3}), true);
+			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Meteorstrike at " .. game.Map.Territories[randomTerr].Name, nil, {terrMod}), true);
 			table.remove(terr2, rand3);
 		end
 print(4);				
