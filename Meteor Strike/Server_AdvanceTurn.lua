@@ -55,7 +55,8 @@ print(4);
 
 		end
 
-		for terrID, terrObject in pairs(terr2) do
+                for i = 1, #terr2 do
+
 		   		
 			local rand3 = math.random(#terr2);
 			local randomTerr3 = terr2[rand3]; --picks random territory	
