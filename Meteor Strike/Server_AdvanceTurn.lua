@@ -29,7 +29,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 		
 		addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Meteor Strike at " .. game.Map.Territories[randomNeutralTerr].Name, nil, {terrMod}), true);
 	end
-print(1);
+
 	
 if (Mod.Settings.EnableDoomsDay == true) then	
 	
@@ -40,16 +40,16 @@ if (Mod.Settings.EnableDoomsDay == true) then
                      
 
 		end
-print(2);
+
 		for times = 1, Mod.Settings.TerrSurvived do
                   
 			local rand = math.random(#terr2);
 			local randomTerr = terr2[rand]; --picks random territory to survive
-print(3);
+
 			local terrMod = WL.TerritoryModification.Create(randomTerr);
-print(4);
+
 			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr];
-print(4);
+
 			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Territory Survived " .. game.Map.Territories[randomTerr].Name, nil, {terrMod}), true);
 			table.remove(terr2, rand);
 
@@ -71,7 +71,7 @@ print(4);
 			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Meteorstrike at " .. game.Map.Territories[randomTerr].Name, nil, {terrMod}), true);
 			table.remove(terr2, rand3);
 		end
-print(4);				
+				
 	end -- apocolypse time	
 		
 		
