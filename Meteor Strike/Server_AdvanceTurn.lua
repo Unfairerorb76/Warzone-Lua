@@ -48,7 +48,7 @@ print(2);
 print(3);
 			local terrMod = WL.TerritoryModification.Create(randomTerr);
 print(4);
-			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr2];
+			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr];
 print(4);
 			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Territory Survived " .. game.Map.Territories[randomTerr2].Name, nil, {terrMod2}), true);
 			table.remove(terr2, rand2);
