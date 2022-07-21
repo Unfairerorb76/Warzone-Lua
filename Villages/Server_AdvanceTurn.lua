@@ -13,11 +13,11 @@ if (game.ServerGame.Game.TurnNumber == 1) then
 		table.insert(terr, terrID);   --gets each territory ID of neutrals
 	end
 	
-amountOfVillages = 
+amountOfVillages = Mod.Settings.NumOfVillages
 
 	for i = 1, amountOfVillages do
-		local rand = math.random(#listOfTerr);
-		local structures = standing.Territories[listOfTerr[rand]].Structures;
+		local rand = math.random(#terr);
+		local structures = standing.Territories[Terr[rand]].Structures;
 		if structures == nil then 
 			structures = {}; 
 			structures[structure] = 1;
@@ -29,7 +29,7 @@ amountOfVillages =
 			end
 		end
 		standing.Territories[listOfTerr[rand]].Structures = structures;
-		table.remove(listOfTerr, rand)
+		table.remove(terr, rand)
 	end
 	return structure;
 	
