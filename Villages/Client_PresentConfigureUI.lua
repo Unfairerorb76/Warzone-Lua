@@ -3,7 +3,7 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	local initialVillages = Mod.Settings.NumOfVillages;
 	
 	if initialVillages == nil then
-		initialStrikes = 3;
+		initialVillages = 3;
 	end
 	
     
