@@ -1,10 +1,7 @@
 function Server_GameStart(game, addNewOrder)
 
 local terr = {}; --table of neutral territories
-  local randomNeutralTerr; 
-	
-	
-if (game.ServerGame.Game.TurnNumber == 1) then	
+  local randomNeutralTerr; 	
    
 	for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do	
 		table.insert(terr, terrID);   --gets each territory ID of neutrals
