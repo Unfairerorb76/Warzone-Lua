@@ -23,11 +23,6 @@ print(3);
 		table.remove(terr, rand)
 	end
 	return structure;
-	
-
-  
-  
-end
 
 
 
