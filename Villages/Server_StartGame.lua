@@ -10,12 +10,12 @@ function Server_StartGame(game, standing)
 	for _, territory in pairs(game.Map.Territories) do
 		territoryArray[count] = territory
 		count = count + 1
-	end
+	end  -- territory array
 
-	-- Check that the map has enough territories, else make the minimum number of portals
-	local NumOfVillages = Mod.Settings.NumOfVillages
+	-- Check that the map has enough territories, if not then it only creates one village
+	local NumOfVillages = Mod.Settings.NumOfVillages  
 	if (#territoryArray < Mod.Settings.NumOfVillages) then
-		NumOfVillages = 1
+		NumOfVillages = 1 
 	end
 
 	structure = {}
@@ -24,9 +24,7 @@ function Server_StartGame(game, standing)
 
 	for i = 1, NumOfVillages do
 		privateGameData.portals[i] = getRandomTerritory(territoryArray)
-		if (i % 2 == 1) then
-			structure[Villages] = structure[Villages] + 1
-		end
+		
 
 		standing.Territories[privateGameData.portals[i]].Structures = structure
 	end
