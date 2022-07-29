@@ -25,7 +25,7 @@ function Server_StartGame(game, standing)
 	for i = 1, NumOfVillages * 2 do
 		privateGameData.portals[i] = getRandomTerritory(territoryArray)
 		if (i % 2 == 1) then
-			structure[Portals] = structure[Portals] + 1
+			structure[Villages] = structure[Villages] + 1
 		end
 
 		standing.Territories[privateGameData.portals[i]].Structures = structure
