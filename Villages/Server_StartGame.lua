@@ -3,9 +3,7 @@ print(1);
 local terr = {}; --table of neutral territories
   local randomNeutralTerr; 	
    
-	for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do	
-		table.insert(terr, terrID);   --gets each territory ID of neutrals
-	end
+	
 print(2);	
 amountOfVillages = Mod.Settings.NumOfVillages
 
