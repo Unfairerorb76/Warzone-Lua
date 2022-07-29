@@ -14,7 +14,7 @@ function Server_StartGame(game, standing)
 
 	-- Check that the map has enough territories, else make the minimum number of portals
 	local NumOfVillages = Mod.Settings.NumOfVillages
-	if (#territoryArray < Mod.Settings.NumOfVillages * 2) then
+	if (#territoryArray < Mod.Settings.NumOfVillages) then
 		NumOfVillages = 1
 	end
 
@@ -22,7 +22,7 @@ function Server_StartGame(game, standing)
 	Villages = WL.StructureType.MercenaryCamp
 	structure[Villages] = 0
 
-	for i = 1, NumOfVillages * 2 do
+	for i = 1, NumOfVillages do
 		privateGameData.portals[i] = getRandomTerritory(territoryArray)
 		if (i % 2 == 1) then
 			structure[Villages] = structure[Villages] + 1
