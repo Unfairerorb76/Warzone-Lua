@@ -13,13 +13,13 @@ function Server_StartGame(game, standing)
 	end
 
 	-- Check that the map has enough territories, else make the minimum number of portals
-	local NumPortals = Mod.Settings.NumPortals
-	if (#territoryArray < Mod.Settings.NumPortals * 2) then
-		NumPortals = 1
+	local NumOfVillages = Mod.Settings.NumOfVillages
+	if (#territoryArray < Mod.Settings.NumOfVillages * 2) then
+		NumOfVillages = 1
 	end
 
 	structure = {}
-	Portals = WL.StructureType.Power
+	Villages = WL.StructureType.MercenaryCamp
 	structure[Portals] = 0
 
 	for i = 1, NumPortals * 2 do
