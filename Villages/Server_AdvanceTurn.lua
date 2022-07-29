@@ -16,15 +16,7 @@ amountOfVillages = Mod.Settings.NumOfVillages
 	for i = 1, amountOfVillages do
 		local rand = math.random(#terr);
 		local structures = WL.StructureType.MercenaryCamp;
-		if structures == nil then 
-			structures = {}; 
-			structures[structure] = 1;
-		else
-			if structures[structure] == nil then
-				structures[structure] = 1;
-			else
-				structures[structure] = structures[structure] + 1;
-			end
+	
 		end
 print(3);
 		standing.Territories[terr[rand]].Structures = structures;
