@@ -1,3 +1,6 @@
+require('Utilities');
+require('WLUtilities');
+
 function Server_StartGame(game, addNewOrder)
 print(1);
   local terr = {}; --table of neutral territories
