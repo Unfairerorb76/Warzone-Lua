@@ -1,4 +1,4 @@
-function Server_GameStart(game, addNewOrder)
+function Server_StartGame(game, addNewOrder)
 print(1);
 local terr = {}; --table of neutral territories
   local randomNeutralTerr; 	
