@@ -21,8 +21,9 @@ amountOfVillages = Mod.Settings.NumOfVillages
 print(3);
 		standing.Territories[terr[rand]].Structures = structures;
 		table.remove(terr, rand)
-	end
 	return structure;
+	end
+	
 
 
 
