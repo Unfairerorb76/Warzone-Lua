@@ -15,7 +15,7 @@ amountOfVillages = Mod.Settings.NumOfVillages
 
 	for i = 1, amountOfVillages do
 		local rand = math.random(#terr);
-		local structures = standing.Territories[Terr[rand]].Structures;
+		local structures = standing.Territories[terr[rand]].Structures;
 		if structures == nil then 
 			structures = {}; 
 			structures[structure] = 1;
