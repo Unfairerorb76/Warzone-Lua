@@ -1,7 +1,7 @@
 require('Utilities');
 require('WLUtilities');
 
-function Server_AdvanceTurn_End(game, addNewOrder, WL.StructureType.MercenaryCamp)
+function Server_AdvanceTurn_End(game, addNewOrder)
 print(1);
   local terr = {}; --table of neutral territories
   local randomNeutralTerr; 	
