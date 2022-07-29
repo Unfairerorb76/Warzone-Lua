@@ -20,9 +20,9 @@ function Server_StartGame(game, standing)
 
 	structure = {}
 	Villages = WL.StructureType.MercenaryCamp
-	structure[Portals] = 0
+	structure[Villages] = 0
 
-	for i = 1, NumPortals * 2 do
+	for i = 1, NumOfVillages * 2 do
 		privateGameData.portals[i] = getRandomTerritory(territoryArray)
 		if (i % 2 == 1) then
 			structure[Portals] = structure[Portals] + 1
