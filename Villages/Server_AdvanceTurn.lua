@@ -7,9 +7,10 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 
 
       for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
-    		if (territory.OwnerPlayerID == WL.PlayerID) AND ( then
+    		if (territory.OwnerPlayerID == WL.PlayerID) AND (WL.StructureType = WL.StructureType.MercenaryCamp) then
 			
       			table.insert(terr, terrID);   --gets each territory ID of neutrals
+                         print(terr);
 			end
 		end
 	end
