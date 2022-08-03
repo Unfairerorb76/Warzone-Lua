@@ -4,10 +4,11 @@ require('WLUtilities');
 function Server_AdvanceTurn_End(game, addNewOrder)
 
      local terr = {};
+      local structures = game.ServerGame.LatestTurnStanding.Territories[order.To].Structures;
 
 
       for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
-    		if (territory.OwnerPlayerID == WL.PlayerID) AND (WL.StructureType = WL.StructureType.MercenaryCamp) then
+    		if (territory.OwnerPlayerID == WL.PlayerID) AND (structures = WL.StructureType.MercenaryCamp) then
 			
       			table.insert(terr, terrID);   --gets each territory ID of neutrals
                          print(terr);
