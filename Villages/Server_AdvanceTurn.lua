@@ -12,9 +12,14 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 			
       			table.insert(terr, terrID);   --gets each territory ID of neutrals
                          print(terr);
-			end
 		end
 	end
+
+      for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
+
+      end 
+       
+end
 	
 
 
