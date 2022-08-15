@@ -5,13 +5,15 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 
      local terr = {};
       local structures = game.ServerGame.LatestTurnStanding.Territories[order.To].Structures;
+      local count = 0;
 
 
       for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
     		if (territory.OwnerPlayerID == WL.PlayerID) AND (structures = WL.StructureType.MercenaryCamp) then
 			
-      			table.insert(terr, terrID);   --gets each territory ID of neutrals
+      			table.insert(terr, terrID);   --gets each territory ID of controlled camps
                          print(terr);
+                         count = count + 1;
 		end
 	end
 
