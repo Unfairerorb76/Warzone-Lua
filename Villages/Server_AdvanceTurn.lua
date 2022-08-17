@@ -1,25 +1,25 @@
 require('Utilities');
 require('WLUtilities');
 
---function Server_AdvanceTurn_End(game, addNewOrder)
+function Server_AdvanceTurn_End(game, order, orderResult, skipThisOrder, addNewOrde)
 
---     local terr = {};
---      local structures = game.ServerGame.LatestTurnStanding.Territories[order.To];
+     local terr = {};
+      local structures = game.ServerGame.LatestTurnStanding.Territories[order.To];
       
 
 
-  --    for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
-    	--	if (territory.OwnerPlayerID == WL.PlayerID and structures == WL.StructureType.MercenaryCamp) then
+     for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
+    		if (territory.OwnerPlayerID == WL.PlayerID and structures == WL.StructureType.MercenaryCamp) then
 			
-      		--	table.insert(terr, terrID);   --gets each territory ID of controlled camps
-              --           print(terr);
+      			table.insert(terr, terrID);   --gets each territory ID of controlled camps
+                         print(terr);
                          
-	--	end
---	end
+		end
+	end
 
- --     for times = 1, math.min(count, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
+      for times = 1, math.min(count, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
 	
---	for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
+	for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
 
 
 
