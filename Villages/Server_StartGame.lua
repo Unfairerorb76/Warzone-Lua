@@ -7,8 +7,8 @@ function Server_StartGame(game, standing)
 	territoryArray = {}
 
 	local count = 1
-	for _, territory in pairs(game.Map.Territories) do
-           
+	--for _, territory in pairs(game.Map.Territories) do
+        for _, territory in pairs(standing.Territories) do
 		territoryArray[count] = territory
 		count = count + 1
            
