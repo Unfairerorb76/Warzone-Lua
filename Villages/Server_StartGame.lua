@@ -8,7 +8,7 @@ function Server_StartGame(game, standing)
 
 	local count = 1
 	for _, territory in pairs(game.Map.Territories) do
-           if territory.OwnerPlayerID == WL.PlayerID.Neutral then
+           if territoryArray[count].OwnerPlayerID == WL.PlayerID.Neutral then
 		territoryArray[count] = territory
 		count = count + 1
            end
