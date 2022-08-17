@@ -24,7 +24,7 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 		initialValueSurvived = 1;
 	end
 	
-        if initalDoomsDay == nil then
+        if InitalDoomsDay == nil then
 		initialDoomsDay = 25;
 	end
     
