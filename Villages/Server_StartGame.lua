@@ -8,10 +8,10 @@ function Server_StartGame(game, standing)
 
 	local count = 1
 	for _, territory in pairs(game.Map.Territories) do
-           if territoryArray.OwnerPlayerID == WL.PlayerID.Neutral then
+           
 		territoryArray[count] = territory
 		count = count + 1
-           end
+           
 	end  -- territory array
 
 	-- Check that the map has enough territories, if not then it only creates one village
