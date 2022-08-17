@@ -27,9 +27,9 @@ function Server_AdvanceTurn_End(game, order, orderResult, skipThisOrder, addNewO
 
            
 
-   --   end 
-     -- end
---end
+     end 
+      end
+end
 	
 function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNewOrder)
       if order.proxyType == "GameOrderAttackTransfer" then 
