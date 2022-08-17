@@ -5,7 +5,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 
      local terr = {};
       local structures = game.ServerGame.LatestTurnStanding.Territories[order.To];
-      local count = 0;
+      
 
 
       for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
@@ -13,7 +13,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 			
       			table.insert(terr, terrID);   --gets each territory ID of controlled camps
                          print(terr);
-                         count = count + 1;
+                         
 		end
 	end
 
