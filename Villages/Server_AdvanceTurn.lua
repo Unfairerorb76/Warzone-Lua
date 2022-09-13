@@ -31,14 +31,14 @@ function Server_AdvanceTurn_End(game, order, orderResult, skipThisOrder, addNewO
       end
 end
 	
-function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNewOrder)
-      if order.proxyType == "GameOrderAttackTransfer" then 
-            if orderResult.IsAttack and orderResult.IsSuccessful then 
-            local attackedTerr = game.ServerGame.LatestTurnStanding.Territories[order.To]; 
+--function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNewOrder)
+ ----     if order.proxyType == "GameOrderAttackTransfer" then 
+        --    if orderResult.IsAttack and orderResult.IsSuccessful then 
+        --    local attackedTerr = game.ServerGame.LatestTurnStanding.Territories[order.To]; 
 
-                if attackedTerr.Structures ~= nil then 
-                    if attackedTerr.Structures[WL.StructureType.MercenaryCamp] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked -- so now you can do what you want :p 
-end end end end end
+               -- if attackedTerr.Structures ~= nil then 
+                 --   if attackedTerr.Structures[WL.StructureType.MercenaryCamp] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked -- so now you can do what you want :p 
+--end end end end end
 
 
 
