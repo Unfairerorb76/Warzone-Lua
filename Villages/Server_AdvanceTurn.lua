@@ -29,7 +29,7 @@ Server_AdvanceTurn_End(game, addNewOrder)
      end 
       end
 end
-	
+end	
 --function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNewOrder)
  ----     if order.proxyType == "GameOrderAttackTransfer" then 
         --    if orderResult.IsAttack and orderResult.IsSuccessful then 
