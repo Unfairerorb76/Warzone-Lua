@@ -5,7 +5,7 @@ function Server_AdvanceTurn_End(game, order, orderResult, skipThisOrder, addNewO
 
      local terr = {};
      --local structures = game.ServerGame.LatestTurnStanding.Territories[order.To];
-      
+      local structures = game.ServerGame.LatestTurnStanding.Territories[order.To].Structures;
 
 
      for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
