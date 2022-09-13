@@ -1,8 +1,7 @@
 require('Utilities');
 require('WLUtilities');
 
-function Server_AdvanceTurn_End(game, order, orderResult, skipThisOrder, addNewOrder)
-
+Server_AdvanceTurn_End(game, addNewOrder)
      local terr = {};
      local structures = game.ServerGame.LatestTurnStanding.Territories[order.To];
       --local structures = game.ServerGame.LatestTurnStanding.Territories[order.To].Structures;
