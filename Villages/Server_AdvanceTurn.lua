@@ -16,7 +16,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 			print(1);
       			table.insert(terr, terrID);   --gets each territory ID of controlled camps
                          print(terr);
-                         
+                    end     
 		end
 	end
 
