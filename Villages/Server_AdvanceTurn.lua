@@ -3,12 +3,13 @@ require('WLUtilities');
 
 function Server_AdvanceTurn_End(game, addNewOrder)
      local terr = {};
-    -- local structures = game.ServerGame.LatestTurnStanding.Territories;
+     local structures = game.ServerGame.LatestTurnStanding.Territories;
       --local structures = game.ServerGame.LatestTurnStanding.Territories[order.To].Structures;
       
       
 		
      for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
+		print(territory);
     		--if (structures == WL.StructureType.MercenaryCamp) then
 		  if territory.Structures[WL.StructureType.MercenaryCamp] then
 			print(1);
