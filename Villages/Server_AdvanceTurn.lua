@@ -6,7 +6,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
      local structures = game.ServerGame.LatestTurnStanding.Territories;
       --local structures = game.ServerGame.LatestTurnStanding.Territories[order.To].Structures;
       print(structures);
-      if structures == WL.StructureType.MercenaryCamp then
+      if (structures == WL.StructureType.MercenaryCamp) then
 		print(1);
 		end
 		
