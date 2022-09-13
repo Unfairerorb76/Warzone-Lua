@@ -10,7 +10,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 		
      for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
     		--if (structures == WL.StructureType.MercenaryCamp) then
-		  if terrID.Structures[WL.StructureType.MercenaryCamp] then
+		  if territory.Structures[WL.StructureType.MercenaryCamp] then
 			print(1);
       			table.insert(terr, terrID);   --gets each territory ID of controlled camps
                          print(terr);
