@@ -5,12 +5,12 @@ function Server_AdvanceTurn_End(game, addNewOrder)
      local terr = {};
 --local structures = structures[WL.StructureID.MercenaryCamp];     
 	--local structures = game.ServerGame.LatestTurnStanding.Territories[order.To].Structures;
-      local structures = game.ServerGame.LatestTurnStanding.Territories[Terr.ID].TerritoryStanding.Structures[WL.StructureID.MercenaryCamp];
+      
       
 		
      for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
-	if not territory.Structures ~= nil then
-    		if structures == WL.StructureType.MercenaryCamp then
+	if not game.ServerGame.LatestTurnStanding.Territories[Terr.ID].TerritoryStanding.Structures ~= nil then
+    		if Structures[WL.StructureID.MercenaryCamp] then
 			print(1);
       			table.insert(terr, terrID);   --gets each territory ID of controlled camps
                          print(terr);
