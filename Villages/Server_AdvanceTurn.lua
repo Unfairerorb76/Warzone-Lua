@@ -12,7 +12,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 	if territory.Structures ~= nil then
 	   local structures = territory.Structures;
 print(structures);
-    		if (structures[WL.StructureType.MercenaryCamp] AND territory.OwnerPlayerID ~= WL.PlayerID.Neutral) then
+    		if (structures[WL.StructureType.MercenaryCamp] and territory.OwnerPlayerID ~= WL.PlayerID.Neutral) then
 			print(1);
       			table.insert(terr, terrID);   --gets each territory ID of controlled camps
                          print(terrID);
