@@ -21,9 +21,10 @@ function Server_AdvanceTurn_End(game, addNewOrder)
                     end     
 		end
 	end
+     print(count);
      
-      for times = 1, math.min(count, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
-	
+	for times = 1, math.min(count, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
+		print(1);
 	for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
                  if structures.OwnerPlayerID == structures then
                   print(2);                 
