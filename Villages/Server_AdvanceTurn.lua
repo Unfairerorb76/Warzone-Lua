@@ -9,7 +9,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
       
 		
      for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
-	if not game.ServerGame.LatestTurnStanding.Territories[TerrID].TerritoryStanding.Structures ~= nil then
+	if not territory.Structures ~= nil then
 	   local structures = game.ServerGame.LatestTurnStanding.Territories[TerrID].TerritoryStanding.Structures;
     		if structures[WL.StructureID.MercenaryCamp] then
 			print(1);
