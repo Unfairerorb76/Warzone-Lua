@@ -25,7 +25,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
       for times = 1, math.min(count, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
 	
 	for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
-                 if OwnerPlayerID.structures == structures then
+                 if structures.OwnerPlayerID == structures then
                   print(2);                 
                         end
 
