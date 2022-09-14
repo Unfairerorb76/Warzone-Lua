@@ -3,6 +3,7 @@ require('WLUtilities');
 
 function Server_AdvanceTurn_End(game, addNewOrder)
      local terr = {};
+     local count = 0;
 --local structures = structures[WL.StructureID.MercenaryCamp];     
 	--local structures = game.ServerGame.LatestTurnStanding.Territories[order.To].Structures;
       
@@ -16,6 +17,7 @@ print(structures);
 			print(1);
       			table.insert(terr, terrID);   --gets each territory ID of controlled camps
                          print(terrID);
+			count = count + 1;
                     end     
 		end
 	end
