@@ -14,7 +14,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
     		if structures[WL.StructureType.MercenaryCamp] then
 			print(1);
       			table.insert(terr, terrID);   --gets each territory ID of controlled camps
-                         print(terr);
+                         print(terrID);
                     end     
 		end
 	end
