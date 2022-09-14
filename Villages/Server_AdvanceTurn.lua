@@ -11,18 +11,19 @@ function Server_AdvanceTurn_End(game, addNewOrder)
      for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
 	if territory.Structures ~= nil then
 	   local structures = territory.Structures;
-    		if structures[WL.StructureType.MercenaryCamp] then
+print(structures);
+    		if (structures[WL.StructureType.MercenaryCamp] AND territory.OwnerPlayerID ~= WL.PlayerID.Neutral) then
 			print(1);
       			table.insert(terr, terrID);   --gets each territory ID of controlled camps
                          print(terrID);
                     end     
 		end
 	end
-
+     print(structures);
       for times = 1, math.min(count, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
 	
 	for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
-
+                 
 
 
 
