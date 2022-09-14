@@ -27,7 +27,9 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 	for times = 1, math.min(count, math.floor(#camps / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
 		print(10);
 	for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
-                 if structures.OwnerPlayerID == camps then
+                 local rand = math.random(#camps);
+			
+		
                   print(2);                 
                         end
 
