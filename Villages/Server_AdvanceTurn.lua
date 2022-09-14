@@ -12,22 +12,22 @@ function Server_AdvanceTurn_End(game, addNewOrder)
      for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
 	if territory.Structures ~= nil then
 	   local structures = territory.Structures;
-print(structures);
+
     		if (structures[WL.StructureType.MercenaryCamp] and territory.OwnerPlayerID ~= WL.PlayerID.Neutral) then
-			print(1);
+			
       			table.insert(structures, terrID);   --gets each territory ID of controlled camps
                          
 			count = count + 1;
                     end     
 		end
 	end
-     print(structures);
+     
       for times = 1, math.min(count, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
 	
 	for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
-                 
-
-
+                 if OwnerPlayerID.structures == structures then
+                  print(2);                 
+                        end
 
 
            
