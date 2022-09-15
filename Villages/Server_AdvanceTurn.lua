@@ -10,7 +10,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
                     if attackedTerr.Structures[WL.StructureType.MercenaryCamp] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked -- so now you can do what you want :p
 					for terrID, _ in pairs(game.Map.Territories[order.To].ConnectedTo) do
 						local terrMod = WL.TerritoryModification.Create(terrID);
-						terrMod.SetOwnerOpt = attackedTerr.order.PlayerID;
+						terrMod.SetOwnerOpt = attackedTerr.order.OwnerPlayerID;
 						
                       
 						end
