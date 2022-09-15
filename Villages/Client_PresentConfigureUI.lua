@@ -27,7 +27,7 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 		.SetValue(initialVillages);
 	
 	UI.CreateLabel(vert).SetText('Amount of armies that you will get with each new territory');
-   	 numberInputField = UI.CreateNumberInputField(vert)
+   	 numberInputField2 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(15)
 		.SetValue(GainedArmies);
