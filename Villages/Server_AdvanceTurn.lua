@@ -16,7 +16,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 						terrMod.SetArmiesTo = Mod.Settings.Armies;
 						addNewOrder(WL.GameOrderEvent.Create(order.PlayerID,"new territory",{},{terrMod}), true);
 					  end
-					 if (Mod.Settings.ONeutrals == false)
+					 if (Mod.Settings.ONeutrals == false) then
 					     if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == true) then
 						local terrMod = WL.TerritoryModification.Create(terrID);
 						terrMod.SetOwnerOpt = order.PlayerID;
