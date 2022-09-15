@@ -9,7 +9,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
                 if attackedTerr.Structures ~= nil then 
                     if attackedTerr.Structures[WL.StructureType.MercenaryCamp] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked -- so now you can do what you want :p
 					for terrID, _ in pairs(game.Map.Territories[order.To].ConnectedTo) do
-		                  terrID.PlayerID = attackedTerr.order.PlayerID;
+                            game.Map.Territories[order.To].ConnectedTo = attackedTerr.order.PlayerID;
 						end
 end end end end end
 
