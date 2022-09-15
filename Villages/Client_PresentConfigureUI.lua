@@ -7,14 +7,14 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	if initialVillages == nil then
 		initialVillages = 3;
 	end
-	if OnlyNeutrals == nil then
-		OnlyNeutrals = true;
-	end
+	if OnlyNeutrals == nil then 
+                OnlyNeutrals = false; 
+        end
 	if GainedArmies == nil then
 		GainedArmies = 2;
 	end
 		
-	
+	print(OnlyNeutrals);
     
  local vert = UI.CreateVerticalLayoutGroup(rootParent);
  local horz1 = UI.CreateHorizontalLayoutGroup(vert);  --not used
