@@ -2,7 +2,7 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	print(1);
 	local initialVillages = Mod.Settings.NumOfVillages;
 	local OnlyNeutrals = Mod.Settings.ONeutrals;
-	local GainedArmies = Mod.Settings.Armies
+	local GainedArmies = Mod.Settings.Armies;
 	
 	if initialVillages == nil then
 		initialVillages = 3;
