@@ -8,7 +8,7 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 		initialVillages = 3;
 	end
 	if OnlyNeutrals == nil then
-		OnlyNeutrals = false;
+		OnlyNeutrals = true;
 	end
 	if GainedArmies == nil then
 		GainedArmies = 2;
