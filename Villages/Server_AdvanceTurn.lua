@@ -16,7 +16,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 						print(terrID);
                       				print(1);
 						end
-end end end end end
+end end end end end end
 
 
 
