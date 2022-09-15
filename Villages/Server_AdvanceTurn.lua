@@ -11,8 +11,8 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 					for terrID, _ in pairs(game.Map.Territories[order.To].ConnectedTo) do
 						local terrMod = WL.TerritoryModification.Create(terrID);
 						terrMod.SetOwnerOpt = attackedTerr.OwnerPlayerID;
-						
-                      
+						print(terrID);
+                      				print(1);
 						end
 end end end end end
 
