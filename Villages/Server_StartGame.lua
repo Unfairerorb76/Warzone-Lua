@@ -10,7 +10,7 @@ function Server_StartGame(game, standing)
 	--for _, territory in pairs(game.Map.Territories) do
         for _, territory in pairs(standing.Territories) do
       if (territory.OwnerPlayerID == WL.PlayerID.Neutral) then
-		if territoryArray[count] == nill then break; end
+		
 		territoryArray[count] = territory
 		count = count + 1
           end 
