@@ -2,6 +2,7 @@ require('Utilities');
 require('WLUtilities');
 
 function Server_StartGame(game, standing)
+print(1);
 	local privateGameData = Mod.PrivateGameData
 	privateGameData.portals = {}
 	territoryArray = {}
