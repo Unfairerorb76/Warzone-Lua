@@ -16,20 +16,19 @@ function Server_StartGame(game, standing)
 	end  -- territory array
 
 	-- Check that the map has enough territories, if not then it only creates one village
-	local NumOfVillages = Mod.Settings.NumOfVillages  
-	if (#territoryArray < Mod.Settings.NumOfVillages) then
-		NumOfVillages = 1 
+	local NumOfACaches = Mod.Settings.NumOfACaches  
+	if (#territoryArray < Mod.Settings.NumOfACaches) then
+		NumOfACaches = 1 
 	end
 
 	structure = {}
-	Villages = WL.StructureType.MercenaryCamp
-	structure[Villages] = 0
+	ArmyCaches = WL.StructureType.ArmyCache
+	structure[ArmyCaches] = 0
 
-	for i = 1, NumOfVillages do
+	for i = 1, NumOfACaches do
 		privateGameData.portals[i] = getRandomTerritory(territoryArray)
 		
-			structure[Villages] = 1
-		
+			structure[ArmyCaches] = 1
 
 		standing.Territories[privateGameData.portals[i]].Structures = structure
 	end
