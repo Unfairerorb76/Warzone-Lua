@@ -5,7 +5,7 @@ function Server_StartGame(game, standing)
 	local privateGameData = Mod.PrivateGameData
 	privateGameData.portals = {}
 	territoryArray = {}
-
+print(1);
 	local count = 1
 	--for _, territory in pairs(game.Map.Territories) do
         for _, territory in pairs(standing.Territories) do
@@ -14,13 +14,13 @@ function Server_StartGame(game, standing)
 		count = count + 1
           end 
 	end  -- territory array
-
+print(2);
 	-- Check that the map has enough territories, if not then it only creates one village
 	local NumOfACaches = Mod.Settings.NumOfACaches  
 	if (#territoryArray < Mod.Settings.NumOfACaches) then
 		NumOfACaches = 1 
 	end
-
+print(3);
 	structure = {}
 	ArmyCaches = WL.StructureType.ArmyCache
 	structure[ArmyCaches] = 0
@@ -32,7 +32,7 @@ function Server_StartGame(game, standing)
 
 		standing.Territories[privateGameData.portals[i]].Structures = structure
 	end
-
+print(4);
 	Mod.PrivateGameData = privateGameData
 end
 
