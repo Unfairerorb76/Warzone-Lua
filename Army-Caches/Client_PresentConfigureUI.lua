@@ -1,17 +1,14 @@
 function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	print(1);
-	local initialVillages = Mod.Settings.NumOfVillages;
-	local ON = Mod.Settings.ONeutrals;
+	local initialACaches = Mod.Settings.NumOfACaches;
 	local GainedArmies = Mod.Settings.Armies;
 	
 	if initialVillages == nil then
-		initialVillages = 3;
+		initialACaches = 5;
 	end
-	if ON == nil then 
-                ON = true; 
-        end
+
 	if GainedArmies == nil then
-		GainedArmies = 2;
+		GainedArmies = 5;
 	end
 		
 	print(ON);
@@ -23,8 +20,8 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 		UI.CreateLabel(vert).SetText('Amount of Villages that will be created at the start of the game');
    	 numberInputField = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
-		.SetSliderMaxValue(10)
-		.SetValue(initialVillages);
+		.SetSliderMaxValue(20)
+		.SetValue(initialACaches);
 	
 	UI.CreateLabel(vert).SetText('Amount of armies that you will get with each new territory');
    	 numberInputField2 = UI.CreateNumberInputField(vert)
