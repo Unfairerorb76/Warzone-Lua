@@ -4,34 +4,28 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	local GainedArmies = Mod.Settings.Armies;
 	
 	if initialVillages == nil then
-		initialACaches = 5;
+		initialACaches = 2;
 	end
 
 	if GainedArmies == nil then
 		GainedArmies = 5;
 	end
-		
-	print(ON);
+
     
  local vert = UI.CreateVerticalLayoutGroup(rootParent);
  local horz1 = UI.CreateHorizontalLayoutGroup(vert);  --not used
  local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for reference
 	
-		UI.CreateLabel(vert).SetText('Amount of Villages that will be created at the start of the game');
+		UI.CreateLabel(vert).SetText('Amount of Army Caches that will spawn at the start of the game');
    	 numberInputField = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(20)
 		.SetValue(initialACaches);
 	
-	UI.CreateLabel(vert).SetText('Amount of armies that you will get with each new territory');
+	UI.CreateLabel(vert).SetText('Amount of armies that you will get for claiming a cache');
    	 numberInputField2 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(15)
 		.SetValue(GainedArmies);
-	
-	UI.CreateLabel(vert).SetText('only neutrals territories shall be claimed (recommended)');
-        booleanInputField = UI.CreateCheckBox(vert)        
-                .SetIsChecked(ON);
-	
 	
 end
