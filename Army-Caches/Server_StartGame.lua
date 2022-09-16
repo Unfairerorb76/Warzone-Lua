@@ -2,40 +2,38 @@ require('Utilities');
 require('WLUtilities');
 
 function Server_StartGame(game, standing)
-print(1);
+print(10);
 	local privateGameData = Mod.PrivateGameData
 	privateGameData.portals = {}
 	territoryArray = {}
-
+print(1);
 	local count = 1
 	--for _, territory in pairs(game.Map.Territories) do
         for _, territory in pairs(standing.Territories) do
       if (territory.OwnerPlayerID == WL.PlayerID.Neutral) then
-		
 		territoryArray[count] = territory
 		count = count + 1
           end 
 	end  -- territory array
-
+print(2);
 	-- Check that the map has enough territories, if not then it only creates one village
-	local NumOfVillages = Mod.Settings.NumOfVillages  
-	if (#territoryArray < Mod.Settings.NumOfVillages) then
-		NumOfVillages = 1 
+	local NumOfACaches = Mod.Settings.NumOfACaches  
+	if (#territoryArray < Mod.Settings.NumOfACaches) then
+		NumOfACaches = 1 
 	end
-
+print(3);
 	structure = {}
-	Villages = WL.StructureType.MercenaryCamp
-	structure[Villages] = 0
+	ArmyCaches = WL.StructureType.ArmyCache
+	structure[ArmyCaches] = 0
 
-	for i = 1, NumOfVillages do
+	for i = 1, NumOfACaches do
 		privateGameData.portals[i] = getRandomTerritory(territoryArray)
 		
-			structure[Villages] = 1
-		
+			structure[ArmyCaches] = 1
 
 		standing.Territories[privateGameData.portals[i]].Structures = structure
 	end
-
+print(4);
 	Mod.PrivateGameData = privateGameData
 end
 
@@ -46,3 +44,4 @@ function getRandomTerritory(territoryArray)
 
 	return territoryID
 end
+
