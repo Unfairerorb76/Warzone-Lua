@@ -26,9 +26,9 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 						 if (game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID ~= order.PlayerID) then
 						terrMod.SetOwnerOpt = order.PlayerID;
 						terrMod.SetArmiesTo = Mod.Settings.Armies;
-						
+						if terrMod ~= then
 						table.insert(list, terrMod);
-						
+						end
 						end
 								
 					   
