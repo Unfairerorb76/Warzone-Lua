@@ -50,7 +50,7 @@ function distributeRandomStructures(standing, structure, amount, payload)
 
     VillageAmount = math.min(#terrArray, VillageAmount)
     if VillageAmount / terrCount > maxPercentage / 100 then
-        VillageAmount = math.floor(VillageAmount - ((VillageAmount / terrCount - maxPercentage / 100) * terrCount));
+        VillageAmount = math.floor((VillageAmount - ((VillageAmount / terrCount - maxPercentage / 100) * terrCount)) / 2);
     end
 
     for i = 1, VillageAmount do
