@@ -33,7 +33,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 								
 					   
 					end
-				addNewOrder(WL.GameOrderEvent.Create(order.PlayerID,"new territory",{},{list}), true);
+				addNewOrder(WL.GameOrderEvent.Create(order.PlayerID,"new territory",{terrMod},{list}), true);
 				     end				
 end end end end end      
 
