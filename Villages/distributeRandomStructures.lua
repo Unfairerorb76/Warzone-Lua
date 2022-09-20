@@ -55,6 +55,7 @@ function distributeRandomStructures(standing, structure, amount, payload)
     
  
     for i = 1, VillageAmount do
+        print(1);
         local rand = math.random(#terrArray);
         local structures = standing.Territories[terrArray[rand]].Structures
         if structures == nil then structures = {}; end
@@ -63,8 +64,7 @@ function distributeRandomStructures(standing, structure, amount, payload)
         table.remove(terrArray, rand);
     end
     
-    print(villageAmount);
-    print(structures);
+    
     
 end
 
