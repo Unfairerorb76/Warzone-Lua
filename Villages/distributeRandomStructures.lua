@@ -23,6 +23,8 @@ function distributeRandomStructures(standing, structure, amount, payload)
     local allowMultipleStructures = false;
     local allowConnectedTerrs = true;
     local mapDetails = nil;
+    
+    VillageAmount =  Mod.Settings.NumOfVillages;
 
     if payload ~= nil then
         if type(payload) == type({}) then
@@ -54,12 +56,12 @@ function distributeRandomStructures(standing, structure, amount, payload)
         end
     end
 
-    amount = math.min(#terrArray, amount)
-    if amount / terrCount > maxPercentage / 100 then
-        amount = math.floor(amount - ((amount / terrCount - maxPercentage / 100) * terrCount));
+    VillageAmount = math.min(#terrArray, VillageAmount)
+    if VillageAmount / terrCount > maxPercentage / 100 then
+        VillageAmount = math.floor(VillageAmount - ((VillageAmount / terrCount - maxPercentage / 100) * terrCount));
     end
 
-    for i = 1, amount do
+    for i = 1, VillageAmount do
         if #terrArray < 1 then break; end
         local rand = math.random(#terrArray);
         local terr = terrArray[rand];
