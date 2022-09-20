@@ -50,9 +50,11 @@ function distributeRandomStructures(standing, structure, amount, payload)
 
     VillageAmount = math.min(#terrArray, VillageAmount)
     if VillageAmount / terrCount > maxPercentage / 100 then
-        VillageAmount = math.floor((VillageAmount - ((VillageAmount / terrCount - maxPercentage / 100) * terrCount)) / 2);
+        VillageAmount = math.floor((VillageAmount - (VillageAmount / terrCount - maxPercentage / 100) * terrCount));
     end
-
+    
+    VillageAmount = VillageAmount / 2
+    
     for i = 1, VillageAmount do
         local rand = math.random(#terrArray);
         local structures = standing.Territories[terrArray[rand]].Structures
