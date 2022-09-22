@@ -2,16 +2,17 @@ require('Utilities');
 require('WLUtilities');
 
 function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNewOrder)
+local ArmyAmount = Mod.Settings.Armies
       if order.proxyType == "GameOrderAttackTransfer" then 
-          if orderResult.IsAttack and orderResult.IsSuccessful then 
-          local attackedTerr = game.ServerGame.LatestTurnStanding.Territories[order.To]; 
+          if orderResult.IsSuccessful then 
+          local TransferredTerr = game.ServerGame.LatestTurnStanding.Territories[order.To]; 
 
-                if attackedTerr.Structures ~= nil then 
-                    if attackedTerr.Structures[WL.StructureType.ArmyCache] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked -- so now you can do what you want :p
+                if TransferredTerr.Structures ~= nil then 
+                    if TransferredTerr.Structures[WL.StructureType.ArmyCache] ~= nil then -- there is a army cache on the territory that was successfully attacked -- so now you can do what you want :p
 					
-						local terrMod = WL.TerritoryModification.Create(attackedTerr);
-						terrMod.SetArmiesTo = Mod.Settings.Armies;
-						addNewOrder(WL.GameOrderEvent.Create(order.PlayerID,"new territory",{},{terrMod}), true);
+						
+						WL.IncomeMod.Create(order.PlayerID,ArmyAmount,"you have captured an army cache", {})
+						--addNewOrder(WL.GameOrderEvent.Create(order.PlayerID,"new territory",{},{terrMod}), true);
 					    end
 				        				
 end end end end end      
