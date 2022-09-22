@@ -2,7 +2,7 @@ require('Utilities');
 require('WLUtilities');
 
 function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNewOrder)
-local ArmyAmount = Mod.Settings.Armies
+local ArmyAmount = Mod.Settings.Armies;
       if order.proxyType == "GameOrderAttackTransfer" then 
           if orderResult.IsSuccessful then 
           local TransferredTerr = game.ServerGame.LatestTurnStanding.Territories[order.To]; 
@@ -13,9 +13,9 @@ local ArmyAmount = Mod.Settings.Armies
 						
 						WL.IncomeMod.Create(order.PlayerID,ArmyAmount,"you have captured an army cache", {})
 						--addNewOrder(WL.GameOrderEvent.Create(order.PlayerID,"new territory",{},{terrMod}), true);
-					    end
+					 
 				        				
-end end end end end      
+end end end end       
 
 function getTableLength(t)
 	local a = 0;
