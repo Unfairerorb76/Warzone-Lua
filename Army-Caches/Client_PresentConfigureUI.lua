@@ -41,8 +41,8 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
         booleanInputField = UI.CreateCheckBox(vert)        
                 .SetIsChecked(FixedArmies);
 	
-	UI.CreateLabel(horz).SetText('Random +/- limit');
-    numberInputField3 = UI.CreateNumberInputField(horz)
+	UI.CreateLabel(vert).SetText('Random +/- limit');
+    numberInputField3 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
 		.SetValue(difference);
