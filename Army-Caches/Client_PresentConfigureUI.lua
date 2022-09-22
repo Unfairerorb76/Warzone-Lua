@@ -42,7 +42,7 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
                 .SetIsChecked(FixedArmies);
 	
 	UI.CreateLabel(horz).SetText('Random +/- limit');
-    numberInputField = UI.CreateNumberInputField(horz)
+    numberInputField3 = UI.CreateNumberInputField(horz)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
 		.SetValue(difference);
