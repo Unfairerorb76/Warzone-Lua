@@ -13,7 +13,7 @@ local ArmyAmount = Mod.Settings.Armies;
 					        local terrMod = WL.TerritoryModification.Create(order.To);
 					
 					       	structures[WL.StructureType.ArmyCache] = structures[WL.StructureType.ArmyCache] - 1;					
-					
+					        terrMod.SetStructuresOpt = structures;
 						addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, "Updated income", {}, {terrMod}, {}, {WL.IncomeMod.Create(order.PlayerID, ArmyAmount, "You have captured an army cache")}));	
 					--addNewOrder(WL.GameOrderEvent.Create(order.PlayerID,"new territory",{},{terrMod}), true);
 					 
