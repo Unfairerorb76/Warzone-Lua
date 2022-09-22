@@ -4,7 +4,7 @@ require('distributeRandomStructures');
 
 function Server_StartGame(game, standing)
 
-distributeRandomStructures(standing, WL.StructureType.ArmyCamp, 100, {maxPercentage = 50, numberOfStructures = 1, onlyPlaceOnNeutrals = true, allowMultipleStructures = false, allowConnectedTerrs = false, mapDetails = game.Map});
+distributeRandomStructures(standing, WL.StructureType.ArmyCache, 100, {maxPercentage = 50, numberOfStructures = 1, onlyPlaceOnNeutrals = true, allowMultipleStructures = false});
 end
 
 function getRandomTerritory(territoryArray)
