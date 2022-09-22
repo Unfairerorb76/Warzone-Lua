@@ -9,7 +9,8 @@ local ArmyAmount = Mod.Settings.Armies;
           local structures = TransferredTerr.Structures
                 if TransferredTerr.Structures ~= nil then 
                     if TransferredTerr.Structures[WL.StructureType.ArmyCache] ~= nil then -- there is a army cache on the territory that was successfully attacked -- so now you can do what you want :p
-						       
+						 
+					        local ArmyAmount = Mod.Settings.Armies;
 					        local terrMod = WL.TerritoryModification.Create(order.To);
 					
 						structures = {}
