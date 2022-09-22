@@ -15,7 +15,7 @@ local ArmyAmount = Mod.Settings.Armies;
 						--addNewOrder(WL.GameOrderEvent.Create(order.PlayerID,"new territory",{},{terrMod}), true);
 					 
 				        				
-end end end end       
+end end end end end   
 
 function getTableLength(t)
 	local a = 0;
