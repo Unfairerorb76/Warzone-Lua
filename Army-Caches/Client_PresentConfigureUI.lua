@@ -2,15 +2,19 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	print(1);
 	local initialACaches = Mod.Settings.NumOfACaches;
 	local GainedArmies = Mod.Settings.Armies;
+	local FixedArmies = Mod.Settings.Luck;
 	
-	if initialVillages == nil then
+	if initialACaches == nil then
 		initialACaches = 2;
 	end
 
 	if GainedArmies == nil then
 		GainedArmies = 5;
 	end
-
+	
+	if FixedArmies == nil then
+		FixedArmies = true;
+	end
     
  local vert = UI.CreateVerticalLayoutGroup(rootParent);
  local horz1 = UI.CreateHorizontalLayoutGroup(vert);  --not used
@@ -27,5 +31,9 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(15)
 		.SetValue(GainedArmies);
+	
+	UI.CreateLabel(vert).SetText('if checked will only give a fixed amount of armies');
+        booleanInputField = UI.CreateCheckBox(vert)        
+                .SetIsChecked(FixedArmies);
 	
 end
