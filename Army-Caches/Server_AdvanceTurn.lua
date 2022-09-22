@@ -11,9 +11,11 @@ local ArmyAmount = Mod.Settings.Armies;
                     if TransferredTerr.Structures[WL.StructureType.ArmyCache] ~= nil then -- there is a army cache on the territory that was successfully attacked -- so now you can do what you want :p
 						       
 					        local terrMod = WL.TerritoryModification.Create(order.To);
-					structures = {}
-					structures[WL.StructureType.ArmyCache] = -1;					
+					
+						structures = {}
+						structures[WL.StructureType.ArmyCache] = -1;					
 					        terrMod.AddStructuresOpt = structures;
+					
 						addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, "Updated income", {}, {terrMod}, {}, {WL.IncomeMod.Create(order.PlayerID, ArmyAmount, "You have captured an army cache")}));	
 					--addNewOrder(WL.GameOrderEvent.Create(order.PlayerID,"new territory",{},{terrMod}), true);
 					 
