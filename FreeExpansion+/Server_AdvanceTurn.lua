@@ -22,7 +22,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
 			
   			for i, player in pairs(game.ServerGame.Game.PlayingPlayers) do
-			 
+			  
 				local rand = math.random(#terr);
 				local randomNeutralTerr = terr[rand]; --picks random neutral then gives it too player
 				if randomNeutralTerr == nill then break; end
