@@ -23,7 +23,7 @@ local ArmyAmount = Mod.Settings.Armies;
 						
 						local IncomeAmount = Mod.Settings.Armies;
 						IncomeAmount = math.random(-Mod.Settings.Luck, Mod.Settings.Luck);
-						if (IncomeArmies > 100000) then IncomeArmies = 100000 end;
+
 					        local terrMod = WL.TerritoryModification.Create(order.To);
 					
 						structures = {}
