@@ -2,7 +2,7 @@ require('Utilities');
 require('WLUtilities');
 
 function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNewOrder)
-local ArmyAmount = Mod.Settings.Armies;
+
       if order.proxyType == "GameOrderAttackTransfer" then 
           if orderResult.IsSuccessful then 
           local TransferredTerr = game.ServerGame.LatestTurnStanding.Territories[order.To]; 
