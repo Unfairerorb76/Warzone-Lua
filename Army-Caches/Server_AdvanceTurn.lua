@@ -22,6 +22,7 @@ local ArmyAmount = Mod.Settings.Armies;
 					if Mod.Settings.FixedArmies == false then
 						
 						local IncomeAmount = Mod.Settings.Armies;
+						print(IncomeAmount);
 						IncomeAmount = math.random(-Mod.Settings.Luck, Mod.Settings.Luck);
 
 					        local terrMod = WL.TerritoryModification.Create(order.To);
