@@ -23,7 +23,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 						
 						local IncomeAmount = Mod.Settings.Armies;
 						print(IncomeAmount);
-						IncomeAmount = math.random(-Mod.Settings.Luck, Mod.Settings.Luck);
+						IncomeAmount = (IncomeAmount + math.random(-Mod.Settings.Luck, Mod.Settings.Luck));
 
 					        local terrMod = WL.TerritoryModification.Create(order.To);
 					
