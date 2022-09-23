@@ -21,8 +21,8 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 			
 		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
 			
-  			for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
-				
+  			for i, player in pairs(game.ServerGame.Game.PlayingPlayers) do
+			 if (game.Map.Territories[player].ConnectedTo) then
 				local rand = math.random(#terr);
 				local randomNeutralTerr = terr[rand]; --picks random neutral then gives it too player
 				if randomNeutralTerr == nill then break; end
@@ -33,7 +33,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 				addNewOrder(WL.GameOrderEvent.Create(i,"new territory",{},{terrMod}), true);
 				table.remove(terr, rand);
 			end	
-		end	
+		end	end
 end
     
 	
