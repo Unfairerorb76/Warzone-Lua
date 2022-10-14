@@ -23,7 +23,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 		if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == false) then
  		 for connID, _ in pairs(game.Map.Territories[terrID].ConnectedTo) do
 					print(connID);
-			if (game.ServerGame.LatestTurnStanding.Territories[connID].IsNeutral == true) then
+			if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.PlayerID.Neutral) then
 						print(connID);
 				print(2);
 				table.insert(terr2, connID);
