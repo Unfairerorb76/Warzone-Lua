@@ -14,6 +14,7 @@ if (Mod.Settings.OnlyBaseNeutrals == nil) then
 if (Mod.Settings.OnlyBaseNeutrals == false) then
 	  
 for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
+print(1);
 --for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
     for _, borderTerrID in pairs(game.Map.Territories.ConnectedTo) do
         borderTerr = borderTerrID;
