@@ -18,12 +18,6 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 		end			
 			
 		
-		
-
-		
-	
-		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor( getTableLength(game.ServerGame.Game.PlayingPlayers))) do
-		 	
 			for _, terrID in pairs(terr) do
 		if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == false) then
  		 for connID, _ in pairs(game.Map.Territories[terrID].ConnectedTo) do
@@ -31,20 +25,25 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 			if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.PlayerID.Neutral) then
 				table.insert(terr2, connID);
 			end
-	end end end
+	end end end		
+
+		
+	
+		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr2 / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
+		 	
   			for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
 		                 
 				local rand = math.random(#terr2);
 				local randomNeutralTerr = terr2[rand]; --picks random neutral then gives it too player
 				if randomNeutralTerr == nill then break; end
-				
+				if (game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr].OwnerPlayerID == i) then
 				local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);   
 
 				terrMod.SetOwnerOpt = i;
          		terrMod.SetArmiesTo = Mod.Settings.SetArmiesTo; -- you can leave this out, if this field is nill it will not change anything to the army count
 				addNewOrder(WL.GameOrderEvent.Create(i,"new territory",{},{terrMod}), true);
 				table.remove(terr2, rand);
-			end	
+			end do
 		end end	
 	
 
