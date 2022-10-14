@@ -44,7 +44,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 				addNewOrder(WL.GameOrderEvent.Create(i,"new territory",{},{terrMod}), true);
 				table.remove(terr2, rand);
 			end do
-		end end	
+		end 
 	
 
     
