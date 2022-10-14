@@ -51,7 +51,7 @@ if (Mod.Settings.EnableDoomsDay == true) then
 
 			territory = game.ServerGame.LatestTurnStanding.Territories[randomTerr];
 
-			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Territory Survived " .. game.Map.Territories[randomTerr].Name, nil, {terrMod}), true);
+			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Territory Survived " .. game.Map.Territories[randomTerr].Name, {}, {terrMod}), true);
 			table.remove(terr2, rand);
 
 		end
@@ -69,7 +69,7 @@ if (Mod.Settings.EnableDoomsDay == true) then
 			terrMod.SetArmiesTo = 0;
 			terrMod.SetOwnerOpt = WL.PlayerID.Neutral;
 			
-			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Meteorstrike at " .. game.Map.Territories[randomTerr].Name, nil, {terrMod}), true);
+			addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Meteorstrike at " .. game.Map.Territories[randomTerr].Name, {}, {terrMod}), true);
 			table.remove(terr2, rand);
 		end
 				
