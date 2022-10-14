@@ -12,12 +12,12 @@ if (Mod.Settings.OnlyBaseNeutrals == nil) then
 if (Mod.Settings.OnlyBaseNeutrals == false) then
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
     		if (territory.OwnerPlayerID ~= WL.PlayerID.Neutral) then
-		  
+		        print(1);
       			table.insert(terr, terrID);   --gets each territory ID of neutrals
 			end
 		end			
 
-		for terrID, territory in pairs(game.Map.Territories[terrID].ConnectedTo) do
+		for terrID, territory in pairs(game.Map.Territories[terr].ConnectedTo) do
 		    print(10);
 		end
 		
