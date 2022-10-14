@@ -12,18 +12,18 @@ if (Mod.Settings.OnlyBaseNeutrals == nil) then
 
 if (Mod.Settings.OnlyBaseNeutrals == false) then
 	  
-for terrID, territory in pairs(game.Map.Territories) do
+for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
 --for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
-    for borderTerrID in territory.ConnectedTo do
-        borderTerr = game.Map.Territories[borderTerrID];
-        if borderTerr.OwnerPlayerID == WL.PlayerID.Neutral then
+    for _, borderTerrID in pairs(game.Map.Territories.ConnectedTo) do
+        borderTerr = borderTerrID;
+          if borderTerr.OwnerPlayerID == WL.PlayerID.Neutral then
 			
       			table.insert(terr, terrID);   --gets each territory ID of neutrals
 			end
 		end end			
 
 			
-		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
+		
 			
 			  for i, player in pairs(game.ServerGame.Game.PlayingPlayers) do
 				local rand = math.random(#terr);
@@ -36,7 +36,7 @@ for terrID, territory in pairs(game.Map.Territories) do
 				addNewOrder(WL.GameOrderEvent.Create(i,"new territory",{},{terrMod}), true);
 				table.remove(terr, rand);
 			end	
-		end
+		
 end
     
 	
