@@ -22,7 +22,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 
 		
 	
-		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
+		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor( getTableLength(game.ServerGame.Game.PlayingPlayers))) do
 		 	
 			for _, terrID in pairs(terr) do
 		if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == false) then
