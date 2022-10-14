@@ -36,7 +36,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 				local rand = math.random(#terr2);
 				local randomNeutralTerr = terr2[rand]; --picks random neutral then gives it too player
 				if randomNeutralTerr == nill then break; end
-				if (randomNeutralTerr.IsNeutral == true) then
+				if (randomNeutralTerr.IsNeutral = true) then
 				local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);   
 
 				terrMod.SetOwnerOpt = i;
