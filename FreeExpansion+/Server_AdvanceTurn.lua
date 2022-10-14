@@ -16,13 +16,12 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
       			table.insert(terr, terrID);   --gets each territory ID of neutrals
 			end
 		end			
-
-		for terrConID, territoryCon in pairs(game.Map.Territories[terr].ConnectedTo) do
-		    print(10);
-		end
+			
 		
 		
-		
+	for _, terrID in pairs(terr) do
+ 		 for connID, _ in pairs(game.Map.Territories[terrID].ConnectedTo) do
+				
 		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
   			for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
 				
@@ -37,7 +36,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 				table.remove(terr, rand);
 			end	
 		end	
-end
+end end end
     
 	
 
