@@ -22,9 +22,10 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 	for _, terrID in pairs(terr) do
 		if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == false) then
  		 for connID, _ in pairs(game.Map.Territories[terrID].ConnectedTo) do
-			if (game.ServerGame.LatestTurnStanding.Territories[connID].IsNeutral == false) then
+			if (game.ServerGame.LatestTurnStanding.Territories[connID].IsNeutral == true) then
+				for connerID, _ in pairs(game.Map.Territories[terrID].ConnectedTo) do
 				print(2);
-				table.insert(terr2, connID);
+				table.insert(terr2, connerID);
 			end
 		end end end
 		
@@ -55,7 +56,7 @@ end
       			table.insert(terr, terrID);   --gets each territory ID of neutrals
 			end
 		end
-	end
+	end end
 	print(Mod.Settings.NumToConvert);		
 		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
 			
