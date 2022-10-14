@@ -76,7 +76,7 @@ end
 		end	
 	
 end
-end
+end end
  
 
 function getTableLength(t)
