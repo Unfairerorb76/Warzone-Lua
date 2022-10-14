@@ -20,13 +20,11 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 		
 		
 	for _, terrID in pairs(terr) do
-			print(6);
 		if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == false) then
-				print(7);
  		 for connID, _ in pairs(game.Map.Territories[terrID].ConnectedTo) do
-		print(5);
 			if ( game.ServerGame.LatestTurnStanding.Territories[connID].IsNeutral == true) then
-				table.insert(terr2, terrID);
+				print(2);
+				table.insert(terr2, connID);
 			end
 		end end end
 		
