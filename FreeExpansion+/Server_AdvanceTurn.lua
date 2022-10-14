@@ -6,6 +6,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 	local terr = {};  --table of neutral territories
 	local randomNeutralTerr;   
         local nonDistArmies = game.Settings.InitialNonDistributionArmies;
+	local count = 0;
   
 if (Mod.Settings.OnlyBaseNeutrals == nil) then
       Mod.Settings.OnlyBaseNeutrals = false; end
@@ -19,9 +20,10 @@ for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLe
           if borderTerr.OwnerPlayerID == WL.PlayerID.Neutral then
 			
       			table.insert(terr, terrID);   --gets each territory ID of neutrals
+			count = count + 1;
 			end
 		end end			
-
+print(count);
 			
 		
 			
