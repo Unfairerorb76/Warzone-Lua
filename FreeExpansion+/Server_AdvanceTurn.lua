@@ -32,6 +32,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 		
 	
 		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr2 / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
+		    if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.PlayerID.Neutral) then
   			for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
 		                   	
 				local rand = math.random(#terr2);
@@ -44,7 +45,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 				addNewOrder(WL.GameOrderEvent.Create(i,"new territory",{},{terrMod}), true);
 				table.remove(terr2, rand);
 			end	
-		end	
+		end end	
 
     
 	
