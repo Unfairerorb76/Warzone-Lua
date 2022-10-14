@@ -21,9 +21,10 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 		
 	for _, terrID in pairs(terr) do
  		 for connID, _ in pairs(game.Map.Territories[terrID].ConnectedTo) do
+			if (territory == game.ServerGame.LatestTurnStanding.Territories[connID]) then
 				table.insert(terr2, terrID);
 			end
-		end
+		end end
 		
 		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr2 / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
   			for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
