@@ -17,7 +17,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 			end
 		end			
 
-		for terrID, territory in pairs(game.Map.Territories[terr].ConnectedTo) do
+		for terrConID, territoryCon in pairs(game.Map.Territories[terr].ConnectedTo) do
 		    print(10);
 		end
 		
