@@ -21,7 +21,8 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 		
 	for _, terrID in pairs(terr) do
  		 for connID, _ in pairs(game.Map.Territories[terrID].ConnectedTo) do
-			if (territory == game.ServerGame.LatestTurnStanding.Territories[connID]) then
+				print(game.ServerGame.LatestTurnStanding.Territories[connID]);
+			if ( game.ServerGame.LatestTurnStanding.Territories[connID] == OwnerPlayerID) then
 				table.insert(terr2, terrID);
 			end
 		end end
