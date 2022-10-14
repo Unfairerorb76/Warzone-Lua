@@ -57,7 +57,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
          
       			table.insert(terr, terrID);   --gets each territory ID of neutrals
 			end
-		end
+		
 	end end
 	print(Mod.Settings.NumToConvert);		
 		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
