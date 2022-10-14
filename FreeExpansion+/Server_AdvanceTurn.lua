@@ -7,6 +7,8 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 	local randomNeutralTerr;   
         local nonDistArmies = game.Settings.InitialNonDistributionArmies;
 	local count = 0;
+	
+	print(Mod.Settings.NumToConvert);
   
 if (Mod.Settings.OnlyBaseNeutrals == nil) then
       Mod.Settings.OnlyBaseNeutrals = false; end
