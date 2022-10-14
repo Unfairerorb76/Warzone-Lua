@@ -26,8 +26,9 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 		if (territory.OwnerPlayerID ~= WL.PlayerID.Neutral and terrMod.SetArmiesTo == 0) then 
 			terrMod.SetOwnerOpt = WL.PlayerID.Neutral;
 		end
-		
+		if (territory.OwnerPlayerID.VisibleToOpt = true) then
 		addNewOrder(WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Meteor Strike at " .. game.Map.Territories[randomNeutralTerr].Name, nil, {terrMod}), true);
+		end
 	end
 
 	
