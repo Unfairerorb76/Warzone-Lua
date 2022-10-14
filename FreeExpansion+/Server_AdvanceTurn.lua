@@ -28,7 +28,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 				print(2);
 				table.insert(terr2, connID);
 			end
-		end end end
+	end end end
 		
 	
 		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr2 / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
