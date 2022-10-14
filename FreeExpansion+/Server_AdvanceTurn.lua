@@ -22,17 +22,15 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 	for _, terrID in pairs(terr) do
 		if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == false) then
  		 for connID, _ in pairs(game.Map.Territories[terrID].ConnectedTo) do
-					print(connID);
+
 			if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.PlayerID.Neutral) then
-						print(connID);
-				print(2);
 				table.insert(terr2, connID);
 			end
 	end end end
 		
 	
 		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr2 / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
-		    if (game.ServerGame.LatestTurnStanding.Territories[terr2].OwnerPlayerID == WL.PlayerID.Neutral) then
+		    if (game.ServerGame.LatestTurnStanding.Territories[#terr2].OwnerPlayerID == WL.PlayerID.Neutral) then
   			for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
 		                   	
 				local rand = math.random(#terr2);
