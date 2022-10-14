@@ -40,7 +40,7 @@ print(count);
 				table.remove(terr, rand);
 			end	
 		
-end
+end end
     
 	
 
