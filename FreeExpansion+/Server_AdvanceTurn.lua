@@ -22,11 +22,11 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 	for _, terrID in pairs(terr) do
  		 for connID, _ in pairs(game.Map.Territories[terrID].ConnectedTo) do
 				
-		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
+		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#connID / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
   			for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
 				
-				local rand = math.random(#terr);
-				local randomNeutralTerr = terr[rand]; --picks random neutral then gives it too player
+				local rand = math.random(#connID);
+				local randomNeutralTerr = connID[rand]; --picks random neutral then gives it too player
 				if randomNeutralTerr == nill then break; end
 				local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);   
 
