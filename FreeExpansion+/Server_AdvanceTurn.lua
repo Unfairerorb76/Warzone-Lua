@@ -1,22 +1,29 @@
 function Server_AdvanceTurn_End(game, addNewOrder)
    
 	local terr = {};  --table of neutral territories
+	local terr2 = {};
 	local randomNeutralTerr;   
         local nonDistArmies = game.Settings.InitialNonDistributionArmies;
   
 if (Mod.Settings.OnlyBaseNeutrals == nil) then
       Mod.Settings.OnlyBaseNeutrals = false; end
 	
-for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
+
 if (Mod.Settings.OnlyBaseNeutrals == false) then
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
-    		if (territory.OwnerPlayerID == WL.PlayerID.Neutral) then
-			
+    		if (territory.OwnerPlayerID =~ WL.PlayerID.Neutral) then
+		  
       			table.insert(terr, terrID);   --gets each territory ID of neutrals
 			end
 		end			
 
-			
+		for terrID, territory in pairs(game.Map.Territories[terrID].ConnectedTo) do
+		    print(10);
+		end
+		
+		
+		
+		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
   			for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
 				
 				local rand = math.random(#terr);
