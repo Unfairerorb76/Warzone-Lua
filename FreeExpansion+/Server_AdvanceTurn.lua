@@ -45,7 +45,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 				table.remove(terr2, rand);
 			end	
 		end	
-end
+
     
 	
 
