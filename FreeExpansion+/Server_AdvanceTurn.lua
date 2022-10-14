@@ -1,36 +1,25 @@
-require('Utilities');
-require('WLUtilities');
-
 function Server_AdvanceTurn_End(game, addNewOrder)
    
 	local terr = {};  --table of neutral territories
 	local randomNeutralTerr;   
         local nonDistArmies = game.Settings.InitialNonDistributionArmies;
-	local count = 0;
-	
-	print(Mod.Settings.NumToConvert);
   
 if (Mod.Settings.OnlyBaseNeutrals == nil) then
       Mod.Settings.OnlyBaseNeutrals = false; end
 
 if (Mod.Settings.OnlyBaseNeutrals == false) then
-print(1);  
-for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
-print(2);
---for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
-    for _, borderTerrID in pairs(game.Map.Territories.ConnectedTo) do
-        borderTerr = borderTerrID;
-          if borderTerr.OwnerPlayerID == WL.PlayerID.Neutral then
+		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
+    		if (territory.OwnerPlayerID == WL.PlayerID.Neutral) then
 			
       			table.insert(terr, terrID);   --gets each territory ID of neutrals
-			count = count + 1;
 			end
-end			
-print(count);
+		end			
+
 			
-		
+		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
 			
-			  for i, player in pairs(game.ServerGame.Game.PlayingPlayers) do
+  			for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
+				
 				local rand = math.random(#terr);
 				local randomNeutralTerr = terr[rand]; --picks random neutral then gives it too player
 				if randomNeutralTerr == nill then break; end
@@ -41,8 +30,8 @@ print(count);
 				addNewOrder(WL.GameOrderEvent.Create(i,"new territory",{},{terrMod}), true);
 				table.remove(terr, rand);
 			end	
-		
-end end
+		end	
+end
     
 	
 
@@ -72,8 +61,8 @@ end end
 			end	
 		end	
 	
-end end
-
+end
+end
  
 
 function getTableLength(t)
