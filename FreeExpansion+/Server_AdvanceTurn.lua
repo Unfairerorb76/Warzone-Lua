@@ -32,7 +32,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 		
 	
 		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr2 / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
-		    if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.PlayerID.Neutral) then
+		    if (game.ServerGame.LatestTurnStanding.Territories[terr2].OwnerPlayerID == WL.PlayerID.Neutral) then
   			for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
 		                   	
 				local rand = math.random(#terr2);
