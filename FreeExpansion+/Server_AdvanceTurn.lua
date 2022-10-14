@@ -23,7 +23,7 @@ print(1);
       			table.insert(terr, terrID);   --gets each territory ID of neutrals
 			count = count + 1;
 			end
-		end end			
+end			
 print(count);
 			
 		
