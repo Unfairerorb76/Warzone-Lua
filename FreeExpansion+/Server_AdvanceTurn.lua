@@ -17,8 +17,6 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 		end			
 
 			
-		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
-			
   			for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
 				
 				local rand = math.random(#terr);
