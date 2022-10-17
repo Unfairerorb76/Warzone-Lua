@@ -42,7 +42,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
          		terrMod.SetArmiesTo = Mod.Settings.SetArmiesTo; -- you can leave this out, if this field is nill it will not change anything to the army count
 				addNewOrder(WL.GameOrderEvent.Create(i,"new territory",{},{terrMod}), true);
 				table.remove(terr2, rand);
-			end end end
+			 end end
 		end 
 	
 
