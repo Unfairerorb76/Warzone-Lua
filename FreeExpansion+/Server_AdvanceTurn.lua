@@ -11,7 +11,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 if (Mod.Settings.OnlyBaseNeutrals == nil) then
       Mod.Settings.OnlyBaseNeutrals = false; end
 	
-for PlayersID, _ in pairs(game.Game.PlayingPlayers) do
+for PlayerID, _ in pairs(game.Game.PlayingPlayers) do
 	                 t[playerID] = {};
 		end
 
