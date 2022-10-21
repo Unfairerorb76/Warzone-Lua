@@ -30,7 +30,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 
 		
 	
-		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#t[ / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
+		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#t / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
 		 	
   			for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
 		                 
