@@ -42,7 +42,7 @@ for p, arr in pairs(t) do
       local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);   
       terrMod.SetOwnerOpt = p;
       terrMod.SetArmiesTo = Mod.Settings.SetArmiesTo; -- you can leave this out, if this field is nill it will not change anything to the army count
-      table.insert(pTable, WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}), true);
+      table.insert(pTable, WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}));
     end
     table.remove(arr, rand);
   end
