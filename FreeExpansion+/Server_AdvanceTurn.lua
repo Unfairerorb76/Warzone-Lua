@@ -47,7 +47,7 @@ for p, arr in pairs(t) do
     end
   end
   end
-	
+end	
 
     
 	--ignore past this for now
