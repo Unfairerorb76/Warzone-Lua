@@ -28,7 +28,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 				table.insert(t[game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID], connID);
 						print(3);
 			end
-	end end end		
+	 end end end		
 
 		
 for p, arr in pairs(t) do
@@ -46,7 +46,7 @@ for p, arr in pairs(t) do
       table.remove(arr, rand);
     end
   end
-end
+  end
 	
 
     
