@@ -13,6 +13,7 @@ if (Mod.Settings.OnlyBaseNeutrals == nil) then
 	
 for playerID, _ in pairs(game.Game.PlayingPlayers) do
 	                 t[playerID] = {};
+		         pTable[playerID] = {};
 		print(10);
 		end
 
@@ -42,8 +43,9 @@ for p, arr in pairs(t) do
       local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);   
       terrMod.SetOwnerOpt = p;
       terrMod.SetArmiesTo = Mod.Settings.SetArmiesTo; -- you can leave this out, if this field is nill it will not change anything to the army count
-      addNewOrder(WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}), true));
-    end 
+         table.insert(playerID, WL.GameOrderEvent.Create(p,"new territory",{},{terrMod})); 
+				end --   addNewOrder(WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}), true));
+
 
     table.remove(arr, rand);
   end
