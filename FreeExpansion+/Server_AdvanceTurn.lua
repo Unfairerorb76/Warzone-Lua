@@ -49,8 +49,17 @@ for p, arr in pairs(t) do
   end
 end
 
-for order, _ in pairs(pTable) do
-    addNewOrder(order);
+local i = 1;
+local addedOrders = true;
+while addedOrders do
+  addedOrders = false;
+  for p, _  in pairs(game.Game.PlayingPlayers) do
+    if pTable[p][i] ~= nil then
+      addedOrders = true;
+      addNewOrder(pTable[p][i]);
+    end
+  end
+  i = i + 1;
 end
  
 end	
