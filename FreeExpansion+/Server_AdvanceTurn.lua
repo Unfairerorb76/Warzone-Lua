@@ -40,13 +40,13 @@ for p, arr in pairs(t) do
     if randomNeutralTerr == nill then break; end
     if bordersOpponent(game, t, p, terrID) then
       local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);   
-      terrMod.SetOwnerOpt = i;
+      terrMod.SetOwnerOpt = p;
       terrMod.SetArmiesTo = Mod.Settings.SetArmiesTo; -- you can leave this out, if this field is nill it will not change anything to the army count
-      addNewOrder(WL.GameOrderEvent.Create(i,"new territory",{},{terrMod}), true);
-      table.remove(arr, rand);
+      addNewOrder(WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}), true);
     end
+    table.remove(arr, rand);
   end
-  end
+end
 end	
 
     
