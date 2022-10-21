@@ -61,7 +61,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 end	
  
     
-	--ignore past this for now
+	
 
  if (Mod.Settings.OnlyBaseNeutrals == true) then
 			
@@ -106,6 +106,7 @@ end
          i = i + 1;
         end
  
+end 
 end
  
 
