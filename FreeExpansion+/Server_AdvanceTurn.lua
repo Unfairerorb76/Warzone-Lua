@@ -3,7 +3,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 	local terr = {};  --table of neutral territories
 	
 	local PlayerTable = {}; -- table of player territories
-	local t[playerID] = {};
+	local t = {};
 	
 	local randomNeutralTerr;   
         local nonDistArmies = game.Settings.InitialNonDistributionArmies;
