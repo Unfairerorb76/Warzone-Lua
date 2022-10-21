@@ -62,19 +62,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
  
 end	
  
-    
-	
-
- if (Mod.Settings.OnlyBaseNeutrals == true) then
-	if (Mod.Settings.OnlyBaseNeutrals == nil) then
-      Mod.Settings.OnlyBaseNeutrals = false; end
-	
-for playerID, _ in pairs(game.Game.PlayingPlayers) do
-	                 t[playerID] = {};
-		         pTable[playerID] = {};
-end
-
-if (Mod.Settings.OnlyBaseNeutrals == false) then
+if (Mod.Settings.OnlyBaseNeutrals == true) then
 						
 	for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
 		if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == false) then
