@@ -20,7 +20,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 			
 		
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
-		if (terrID.IsNeutral == false) then
+		if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == false) then
  		 for connID, _ in pairs(game.Map.Territories[terrID].ConnectedTo) do
 
 			if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.PlayerID.Neutral) then
