@@ -24,7 +24,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
  		 for connID, _ in pairs(game.Map.Territories[terrID].ConnectedTo) do
 
 			if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.PlayerID.Neutral) then
-				table.insert(t[playerID], connID);
+				table.insert(t[game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayer], connID);
 			end
 	end end end		
 
