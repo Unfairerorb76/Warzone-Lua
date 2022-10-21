@@ -1,7 +1,5 @@
 function Server_AdvanceTurn_End(game, addNewOrder)
-   
-	local terr = {};  --table of neutral territories
-	
+   	
 	local pTable = {}; -- table of player territories
 	local t = {};
 	
@@ -14,14 +12,11 @@ if (Mod.Settings.OnlyBaseNeutrals == nil) then
 for playerID, _ in pairs(game.Game.PlayingPlayers) do
 	                 t[playerID] = {};
 		         pTable[playerID] = {};
-		print(10);
-		end
+end
 
 if (Mod.Settings.OnlyBaseNeutrals == false) then
-					
-			
-		
-		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
+						
+	for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
 		if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == false) then
  		 for connID, _ in pairs(game.Map.Territories[terrID].ConnectedTo) do
 
@@ -29,38 +24,39 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 				table.insert(t[game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID], connID);
 						print(3);
 			end
-	 end end end		
-
+		 end 
+		end 
+	end		
 		
-for p, arr in pairs(t) do
-  for times = 1, math.min(Mod.Settings.NumToConvert, #arr) do
-    print(1);
+	for p, arr in pairs(t) do
+  		for times = 1, math.min(Mod.Settings.NumToConvert, #arr) do
 
-    local rand = math.random(#arr);
-    local randomNeutralTerr = arr[rand]; --picks random neutral then gives it too player
-    if randomNeutralTerr == nill then break; end
-    if bordersOpponent(game, t, p, terrID) then
-      local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);   
-      terrMod.SetOwnerOpt = p;
-      terrMod.SetArmiesTo = Mod.Settings.SetArmiesTo; -- you can leave this out, if this field is nill it will not change anything to the army count
-        table.insert(pTable[p], WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}));
-				end --   addNewOrder(WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}), true));
-    table.remove(arr, rand);
-  end
-end
+    		local rand = math.random(#arr);
+    		local randomNeutralTerr = arr[rand]; --picks random neutral then gives it too player
+    		if randomNeutralTerr == nill then break; end
+    		if bordersOpponent(game, t, p, terrID) then
+    		 local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);   
+     		 terrMod.SetOwnerOpt = p;
+    		 terrMod.SetArmiesTo = Mod.Settings.SetArmiesTo; -- you can leave this out, if this field is nill it will not change anything to the army count
+        	 table.insert(pTable[p], WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}));
+		end --   addNewOrder(WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}), true));
+				
+    		table.remove(arr, rand);
+  		end
+	end
 
-local i = 1;
-local addedOrders = true;
-while addedOrders do
-  addedOrders = false;
-  for p, _  in pairs(game.Game.PlayingPlayers) do
-    if pTable[p][i] ~= nil then
-      addedOrders = true;
-      addNewOrder(pTable[p][i]);
-    end
-  end
-  i = i + 1;
-end
+	local i = 1;
+	local addedOrders = true;
+	while addedOrders do
+ 	 addedOrders = false;
+ 	 for p, _  in pairs(game.Game.PlayingPlayers) do
+    	   if pTable[p][i] ~= nil then
+     	   addedOrders = true;
+           addNewOrder(pTable[p][i]);
+    	   end
+         end
+         i = i + 1;
+        end
  
 end	
  
@@ -68,33 +64,48 @@ end
 	--ignore past this for now
 
  if (Mod.Settings.OnlyBaseNeutrals == true) then
-		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
-    		if (territory.OwnerPlayerID == WL.PlayerID.Neutral) then
-		     if (territory.NumArmies.NumArmies == nonDistArmies) then
-         
-      			table.insert(terr, terrID);   --gets each territory ID of neutrals
-			end
-		
-	end end
-	print(Mod.Settings.NumToConvert);		
-		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#terr / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
 			
-  			for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
-				
-				local rand = math.random(#terr);
-				local randomNeutralTerr = terr[rand]; --picks random neutral then gives it too player
-				if randomNeutralTerr == nill then break; end
-				local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);   
+		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
+		if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == false) then
+ 		 for connID, _ in pairs(game.Map.Territories[terrID].ConnectedTo) do
+                     if (territory.NumArmies.NumArmies == nonDistArmies) then
+			if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.PlayerID.Neutral && game.ServerGame.LatestTurnStanding.Territories[connID].NumArmies.NumArmies == nonDistArmies) then
+				table.insert(t[game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID], connID);
+						print(3);
+			end
+		 end 
+		end 
+	end		
+	for p, arr in pairs(t) do
+  		for times = 1, math.min(Mod.Settings.NumToConvert, #arr) do
 
-				terrMod.SetOwnerOpt = i;
-         		terrMod.SetArmiesTo = Mod.Settings.SetArmiesTo; -- you can leave this out, if this field is nill it will not change anything to the army count
-				addNewOrder(WL.GameOrderEvent.Create(i,"new territory",{},{terrMod}), true);
-				table.remove(terr, rand);
-			end	
-		end	
+    		local rand = math.random(#arr);
+    		local randomNeutralTerr = arr[rand]; --picks random neutral then gives it too player
+    		if randomNeutralTerr == nill then break; end
+    		if bordersOpponent(game, t, p, terrID) then
+    		 local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);   
+     		 terrMod.SetOwnerOpt = p;
+    		 terrMod.SetArmiesTo = Mod.Settings.SetArmiesTo; -- you can leave this out, if this field is nill it will not change anything to the army count
+        	 table.insert(pTable[p], WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}));
+		end --   addNewOrder(WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}), true));
+				
+    		table.remove(arr, rand);
+  		end
 	end
-	
-	
+
+	local i = 1;
+	local addedOrders = true;
+	while addedOrders do
+ 	 addedOrders = false;
+ 	 for p, _  in pairs(game.Game.PlayingPlayers) do
+    	   if pTable[p][i] ~= nil then
+     	   addedOrders = true;
+           addNewOrder(pTable[p][i]);
+    	   end
+         end
+         i = i + 1;
+        end
+ 
 end
  
 
