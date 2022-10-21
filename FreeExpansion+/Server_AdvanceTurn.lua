@@ -40,6 +40,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 				local rand = math.random(#arr);
 				local randomNeutralTerr = arr[rand]; --picks random neutral then gives it too player
 				if randomNeutralTerr == nill then break; end
+				bordersOpponent(game, t, p, terrID)
 				local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);   
 
 				terrMod.SetOwnerOpt = i;
@@ -51,7 +52,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 	
 
     
-	
+	--ignore past this for now
 
  if (Mod.Settings.OnlyBaseNeutrals == true) then
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
@@ -90,4 +91,28 @@ function getTableLength(t)
 		a = a + 1;
 	end
 	return a;
+end
+
+function bordersOpponent(game, t, p, terrID)
+  for p2, arr in pairs(t) do
+    if p ~= p2 and (getTeam(game, p) == -1 or getTeam(game, p) ~= getTeam(game, p2)) then
+      if valueInTable(arr, terrID) then
+        return false;
+      end
+    end
+  end
+  return true;
+end
+
+function getTeam(game, p)
+  return game.Game.PlayingPlayers[p].Team;
+end
+
+function valueInTable(t, v)
+  for _, v2 in pairs(t) do
+    if v == v2 then
+      return true;
+    end
+  end
+  return false;
 end
