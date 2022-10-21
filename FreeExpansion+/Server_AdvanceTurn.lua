@@ -45,11 +45,14 @@ for p, arr in pairs(t) do
       terrMod.SetArmiesTo = Mod.Settings.SetArmiesTo; -- you can leave this out, if this field is nill it will not change anything to the army count
         table.insert(pTable[p], WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}));
 				end --   addNewOrder(WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}), true));
-
-
     table.remove(arr, rand);
   end
 end
+
+for order, _ in pairs(pTable[p]) do
+    addNewOrder(order, true);
+end
+ 
 end	
  
     
@@ -80,8 +83,9 @@ end
 				table.remove(terr, rand);
 			end	
 		end	
+	end
 	
-end
+	
 end
  
 
