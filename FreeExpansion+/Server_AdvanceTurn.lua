@@ -66,19 +66,27 @@ end
 	
 
  if (Mod.Settings.OnlyBaseNeutrals == true) then
-			
-		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
+	if (Mod.Settings.OnlyBaseNeutrals == nil) then
+      Mod.Settings.OnlyBaseNeutrals = false; end
+	
+for playerID, _ in pairs(game.Game.PlayingPlayers) do
+	                 t[playerID] = {};
+		         pTable[playerID] = {};
+end
+
+if (Mod.Settings.OnlyBaseNeutrals == false) then
+						
+	for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
 		if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == false) then
  		 for connID, _ in pairs(game.Map.Territories[terrID].ConnectedTo) do
-                     if (territory.NumArmies.NumArmies == nonDistArmies) then
-			if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.PlayerID.Neutral and game.ServerGame.LatestTurnStanding.Territories[connID].NumArmies.NumArmies <= nonDistArmies) then
-				table.insert(t[game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID], connID);
-						print(game.ServerGame.LatestTurnStanding.Territories[connID].NumArmies.NumArmies);
+
+if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.PlayerID.Neutral and game.ServerGame.LatestTurnStanding.Territories[connID].NumArmies.NumArmies <= nonDistArmies) then				table.insert(t[game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID], connID);
 						print(3);
 			end
 		 end 
 		end 
-	end end		
+	end		
+		
 	for p, arr in pairs(t) do
   		for times = 1, math.min(Mod.Settings.NumToConvert, #arr) do
 
@@ -109,7 +117,8 @@ end
          i = i + 1;
         end
  
-end 
+end		
+
 end
  
 
