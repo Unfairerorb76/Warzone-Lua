@@ -31,8 +31,9 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 	end end end		
 
 		
-	
-		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(getTableLength(t) / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
+	for p, arr in pairs(t) do
+           for times = 1, math.min(Mod.Settings.NumToConvert, #arr) do
+		
 		 	print(1);
   			for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
 		                 print(2);
@@ -46,7 +47,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 				addNewOrder(WL.GameOrderEvent.Create(i,"new territory",{},{terrMod}), true);
 				table.remove(t, rand);
 			 end end
-		end 
+		end end
 	
 
     
