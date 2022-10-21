@@ -50,7 +50,7 @@ for p, arr in pairs(t) do
 end
 
 for order, _ in pairs(pTable) do
-    addNewOrder(order, true);
+    addNewOrder(order);
 end
  
 end	
