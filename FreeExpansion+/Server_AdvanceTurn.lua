@@ -17,7 +17,7 @@ for playerID, _ in pairs(game.Game.PlayingPlayers) do
 		end
 
 if (Mod.Settings.OnlyBaseNeutrals == false) then
-			print(3);		
+					
 			
 		
 		for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
@@ -26,6 +26,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 
 			if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.PlayerID.Neutral) then
 				table.insert(t[game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID], connID);
+						print(3);
 			end
 	end end end		
 
