@@ -37,8 +37,8 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 		 	print(1);
   			for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
 		                 print(2);
-				local rand = math.random(#t);
-				local randomNeutralTerr = t[rand]; --picks random neutral then gives it too player
+				local rand = math.random(#arr);
+				local randomNeutralTerr = arr[rand]; --picks random neutral then gives it too player
 				if randomNeutralTerr == nill then break; end
 				local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);   
 
