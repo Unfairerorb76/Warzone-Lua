@@ -30,19 +30,19 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 
 		
 	
-		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#t[playerID] / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
+		for times = 1, math.min(Mod.Settings.NumToConvert, math.floor(#t[ / getTableLength(game.ServerGame.Game.PlayingPlayers))) do
 		 	
   			for i, _ in pairs(game.ServerGame.Game.PlayingPlayers) do
 		                 
-				local rand = math.random(#t[playerID]);
-				local randomNeutralTerr = t[playerID][rand]; --picks random neutral then gives it too player
+				local rand = math.random(#t);
+				local randomNeutralTerr = t[rand]; --picks random neutral then gives it too player
 				if randomNeutralTerr == nill then break; end
 				local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);   
 
 				terrMod.SetOwnerOpt = i;
          		terrMod.SetArmiesTo = Mod.Settings.SetArmiesTo; -- you can leave this out, if this field is nill it will not change anything to the army count
 				addNewOrder(WL.GameOrderEvent.Create(i,"new territory",{},{terrMod}), true);
-				table.remove(t[playerID], rand);
+				table.remove(t, rand);
 			 end end
 		end 
 	
