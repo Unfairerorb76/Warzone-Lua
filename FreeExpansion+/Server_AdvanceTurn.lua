@@ -69,7 +69,7 @@ end
 		if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == false) then
  		 for connID, _ in pairs(game.Map.Territories[terrID].ConnectedTo) do
                      if (territory.NumArmies.NumArmies == nonDistArmies) then
-			if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.PlayerID.Neutral && game.ServerGame.LatestTurnStanding.Territories[connID].NumArmies.NumArmies <= nonDistArmies) then
+			if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.PlayerID.Neutral and game.ServerGame.LatestTurnStanding.Territories[connID].NumArmies.NumArmies <= nonDistArmies) then
 				table.insert(t[game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID], connID);
 						print(3);
 			end
