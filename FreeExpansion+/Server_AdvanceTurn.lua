@@ -75,7 +75,7 @@ end
 			end
 		 end 
 		end 
-	end		
+	end end		
 	for p, arr in pairs(t) do
   		for times = 1, math.min(Mod.Settings.NumToConvert, #arr) do
 
