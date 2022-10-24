@@ -49,7 +49,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 			
     		table.remove(arr, rand);
   		end
-		table.insert(pTable[p], WL.GameOrderEvent.Create(p,"new territory",{}, list)));
+		table.insert(pTable[p], WL.GameOrderEvent.Create(p,"new territory",{}, list));
 	end
 
 	local i = 1;
@@ -95,7 +95,7 @@ if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.P
 		
     		table.remove(arr, rand);
   		end
-		table.insert(pTable[p], WL.GameOrderEvent.Create(p,"new territory",{}, list)));
+		table.insert(pTable[p], WL.GameOrderEvent.Create(p,"new territory",{}, list));
 
 	end
 
