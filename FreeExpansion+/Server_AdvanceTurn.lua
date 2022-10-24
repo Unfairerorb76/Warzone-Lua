@@ -6,6 +6,9 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 	local randomNeutralTerr;   
         local nonDistArmies = game.Settings.InitialNonDistributionArmies;
 	
+	local list = {};
+
+	
 	print(nonDistArmies);
   
 if (Mod.Settings.OnlyBaseNeutrals == nil) then
@@ -40,11 +43,13 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
     		 local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);   
      		 terrMod.SetOwnerOpt = p;
     		 terrMod.SetArmiesTo = Mod.Settings.SetArmiesTo; -- you can leave this out, if this field is nill it will not change anything to the army count
-        	 table.insert(pTable[p], WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}));
+		table.insert(list, terrMod);
+
 		end --   addNewOrder(WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}), true));
-				
+			
     		table.remove(arr, rand);
   		end
+		table.insert(pTable[p], WL.GameOrderEvent.Create(p,"new territory",{}, list)));
 	end
 
 	local i = 1;
@@ -85,11 +90,13 @@ if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.P
     		 local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);   
      		 terrMod.SetOwnerOpt = p;
     		 terrMod.SetArmiesTo = Mod.Settings.SetArmiesTo; -- you can leave this out, if this field is nill it will not change anything to the army count
-        	 table.insert(pTable[p], WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}));
+        	 table.insert(list, terrMod);
 		end --   addNewOrder(WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}), true));
-				
+		
     		table.remove(arr, rand);
   		end
+		table.insert(pTable[p], WL.GameOrderEvent.Create(p,"new territory",{}, list)));
+
 	end
 
 	local i = 1;
