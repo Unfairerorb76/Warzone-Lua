@@ -56,19 +56,19 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
 	UI.CreateLabel(vert).SetText('Village Mod related:');
 	
 	UI.CreateLabel(vert).SetText('Amount of Villages that will be created at the start of the game');
-   	 numberInputField = UI.CreateNumberInputField(vert)
+   	 numberInputField3 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
 		.SetValue(initialVillages);
 	
 	UI.CreateLabel(vert).SetText('Amount of armies that you will get with each new territory');
-   	 numberInputField2 = UI.CreateNumberInputField(vert)
+   	 numberInputField4 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(15)
 		.SetValue(GainedArmies);
 	
 	UI.CreateLabel(vert).SetText('only neutrals territories shall be claimed (recommended)');
-        booleanInputField = UI.CreateCheckBox(vert)        
+        booleanInputField2 = UI.CreateCheckBox(vert)        
                 .SetIsChecked(ON);
 	
 	
