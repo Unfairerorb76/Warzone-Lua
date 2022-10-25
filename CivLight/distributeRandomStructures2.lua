@@ -6,7 +6,7 @@
 --  Optional parameters:
 --      * payload       A table with specific fields which allows for a more specific distribution
 
-function distributeRandomStructures(standing, structure, amount, payload)
+function distributeRandomStructures2(standing, structure, amount, payload)
     -- payload: A table with fields you can pass to allow for better configuration
     -- Possible payload values:
     --  * maxPercentage             (default = 50, limit the maximum amount of structures that will be placed on the map)
