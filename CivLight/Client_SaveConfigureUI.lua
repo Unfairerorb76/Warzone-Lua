@@ -7,5 +7,10 @@ function Client_SaveConfigureUI(alert)
      Mod.Settings.NumOfVillages = numberInputField3.GetValue();
     Mod.Settings.Armies = numberInputField4.GetValue();
     Mod.Settings.ONeutrals = booleanInputField2.GetIsChecked();
+    
+    Mod.Settings.NumOfACaches = numberInputField5.GetValue();
+    Mod.Settings.Armies = numberInputField6.GetValue();
+    Mod.Settings.FixedArmies = booleanInputField3.GetIsChecked();
+    Mod.Settings.Luck = numberInputField7.GetValue();
 
 end
