@@ -8,6 +8,10 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	local ON = Mod.Settings.ONeutrals;
 	local GainedArmies = Mod.Settings.Armies;
 	
+	local initialACaches = Mod.Settings.NumOfACaches;
+	local GainedArmies = Mod.Settings.Armies;
+	local FixedArmies = Mod.Settings.FixedArmies;
+	local difference = Mod.Settings.Luck;
 	
 	if initialValueConvert == nil then
 		initialValueConvert = 2;
@@ -29,6 +33,22 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
         end
 	if GainedArmies == nil then
 		GainedArmies = 2;
+	end
+	
+		if initialACaches == nil then
+		initialACaches = 2;
+	end
+
+	if GainedArmies == nil then
+		GainedArmies = 5;
+	end
+	
+	if FixedArmies == nil then
+		FixedArmies = true;
+	end
+	
+	if difference == nil then 
+		difference = 5;
 	end
     
  local vert = UI.CreateVerticalLayoutGroup(rootParent);
@@ -72,6 +92,28 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
                 .SetIsChecked(ON);
 	
 	
-        UI.CreateLabel(vert).SetText('Army-Cache Mod related:');      
+        UI.CreateLabel(vert).SetText('Army-Cache Mod related:');   
+	
+			UI.CreateLabel(vert).SetText('Amount of Army Caches that will spawn at the start of the game');
+   	 numberInputField5 = UI.CreateNumberInputField(vert)
+		.SetSliderMinValue(1)
+		.SetSliderMaxValue(20)
+		.SetValue(initialACaches);
+	
+	UI.CreateLabel(vert).SetText('Amount of armies that you will get for claiming a cache');
+   	 numberInputField6 = UI.CreateNumberInputField(vert)
+		.SetSliderMinValue(1)
+		.SetSliderMaxValue(15)
+		.SetValue(GainedArmies);
+	
+	UI.CreateLabel(vert).SetText('if checked will only give a fixed amount of armies');
+        booleanInputField3 = UI.CreateCheckBox(vert)        
+                .SetIsChecked(FixedArmies);
+	
+	UI.CreateLabel(vert).SetText('Random +/- limit');
+    numberInputField7 = UI.CreateNumberInputField(vert)
+		.SetSliderMinValue(1)
+		.SetSliderMaxValue(10)
+		.SetValue(difference);
 
 end
