@@ -75,7 +75,7 @@ for playerID, _ in pairs(game.Game.PlayingPlayers) do
 end
 print(Mod.Settings.OnlyBaseNeutral);
 if (Mod.Settings.OnlyBaseNeutrals == false) then
-   	print(1);				
+   					
 	for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
 		if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == false) then
  		 for connID, _ in pairs(game.Map.Territories[terrID].ConnectedTo) do
@@ -103,8 +103,11 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 	     structs = game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr].Structures;
 	     terr_has_merc_camp = false;
 	     if structs ~= nil then
+		print(1);
  	     for key,val in pairs(structs) do
+		print(2);
    	      if val == WL.StructureType.MercenaryCamp then
+		print(3);
     	      terr_has_merc_camp = true
    	 	end
  	 end
