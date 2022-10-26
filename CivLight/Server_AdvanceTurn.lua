@@ -5,7 +5,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
       if order.proxyType == "GameOrderAttackTransfer" then 
           if orderResult.IsAttack and orderResult.IsSuccessful then 
           local attackedTerr = game.ServerGame.LatestTurnStanding.Territories[order.To]; 
-
+            print(1);
                 if attackedTerr.Structures ~= nil then 
                     if attackedTerr.Structures[WL.StructureType.MercenaryCamp] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked -- so now you can do what you want :p
 					Village(Game, addNewOrder, terrID);
@@ -13,7 +13,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 				
 				    
 end end end 
-
+print(2);
  if order.proxyType == "GameOrderAttackTransfer" then 
           if orderResult.IsSuccessful then 
           local TransferredTerr = game.ServerGame.LatestTurnStanding.Territories[order.To]; 
@@ -45,7 +45,7 @@ end end end
 						addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, "Updated income", {}, {terrMod}, {}, {WL.IncomeMod.Create(order.PlayerID, IncomeAmount, "You have captured an army cache")}));	
 					 end		        				
 end end end end 
-
+print(3);
 
 
 end      
@@ -53,7 +53,7 @@ end
 
 
 function Server_AdvanceTurn_End(game, addNewOrder)
-   	
+   	print(4)
 	local pTable = {}; -- table of player territories
 	local t = {};
 	
