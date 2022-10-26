@@ -107,7 +107,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
  	     for key,val in pairs(structs) do
 		print(structs);
 		print(WL.StructureType.MercenaryCamp);
-   	      if structs == WL.StructureType.MercenaryCamp then
+   	      if key == WL.StructureType.MercenaryCamp then
 		print(3);
     	      terr_has_merc_camp = true
    	 	end
