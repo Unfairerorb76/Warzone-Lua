@@ -169,6 +169,7 @@ if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.P
 end		
 
 end
+
 function Village(Game, addNewOrder, terrID)
 local list = {};
 					
@@ -191,10 +192,10 @@ local list = {};
 						table.insert(list, terrMod);
 						end
 						end
-					 end	
+					 end end
 				addNewOrder(WL.GameOrderEvent.Create(order.PlayerID,"new territory",{}, list), true);			
 					   
-end
+end 
 
 function getTableLength(t)
 	local a = 0;
