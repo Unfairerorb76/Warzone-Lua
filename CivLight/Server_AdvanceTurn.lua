@@ -101,6 +101,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 		table.insert(list, terrMod);
 		print(game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr].Structures);
                 if (game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr].Structures == WL.StructureType.MercenaryCamp) then
+		 print(10000);
 		 playerID = p;
 		  Village(game, addNewOrder, randomNeutralTerr, playerID);
 		end			
