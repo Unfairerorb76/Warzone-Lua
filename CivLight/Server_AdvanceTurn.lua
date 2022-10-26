@@ -100,7 +100,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
     		 terrMod.SetArmiesTo = Mod.Settings.SetArmiesTo; -- you can leave this out, if this field is nill it will not change anything to the army count
 		table.insert(list, terrMod);
 		
-                if (game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr].Structures[WL.StructureType.MercenaryCamp] ~= nil) then
+                if (game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr].Structures == WL.StructureType.MercenaryCamp) then
 		 print(10000);
 		 playerID = p;
 		  Village(game, addNewOrder, randomNeutralTerr, playerID);
