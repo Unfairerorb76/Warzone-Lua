@@ -73,9 +73,9 @@ for playerID, _ in pairs(game.Game.PlayingPlayers) do
 	                 t[playerID] = {};
 		         pTable[playerID] = {};
 end
-
+print(Mod.Settings.OnlyBaseNeutral);
 if (Mod.Settings.OnlyBaseNeutrals == false) then
-						
+   					
 	for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
 		if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == false) then
  		 for connID, _ in pairs(game.Map.Territories[terrID].ConnectedTo) do
