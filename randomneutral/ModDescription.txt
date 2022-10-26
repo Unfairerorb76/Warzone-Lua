@@ -1,3 +1,0 @@
-Allows players to gain a free neutral every turn.
-
-The game creator can configure how many neutrals a player will get per turn
