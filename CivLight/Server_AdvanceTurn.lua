@@ -8,7 +8,6 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
                 if attackedTerr.Structures ~= nil then 
                     if attackedTerr.Structures[WL.StructureType.MercenaryCamp] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked -- so now you can do what you want :p
       for terrID, territory in pairs(game.Map.Territories[order.To].ConnectedTo) do
-					print(game.ServerGame.LatestTurnStanding.Territories[terrID]);
 					playerID = order.PlayerID;
 					Village(game, addNewOrder, terrID, playerID);
 					end end
@@ -35,7 +34,7 @@ end end end
 					if Mod.Settings.FixedArmies == false then
 						
 						local IncomeAmount = Mod.Settings.Armies;
-						print(IncomeAmount);
+						
 						IncomeAmount = (IncomeAmount + math.random(-Mod.Settings.Luck, Mod.Settings.Luck));
 
 					        local terrMod = WL.TerritoryModification.Create(order.To);
