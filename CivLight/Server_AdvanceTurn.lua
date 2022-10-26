@@ -8,8 +8,8 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
             print(1);
                 if attackedTerr.Structures ~= nil then 
                     if attackedTerr.Structures[WL.StructureType.MercenaryCamp] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked -- so now you can do what you want :p
-
-					Village(Game, addNewOrder, terrID);
+                                        local place = order.to;
+					Village(Game, addNewOrder, terrID, place);
 					end
 				
 				    
@@ -171,10 +171,10 @@ end
 
 end
 
-function Village(Game, addNewOrder, terrID)
+function Village(Game, addNewOrder, terrID, place)
 					local list = {};
 					
-					for terrID, territory in pairs(game.Map.Territories[order.To].ConnectedTo) do
+					for terrID, territory in pairs(game.Map.Territories[place].ConnectedTo) do
 					  if (Mod.Settings.ONeutrals == true) then	
 					    if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == true) then
 						local terrMod = WL.TerritoryModification.Create(terrID);
