@@ -10,7 +10,8 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
                     if attackedTerr.Structures[WL.StructureType.MercenaryCamp] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked -- so now you can do what you want :p
       for terrID, territory in pairs(game.Map.Territories[order.To].ConnectedTo) do
 					print(game.ServerGame.LatestTurnStanding.Territories[terrID]);
-					Village(game, addNewOrder, terrID);
+					playerID = order.PlayerID
+					Village(game, addNewOrder, terrID, playerID);
 					end end
 				
 				    
@@ -172,14 +173,14 @@ end
 
 end
 
-function Village(game, addNewOrder, terrID)
+function Village(game, addNewOrder, terrID, playerID)
 					local list = {};
 					print(game.ServerGame.LatestTurnStanding.Territories[terrID]);
 					
 					  if (Mod.Settings.ONeutrals == true) then	
 					    if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == true) then
 						local terrMod = WL.TerritoryModification.Create(terrID);
-						terrMod.SetOwnerOpt = order.PlayerID;
+						terrMod.SetOwnerOpt = playerID;
 						terrMod.SetArmiesTo = Mod.Settings.Armies;
 						table.insert(list, terrMod);
 					    end
@@ -187,15 +188,15 @@ function Village(game, addNewOrder, terrID)
 					 if (Mod.Settings.ONeutrals == false) then
 					     
 						local terrMod = WL.TerritoryModification.Create(terrID);
-						 if (game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID ~= order.PlayerID) then
-						terrMod.SetOwnerOpt = order.PlayerID;
+						 if (game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID ~= playerID) then
+						terrMod.SetOwnerOpt = playerID;
 						terrMod.SetArmiesTo = Mod.Settings.Armies;
 						if terrMod ~= nil then
 						table.insert(list, terrMod);
 						end
 						end
 					 end
-				addNewOrder(WL.GameOrderEvent.Create(order.PlayerID,"new territory",{}, list), true);			
+				addNewOrder(WL.GameOrderEvent.Create(playerID,"new territory",{}, list), true);			
 					   
 end 
 
