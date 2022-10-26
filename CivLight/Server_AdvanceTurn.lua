@@ -8,7 +8,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
             print(1);
                 if attackedTerr.Structures ~= nil then 
                     if attackedTerr.Structures[WL.StructureType.MercenaryCamp] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked -- so now you can do what you want :p
-                                        local place = game.Map.Territories[place].ConnectedTo
+                                        local place = game.Map.Territories[order.to].ConnectedTo
 					Village(Game, addNewOrder, terrID, place);
 					end
 				
