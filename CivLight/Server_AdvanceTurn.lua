@@ -103,7 +103,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 		table.insert(list, terrMod);
 		print(game.ServerGame.LatestTurnStanding.Territories[terrID].Structures);
                 if (game.ServerGame.LatestTurnStanding.Territories[terrMod].Structures == WL.StructureType.MercenaryCamp)
-		  playerID = p;
+		 local playerID = p;
 		  Village(game, addNewOrder, terrID, playerID);
 		end			
 		end --   addNewOrder(WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}), true));
