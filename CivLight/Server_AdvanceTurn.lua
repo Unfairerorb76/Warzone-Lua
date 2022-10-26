@@ -8,35 +8,11 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 
                 if attackedTerr.Structures ~= nil then 
                     if attackedTerr.Structures[WL.StructureType.MercenaryCamp] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked -- so now you can do what you want :p
-					
-					local list = {};
-					
-					for terrID, territory in pairs(game.Map.Territories[order.To].ConnectedTo) do
-					  if (Mod.Settings.ONeutrals == true) then	
-					    if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == true) then
-						local terrMod = WL.TerritoryModification.Create(terrID);
-						terrMod.SetOwnerOpt = order.PlayerID;
-						terrMod.SetArmiesTo = Mod.Settings.Armies;
-						table.insert(list, terrMod);
-					    end
-					 end
-					 if (Mod.Settings.ONeutrals == false) then
-					     
-						local terrMod = WL.TerritoryModification.Create(terrID);
-						 if (game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID ~= order.PlayerID) then
-						terrMod.SetOwnerOpt = order.PlayerID;
-						terrMod.SetArmiesTo = Mod.Settings.Armies;
-						if terrMod ~= nil then
-						table.insert(list, terrMod);
-						end
-						end
-								
-					   
+					Village(Game, addNewOrder, terrID);
 					end
 				
-				     end	
-				addNewOrder(WL.GameOrderEvent.Create(order.PlayerID,"new territory",{}, list), true);
-end end end end 
+				    
+end end end 
 
  if order.proxyType == "GameOrderAttackTransfer" then 
           if orderResult.IsSuccessful then 
@@ -193,7 +169,32 @@ if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.P
 end		
 
 end
- 
+function Village(Game, addNewOrder, terrID)
+local list = {};
+					
+					for terrID, territory in pairs(game.Map.Territories[order.To].ConnectedTo) do
+					  if (Mod.Settings.ONeutrals == true) then	
+					    if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == true) then
+						local terrMod = WL.TerritoryModification.Create(terrID);
+						terrMod.SetOwnerOpt = order.PlayerID;
+						terrMod.SetArmiesTo = Mod.Settings.Armies;
+						table.insert(list, terrMod);
+					    end
+					 end
+					 if (Mod.Settings.ONeutrals == false) then
+					     
+						local terrMod = WL.TerritoryModification.Create(terrID);
+						 if (game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID ~= order.PlayerID) then
+						terrMod.SetOwnerOpt = order.PlayerID;
+						terrMod.SetArmiesTo = Mod.Settings.Armies;
+						if terrMod ~= nil then
+						table.insert(list, terrMod);
+						end
+						end
+					 end	
+				addNewOrder(WL.GameOrderEvent.Create(order.PlayerID,"new territory",{}, list), true);			
+					   
+end
 
 function getTableLength(t)
 	local a = 0;
