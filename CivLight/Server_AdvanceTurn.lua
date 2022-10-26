@@ -10,7 +10,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
                     if attackedTerr.Structures[WL.StructureType.MercenaryCamp] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked -- so now you can do what you want :p
       for terrID, territory in pairs(game.Map.Territories[order.To].ConnectedTo) do
 					print(game.ServerGame.LatestTurnStanding.Territories[terrID]);
-					playerID = order.PlayerID
+					playerID = order.PlayerID;
 					Village(game, addNewOrder, terrID, playerID);
 					end end
 				
@@ -102,8 +102,8 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
     		 terrMod.SetArmiesTo = Mod.Settings.SetArmiesTo; -- you can leave this out, if this field is nill it will not change anything to the army count
 		table.insert(list, terrMod);
 		print(game.ServerGame.LatestTurnStanding.Territories[terrID].Structures);
-                if (game.ServerGame.LatestTurnStanding.Territories[terrMod].Structures == WL.StructureType.MercenaryCamp)
-		 local playerID = p;
+                if (game.ServerGame.LatestTurnStanding.Territories[terrMod].Structures == WL.StructureType.MercenaryCamp) then
+		 playerID = p;
 		  Village(game, addNewOrder, terrID, playerID);
 		end			
 		end --   addNewOrder(WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}), true));
