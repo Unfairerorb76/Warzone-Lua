@@ -102,7 +102,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 		print(game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr].Structures);
                 if (game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr].Structures == WL.StructureType.MercenaryCamp) then
 		 playerID = p;
-		  Village(game, addNewOrder, terrID, playerID);
+		  Village(game, addNewOrder, randomNeutralTerr, playerID);
 		end			
 		end --   addNewOrder(WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}), true));
 			
