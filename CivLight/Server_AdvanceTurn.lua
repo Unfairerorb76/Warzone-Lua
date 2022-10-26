@@ -103,9 +103,9 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 	     structs = game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr].Structures;
 	     terr_has_merc_camp = false;
 	     if structs ~= nil then
-		print(1);
+		print(structs);
  	     for key,val in pairs(structs) do
-		print(2);
+		print(val);
    	      if val == WL.StructureType.MercenaryCamp then
 		print(3);
     	      terr_has_merc_camp = true
