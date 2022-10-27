@@ -91,8 +91,7 @@ if terr_has_army_cache then
 end	
 end		 
 				
-		end --   addNewOrder(WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}), true));
-			
+		end --   addNewOrder(WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}), true));	
     		table.remove(arr, rand);
   		end
 		table.insert(pTable[p], WL.GameOrderEvent.Create(p,"new territory",{}, list));
