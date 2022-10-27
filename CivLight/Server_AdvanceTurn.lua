@@ -83,7 +83,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
     	      terr_has_merc_camp = true
 	      end					
 	     if key == WL.StructureType.ArmyCache then
-	      terr_has_army_cache = false
+	      terr_has_army_cache = true
    	      end
  	 end
 end
@@ -155,7 +155,7 @@ if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.P
     	      terr_has_merc_camp = true
 	      end					
 	     if key == WL.StructureType.ArmyCache then
-	      terr_has_army_cache = false
+	      terr_has_army_cache = true
    	      end
  	 end
 end
