@@ -73,8 +73,8 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 		table.insert(list, terrMod);
 		
 	     structs = game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr].Structures;
-	     terr_has_merc_camp = false;
-	     terr_has_army_cache = false; 
+	    local terr_has_merc_camp = false;
+	     local terr_has_army_cache = false; 
 	     if structs ~= nil then
 	     
  	     for key,val in pairs(structs) do
@@ -145,8 +145,8 @@ if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.P
         	 table.insert(list, terrMod);
 					
      structs = game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr].Structures;
-	     terr_has_merc_camp = false;
-	     terr_has_army_cache = false; 
+	     local terr_has_merc_camp = false;
+	     local terr_has_army_cache = false; 
 	     if structs ~= nil then
 	     
  	     for key,val in pairs(structs) do
