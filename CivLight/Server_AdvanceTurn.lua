@@ -63,33 +63,33 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
     		local randomNeutralTerr = arr[rand]; --picks random neutral then gives it too player
     		if randomNeutralTerr == nill then break; end
     		if bordersOpponent(game, t, p, terrID) then
-    		 local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);   
-     		 terrMod.SetOwnerOpt = p;
-    		 terrMod.SetArmiesTo = Mod.Settings.SetArmiesTo; -- you can leave this out, if this field is nill it will not change anything to the army count
-		table.insert(list, terrMod);
+    		 	local terrMod = WL.TerritoryModification.Create(randomNeutralTerr);   
+     		 	terrMod.SetOwnerOpt = p;
+    		 	terrMod.SetArmiesTo = Mod.Settings.SetArmiesTo; -- you can leave this out, if this field is nill it will not change anything to the army count
+			table.insert(list, terrMod);
 		
-	        structs = game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr].Structures;
-	    	local terr_has_merc_camp = false;
-	     	local terr_has_army_cache = false; 
-	     	if structs ~= nil then
- 	     		for key,val in pairs(structs) do
-   	     		if key == WL.StructureType.MercenaryCamp then
-    	     			terr_has_merc_camp = true
-	     		end					
-	     		if key == WL.StructureType.ArmyCache then
-	     		 	terr_has_army_cache = true
-   	      		end
- 			end
-		
-if terr_has_merc_camp then
-  playerID = p;					
-  Village(game, addNewOrder, randomNeutralTerr, playerID);
-end	
-if terr_has_army_cache then
-  playerID = p;					
-  ArmyCache(game, addNewOrder, randomNeutralTerr, playerID);
-end	
-end		 
+	        	structs = game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr].Structures;
+	    		local terr_has_merc_camp = false;
+	     		--local terr_has_army_cache = false; 
+	     		if structs ~= nil then
+ 	     			for key,val in pairs(structs) do
+   	     				if key == WL.StructureType.MercenaryCamp then
+    	     					terr_has_merc_camp = true
+	     				end
+							
+	     				--if key == WL.StructureType.ArmyCache then
+	     		 		--	terr_has_army_cache = true
+   	      				--end
+ 				end
+				if terr_has_merc_camp then
+  					playerID = p;					
+  					Village(game, addNewOrder, randomNeutralTerr, playerID);
+				end	
+				--if terr_has_army_cache then
+  				--	playerID = p;					
+  				--	ArmyCache(game, addNewOrder, randomNeutralTerr, playerID);
+				--end	
+			end		 
 				
 		end --   addNewOrder(WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}), true));	
     		table.remove(arr, rand);
@@ -139,7 +139,7 @@ if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.P
 					
      structs = game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr].Structures;
 	     local terr_has_merc_camp = false;
-	     local terr_has_army_cache = false; 
+	     --local terr_has_army_cache = false; 
 	     if structs ~= nil then
 	     
  	     for key,val in pairs(structs) do
@@ -147,19 +147,19 @@ if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.P
    	      if key == WL.StructureType.MercenaryCamp then
     	      terr_has_merc_camp = true
 	      end					
-	     if key == WL.StructureType.ArmyCache then
-	      terr_has_army_cache = true
-   	      end
+	     --if key == WL.StructureType.ArmyCache then
+	      --terr_has_army_cache = true
+   	      --end
  	 end
 end
 if terr_has_merc_camp then
   playerID = p;					
   Village(game, addNewOrder, randomNeutralTerr, playerID);
 end	
-if terr_has_army_cache then
-  playerID = p;					
-  ArmyCache(game, addNewOrder, randomNeutralTerr, playerID);
-end		
+--if terr_has_army_cache then
+  --playerID = p;					
+  --ArmyCache(game, addNewOrder, randomNeutralTerr, playerID);
+--end		
 					
 		end --   addNewOrder(WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}), true));
 		
