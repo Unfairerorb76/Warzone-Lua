@@ -194,7 +194,7 @@ end
 function Village(game, addNewOrder, terrID, playerID)
 					local list = {};
 				    
-					print(playerID);
+					print(terrID);
 					  if (Mod.Settings.ONeutrals == true) then	
 					    if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == true) then
 						local terrMod = WL.TerritoryModification.Create(terrID);
