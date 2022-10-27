@@ -79,8 +79,8 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 	     		if key == WL.StructureType.ArmyCache then
 	     		 	terr_has_army_cache = true
    	      		end
- 			 end
-		end
+ 			end
+		
 if terr_has_merc_camp then
   playerID = p;					
   Village(game, addNewOrder, randomNeutralTerr, playerID);
@@ -89,7 +89,7 @@ if terr_has_army_cache then
   playerID = p;					
   ArmyCache(game, addNewOrder, randomNeutralTerr, playerID);
 end	
-		 
+end		 
 				
 		end --   addNewOrder(WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}), true));
 			
