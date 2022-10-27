@@ -7,43 +7,16 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
           local attackedTerr = game.ServerGame.LatestTurnStanding.Territories[order.To]; 
                 if attackedTerr.Structures ~= nil then 
                     if attackedTerr.Structures[WL.StructureType.MercenaryCamp] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked -- so now you can do what you want :p
-      
 			Village(game, addNewOrder, order.To, order.PlayerID)
-		    end 
-				
-				    
+		    end 		    
 end end end 
 
  if order.proxyType == "GameOrderAttackTransfer" then 
           if orderResult.IsSuccessful then 
           local TransferredTerr = game.ServerGame.LatestTurnStanding.Territories[order.To]; 
-          local structures = TransferredTerr.Structures
                 if TransferredTerr.Structures ~= nil then 
                     if TransferredTerr.Structures[WL.StructureType.ArmyCache] ~= nil then -- there is a army cache on the territory that was successfully attacked -- so now you can do what you want :p
-					if Mod.Settings.FixedArmies == true then	 
-					        local IncomeAmount = Mod.Settings.Armies;
-					        local terrMod = WL.TerritoryModification.Create(order.To);
-					
-						structures = {}
-						structures[WL.StructureType.ArmyCache] = -1;					
-					        terrMod.AddStructuresOpt = structures;
-					
-						addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, "Updated income", {}, {terrMod}, {}, {WL.IncomeMod.Create(order.PlayerID, IncomeAmount, "You have captured an army cache")}));	
-					 end
-					if Mod.Settings.FixedArmies == false then
-						
-						local IncomeAmount = Mod.Settings.Armies;
-						
-						IncomeAmount = (IncomeAmount + math.random(-Mod.Settings.Luck, Mod.Settings.Luck));
-
-					        local terrMod = WL.TerritoryModification.Create(order.To);
-					
-						structures = {}
-						structures[WL.StructureType.ArmyCache] = -1;					
-					        terrMod.AddStructuresOpt = structures;
-					
-						addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, "Updated income", {}, {terrMod}, {}, {WL.IncomeMod.Create(order.PlayerID, IncomeAmount, "You have captured an army cache")}));	
-					 end		        				
+			ArmyCache(game, addNewOrder, order.To, order.PlayerID)	        				
 end end end end 
 
 
@@ -101,22 +74,27 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 		
 	     structs = game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr].Structures;
 	     terr_has_merc_camp = false;
+	     terr_has_army_cache = false; 
 	     if structs ~= nil then
-		
+	     
  	     for key,val in pairs(structs) do
 	
    	      if key == WL.StructureType.MercenaryCamp then
-		
     	      terr_has_merc_camp = true
-   	 	end
+	      end					
+	     if key == WL.StructureType.ArmyCache then
+	      terr_has_army_cache = true 
+   	      end
  	 end
 end
 if terr_has_merc_camp then
-  
-  playerID = p;
-						
+  playerID = p;					
   Village(game, addNewOrder, randomNeutralTerr, playerID);
-end				
+end	
+if terr_has_army_cache then
+  playerID = p;					
+  ArmyCache(game, addNewOrder, randomNeutralTerr, playerID);
+end	
 		 
 				
 		end --   addNewOrder(WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}), true));
@@ -165,6 +143,31 @@ if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.P
      		 terrMod.SetOwnerOpt = p;
     		 terrMod.SetArmiesTo = Mod.Settings.SetArmiesTo; -- you can leave this out, if this field is nill it will not change anything to the army count
         	 table.insert(list, terrMod);
+					
+     structs = game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr].Structures;
+	     terr_has_merc_camp = false;
+	     terr_has_army_cache = false; 
+	     if structs ~= nil then
+	     
+ 	     for key,val in pairs(structs) do
+	
+   	      if key == WL.StructureType.MercenaryCamp then
+    	      terr_has_merc_camp = true
+	      end					
+	     if key == WL.StructureType.ArmyCache then
+	      terr_has_army_cache = true 
+   	      end
+ 	 end
+end
+if terr_has_merc_camp then
+  playerID = p;					
+  Village(game, addNewOrder, randomNeutralTerr, playerID);
+end	
+if terr_has_army_cache then
+  playerID = p;					
+  ArmyCache(game, addNewOrder, randomNeutralTerr, playerID);
+end		
+					
 		end --   addNewOrder(WL.GameOrderEvent.Create(p,"new territory",{},{terrMod}), true));
 		
     		table.remove(arr, rand);
@@ -190,10 +193,28 @@ end
 
 end
 
+function ArmyCache(game, addNewOrder, terrID, playerID)
+	
+	local structures = game.ServerGame.LatestTurnStanding.Territories[terrID].Structures
+	local IncomeAmount = Mod.Settings.Armies;
+	local terrMod = WL.TerritoryModification.Create(terrID);
+	
+	structures = {}
+	structures[WL.StructureType.ArmyCache] = -1;					
+	terrMod.AddStructuresOpt = structures;
+	
+					if Mod.Settings.FixedArmies == true then	 
+						addNewOrder(WL.GameOrderEvent.Create(playerID, "Updated income", {}, {terrMod}, {}, {WL.IncomeMod.Create(playerID, IncomeAmount, "You have captured an army cache")}));	
+					 end
+					if Mod.Settings.FixedArmies == false then
+						IncomeAmount = (IncomeAmount + math.random(-Mod.Settings.Luck, Mod.Settings.Luck));
+						addNewOrder(WL.GameOrderEvent.Create(playerID, "Updated income", {}, {terrMod}, {}, {WL.IncomeMod.Create(playerID, IncomeAmount, "You have captured an army cache")}));	
+					 end						   
+end 
+
 function Village(game, addNewOrder, terrID, playerID)
 					local list = {};
 				    
-					
 				for terrID, territory in pairs(game.Map.Territories[terrID].ConnectedTo) do
 					  if (Mod.Settings.ONeutrals == true) then	
 					    if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == true) then
@@ -214,8 +235,7 @@ function Village(game, addNewOrder, terrID, playerID)
 						end
 						end
 					 end end 
-				addNewOrder(WL.GameOrderEvent.Create(playerID,"new territory",{}, list), true);			
-					   
+				addNewOrder(WL.GameOrderEvent.Create(playerID,"new territory",{}, list), true);						   
 end 
 
 function getTableLength(t)
