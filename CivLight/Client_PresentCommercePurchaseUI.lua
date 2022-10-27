@@ -1,7 +1,7 @@
-function Client_PresentCommercePurchaseUI(rootParent, setMaxSize, setScrollable, game, close)
+function Client_PresentCommercePurchaseUI(rootParent, setScrollable, game, close)
   	Game = game;
 
-	setMaxSize(450, 250);
+
 
 	vert = UI.CreateVerticalLayoutGroup(rootParent);
 
