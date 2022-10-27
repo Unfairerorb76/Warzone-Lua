@@ -194,10 +194,11 @@ end
 function Village(game, addNewOrder, terrID, playerID)
 					local list = {};
 				    
-					print(terrID);
+					print(game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral);
 					  if (Mod.Settings.ONeutrals == true) then	
 					    if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == true) then
 						local terrMod = WL.TerritoryModification.Create(terrID);
+						print(100000);
 						terrMod.SetOwnerOpt = playerID;
 						terrMod.SetArmiesTo = Mod.Settings.Armies;
 						table.insert(list, terrMod);
@@ -209,6 +210,7 @@ function Village(game, addNewOrder, terrID, playerID)
 						 if (game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID ~= playerID) then
 						terrMod.SetOwnerOpt = playerID;
 						terrMod.SetArmiesTo = Mod.Settings.Armies;
+						print(200000);
 						if terrMod ~= nil then
 						table.insert(list, terrMod);
 						end
