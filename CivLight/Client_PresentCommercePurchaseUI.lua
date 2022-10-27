@@ -1,27 +1,16 @@
 require('Utilities');
 require('WLUtilities');
 
-function Client_PresentMenuUI(rootParent, setMaxSize, setScrollable, game)
+function Client_PresentCommercePurchaseUI(rootParent, setScrollable, game)
 	Game = game;
 
-	setMaxSize(450, 250);
+	
 
 	vert = UI.CreateVerticalLayoutGroup(rootParent);
-
-	if (game.Settings.CommerceGame == false) then
-		UI.CreateLabel(vert).SetText("This mod only works in commerce games.  This isn't a commerce game.");
-		return;
-	end
-
-	if (game.Us == nil or game.Us.State ~= WL.GamePlayerState.Playing) then
-		UI.CreateLabel(vert).SetText("You cannot purchase neutrals since you're not in the game");
-		return;
-	end
 
 	local row1 = UI.CreateHorizontalLayoutGroup(vert);
 	UI.CreateLabel(row1).SetText("Purchase territory: ");
 	TargetTerritoryBtn = UI.CreateButton(row1).SetText("Select territory...").SetOnClick(TargetTerritoryClicked);
-
 
 	CostLabel = UI.CreateLabel(vert).SetText(" ");
 	
