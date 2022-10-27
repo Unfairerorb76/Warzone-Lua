@@ -5,10 +5,6 @@ function Client_PresentCommercePurchaseUI(rootParent, setScrollable, game, close
 
 	vert = UI.CreateVerticalLayoutGroup(rootParent);
 
-	if (game.Game.Settings.CommerceGame == false) then
-		UI.CreateLabel(vert).SetText("This mod only works in commerce games.  This isn't a commerce game.");
-		return;
-	end
 
 	if (game.Us == nil or game.Us.State ~= WL.GamePlayerState.Playing) then
 		UI.CreateLabel(vert).SetText("You cannot purchase neutrals since you're not in the game");
