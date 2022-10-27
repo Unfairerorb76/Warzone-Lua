@@ -35,9 +35,6 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 	
 	local list = {};
 
-	
-	
-  
 if (Mod.Settings.OnlyBaseNeutrals == nil) then
       Mod.Settings.OnlyBaseNeutrals = false; end
 	
@@ -53,8 +50,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
  		 for connID, _ in pairs(game.Map.Territories[terrID].ConnectedTo) do
 
 			if (game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID == WL.PlayerID.Neutral) then
-				table.insert(t[game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID], connID);
-						
+				table.insert(t[game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID], connID);		
 			end
 		 end 
 		end 
@@ -72,21 +68,19 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
     		 terrMod.SetArmiesTo = Mod.Settings.SetArmiesTo; -- you can leave this out, if this field is nill it will not change anything to the army count
 		table.insert(list, terrMod);
 		
-	     structs = game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr].Structures;
-	    local terr_has_merc_camp = false;
-	     local terr_has_army_cache = false; 
-	     if structs ~= nil then
-	     
- 	     for key,val in pairs(structs) do
-	
-   	      if key == WL.StructureType.MercenaryCamp then
-    	      terr_has_merc_camp = true
-	      end					
-	     if key == WL.StructureType.ArmyCache then
-	      terr_has_army_cache = true
-   	      end
- 	 end
-end
+	        structs = game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr].Structures;
+	    	local terr_has_merc_camp = false;
+	     	local terr_has_army_cache = false; 
+	     	if structs ~= nil then
+ 	     		for key,val in pairs(structs) do
+   	     		if key == WL.StructureType.MercenaryCamp then
+    	     			terr_has_merc_camp = true
+	     		end					
+	     		if key == WL.StructureType.ArmyCache then
+	     		 	terr_has_army_cache = true
+   	      		end
+ 			 end
+		end
 if terr_has_merc_camp then
   playerID = p;					
   Village(game, addNewOrder, randomNeutralTerr, playerID);
@@ -203,7 +197,6 @@ function ArmyCache(game, addNewOrder, terrID, playerID)
 	structures[WL.StructureType.ArmyCache] = -1;					
 	terrMod.AddStructuresOpt = structures;
 					if Mod.Settings.FixedArmies == true then	 
-						
 						addNewOrder(WL.GameOrderEvent.Create(playerID, "Updated income", {}, {terrMod}, {}, {WL.IncomeMod.Create(playerID, IncomeAmount, "You have captured an army cache")}));
 					 end
 					if Mod.Settings.FixedArmies == false then
