@@ -195,27 +195,18 @@ end
 
 function ArmyCache(game, addNewOrder, terrID, playerID)
 	
+	local structures = game.ServerGame.LatestTurnStanding.Territories[terrID].Structures
+	local IncomeAmount = Mod.Settings.Armies;
+	local terrMod = WL.TerritoryModification.Create(terrID);
 	
-	print(1);
+	structures = {}
+	structures[WL.StructureType.ArmyCache] = -1;					
+	terrMod.AddStructuresOpt = structures;
 					if Mod.Settings.FixedArmies == true then	 
 						
-						local structures = game.ServerGame.LatestTurnStanding.Territories[terrID].Structures
-						local IncomeAmount = Mod.Settings.Armies;
-						local terrMod = WL.TerritoryModification.Create(terrID);
-	
-						structures = {}
-						structures[WL.StructureType.ArmyCache] = -1;					
-						terrMod.AddStructuresOpt = structures;
 						addNewOrder(WL.GameOrderEvent.Create(playerID, "Updated income", {}, {terrMod}, {}, {WL.IncomeMod.Create(playerID, IncomeAmount, "You have captured an army cache")}));
 					 end
 					if Mod.Settings.FixedArmies == false then
-						local structures = game.ServerGame.LatestTurnStanding.Territories[terrID].Structures
-						local IncomeAmount = Mod.Settings.Armies;
-						local terrMod = WL.TerritoryModification.Create(terrID);
-	
-						structures = {}
-						structures[WL.StructureType.ArmyCache] = -1;					
-						terrMod.AddStructuresOpt = structures;
 						IncomeAmount = (IncomeAmount + math.random(-Mod.Settings.Luck, Mod.Settings.Luck));
 						addNewOrder(WL.GameOrderEvent.Create(playerID, "Updated income", {}, {terrMod}, {}, {WL.IncomeMod.Create(playerID, IncomeAmount, "You have captured an army cache")}));	
 					 end						   
