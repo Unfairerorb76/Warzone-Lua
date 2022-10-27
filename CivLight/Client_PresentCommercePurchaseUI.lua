@@ -5,7 +5,7 @@ function Client_PresentCommercePurchaseUI(rootParent, setScrollable, game, close
 
 	vert = UI.CreateVerticalLayoutGroup(rootParent);
 
-	if (game.Settings.CommerceGame == false) then
+	if (Game.Settings.CommerceGame == false) then
 		UI.CreateLabel(vert).SetText("This mod only works in commerce games.  This isn't a commerce game.");
 		return;
 	end
