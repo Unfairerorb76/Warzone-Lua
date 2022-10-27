@@ -1,3 +1,6 @@
+require('Utilities');
+require('WLUtilities');
+
 function Client_PresentCommercePurchaseUI(rootParent, setScrollable, game, close)
   	Game = game;
 
