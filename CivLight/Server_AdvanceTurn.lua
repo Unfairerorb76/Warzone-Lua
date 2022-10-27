@@ -54,7 +54,7 @@ end
 
 
 function Server_AdvanceTurn_End(game, addNewOrder)
-   	print(4)
+   	
 	local pTable = {}; -- table of player territories
 	local t = {};
 	
@@ -103,18 +103,17 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
 	     structs = game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr].Structures;
 	     terr_has_merc_camp = false;
 	     if structs ~= nil then
-		print(structs);
+		
  	     for key,val in pairs(structs) do
-		print(structs);
-		print(WL.StructureType.MercenaryCamp);
+	
    	      if key == WL.StructureType.MercenaryCamp then
-		print(3);
+		
     	      terr_has_merc_camp = true
    	 	end
  	 end
 end
 if terr_has_merc_camp then
-  print(10000);
+  
   playerID = p;
   Village(game, addNewOrder, randomNeutralTerr, playerID);
 end				
@@ -193,7 +192,7 @@ end
 
 function Village(game, addNewOrder, terrID, playerID)
 					local list = {};
-					print(game.ServerGame.LatestTurnStanding.Territories[terrID]);
+				        print(1);
 					
 					  if (Mod.Settings.ONeutrals == true) then	
 					    if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == true) then
