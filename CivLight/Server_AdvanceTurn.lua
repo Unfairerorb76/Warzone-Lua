@@ -196,7 +196,7 @@ end
 function ArmyCache(game, addNewOrder, terrID, playerID)
 	
 	
-	
+	print(1);
 					if Mod.Settings.FixedArmies == true then	 
 						
 						local structures = game.ServerGame.LatestTurnStanding.Territories[terrID].Structures
