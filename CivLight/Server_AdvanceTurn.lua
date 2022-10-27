@@ -7,10 +7,9 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
           local attackedTerr = game.ServerGame.LatestTurnStanding.Territories[order.To]; 
                 if attackedTerr.Structures ~= nil then 
                     if attackedTerr.Structures[WL.StructureType.MercenaryCamp] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked -- so now you can do what you want :p
-      for terrID, territory in pairs(game.Map.Territories[order.To].ConnectedTo) do
-					playerID = order.PlayerID;
-					--Village(game, addNewOrder, terrID, playerID);
-					end end
+      
+			Village(game, addNewOrder, order.To, order.PlayerID)
+		    end 
 				
 				    
 end end end 
@@ -194,11 +193,11 @@ end
 function Village(game, addNewOrder, terrID, playerID)
 					local list = {};
 				    
-					print(game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral);
+					
+				for terrID, territory in pairs(game.Map.Territories[terrID].ConnectedTo) do
 					  if (Mod.Settings.ONeutrals == true) then	
 					    if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == true) then
 						local terrMod = WL.TerritoryModification.Create(terrID);
-						print(100000);
 						terrMod.SetOwnerOpt = playerID;
 						terrMod.SetArmiesTo = Mod.Settings.Armies;
 						table.insert(list, terrMod);
@@ -210,12 +209,11 @@ function Village(game, addNewOrder, terrID, playerID)
 						 if (game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID ~= playerID) then
 						terrMod.SetOwnerOpt = playerID;
 						terrMod.SetArmiesTo = Mod.Settings.Armies;
-						print(200000);
 						if terrMod ~= nil then
 						table.insert(list, terrMod);
 						end
 						end
-					 end
+					 end end 
 				addNewOrder(WL.GameOrderEvent.Create(playerID,"new territory",{}, list), true);			
 					   
 end 
