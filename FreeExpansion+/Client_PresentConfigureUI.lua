@@ -20,6 +20,10 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 local horz1 = UI.CreateHorizontalLayoutGroup(vert);  --not used
 local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for reference
 	
+	UI.CreateLabel(vert).SetText('only base neutral armies and less shall be claimed');
+        booleanInputField = UI.CreateCheckBox(vert)        
+                .SetIsChecked(initalcheckbox);
+	
 	UI.CreateLabel(vert).SetText('amount of neutrals a player shall gain each turn');
     numberInputField = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
@@ -32,9 +36,5 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
 		.SetSliderMaxValue(10)
 		.SetValue(initialValueArmies); 
  
-        UI.CreateLabel(vert).SetText('only base neutral armies and less shall be claimed');
-        booleanInputField = UI.CreateCheckBox(vert)        
-                .SetIsChecked(initalcheckbox);
-                
-
+        
 end
