@@ -10,9 +10,11 @@ UI.CreateLabel(vert).SetText('amount of armies with each claimed territory = ' .
 UI.CreateLabel(vert).SetText('Amount of Army Caches that spawned = ' .. Mod.Settings.NumOfACaches);
 UI.CreateLabel(vert).SetText('Amount of Armies with each claimed Cache = ' .. Mod.Settings.Armies);
 if (Mod.Settings.FixedArmies == false) then
-UI.CreateLabel(vert).SetText('Random +/- limit of: ' .. Mod.Settings.Luck);
+  UI.CreateLabel(vert).SetText('Random +/- limit of: ' .. Mod.Settings.Luck);
 end
+  
 if (game.Settings.CommerceGame == true) then
-UI.CreateLabel(vert).SetText('Amount of gold that a territory costs = ' .. Mod.Settings.terrCost);
+  UI.CreateLabel(vert).SetText('Amount of gold that a territory costs = ' .. Mod.Settings.terrCost);
 end
+  
 end
