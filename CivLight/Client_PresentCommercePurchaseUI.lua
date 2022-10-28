@@ -89,24 +89,24 @@ function PurchaseClicked()
 	local playerID = Game.Us.ID;
 	
 	local numTanksAlreadyHave = 0;
-	for _,ts in pairs(Game.LatestStanding.Territories) do
-		if (ts.OwnerPlayerID == playerID) then
-			numTanksAlreadyHave = numTanksAlreadyHave + NumTanksIn(ts.NumArmies);
+	for terrID,ts in pairs(Game.LatestStanding.Territories) do
+		if (terrID.OwnerPlayerID == WL.PlayerID.Neutral) then
+			--numTanksAlreadyHave = numTanksAlreadyHave + NumTanksIn(ts.NumArmies);
 		end
 	end
 
-	for _,order in pairs(Game.Orders) do
-		if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'BuyTank_')) then
-			numTanksAlreadyHave = numTanksAlreadyHave + 1;
-		end
-	end
+--	for _,order in pairs(Game.Orders) do
+--		if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'BuyTank_')) then
+--			numTanksAlreadyHave = numTanksAlreadyHave + 1;
+--		end
+--	end
 
-	if (numTanksAlreadyHave >= Mod.Settings.MaxTanks) then
-		UI.Alert("You already have " .. numTanksAlreadyHave .. " tanks, and you can only have " ..  Mod.Settings.MaxTanks);
-		return;
-	end
+--	if (numTanksAlreadyHave >= Mod.Settings.MaxTanks) then
+--		UI.Alert("You already have " .. numTanksAlreadyHave .. " tanks, and you can only have " ..  Mod.Settings.MaxTanks);
+--		return;
+--	end
 
-	Game.CreateDialog(PresentBuyTankDialog); 
+--	Game.CreateDialog(PresentBuyTankDialog); 
 	Close1();
 end
 
