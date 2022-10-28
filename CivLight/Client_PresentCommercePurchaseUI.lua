@@ -2,13 +2,18 @@ require('Utilities');
 require('WLUtilities');
 
 function Client_PresentCommercePurchaseUI(rootParent, setScrollable, game)
-	Game = game;
-
 	
 
-	vert = UI.CreateVerticalLayoutGroup(rootParent);
-
+	Close1 = close;
+	Game = game;
+	
+	local vert = UI.CreateVerticalLayoutGroup(rootParent);
 	local row1 = UI.CreateHorizontalLayoutGroup(vert);
+
+	UI.CreateLabel(row1).SetText("Territories are worth: " + Mod.Settings.terrCost + " gold");
+	UI.CreateButton(vert).SetText("Purchase a tank for " .. Mod.Settings.CostToBuyTank .. " gold").SetOnClick(PurchaseClicked);
+
+	
 	UI.CreateLabel(row1).SetText("Purchase territory: ");
 	TargetTerritoryBtn = UI.CreateButton(row1).SetText("Select territory...").SetOnClick(TargetTerritoryClicked);
 
