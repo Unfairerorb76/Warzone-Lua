@@ -1,4 +1,4 @@
-function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
+function Client_PresentConfigureUI(rootParent)
 	
 	print(1);
 	local initialValueConvert = Mod.Settings.NumToConvert;
