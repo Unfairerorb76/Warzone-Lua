@@ -10,16 +10,12 @@ function Client_PresentCommercePurchaseUI(rootParent, setScrollable, game)
 	local vert = UI.CreateVerticalLayoutGroup(rootParent);
 	local row1 = UI.CreateHorizontalLayoutGroup(vert);
 
-	UI.CreateLabel(row1).SetText("Territories are worth: " + Mod.Settings.terrCost + " gold");
-	UI.CreateButton(vert).SetText("Purchase a tank for " .. Mod.Settings.CostToBuyTank .. " gold").SetOnClick(PurchaseClicked);
+	UI.CreateLabel(row1).SetText("Territories are worth: " .. Mod.Settings.terrCost .. " gold");
+	UI.CreateButton(vert).SetText("Select a territory).SetOnClick(PurchaseClicked);
 
 	
 	UI.CreateLabel(row1).SetText("Purchase territory: ");
-	TargetTerritoryBtn = UI.CreateButton(row1).SetText("Select territory...").SetOnClick(TargetTerritoryClicked);
-
-	CostLabel = UI.CreateLabel(vert).SetText(" ");
-	
-	UI.CreateButton(vert).SetText("Purchase").SetOnClick(SubmitClicked);
+	TargetTerritoryBtn = UI.CreateButton(row1).SetText("Select territory to buy...").SetOnClick(TargetTerritoryClicked);
 
 end
 
