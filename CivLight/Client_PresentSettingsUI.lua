@@ -1,4 +1,4 @@
-function Client_PresentSettingsUI(rootParent)
+function Client_PresentSettingsUI(rootParent, game)
 
 local vert = UI.CreateVerticalLayoutGroup(rootParent);	
 UI.CreateLabel(vert).SetText('amount of territories(neutrals) you get for free every turn = ' .. Mod.Settings.NumToConvert);
@@ -12,5 +12,7 @@ UI.CreateLabel(vert).SetText('Amount of Armies with each claimed Cache = ' .. Mo
 if (Mod.Settings.FixedArmies == false) then
 UI.CreateLabel(vert).SetText('Random +/- limit of: ' .. Mod.Settings.Luck);
 end
-
+if (game.Settings.CommerceGame == true) then
+UI.CreateLabel(vert).SetText('Amount of gold that a territory costs = ' .. Mod.Settings.terrCost);
+end
 end
