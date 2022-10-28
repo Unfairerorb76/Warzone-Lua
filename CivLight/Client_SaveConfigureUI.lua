@@ -12,5 +12,7 @@ function Client_SaveConfigureUI(alert)
     Mod.Settings.Armies = numberInputField6.GetValue();
     Mod.Settings.FixedArmies = booleanInputField3.GetIsChecked();
     Mod.Settings.Luck = numberInputField7.GetValue();
+    
+    Mod.Settings.terrCost = numberInputField8.GetValue();
 
 end
