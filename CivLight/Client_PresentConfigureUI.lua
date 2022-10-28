@@ -124,7 +124,7 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
 	
 	UI.CreateLabel(vert).SetText('for buying territories (commerce only):');   
 
-	UI.CreateLabel(vert).SetText('Random +/- limit');
+	UI.CreateLabel(vert).SetText('price to buy a territory');
     numberInputField8 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
