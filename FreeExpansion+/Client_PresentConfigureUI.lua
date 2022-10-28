@@ -16,21 +16,21 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
         if initalcheckbox == nil then 
                 initalcheckbox = false; 
         end
-    
+       print(2);
  local vert = UI.CreateVerticalLayoutGroup(rootParent);
 local horz1 = UI.CreateHorizontalLayoutGroup(vert);  --not used
 local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for reference
-	
+	print(3);
 	UI.CreateLabel(vert).SetText('only base neutral armies and less shall be claimed');
         booleanInputField = UI.CreateCheckBox(vert)        
                 .SetIsChecked(initalcheckbox);
-	
+	print(4);
 	UI.CreateLabel(vert).SetText('amount of neutrals a player shall gain each turn');
     numberInputField = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
 		.SetValue(initialValueConvert);
-	
+	print(5);
 	 UI.CreateLabel(vert).SetText('amount of armies a player shall get with the territory');
     numberInputField2 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
