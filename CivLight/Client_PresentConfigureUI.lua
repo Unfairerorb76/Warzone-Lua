@@ -13,6 +13,8 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	local FixedArmies = Mod.Settings.FixedArmies;
 	local difference = Mod.Settings.Luck;
 	
+	local terrCost = Mod.Settings.terrCost;
+	
 	if initialValueConvert == nil then
 		initialValueConvert = 2;
 	end
@@ -49,6 +51,10 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	
 	if difference == nil then 
 		difference = 5;
+	end
+	
+	if terrCost == nil then
+		terrCost = 3;
 	end
     
  local vert = UI.CreateVerticalLayoutGroup(rootParent);
@@ -115,5 +121,12 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
 		.SetValue(difference);
+	
+	UI.CreateLabel(vert).SetText('for buying territories (commerce only):');   
 
+	UI.CreateLabel(vert).SetText('Random +/- limit');
+    numberInputField8 = UI.CreateNumberInputField(vert)
+		.SetSliderMinValue(1)
+		.SetSliderMaxValue(10)
+		.SetValue(terrCost);
 end
