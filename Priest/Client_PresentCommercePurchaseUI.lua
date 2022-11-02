@@ -13,7 +13,7 @@ end
 function NumTanksIn(armies)
 	local ret = 0;
 	for _,su in pairs(armies.SpecialUnits) do
-		if (su.proxyType == 'CustomSpecialUnit' and su.Name == 'robe (1)') then
+		if (su.proxyType == 'CustomSpecialUnit' and su.Name == 'Priest') then
 			ret = ret + 1;
 		end
 	end
