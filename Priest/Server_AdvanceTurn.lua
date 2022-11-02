@@ -1,6 +1,6 @@
 require('Utilities');
 
-function Server_AdvanceTurn_Order(game, order, result, skipThisOrder, addNewOrder)
+function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNewOrder)
     if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'BuyPriest_')) then  --look for the order that we inserted in Client_PresentCommercePurchaseUI
 		--in Client_PresentMenuUI, we stuck the territory ID after BuyPriest_.  Break it out and parse it to a number.
 		local targetTerritoryID = tonumber(string.sub(order.Payload, 11));
