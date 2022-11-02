@@ -26,10 +26,10 @@ function PurchaseClicked()
 
 	local playerID = Game.Us.ID;
 	
-	local numPriestAlreadyHave = 0;
+	local numPriestsAlreadyHave = 0;
 	for _,ts in pairs(Game.LatestStanding.Territories) do
 		if (ts.OwnerPlayerID == playerID) then
-			numPriestAlreadyHave = numPriestAlreadyHave + NumPriestsIn(ts.NumArmies);
+			numPriestsAlreadyHave = numPriestsAlreadyHave + NumPriestsIn(ts.NumArmies);
 		end
 	end
 
