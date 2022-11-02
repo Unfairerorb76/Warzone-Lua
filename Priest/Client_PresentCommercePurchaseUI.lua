@@ -10,7 +10,7 @@ function Client_PresentCommercePurchaseUI(rootParent, game, close)
 	UI.CreateButton(vert).SetText("Purchase a priest for " .. Mod.Settings.CostToBuyPriest .. " gold").SetOnClick(PurchaseClicked);
 end
 
-function NumTanksIn(armies)
+function NumPriestsIn(armies)
 	local ret = 0;
 	for _,su in pairs(armies.SpecialUnits) do
 		if (su.proxyType == 'CustomSpecialUnit' and su.Name == 'Priest') then
