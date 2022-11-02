@@ -1,7 +1,7 @@
 function Client_PresentSettingsUI(rootParent)
 	local vert = UI.CreateVerticalLayoutGroup(rootParent);
 
-	UI.CreateLabel(vert).SetText('Tank cost: ' .. Mod.Settings.CostToBuyTank);
-	UI.CreateLabel(vert).SetText('Tank power: ' .. Mod.Settings.TankPower);
-	UI.CreateLabel(vert).SetText('Max tanks: ' .. Mod.Settings.MaxTanks);
+	UI.CreateLabel(vert).SetText('Priest cost: ' .. Mod.Settings.CostToBuyPriest);
+	UI.CreateLabel(vert).SetText('Priest power: ' .. Mod.Settings.PriestPower);
+	UI.CreateLabel(vert).SetText('Max priests: ' .. Mod.Settings.MaxPriests);
 end
