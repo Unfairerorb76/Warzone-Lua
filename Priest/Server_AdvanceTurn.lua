@@ -58,7 +58,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
      if order.proxyType == "GameOrderAttackTransfer" then 
           if orderResult.IsAttack then 
 		local attackedTerr = game.ServerGame.LatestTurnStanding.Territories[order.To];
-		local fromTerr = game.Map.Territories[order.From];
+		local fromTerr = game.ServerGame.LatestTurnStanding.Territories[order.From];
 			local terrMod = WL.TerritoryModification.Create(fromTerr);
 			local p;
 			terrMod.AddArmies = orderResult.AttackingArmiesKilled.NumArmies
