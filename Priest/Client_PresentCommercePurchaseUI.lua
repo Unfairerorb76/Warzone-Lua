@@ -6,14 +6,14 @@ function Client_PresentCommercePurchaseUI(rootParent, game, close)
 	
 	local vert = UI.CreateVerticalLayoutGroup(rootParent);
 
-	UI.CreateLabel(vert).SetText("Tanks are worth " .. Mod.Settings.TankPower .. " armies and cost " .. Mod.Settings.CostToBuyTank .. " gold to purchase.  You may have up to " .. Mod.Settings.MaxTanks .. " tanks at a time.");
-	UI.CreateButton(vert).SetText("Purchase a tank for " .. Mod.Settings.CostToBuyTank .. " gold").SetOnClick(PurchaseClicked);
+	UI.CreateLabel(vert).SetText("Priests are worth " .. Mod.Settings.PriestPower .. " armies and cost " .. Mod.Settings.CostToBuyPriest .. " gold to purchase.  You may have up to " .. Mod.Settings.MaxPriests .. " priests at a time.");
+	UI.CreateButton(vert).SetText("Purchase a priest for " .. Mod.Settings.CostToBuyPriest .. " gold").SetOnClick(PurchaseClicked);
 end
 
 function NumTanksIn(armies)
 	local ret = 0;
 	for _,su in pairs(armies.SpecialUnits) do
-		if (su.proxyType == 'CustomSpecialUnit' and su.Name == 'Tank') then
+		if (su.proxyType == 'CustomSpecialUnit' and su.Name == 'robe (1)') then
 			ret = ret + 1;
 		end
 	end
@@ -26,30 +26,30 @@ function PurchaseClicked()
 
 	local playerID = Game.Us.ID;
 	
-	local numTanksAlreadyHave = 0;
+	local numPriestAlreadyHave = 0;
 	for _,ts in pairs(Game.LatestStanding.Territories) do
 		if (ts.OwnerPlayerID == playerID) then
-			numTanksAlreadyHave = numTanksAlreadyHave + NumTanksIn(ts.NumArmies);
+			numPriestsAlreadyHave = numPriestsAlreadyHave + NumPriestsIn(ts.NumArmies);
 		end
 	end
 
 	for _,order in pairs(Game.Orders) do
-		if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'BuyTank_')) then
-			numTanksAlreadyHave = numTanksAlreadyHave + 1;
+		if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'BuyPriest_')) then
+			numPriestsAlreadyHave = numPriestsAlreadyHave + 1;
 		end
 	end
 
-	if (numTanksAlreadyHave >= Mod.Settings.MaxTanks) then
-		UI.Alert("You already have " .. numTanksAlreadyHave .. " tanks, and you can only have " ..  Mod.Settings.MaxTanks);
+	if (numPriestsAlreadyHave >= Mod.Settings.MaxTanks) then
+		UI.Alert("You already have " .. numPriestsAlreadyHave .. " tanks, and you can only have " ..  Mod.Settings.MaxPriests);
 		return;
 	end
 
-	Game.CreateDialog(PresentBuyTankDialog); 
+	Game.CreateDialog(PresentBuyPriestsDialog); 
 	Close1();
 end
 
 
-function PresentBuyTankDialog(rootParent, setMaxSize, setScrollable, game, close)
+function PresentBuyPriestDialog(rootParent, setMaxSize, setScrollable, game, close)
 	Close2 = close;
 
 	local vert = UI.CreateVerticalLayoutGroup(rootParent).SetFlexibleWidth(1); --set flexible width so things don't jump around while we change InstructionLabel
@@ -57,14 +57,14 @@ function PresentBuyTankDialog(rootParent, setMaxSize, setScrollable, game, close
 	SelectTerritoryBtn = UI.CreateButton(vert).SetText("Select Territory").SetOnClick(SelectTerritoryClicked);
 	TargetTerritoryInstructionLabel = UI.CreateLabel(vert).SetText("");
 
-	BuyTankBtn = UI.CreateButton(vert).SetInteractable(false).SetText("Complete Purchase").SetOnClick(CompletePurchaseClicked);
+	BuyPriestBtn = UI.CreateButton(vert).SetInteractable(false).SetText("Complete Purchase").SetOnClick(CompletePurchaseClicked);
 
 	SelectTerritoryClicked(); --just start us immediately in selection mode, no reason to require them to click the button
 end
 
 function SelectTerritoryClicked()
 	UI.InterceptNextTerritoryClick(TerritoryClicked);
-	TargetTerritoryInstructionLabel.SetText("Please click on the territory you wish to receive the tank on.  If needed, you can move this dialog out of the way.");
+	TargetTerritoryInstructionLabel.SetText("Please click on the territory you wish to receive the Priest on.  If needed, you can move this dialog out of the way.");
 	SelectTerritoryBtn.SetInteractable(false);
 end
 
@@ -75,7 +75,7 @@ function TerritoryClicked(terrDetails)
 		--The click request was cancelled.   Return to our default state.
 		TargetTerritoryInstructionLabel.SetText("");
 		SelectedTerritory = nil;
-		BuyTankBtn.SetInteractable(false);
+		BuyPriestBtn.SetInteractable(false);
 	else
 		--Territory was clicked, check it
 		if (Game.LatestStanding.Territories[terrDetails.ID].OwnerPlayerID ~= Game.Us.ID) then
@@ -83,17 +83,17 @@ function TerritoryClicked(terrDetails)
 		else
 			TargetTerritoryInstructionLabel.SetText("Selected territory: " .. terrDetails.Name);
 			SelectedTerritory = terrDetails;
-			BuyTankBtn.SetInteractable(true);
+			BuyPriestBtn.SetInteractable(true);
 		end
 	end
 end
 
 function CompletePurchaseClicked()
-	local msg = 'Buy a tank on ' .. SelectedTerritory.Name;
-	local payload = 'BuyTank_' .. SelectedTerritory.ID;
+	local msg = 'Buy a priest on ' .. SelectedTerritory.Name;
+	local payload = 'BuyPriest_' .. SelectedTerritory.ID;
 
 	local orders = Game.Orders;
-	table.insert(orders, WL.GameOrderCustom.Create(Game.Us.ID, msg, payload,  { [WL.ResourceType.Gold] = Mod.Settings.CostToBuyTank } ));
+	table.insert(orders, WL.GameOrderCustom.Create(Game.Us.ID, msg, payload,  { [WL.ResourceType.Gold] = Mod.Settings.CostToBuyPriest } ));
 	Game.Orders = orders;
 
 	Close2();
