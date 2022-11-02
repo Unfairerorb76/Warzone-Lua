@@ -67,6 +67,8 @@ function Server_AdvanceTurn_Order(game, order, result, skipThisOrder, addNewOrde
                     		local event = WL.GameOrderEvent.Create(p, "priest converted " .. terrMod.AddArmies .. " armies", {}, {terrMod});
                     		addNewOrder(event, true);
                 	end
+	end 
+     end
 end
 
 function NumPriestsIn(armies)
