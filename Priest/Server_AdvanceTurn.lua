@@ -42,7 +42,7 @@ function Server_AdvanceTurn_Order(game, order, result, skipThisOrder, addNewOrde
 		local builder = WL.CustomSpecialUnitBuilder.Create(order.PlayerID);
 		builder.Name = 'Priest';
 		builder.IncludeABeforeName = true;
-		builder.ImageFilename = 'robe (1).png';
+		builder.ImageFilename = 'robe.png';
 		builder.AttackPower = priestPower;
 		builder.DefensePower = priestPower;
 		builder.CombatOrder = 3415; --defends commanders
