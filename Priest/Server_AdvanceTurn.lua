@@ -2,23 +2,19 @@ require('Utilities');
 
 function Server_AdvanceTurn_Order(game, order, result, skipThisOrder, addNewOrder)
     if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'BuyPriest_')) then  --look for the order that we inserted in Client_PresentCommercePurchaseUI
-
 		--in Client_PresentMenuUI, we stuck the territory ID after BuyPriest_.  Break it out and parse it to a number.
 		local targetTerritoryID = tonumber(string.sub(order.Payload, 11));
 		print(string.sub(order.Payload, 11));
 		local targetTerritoryStanding = game.ServerGame.LatestTurnStanding.Territories[targetTerritoryID];
-
 		if (targetTerritoryStanding.OwnerPlayerID ~= order.PlayerID) then
 			return; --can only buy a priest onto a territory you control
 		end
-
 		
 		if (order.CostOpt == nil) then
 			return; --shouldn't ever happen, unless another mod interferes
 		end
 
 		local costFromOrder = order.CostOpt[WL.ResourceType.Gold]; --this is the cost from the order.  We can't trust this is accurate, as someone could hack their client and put whatever cost they want in there.  Therefore, we must calculate it ourselves, and only do the purchase if they match
-
 		local realCost = Mod.Settings.CostToBuyPriest;
 
 		if (realCost > costFromOrder) then
@@ -59,6 +55,18 @@ function Server_AdvanceTurn_Order(game, order, result, skipThisOrder, addNewOrde
 		
 		addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Purchased a priest', {}, {terrMod}));
 	end
+     if order.proxyType == "GameOrderAttackTransfer" then 
+          if orderResult.IsAttack then 
+		local attackedTerr = game.ServerGame.LatestTurnStanding.Territories[order.To];
+		local fromTerr = game.ServerGame.LatestTurnStanding.Territories[order.From];
+			local terrMod = WL.TerritoryModification.Create(fromTerr);
+			local p;
+			terrMod.AddArmies = orderResult.AttackingArmiesKilled.NumArmies
+			 p = fromTerr.OwnerPlayerID;
+			if terrMod.AddArmies ~= nil and terrMod.AddArmies > 0 then
+                    		local event = WL.GameOrderEvent.Create(p, "priest converted " .. terrMod.AddArmies .. " armies", {}, {terrMod});
+                    		addNewOrder(event, true);
+                	end
 end
 
 function NumPriestsIn(armies)
