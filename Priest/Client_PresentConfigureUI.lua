@@ -8,7 +8,7 @@ function Client_PresentConfigureUI(rootParent)
 
 
 	local power = Mod.Settings.PriestPower;
-	if power == nil then power = 0; end
+	if power == nil then power = 1; end
 
 	local cost = Mod.Settings.CostToBuyPriest;
 	if cost == nil then cost = 25; end
@@ -27,7 +27,7 @@ function Client_PresentConfigureUI(rootParent)
 
 
 	local row2 = UI.CreateHorizontalLayoutGroup(vert);
-	UI.CreateLabel(row2).SetText('How powerful the priest is (in armies). (reccomended to be 0)');
+	UI.CreateLabel(row2).SetText('How powerful the priest is (in armies). (reccomended to be 1)');
 	powerInputField = UI.CreateNumberInputField(row2)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(30)
