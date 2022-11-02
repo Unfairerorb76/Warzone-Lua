@@ -40,7 +40,7 @@ function PurchaseClicked()
 	end
 
 	if (numPriestsAlreadyHave >= Mod.Settings.MaxPriests) then
-		UI.Alert("You already have " .. numPriestsAlreadyHave .. " tanks, and you can only have " ..  Mod.Settings.MaxPriests);
+		UI.Alert("You already have " .. numPriestsAlreadyHave .. " priests, and you can only have " ..  Mod.Settings.MaxPriests);
 		return;
 	end
 
