@@ -23,37 +23,38 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 				end
 			end
 			for _, player in pairs(game.ServerGame.Game.PlayingPlayers) do
-				local playerCards = WL.PlayerCards.Create(player.ID);
-				local newPieces = playerCards.Pieces;
-				local newCards = playerCards.WholeCards;
-				for card, cardGame in pairs(game.Settings.Cards) do
-					local totalPieces = cardGame.InitialPieces;
-					if Mod.Settings.cPieces ~= nil then
-						totalPieces = totalPieces + Mod.Settings.cPieces;
-				end
-					if card ~= WL.CardID.Reinforcement then
-						for k = 1, math.floor(totalPieces / cardGame.NumPieces) do
-							local instance = WL.NoParameterCardInstance.Create(card);
-							newCards[instance.ID] = instance;
-							print(instance);
-						end
-						newPieces[card] = totalPieces % cardGame.NumPieces;
-					else
-						newPieces[card] = totalPieces % cardGame.NumPieces;
-					end
-				end
-				playerCards.WholeCards = newCards;
-				playerCards.Pieces = newPieces;
-				cards[player.ID] = playerCards;
-				
-			local order = WL.GameOrderEvent.Create(player.ID, "adjusted pieces", {}, {}, {}, {});
-			local t = {};
-			t[player.ID] = NewPieces;
-			order.AddCardPiecesOpt = t;	
-			addNewOrder(order);
+                local playerCards = WL.PlayerCards.Create(player.ID);
+                local newPieces = playerCards.Pieces;
+                local newCards = playerCards.WholeCards;
+                local cardTable = {};
+                for card, cardGame in pairs(game.Settings.Cards) do
+                    local totalPieces = cardGame.InitialPieces;
+                    if Mod.Settings.cPieces ~= nil then
+                        cardTable[card]= totalPieces + Mod.Settings.cPieces;
+                end
+                    if card ~= WL.CardID.Reinforcement then
+                        for k = 1, math.floor(totalPieces / cardGame.NumPieces) do
+                            local instance = WL.NoParameterCardInstance.Create(card);
+                            newCards[instance.ID] = instance;
+                            print(instance);
+                        end
+                        newPieces[card] = totalPieces % cardGame.NumPieces;
+                    else
+                        newPieces[card] = totalPieces % cardGame.NumPieces;
+                    end
+                end
+                --playerCards.WholeCards = newCards;
+                --playerCards.Pieces = newPieces;  --ignore rn
+                --cards[player.ID] = playerCards;
+                
+            local order = WL.GameOrderEvent.Create(player.ID, "adjusted pieces", {}, {}, {}, {});
+            local t = {};
+            t[player.ID] = cardTable;
+            order.AddCardPiecesOpt = t;    
+            addNewOrder(order);
 
-			--s.Cards = cards;
-			--standing = s;
+            --s.Cards = cards;
+            --standing = s;
 			end
 					
 end end end end end   
