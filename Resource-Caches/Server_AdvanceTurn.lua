@@ -16,9 +16,9 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 		local cardsToBeRemoved = {};
 		for card, amount in pairs(game.Settings.Cards) do
 			if game.Settings.Cards[card] ~= nil then
-				if amount > 0 then
+				
 					pieces[card] = amount;
-				else
+				
 					if game.ServerGame.LatestTurnStanding.Cards ~= nil then
 						local playerCards = game.ServerGame.LatestTurnStanding.Cards[player.ID];
 						local totalPieces = 0;
@@ -46,7 +46,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 							end
 						end
 					end
-				end
+				
 			end
 		end
 		if getTableLength(pieces) > 0 then
