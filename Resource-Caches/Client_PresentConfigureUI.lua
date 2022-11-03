@@ -1,9 +1,7 @@
 function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
-	print(1);
+	
 	local initialRCaches = Mod.Settings.NumOfRCaches;
 	local Pieces = Mod.Settings.cPieces
-	
-	local difference = Mod.Settings.Luck;
 	
 	if initialRCaches == nil then
 		initialRCaches = 2;
