@@ -39,10 +39,6 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 						end
 						newPieces[card] = totalPieces % cardGame.NumPieces;
 					else
-						for k = 1, math.floor(totalPieces / cardGame.NumPieces) do
-							local instance = WL.ReinforcementCardInstance.Create(armies);
-							newCards[instance.ID] = instance;
-						end
 						newPieces[card] = totalPieces % cardGame.NumPieces;
 					end
 				end
