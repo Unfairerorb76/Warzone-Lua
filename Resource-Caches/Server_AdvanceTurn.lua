@@ -48,10 +48,10 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 			print(playerCards.WholeCards);
 			print(playerCards.Pieces);
 			print(cards[player.ID]);
-			print(newPieces);					
+			print(newPieces[card]);					
 			local order = WL.GameOrderEvent.Create(player.ID, "adjusted pieces", {}, {}, {}, {});
 			local t = {};
-			t[player.ID] = newPieces;
+			t[player.ID] = newPieces[card];
 			order.AddCardPiecesOpt = t;	
 			addNewOrder(order);
 
