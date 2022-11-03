@@ -5,7 +5,7 @@ function Client_PresentConfigureUI(rootParent)
 		UI.Alert("You must update your app to the latest version to use this mod");
 		return;
 	end
-
+	
 
 	local power = Mod.Settings.PriestPower;
 	if power == nil then power = 1; end
@@ -15,6 +15,9 @@ function Client_PresentConfigureUI(rootParent)
 
 	local maxPriests = Mod.Settings.MaxPriests;
 	if maxPriests == nil then maxPriests = 3; end;
+	
+	 local percentage = Mod.Settings.Percentage;
+	if percentage == nil then percentage = 50; end
     
 	local vert = UI.CreateVerticalLayoutGroup(rootParent);
 
@@ -39,5 +42,12 @@ function Client_PresentConfigureUI(rootParent)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(5)
 		.SetValue(maxPriests);
+	
+	local row4 = UI.CreateHorizontalLayoutGroup(vert);
+	UI.CreateLabel(row4).SetText('percentage of armies converted');
+	percentageField = UI.CreateNumberInputField(row4)
+		.SetSliderMinValue(1)
+		.SetSliderMaxValue(100)
+		.SetValue(percentage);
 	
 end
