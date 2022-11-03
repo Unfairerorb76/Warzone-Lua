@@ -45,7 +45,7 @@ distributeRandomStructures(standing, WL.StructureType.ResourceCache, Mod.Setting
 		end
 		playerCards.WholeCards = newCards;
 		playerCards.Pieces = newPieces;
-		cards[p.ID] = playerCards;
+		cards[player.ID] = playerCards;
 	end
 	s.Cards = cards;
 	standing = s;
