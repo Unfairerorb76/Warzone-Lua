@@ -10,4 +10,9 @@ function Client_SaveConfigureUI(alert)
     local maxPriests = maxPriestsField.GetValue();
     if maxPriests < 1 or maxPriests > 5 then alert("Max priests must be between 1 and 5"); end
     Mod.Settings.MaxPriests = maxPriests;
+    
+    local percentage = percentageField.GetValue();
+    Mod.Settings.Percentage = percentage;
+    
+    
 end
