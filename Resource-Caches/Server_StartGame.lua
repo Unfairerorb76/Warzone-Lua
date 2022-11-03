@@ -13,13 +13,14 @@ distributeRandomStructures(standing, WL.StructureType.ResourceCache, Mod.Setting
 		local newCards = playerCards.WholeCards;
 		for card, cardGame in pairs(game.Settings.Cards) do
 			local totalPieces = cardGame.InitialPieces;
-			if Mod.Settings.CardPiecesFromStart[p.Slot] ~= nil and Mod.Settings.CardPiecesFromStart[p.Slot][card] ~= nil then
-				totalPieces = totalPieces + Mod.Settings.CardPiecesFromStart[p.Slot][card];
+			if Mod.Settings.cPieces ~= nil then
+				totalPieces = totalPieces + Mod.Settings.cPieces;
 			end
 			if card ~= WL.CardID.Reinforcement then
 				for k = 1, math.floor(totalPieces / cardGame.NumPieces) do
 					local instance = WL.NoParameterCardInstance.Create(card);
 					newCards[instance.ID] = instance;
+					print(instance);
 				end
 				newPieces[card] = totalPieces % cardGame.NumPieces;
 			else
