@@ -6,7 +6,19 @@ function Server_StartGame(game, standing)
 
 distributeRandomStructures(standing, WL.StructureType.ResourceCache, Mod.Settings.NumOfRCaches, {maxPercentage = 50, numberOfStructures = 1, onlyPlaceOnNeutrals = true, allowMultipleStructures = false});
   
-
+	local s = standing;
+	local cards = s.Cards;
+	local armies = 0;
+	
+	if game.Settings.Cards[WL.CardID.Reinforcement] ~= nil then
+		if game.Settings.Cards[WL.CardID.Reinforcement].Mode == WL.ReinforcementCardMode.Fixed then
+			armies = cardGame.FixedArmies;		-- fixed amount
+		elseif game.Settings.Cards[WL.CardID.Reinforcement].Mode == WL.ReinforcementCardMode.ProgressiveByNumberOfTerritories then
+			armies = round(getTableLength(game.ServerGame.Game.PlayingPlayers) * game.Settings.Cards[WL.CardID.Reinforcement].ProgressivePercentage)
+		else
+			armies = 1;			-- Turn 0, so 0 * x		To give some armies it is always 1
+		end
+	end
 	for _, player in pairs(game.ServerGame.Game.PlayingPlayers) do
 		local playerCards = WL.PlayerCards.Create(player.ID);
 		local newPieces = playerCards.Pieces;
