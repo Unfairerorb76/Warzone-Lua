@@ -9,50 +9,62 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
           local structures = TransferredTerr.Structures
                 if TransferredTerr.Structures ~= nil then 
                     if TransferredTerr.Structures[WL.StructureType.ResourceCache] ~= nil then -- there is a army cache on the territory that was successfully attacked -- so now you can do what you want :p
-				
-			local s = standing;
-			local cards = s.Cards;
-			local armies = 0;
-	
-			if game.Settings.Cards[WL.CardID.Reinforcement] ~= nil then
-				if game.Settings.Cards[WL.CardID.Reinforcement].Mode == WL.ReinforcementCardMode.Fixed then
-					armies = game.Settings.Cards[WL.CardID.Reinforcement].FixedArmies;		-- fixed amount
-				elseif game.Settings.Cards[WL.CardID.Reinforcement].Mode == WL.ReinforcementCardMode.ProgressiveByNumberOfTerritories then
-					armies = round(getTableLength(game.ServerGame.Game.PlayingPlayers) * game.Settings.Cards[WL.CardID.Reinforcement].ProgressivePercentage)
+			if game.Settings.Cards == nil then return; end
+					
+		for _, player in pairs(game.ServerGame.Game.PlayingPlayers) do
+		local pieces = {};
+		local cardsToBeRemoved = {};
+		for card, amount in pairs(Mod.Settings.cPieces[player]) do
+			if game.Settings.Cards[card] ~= nil then
+				if amount > 0 then
+					pieces[card] = amount;
 				else
-					armies = 1;			-- Turn 0, so 0 * x		To give some armies it is always 1
-				end
-			end
-			for _, player in pairs(game.ServerGame.Game.PlayingPlayers) do
-				local playerCards = WL.PlayerCards.Create(player.ID);
-				local newPieces = playerCards.Pieces;
-				local newCards = playerCards.WholeCards;
-				for card, cardGame in pairs(game.Settings.Cards) do
-					local totalPieces = cardGame.InitialPieces;
-					if Mod.Settings.cPieces ~= nil then
-						totalPieces = totalPieces + Mod.Settings.cPieces;
-				end
-					if card ~= WL.CardID.Reinforcement then
-						for k = 1, math.floor(totalPieces / cardGame.NumPieces) do
-							local instance = WL.NoParameterCardInstance.Create(card);
-							newCards[instance.ID] = instance;
-							print(instance);
+					if game.ServerGame.LatestTurnStanding.Cards ~= nil then
+						local playerCards = game.ServerGame.LatestTurnStanding.Cards[player.ID];
+						local totalPieces = 0;
+						if playerCards.Pieces ~= nil then
+							totalPieces = playerCards.Pieces[card];
 						end
-						newPieces[card] = totalPieces % cardGame.NumPieces;
-					else
-						for k = 1, math.floor(totalPieces / cardGame.NumPieces) do
-							local instance = WL.ReinforcementCardInstance.Create(armies);
-							newCards[instance.ID] = instance;
+						if totalPieces >= math.abs(amount) then
+							pieces[card] = amount;
+						else
+							local totalCards = {};
+							if playerCards.WholeCards ~= nil then
+								for _, instance in pairs(playerCards.WholeCards) do
+									if instance.CardID == card then
+										table.insert(totalCards, instance);
+									end
+								end
+							end
+							for i = 1, math.min(#totalCards, math.ceil(math.abs(totalPieces + amount) / game.Settings.Cards[card].NumPieces)) do
+								table.insert(cardsToBeRemoved, totalCards[i]);
+							end
+							if #totalCards * game.Settings.Cards[card].NumPieces + totalPieces >= -amount then
+								pieces[card] = (totalPieces + amount ) % game.Settings.Cards[card].NumPieces - totalPieces;
+							else
+								pieces[card] = -totalPieces;
+							end
 						end
-						newPieces[card] = totalPieces % cardGame.NumPieces;
 					end
 				end
-				playerCards.WholeCards = newCards;
-				playerCards.Pieces = newPieces;
-				cards[player.ID] = playerCards;
 			end
-			s.Cards = cards;
-			standing = s;
+		end
+		if getTableLength(pieces) > 0 then
+			local order = WL.GameOrderEvent.Create(p.ID, "adjusted pieces", {}, {}, {}, {});
+			local t = {};
+			t[p.ID] = pieces;
+			order.AddCardPiecesOpt = t;
+			addNewOrder(order);
+		end
+		for _, instance in pairs(cardsToBeRemoved) do
+			local order = WL.GameOrderEvent.Create(p.ID, "Removed " .. getCardName(instance.CardID) .. " card", {}, {}, {}, {});
+			local t = {};
+			t[p.ID] = instance.ID;
+			order.RemoveWholeCardsOpt = t;
+			addNewOrder(order);
+		end
+	end	
+					
 					
 end end end end end   
 
