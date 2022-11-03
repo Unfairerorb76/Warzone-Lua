@@ -1,7 +1,7 @@
 require('Utilities');
 require('WLUtilities');
 
-function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNewOrder)
+function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNewOrder, standing)
 
       if order.proxyType == "GameOrderAttackTransfer" then 
           if orderResult.IsSuccessful then 
