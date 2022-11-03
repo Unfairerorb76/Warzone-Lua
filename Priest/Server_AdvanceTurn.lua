@@ -59,7 +59,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
           if orderResult.IsAttack then 
 		local attackedTerr = game.ServerGame.LatestTurnStanding.Territories[order.To];
 		local fromTerr = game.ServerGame.LatestTurnStanding.Territories[order.From];
-			local terrMod = TerrMod.Create(order.From);
+			local terrMod = WL.TerritoryModification.Create(game.ServerGame.LatestTurnStanding.Territories[order.From]);
 			local p;
 			terrMod.AddArmies = orderResult.AttackingArmiesKilled.NumArmies
 			 p = fromTerr.OwnerPlayerID;
