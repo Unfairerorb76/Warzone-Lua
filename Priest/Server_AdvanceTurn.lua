@@ -57,6 +57,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 	end
      if order.proxyType == "GameOrderAttackTransfer" then 
           if orderResult.IsAttack and hasNoPriest(game.ServerGame.LatestTurnStanding.Territories[order.From].NumArmies) then
+		local fromTerr = game.ServerGame.LatestTurnStanding.Territories[order.From];
 
 			local terrMod = WL.TerritoryModification.Create(order.From);
 			local p;
