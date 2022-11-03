@@ -20,7 +20,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 					pieces[card] = amount;
 				
 					if game.ServerGame.LatestTurnStanding.Cards ~= nil then
-						local playerCards = game.ServerGame.LatestTurnStanding.Cards[player];
+						local playerCards = game.ServerGame.LatestTurnStanding.Cards[player.ID];
 						local totalPieces = 0;
 						if playerCards.Pieces ~= nil then
 							totalPieces = playerCards.Pieces[card];
