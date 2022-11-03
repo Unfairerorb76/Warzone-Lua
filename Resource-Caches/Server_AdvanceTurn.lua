@@ -44,7 +44,8 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 				end
 				playerCards.WholeCards = newCards;
 				playerCards.Pieces = newPieces;
-				cards[player.ID] = playerCards;
+				cards = playerCards;
+				--cards[player.ID] = playerCards;
 			print(playerCards.WholeCards);
 			print(playerCards.Pieces);
 			print(cards[player.ID]);
