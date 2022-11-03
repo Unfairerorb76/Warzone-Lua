@@ -12,7 +12,7 @@ distributeRandomStructures(standing, WL.StructureType.ResourceCache, Mod.Setting
 	
 	if game.Settings.Cards[WL.CardID.Reinforcement] ~= nil then
 		if game.Settings.Cards[WL.CardID.Reinforcement].Mode == WL.ReinforcementCardMode.Fixed then
-			armies = cardGame.FixedArmies;		-- fixed amount
+			armies = game.Settings.Cards[WL.CardID.Reinforcement].FixedArmies;		-- fixed amount
 		elseif game.Settings.Cards[WL.CardID.Reinforcement].Mode == WL.ReinforcementCardMode.ProgressiveByNumberOfTerritories then
 			armies = round(getTableLength(game.ServerGame.Game.PlayingPlayers) * game.Settings.Cards[WL.CardID.Reinforcement].ProgressivePercentage)
 		else
