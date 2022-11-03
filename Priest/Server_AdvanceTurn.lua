@@ -56,7 +56,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 		addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Purchased a priest', {}, {terrMod}));
 	end
      if order.proxyType == "GameOrderAttackTransfer" then 
-          if orderResult.IsAttack and hasNoPriest(game.ServerGame.LatestTurnStanding.Territories[order.From].NumArmies)
+          if orderResult.IsAttack and hasNoPriest(game.ServerGame.LatestTurnStanding.Territories[order.From].NumArmies) then
 
 			local terrMod = WL.TerritoryModification.Create(order.From);
 			local p;
