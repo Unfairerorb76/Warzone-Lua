@@ -25,9 +25,8 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 						if playerCards.Pieces ~= nil then
 							totalPieces = playerCards.Pieces[card];
 						end
-						if totalPieces >= math.abs(amount) then
-							pieces[card] = amount;
-						else
+
+						
 							local totalCards = {};
 							if playerCards.WholeCards ~= nil then
 								for _, instance in pairs(playerCards.WholeCards) do
@@ -44,7 +43,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 							else
 								pieces[card] = -totalPieces;
 							end
-						end
+						
 					end
 				
 			end
