@@ -14,7 +14,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 		for _, player in pairs(game.ServerGame.Game.PlayingPlayers) do
 		local pieces = {};
 		local cardsToBeRemoved = {};
-		for card, amount in pairs(Mod.Settings.cPieces[player]) do
+		for card, amount in pairs(Mod.Settings.cPieces) do
 			if game.Settings.Cards[card] ~= nil then
 				if amount > 0 then
 					pieces[card] = amount;
