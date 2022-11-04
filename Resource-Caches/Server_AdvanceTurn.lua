@@ -10,8 +10,8 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
                 if TransferredTerr.Structures ~= nil then 
                     if TransferredTerr.Structures[WL.StructureType.ResourceCache] ~= nil then -- there is a army cache on the territory that was successfully attacked -- so now you can do what you want :p
 					
-			for card, _ in pairs(game.Settings.Cards) do
-                            table.insert(card, terrID);
+			for cardID, _ in pairs(game.Settings.Cards) do
+                            table.insert(card, cardID);
                         end
 
                         for times = 1, Mod.Settings.cPieces do
