@@ -9,53 +9,17 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
           local structures = TransferredTerr.Structures
                 if TransferredTerr.Structures ~= nil then 
                     if TransferredTerr.Structures[WL.StructureType.ResourceCache] ~= nil then -- there is a army cache on the territory that was successfully attacked -- so now you can do what you want :p
-			local s = game.ServerGame.LatestTurnStanding;
-			local cards = s.Cards;
-			local armies = 0;
-	
-			if game.Settings.Cards[WL.CardID.Reinforcement] ~= nil then
-				if game.Settings.Cards[WL.CardID.Reinforcement].Mode == WL.ReinforcementCardMode.Fixed then
-					armies = game.Settings.Cards[WL.CardID.Reinforcement].FixedArmies;		-- fixed amount
-				elseif game.Settings.Cards[WL.CardID.Reinforcement].Mode == WL.ReinforcementCardMode.ProgressiveByNumberOfTerritories then
-					armies = round(getTableLength(game.ServerGame.Game.PlayingPlayers) * game.Settings.Cards[WL.CardID.Reinforcement].ProgressivePercentage)
-				else
-					armies = 1;			-- Turn 0, so 0 * x		To give some armies it is always 1
-				end
-			end
-			for _, player in pairs(game.ServerGame.Game.PlayingPlayers) do
-                local playerCards = WL.PlayerCards.Create(player.ID);
-                local newPieces = playerCards.Pieces;
-                local newCards = playerCards.WholeCards;
-                local cardTable = {};
-                for card, cardGame in pairs(game.Settings.Cards) do
-                    local totalPieces = cardGame.InitialPieces;
-                    if Mod.Settings.cPieces ~= nil then
-                        cardTable[card]= totalPieces + Mod.Settings.cPieces;
-                end
-                    if card ~= WL.CardID.Reinforcement then
-                        for k = 1, math.floor(totalPieces / cardGame.NumPieces) do
-                            local instance = WL.NoParameterCardInstance.Create(card);
-                            newCards[instance.ID] = instance;
-                            print(instance);
+					
+			for card, _ in pairs(game.Settings.Cards) do
+                            table.insert(card, terrID);
                         end
-                        newPieces[card] = totalPieces % cardGame.NumPieces;
-                    else
-                        newPieces[card] = totalPieces % cardGame.NumPieces;
-                    end
-                end
-                --playerCards.WholeCards = newCards;
-                --playerCards.Pieces = newPieces;  --ignore rn
-                --cards[player.ID] = playerCards;
-                
-            local order = WL.GameOrderEvent.Create(player.ID, "adjusted pieces", {}, {}, {}, {});
-            local t = {};
-            t[player.ID] = cardTable;
-            order.AddCardPiecesOpt = t;    
-            addNewOrder(order);
 
-            --s.Cards = cards;
-            --standing = s;
-			end
+                        for times = 1, Mod.Settings.cPieces do
+                            local pieces = 1;
+                            local rand = math.random(#card);
+                            local randomCard = card[rand]; --picks random card to give to player
+                            
+                        end
 					
 end end end end end   
 
