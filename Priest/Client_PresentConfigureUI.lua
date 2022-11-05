@@ -30,7 +30,7 @@ function Client_PresentConfigureUI(rootParent)
 
 
 	local row2 = UI.CreateHorizontalLayoutGroup(vert);
-	UI.CreateLabel(row2).SetText('How powerful the priest is (in armies). (reccomended to be 1)');
+	UI.CreateLabel(row2).SetText('How powerful the priest is (in armies). (recommended to be 1)');
 	powerInputField = UI.CreateNumberInputField(row2)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(30)
