@@ -67,8 +67,8 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
                     		addNewOrder(event, true);
                 	end
 	end 
-	 if orderResult.IsDefend and hasNoPriest(game.ServerGame.LatestTurnStanding.Territories[order.From].NumArmies) then
-		
+	if Mod.Settings	
+	 if orderResult.IsAttack and hasNoPriest(game.ServerGame.LatestTurnStanding.Territories[order.To].NumArmies) then
 
 			local terrMod = WL.TerritoryModification.Create(order.To);
 			local p;
