@@ -1,5 +1,3 @@
-This mod allows players to purchase a priests.  When a priest is in an army unit, whatever damage the armies do will instead convert the killed armies to their own side. Settings for priest damage is there but I recommend that it is left on 1.
+This mod allows players to purchase a special unit called a priest. Whenever a priest unit attacks, armies killed by the priest (and armies that attack alongside) will instead convert to your side instead of dying, the percentage of converted armies is configurable. 
 
-This mod requires using commerce mode.  To purchase a priest, visit the commerce build menu and pay its cost.  By default, you can only have three priests at one time.
-
-This mod allows players to purchase a special unit called a priest. Whenever a priest unit attacks, armies killed by the priest (and armies that attack alongside) will instead convert to your side instead of dying, the percentage of converted armies is configurable
+This mod requires using the commerce gamemode. To purchase a priest unit, visit the commerce build menu and pay its cost.  By default, you can only have three priests at any given time.
