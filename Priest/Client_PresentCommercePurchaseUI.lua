@@ -6,7 +6,7 @@ function Client_PresentCommercePurchaseUI(rootParent, game, close)
 	
 	local vert = UI.CreateVerticalLayoutGroup(rootParent);
 
-	UI.CreateLabel(vert).SetText("Priests are worth " .. Mod.Settings.PriestPower .. " armies and cost " .. Mod.Settings.CostToBuyPriest .. " gold to purchase.  You may have up to " .. Mod.Settings.MaxPriests .. " priests at a time.");
+	UI.CreateLabel(vert).SetText("each priest is worth " .. Mod.Settings.PriestPower .. " armies and cost " .. Mod.Settings.CostToBuyPriest .. " gold to purchase.  You may have up to " .. Mod.Settings.MaxPriests .. " priests at a time.");
 	UI.CreateButton(vert).SetText("Purchase a priest for " .. Mod.Settings.CostToBuyPriest .. " gold").SetOnClick(PurchaseClicked);
 end
 
@@ -40,7 +40,7 @@ function PurchaseClicked()
 	end
 
 	if (numPriestsAlreadyHave >= Mod.Settings.MaxPriests) then
-		UI.Alert("You already have " .. numPriestsAlreadyHave .. " priests, and you can only have " ..  Mod.Settings.MaxPriests);
+		UI.Alert("You already have " .. numPriestsAlreadyHave .. " priests! You can only have " ..  Mod.Settings.MaxPriests);
 		return;
 	end
 
@@ -64,7 +64,7 @@ end
 
 function SelectTerritoryClicked()
 	UI.InterceptNextTerritoryClick(TerritoryClicked);
-	TargetTerritoryInstructionLabel.SetText("Please click on the territory you wish to receive the Priest on.  If needed, you can move this dialog out of the way.");
+	TargetTerritoryInstructionLabel.SetText("Please click on the territory you wish to receive the Priest unit on. If needed, you can move this dialog out of the way.");
 	SelectTerritoryBtn.SetInteractable(false);
 end
 
@@ -79,7 +79,7 @@ function TerritoryClicked(terrDetails)
 	else
 		--Territory was clicked, check it
 		if (Game.LatestStanding.Territories[terrDetails.ID].OwnerPlayerID ~= Game.Us.ID) then
-			TargetTerritoryInstructionLabel.SetText("You may only receive a tank on a territory you own.  Please try again.");
+			TargetTerritoryInstructionLabel.SetText("You may only receive a priest on a territory you own.  Please try again.");
 		else
 			TargetTerritoryInstructionLabel.SetText("Selected territory: " .. terrDetails.Name);
 			SelectedTerritory = terrDetails;
