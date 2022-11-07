@@ -19,6 +19,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
                             local pieces = 1;
                             local rand = math.random(#cardArray);
                             local randomCard = cardArray[rand]; --picks random card to give to player
+			print(randomCard);
                             local playerCards = game.ServerGame.LatestTurnStanding.Cards.Pieces[randomCard, pieces];
 			 		
 						
