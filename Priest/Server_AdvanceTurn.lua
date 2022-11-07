@@ -75,7 +75,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 		local toTerr = game.ServerGame.LatestTurnStanding.Territories[order.To]; 
 			local terrMod = WL.TerritoryModification.Create(order.To);
 			local p;
-			terrMod.AddArmies = round(orderResult.DefendingArmiesKilled.NumArmies * (Mod.Settings.Percentage / 100));
+			terrMod.AddArmies = round(orderResult.AttackingArmiesKilled.NumArmies * (Mod.Settings.Percentage / 100));
 			 p = toTerr.OwnerPlayerID;
 			if terrMod.AddArmies ~= nil and terrMod.AddArmies > 0 then
                     		local event = WL.GameOrderEvent.Create(p, "priest converted " .. terrMod.AddArmies .. " of the attacking armies", {}, {terrMod});
