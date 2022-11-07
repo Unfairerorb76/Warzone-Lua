@@ -28,7 +28,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 			        terrMod.AddStructuresOpt = structures;	
 			    
 			local cardEvent = WL.GameOrderEvent.Create(order.PlayerID, "Updated cards", {}, {terrMod}, {}, {})
-			addNewOrder(cardEvent);
+			addNewOrder(cardEvent, true);
                         end
 					
 end end end end end   
