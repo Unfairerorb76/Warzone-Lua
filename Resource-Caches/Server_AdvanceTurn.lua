@@ -14,7 +14,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 			
                             table.insert(cardArray, cardID);
                         end
-print(1);
+
                         for times = 1, Mod.Settings.cPieces do
                             
                             local rand = math.random(#cardArray);
@@ -26,11 +26,11 @@ print(1);
 				structures = {}
 				structures[WL.StructureType.ResourceCache] = -1;					
 			        terrMod.AddStructuresOpt = structures;	
-			print(2);
+		
 			local cardEvent = WL.GameOrderEvent.Create(order.PlayerID, "Updated cards", {}, {terrMod}, {}, {});
-			print(3);
+		
 			addNewOrder(cardEvent, true);
-			print(4);
+		
                         end
 					
 end end end end end   
