@@ -14,5 +14,11 @@ function Client_SaveConfigureUI(alert)
     local percentage = percentageField.GetValue();
     Mod.Settings.Percentage = percentage;
     
+    local defense = defenseInputField.GetIsChecked();
+    Mod.Settings.Defensive = defense;
     
+    local offence = offenceInputField.GetIsChecked();
+    Mod.Settings.Offensive = offence;
+    
+     if offence == false and defense == false then alert("either defence or offence must be checked in order for the priest mod to work"); end
 end
