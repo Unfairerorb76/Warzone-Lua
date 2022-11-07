@@ -58,11 +58,11 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
      if order.proxyType == "GameOrderAttackTransfer" then
 	if Mod.Settings.Offensive then
           if orderResult.IsAttack and hasNoPriest(game.ServerGame.LatestTurnStanding.Territories[order.From].NumArmies) then
-
+		local fromTerr = game.ServerGame.LatestTurnStanding.Territories[order.From]; 
 			local terrMod = WL.TerritoryModification.Create(order.From);
 			local p;
 			terrMod.AddArmies = round(orderResult.AttackingArmiesKilled.NumArmies * (Mod.Settings.Percentage / 100));
-			 p = OwnerPlayerID[order.From];
+			 p = fromTerr.OwnerPlayerID;
 			if terrMod.AddArmies ~= nil and terrMod.AddArmies > 0 then
                     		local event = WL.GameOrderEvent.Create(p, "priest converted " .. terrMod.AddArmies .. " armies", {}, {terrMod});
                     		addNewOrder(event, true);
