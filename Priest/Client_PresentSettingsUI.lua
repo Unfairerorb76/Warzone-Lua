@@ -7,9 +7,9 @@ function Client_PresentSettingsUI(rootParent)
 	UI.CreateLabel(vert).SetText('conversion percentage: ' .. Mod.Settings.Percentage .. '%');
 	
 	if Mod.Settings.Offensive == true then
-		UI.CreateLabel(vert).SetText('Priest converts when he attacks);
+		UI.CreateLabel(vert).SetText('Priest converts when he attacks');
 	end
 	if Mod.Settings.Defensive == true then
-		UI.CreateLabel(vert).SetText('Priest converts when he is attacked);
+		UI.CreateLabel(vert).SetText('Priest converts when he is attacked');
 	end
 end
