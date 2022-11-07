@@ -9,16 +9,16 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
           local structures = TransferredTerr.Structures
                 if TransferredTerr.Structures ~= nil then 
                     if TransferredTerr.Structures[WL.StructureType.ResourceCache] ~= nil then -- there is a army cache on the territory that was successfully attacked -- so now you can do what you want :p
-					
+			local cardArray = {};	
 			for cardID, _ in pairs(game.Settings.Cards) do
 			    print(cardID);
-                            table.insert(card, cardID);
+                            table.insert(cardArray, cardID);
                         end
 
                         for times = 1, Mod.Settings.cPieces do
                             local pieces = 1;
-                            local rand = math.random(#card);
-                            local randomCard = card[rand]; --picks random card to give to player
+                            local rand = math.random(#cardArray);
+                            local randomCard = cardArray[rand]; --picks random card to give to player
                             
                         end
 					
