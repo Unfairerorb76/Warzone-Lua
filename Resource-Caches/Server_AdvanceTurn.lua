@@ -16,12 +16,12 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
                         end
 
                         for times = 1, Mod.Settings.cPieces do
-                            local pieces = 1;
+                            
                             local rand = math.random(#cardArray);
                             local randomCard = cardArray[rand]; --picks random card to give to player
 			print(randomCard);
                             local playerCards = game.ServerGame.LatestTurnStanding.Cards[randomCard];
-			 		
+			     local pieces[randomCard] = 1;		
 						
 			    local terrMod = WL.TerritoryModification.Create(order.To);
 					
@@ -31,7 +31,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 			    
 			local cardEvent = WL.GameOrderEvent.Create(order.PlayerID, "Updated cards", {}, {terrMod}, {}, {})
 			local t = {};
-			t[order.PlayerID] = playerCards;
+			t[order.PlayerID] = pieces;
 			cardEvent.AddCardPiecesOpt = t;
 			addNewOrder(cardEvent);
                         end
