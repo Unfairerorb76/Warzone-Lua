@@ -21,7 +21,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
                             local randomCard = cardArray[rand]; --picks random card to give to player
 			print(randomCard);
                             local playerCards = game.ServerGame.LatestTurnStanding.Cards[randomCard];
-			     local pieces[randomCard] = 1;		
+			     local pieces = 1;		
 						
 			    local terrMod = WL.TerritoryModification.Create(order.To);
 					
