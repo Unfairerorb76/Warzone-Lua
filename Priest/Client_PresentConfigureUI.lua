@@ -18,6 +18,12 @@ function Client_PresentConfigureUI(rootParent)
 	
 	 local percentage = Mod.Settings.Percentage;
 	if percentage == nil then percentage = 50; end
+	
+	local defense = Mod.Settings.Defensive;
+	if defense == nil then defense = true; end
+	
+	local offence= Mod.Settings.Offensive;
+	if offence == nil then offence = true; end
     
 	local vert = UI.CreateVerticalLayoutGroup(rootParent);
 
@@ -49,5 +55,15 @@ function Client_PresentConfigureUI(rootParent)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(100)
 		.SetValue(percentage);
+	
+	local row5 = UI.CreateHorizontalLayoutGroup(vert);
+	UI.CreateLabel(row5).SetText('priest conversion activates when he is attacked:');
+	defenseField = UI.CreateCheckBox(row5)        
+                .SetIsChecked(defense);
+	
+	local row6 = UI.CreateHorizontalLayoutGroup(vert);
+	UI.CreateLabel(row6).SetText('priest conversion activates when he attacks');
+	offenceField = UI.CreateCheckBox(row6)        
+                .SetIsChecked(offence);
 	
 end
