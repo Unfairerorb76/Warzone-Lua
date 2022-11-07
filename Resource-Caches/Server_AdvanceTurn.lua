@@ -11,10 +11,10 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
                     if TransferredTerr.Structures[WL.StructureType.ResourceCache] ~= nil then -- there is a army cache on the territory that was successfully attacked -- so now you can do what you want :p
 			local cardArray = {};	
 			for cardID, _ in pairs(game.Settings.Cards) do
-			    print(cardID);
+			
                             table.insert(cardArray, cardID);
                         end
-
+print(1);
                         for times = 1, Mod.Settings.cPieces do
                             
                             local rand = math.random(#cardArray);
@@ -26,9 +26,11 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 				structures = {}
 				structures[WL.StructureType.ResourceCache] = -1;					
 			        terrMod.AddStructuresOpt = structures;	
-			
+			print(2);
 			local cardEvent = WL.GameOrderEvent.Create(order.PlayerID, "Updated cards", {}, {terrMod}, {}, {});
+			print(3);
 			addNewOrder(cardEvent, true);
+			print(4);
                         end
 					
 end end end end end   
