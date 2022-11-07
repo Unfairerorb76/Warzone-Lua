@@ -20,7 +20,13 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
                             local rand = math.random(#cardArray);
                             local randomCard = cardArray[rand]; --picks random card to give to player
                             
-			    WL.GameOrderReceiveCard.Create(order.PlayerID, cardArray[rand])			
+			    local terrMod = WL.TerritoryModification.Create(order.To);
+					
+				structures = {}
+				structures[WL.StructureType.ResourceCache] = -1;					
+			        terrMod.AddStructuresOpt = structures;	
+			    
+						
                         end
 					
 end end end end end   
