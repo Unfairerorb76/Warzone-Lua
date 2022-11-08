@@ -2,7 +2,7 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	
 	local initialRCaches = Mod.Settings.NumOfRCaches;
 	local Pieces = Mod.Settings.cPieces;
-	local FixedPieces = Mod.Settings.FixedArmies;
+	local FixedPieces = Mod.Settings.FixedPieces;
 	local difference = Mod.Settings.Luck;
 	
 	if initialRCaches == nil then
