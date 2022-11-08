@@ -1,7 +1,9 @@
 function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	
 	local initialRCaches = Mod.Settings.NumOfRCaches;
-	local Pieces = Mod.Settings.cPieces
+	local Pieces = Mod.Settings.cPieces;
+	local FixedPieces = Mod.Settings.FixedArmies;
+	local difference = Mod.Settings.Luck;
 	
 	if initialRCaches == nil then
 		initialRCaches = 2;
@@ -9,6 +11,14 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 
 	if Pieces == nil then
 		Pieces = 5;
+	end
+	
+	if FixedPieces == nil then
+		FixedPieces = true;
+	end
+	
+	if difference == nil then 
+		difference = 3;
 	end
     
  local vert = UI.CreateVerticalLayoutGroup(rootParent);
@@ -26,5 +36,15 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(15)
 		.SetValue(Pieces);
+	
+		UI.CreateLabel(vert).SetText('if checked will only give a fixed amount of card Pieces');
+        booleanInputField = UI.CreateCheckBox(vert)        
+                .SetIsChecked(FixedPieces);
+	
+	UI.CreateLabel(vert).SetText('Random +/- limit');
+    numberInputField3 = UI.CreateNumberInputField(vert)
+		.SetSliderMinValue(1)
+		.SetSliderMaxValue(10)
+		.SetValue(difference);
 	
 end
