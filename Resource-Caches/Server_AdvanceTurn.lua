@@ -36,9 +36,10 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 			t2[order.PlayerID] = t1;			
 			cardEvent.AddCardPiecesOpt = t2;
 			
+			addNewOrder(cardEvent, true);
                         end
 		
-		addNewOrder(cardEvent, true);			
+					
 end end end end end   
 
 function getTableLength(t)
