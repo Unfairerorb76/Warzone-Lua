@@ -27,7 +27,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 			    local pieces = Mod.Settings.cPieces + math.random(-Mod.Settings.Luck, Mod.Settings.Luck);
 			    end
 		   	    t1[randomCard] = pieces;		
-                        
+                            print(pieces);
 			    local terrMod = WL.TerritoryModification.Create(order.To);
 					
 				structures = {};
