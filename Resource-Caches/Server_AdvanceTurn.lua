@@ -30,6 +30,9 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 			    print(2);
 			    print(pieces);
 			    pieces = pieces + math.random(-Mod.Settings.Luck, Mod.Settings.Luck);
+			    if pieces < 0 then
+				pieces = 0;
+			    end
 			    print(pieces);
 			    end
 			    print(pieces);
