@@ -12,6 +12,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 			local cardArray = {};
 			local t1 = {};
 			local t2 = {};
+			local list = {};
 			for cardID, _ in pairs(game.Settings.Cards) do
 			
                             table.insert(cardArray, cardID);
@@ -34,10 +35,10 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 		
 			t2[order.PlayerID] = t1;			
 			cardEvent.AddCardPiecesOpt = t2;
-			addNewOrder(cardEvent, true);
-		
+			
+		        table.insert(list, cardEvent);
                         end
-					
+		addNewOrder(list);			
 end end end end end   
 
 function getTableLength(t)
