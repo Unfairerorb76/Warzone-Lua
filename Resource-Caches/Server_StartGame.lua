@@ -8,9 +8,9 @@ function Server_StartGame(game, standing)
 	for cardID, _ in pairs(game.Settings.Cards) do
                            count = count + 1;
                        end
-	print(count);
+	if count > 0 then
 distributeRandomStructures(standing, WL.StructureType.ResourceCache, Mod.Settings.NumOfRCaches, {maxPercentage = 50, numberOfStructures = 1, onlyPlaceOnNeutrals = true, allowMultipleStructures = false});
-  	
+  end	
 			--local s = standing;
 			--local cards = s.Cards;
 			--local armies = 0;
