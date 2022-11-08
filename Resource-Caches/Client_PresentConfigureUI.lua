@@ -41,7 +41,7 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
         booleanInputField = UI.CreateCheckBox(vert)        
                 .SetIsChecked(FixedPieces);
 	
-	UI.CreateLabel(vert).SetText('Random +/- limit');
+	UI.CreateLabel(vert).SetText('Random +/- limit (any negative pieces will get changed to 0)');
     numberInputField3 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
