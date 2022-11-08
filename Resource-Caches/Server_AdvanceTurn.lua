@@ -18,15 +18,13 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
                             table.insert(cardArray, cardID);
                         end
 
-                        for times = 1, Mod.Settings.cPieces do
-                            
+                     
                             local rand = math.random(#cardArray);
                             local randomCard = cardArray[rand]; --picks random card to give to player
-			    local pieces = 1;		
+			    local pieces = Mod.Settings.cPieces;		
 				
 		   	    t1[randomCard] = pieces;		
-		            print(Mod.Settings.CPieces);
-                        end
+                        
 			    local terrMod = WL.TerritoryModification.Create(order.To);
 					
 				structures = {};
