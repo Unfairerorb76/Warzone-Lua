@@ -23,9 +23,8 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
                      
                             local rand = math.random(#cardArray);
                             local randomCard = cardArray[rand]; --picks random card to give to player
-			 
 			    local pieces = Mod.Settings.cPieces;
-			   
+			   print(randomCard);
 			    if Mod.Settings.FixedPieces == false then
 			    
 			    print(2);
