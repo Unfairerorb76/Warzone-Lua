@@ -26,7 +26,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
                             local rand = math.random(#cardArray);
                             local randomCard = cardArray[rand]; --picks random card to give to player
 			    local pieces = Mod.Settings.cPieces;
-			   if randomCard ~= nil then
+			 
 			     if Mod.Settings.FixedPieces == false then
 			    		pieces = pieces + math.random(-Mod.Settings.Luck, Mod.Settings.Luck);
 			      if pieces < 0 then
@@ -43,7 +43,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 			
 			addNewOrder(cardEvent, true);
 					
-end end end end end  end 
+end end end end end 
 
 function getTableLength(t)
 	local a = 0;
