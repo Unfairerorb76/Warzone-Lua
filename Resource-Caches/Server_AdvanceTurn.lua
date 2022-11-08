@@ -24,7 +24,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 			    if Mod.Settings.FixedPieces then
 			    local pieces = Mod.Settings.cPieces;		
 			    end
-			    if Mod.Settings.FixedPieces = false then
+			    if Mod.Settings.FixedPieces == false then
 			    local pieces = Mod.Settings.cPieces + math.random(-Mod.Settings.Luck, Mod.Settings.Luck);
 			    end
 		   	    t1[randomCard] = pieces;		
