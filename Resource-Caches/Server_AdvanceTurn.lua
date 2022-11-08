@@ -38,7 +38,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 			
 		        table.insert(list, cardEvent);
                         end
-		addNewOrder(list);			
+		addNewOrder(list, true);			
 end end end end end   
 
 function getTableLength(t)
