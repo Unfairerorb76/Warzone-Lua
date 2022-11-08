@@ -3,7 +3,7 @@ require('WLUtilities');
 require('distributeRandomStructures');
 
 function Server_StartGame(game, standing)
-print(GameSettings.Cards);
+print(game.Settings.Cards);
 distributeRandomStructures(standing, WL.StructureType.ResourceCache, Mod.Settings.NumOfRCaches, {maxPercentage = 50, numberOfStructures = 1, onlyPlaceOnNeutrals = true, allowMultipleStructures = false});
   	
 			--local s = standing;
