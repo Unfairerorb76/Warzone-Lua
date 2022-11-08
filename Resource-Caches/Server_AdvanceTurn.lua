@@ -13,39 +13,29 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 			local t1 = {};
 			local t2 = {};
 			local list = {};
-			print(game.Settings.Cards);
+					
+			local terrMod = WL.TerritoryModification.Create(order.To);
+					
+				structures = {};
+				structures[WL.StructureType.ResourceCache] = -1;					
+			        terrMod.AddStructuresOpt = structures;
+			
 			for cardID, _ in pairs(game.Settings.Cards) do
-			    
                             table.insert(cardArray, cardID);
-			    
                         end
-
-                     
                             local rand = math.random(#cardArray);
                             local randomCard = cardArray[rand]; --picks random card to give to player
 			    local pieces = Mod.Settings.cPieces;
 			   if randomCard ~= nil then
-			    if Mod.Settings.FixedPieces == false then
-			    
-			    print(2);
-			    print(pieces);
-			    pieces = pieces + math.random(-Mod.Settings.Luck, Mod.Settings.Luck);
-			    if pieces < 0 then
+			     if Mod.Settings.FixedPieces == false then
+			    		pieces = pieces + math.random(-Mod.Settings.Luck, Mod.Settings.Luck);
+			      if pieces < 0 then
 				pieces = 0;
-			    end
-			    print(pieces);
-			    end
-			    print(pieces);
-		   	    t1[randomCard] = pieces;		
-                       
-			    local terrMod = WL.TerritoryModification.Create(order.To);
-					
-				structures = {};
-				structures[WL.StructureType.ResourceCache] = -1;					
-			        terrMod.AddStructuresOpt = structures;	
-						
+			      end
+			     end
 			   
-					
+			t1[randomCard] = pieces;		
+		
 		local cardEvent = WL.GameOrderEvent.Create(order.PlayerID, "Updated cards", {}, {terrMod}, {}, {});
 		
 			t2[order.PlayerID] = t1;			
