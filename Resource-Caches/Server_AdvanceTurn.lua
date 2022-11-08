@@ -37,7 +37,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 			
 			
                         end
-		cardEvent.AddCardPiecesOpt = t2
+		cardEvent.AddCardPiecesOpt = t2;
 		addNewOrder(cardEvent, true);			
 end end end end end   
 
