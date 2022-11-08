@@ -13,9 +13,11 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 			local t1 = {};
 			local t2 = {};
 			local list = {};
+			print(game.Settings.Cards);
 			for cardID, _ in pairs(game.Settings.Cards) do
-			
+			    
                             table.insert(cardArray, cardID);
+			    
                         end
 
                      
@@ -23,8 +25,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
                             local randomCard = cardArray[rand]; --picks random card to give to player
 			 
 			    local pieces = Mod.Settings.cPieces;
-			
-			    
+			   
 			    if Mod.Settings.FixedPieces == false then
 			    
 			    print(2);
