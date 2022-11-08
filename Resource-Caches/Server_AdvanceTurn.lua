@@ -21,12 +21,12 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
                      
                             local rand = math.random(#cardArray);
                             local randomCard = cardArray[rand]; --picks random card to give to player
-			    if Mod.Settings.FixedPieces then
+			 
 			    local pieces = Mod.Settings.cPieces;
-			    print(1);
-			    end
+			
+			    
 			    if Mod.Settings.FixedPieces == false then
-			    local pieces = Mod.Settings.cPieces;
+			    
 			    print(2);
 			    print(pieces);
 			    pieces = pieces + math.random(-Mod.Settings.Luck, Mod.Settings.Luck);
