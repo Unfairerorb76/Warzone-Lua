@@ -19,7 +19,7 @@ end end end
 			ArmyCache(game, addNewOrder, order.To, order.PlayerID)
 					end
 					if TransferredTerr.Structures[WL.StructureType.ResourceCache] ~= nil then
-			ResourceCache(game,addNewOrder,order.To,order.PlayerID)
+			ResourceCache(game,addNewOrder,order.To, order.PlayerID)
 					end 
 end end end 
 
@@ -212,7 +212,9 @@ function ResourceCache(game, addNewOrder, terrID, playerID)
 					pieces = 0;
 			    end
 			    end
-			   					
+			print(playerID);
+	                print(pieces);
+	                print(terrMod);
 			local cardEvent = WL.GameOrderEvent.Create(playerID, "Claimed a card cache and received " .. pieces .. " pieces for a random card", {}, {terrMod}, {}, {});
 			
 			t1[randomCard] = pieces;
