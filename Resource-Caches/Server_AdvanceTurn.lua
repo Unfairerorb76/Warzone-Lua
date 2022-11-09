@@ -36,7 +36,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 			   
 			t1[randomCard] = pieces;		
 		
-		local cardEvent = WL.GameOrderEvent.Create(order.PlayerID, "claimed a card cache and recieved " + randomCard, {}, {terrMod}, {}, {});
+		local cardEvent = WL.GameOrderEvent.Create(order.PlayerID, "claimed a card cache and recieved " .. pieces, {}, {terrMod}, {}, {});
 		
 			t2[order.PlayerID] = t1;			
 			cardEvent.AddCardPiecesOpt = t2;
