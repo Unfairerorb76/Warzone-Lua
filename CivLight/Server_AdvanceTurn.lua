@@ -213,10 +213,10 @@ function ResourceCache(game, addNewOrder, terrID, playerID)
 			    end
 			    end
 			   					
-			local cardEvent = WL.GameOrderEvent.Create(order.PlayerID, "Claimed a card cache and received " .. pieces .. " pieces for a random card", {}, {terrMod}, {}, {});
+			local cardEvent = WL.GameOrderEvent.Create(playerID, "Claimed a card cache and received " .. pieces .. " pieces for a random card", {}, {terrMod}, {}, {});
 			
 			t1[randomCard] = pieces;
-			t2[order.PlayerID] = t1;			
+			t2[playerID] = t1;			
 			cardEvent.AddCardPiecesOpt = t2;
 			
 			addNewOrder(cardEvent, true);										   
