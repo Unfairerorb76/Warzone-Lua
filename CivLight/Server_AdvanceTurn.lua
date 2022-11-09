@@ -5,7 +5,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
       if order.proxyType == "GameOrderAttackTransfer" then 
           if orderResult.IsAttack and orderResult.IsSuccessful then 
           local attackedTerr = game.ServerGame.LatestTurnStanding.Territories[order.To]; 
-			print(game.ServerGame.LatestTurnStanding.Territories[order.To].NumArmies);
+			print(game.ServerGame.LatestTurnStanding.Territories[order.To].NumArmies.NumArmies);
                 if attackedTerr.Structures ~= nil then 
                     if attackedTerr.Structures[WL.StructureType.MercenaryCamp] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked -- so now you can do what you want :p
 			Village(game, addNewOrder, order.To, order.PlayerID)
