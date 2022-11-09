@@ -15,6 +15,7 @@ function Client_SaveConfigureUI(alert)
     
     Mod.Settings.NumOfRCaches = numberInputField8.GetValue();
     Mod.Settings.cPieces = numberInputField9.GetValue();
+    print(Mod.Settings.cPieces);
     Mod.Settings.FixedPieces = booleanInputField4.GetIsChecked();
     Mod.Settings.rLuck = numberInputField10.GetValue();
 
