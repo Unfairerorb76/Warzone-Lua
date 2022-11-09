@@ -212,6 +212,7 @@ function ResourceCache(game, addNewOrder, terrID, playerID)
 					pieces = 0;
 			    end
 			    end
+	                print(Mod.Settings.cPieces);
 			print(playerID);
 	                print(pieces);
 	                print(terrMod);
