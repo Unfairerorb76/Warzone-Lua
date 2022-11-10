@@ -168,7 +168,7 @@ numberInputField10 = UI.CreateNumberInputField(vert)
 	.SetSliderMaxValue(10)
 	.SetValue(difference2);
 
-	UI.CreateLabel(vert).SetText('if checked will allow the player to take neutrals with armies');
+	UI.CreateLabel(vert).SetText('if checked will allow the player to claim neutral territories manually');
 	booleanInputField5 = UI.CreateCheckBox(vert)        
 			.SetIsChecked(AttackNeutral);
 end
