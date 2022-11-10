@@ -162,8 +162,7 @@ function showCardCacheConfig()
   DestroyWindow();
   SetWindow("Card-Caches");
 	
-	UI.CreateLabel(vert).SetText('Card Caches will spawn around the map at the start of the game, claiming the territory it is on will give you pieces for one random card (cards that are enabled by host before hand). These are shown as Idle Resource Caches.').SetColor('#94652E');
-  
+	
 	local initialRCaches = Mod.Settings.NumOfRCaches;
 	local Pieces = Mod.Settings.cPieces;
 	local FixedPieces = Mod.Settings.FixedPieces;
@@ -187,6 +186,8 @@ function showCardCacheConfig()
 	
 	local vert = CreateVert(GetRoot());
 	
+	UI.CreateLabel(vert).SetText('Card Caches will spawn around the map at the start of the game, claiming the territory it is on will give you pieces for one random card (cards that are enabled by host before hand). These are shown as Idle Resource Caches.').SetColor('#94652E');
+  
 	UI.CreateLabel(vert).SetText('Amount of Card Caches that will spawn at the start of the game (shown as resource cache)');
 	numberInputField8 = UI.CreateNumberInputField(vert)
 	.SetSliderMinValue(1)
