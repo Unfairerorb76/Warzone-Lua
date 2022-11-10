@@ -237,7 +237,7 @@ function showMiscConfig()     -- 0 parameters!
        local vert = CreateVert(GetRoot());
 	
 	UI.CreateLabel(vert).SetText('These are extra features that you can enable!').SetColor('#606060');
-	UI.CreateLabel(vert).SetText('if checked will allow the player to claim neutral territories manually').SetColor('#23A0FF');
+	UI.CreateLabel(vert).SetText('if checked will allow the player to claim neutral territories manually. (note that the player can still claim structures on bordering neutral territories)').SetColor('#23A0FF');
 	booleanInputField5 = UI.CreateCheckBox(vert)        
 			.SetIsChecked(AttackNeutral);
 	
