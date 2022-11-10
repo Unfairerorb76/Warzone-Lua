@@ -1,9 +1,8 @@
 require('UI');
 function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	
-	 Init(rootParent);
+  Init(rootParent);
   -- initiliase all default values for the inputs
-	colorsList = {"Blue", "Light Blue", "Purple", "Dark Green", "Orange", "Red", "Dark Gray", "Green", "Hot Pink", "Brown", "Sea Green", "Orange Red", "Cyan", "Aqua", "Dark Magenta", "Deep Pink", "yellow", "Saddle Brown", "Ivory", "Copper Rose", "Electric Purple", "Tan", "Pink", "Lime", "Tan", "Tyrian Purple", "Smoky Black"};
   showMainConfig();
 		
 end
@@ -11,6 +10,10 @@ end
 function showMainConfig()
   DestroyWindow();
   SetWindow("Main");
+
+  local vert = CreateVert(GetRoot());
+        InputField = UI.CreateCheckBox(vert)        
+                .SetIsChecked(false);
   CreateButton(GetRoot()).SetText("Expansion+").SetOnClick(showExpansionConfig).SetColor('#00FF8C');
   CreateButton(GetRoot()).SetText("Villages").SetOnClick(showVillagesConfig).SetColor('#00FF8C');
   CreateButton(GetRoot()).SetText("Army-Caches").SetOnClick(showArmyCacheConfig).SetColor('#00FF8C');
