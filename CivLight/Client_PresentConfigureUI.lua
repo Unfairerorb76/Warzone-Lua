@@ -11,7 +11,7 @@ end
 function showMainConfig()
   DestroyWindow();
   SetWindow("Main");
-  CreateButton(GetRoot()).SetText("Expansion+").SetOnClick(showExpansionConfig).SetColor('#606060');
+  CreateButton(GetRoot()).SetText("Expansion+").SetOnClick(showExpansionConfig).SetColor('#00FF8C');
   CreateButton(GetRoot()).SetText("Villages").SetOnClick(showVillagesConfig).SetColor('#606060');
   CreateButton(GetRoot()).SetText("Army-Caches").SetOnClick(showArmyCacheConfig).SetColor('#606060');
   CreateButton(GetRoot()).SetText("Card-Caches").SetOnClick(showCardCacheConfig).SetColor('#606060');
