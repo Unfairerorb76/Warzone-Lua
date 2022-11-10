@@ -7,7 +7,7 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	
 	local initialValueConvert = Mod.Settings.NumToConvert;
 	local initialValueArmies = Mod.Settings.SetArmiesTo;
-    local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
+    	local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
 	
 	local initialVillages = Mod.Settings.NumOfVillages;
 	local ON = Mod.Settings.ONeutrals;
@@ -181,8 +181,17 @@ end
 function showMainConfig()
   DestroyWindow();
   SetWindow("Main");
+  CreateButton(GetRoot()).SetText("Expansion+").SetOnClick(showExpansionConfig);
   CreateButton(GetRoot()).SetText("Villages").SetOnClick(showVillagesConfig);
-  CreateButton(GetRoot()).SetText("FreeExpanion+").SetOnClick(showFreeExpansionConfig);
+  CreateButton(GetRoot()).SetText("Army-Caches").SetOnClick(showArmyCacheConfig);
+  CreateButton(GetRoot()).SetText("Card-Caches").SetOnClick(showCardCacheConfig);
+end
+
+function showExpansionConfig()
+  DestroyWindow();
+  SetWindow("FreeExpansion");
+  -- show all settings of the FreeExpansion part
+  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig);
 end
 
 function showVillagesConfig()
@@ -192,12 +201,20 @@ function showVillagesConfig()
   CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig);
 end
 
-function showFreeExpansionConfig()
+function showArmyCacheConfig()
   DestroyWindow();
-  SetWindow("FreeExpansion");
-  -- show all settings of the FreeExpansion part
+  SetWindow("Army-Caches");
+  -- show all settings of the \rmy cache
   CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig);
 end
+
+function showCardCacheConfig()
+  DestroyWindow();
+  SetWindow("Card-Caches");
+  -- show all settings of the \rmy cache
+  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig);
+end
+
 
 --[[
 basic template for functions:
