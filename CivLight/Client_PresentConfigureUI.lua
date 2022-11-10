@@ -7,14 +7,6 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	
 	
 	
-	local initialVillages = Mod.Settings.NumOfVillages;
-	local ON = Mod.Settings.ONeutrals;
-	local GainedArmies = Mod.Settings.Armies;
-	
-	local initialACaches = Mod.Settings.NumOfACaches;
-	local GainedArmies = Mod.Settings.Armies;
-	local FixedArmies = Mod.Settings.FixedArmies;
-	local difference = Mod.Settings.aLuck;
 
 	local initialRCaches = Mod.Settings.NumOfRCaches;
 	local Pieces = Mod.Settings.cPieces;
@@ -25,31 +17,9 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	
 	
 	
-	if initialVillages == nil then
-		initialVillages = 3;
-	end
-	if ON == nil then 
-        ON = true; 
-    end
-	if GainedArmies == nil then
-		GainedArmies = 2;
-	end
 	
-	if initialACaches == nil then
-		initialACaches = 3;
-	end
-
-	if GainedArmies == nil then
-		GainedArmies = 5;
-	end
 	
-	if FixedArmies == nil then
-		FixedArmies = true;
-	end
 	
-	if difference == nil then 
-		difference = 5;
-	end
 
 	if initialRCaches == nil then
 		initialRCaches = 2;
@@ -82,46 +52,12 @@ local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for ref
 	
 	UI.CreateLabel(vert).SetText('Village Mod related:');
 	
-	UI.CreateLabel(vert).SetText('Amount of Villages that will be created at the start of the game');
-   	 numberInputField3 = UI.CreateNumberInputField(vert)
-		.SetSliderMinValue(1)
-		.SetSliderMaxValue(10)
-		.SetValue(initialVillages);
 	
-	UI.CreateLabel(vert).SetText('Amount of armies that you will get with each new territory');
-   	 numberInputField4 = UI.CreateNumberInputField(vert)
-		.SetSliderMinValue(1)
-		.SetSliderMaxValue(15)
-		.SetValue(GainedArmies);
-	
-	UI.CreateLabel(vert).SetText('only neutrals territories shall be claimed (recommended)');
-        booleanInputField2 = UI.CreateCheckBox(vert)        
-                .SetIsChecked(ON);
 	
 	
         UI.CreateLabel(vert).SetText('Army-Cache Mod related:');   
 	
-			UI.CreateLabel(vert).SetText('Amount of Army Caches that will spawn at the start of the game');
-   	 numberInputField5 = UI.CreateNumberInputField(vert)
-		.SetSliderMinValue(1)
-		.SetSliderMaxValue(20)
-		.SetValue(initialACaches);
-	
-	UI.CreateLabel(vert).SetText('Amount of armies that you will get for claiming a army cache');
-   	 numberInputField6 = UI.CreateNumberInputField(vert)
-		.SetSliderMinValue(1)
-		.SetSliderMaxValue(15)
-		.SetValue(GainedArmies);
-	
-	UI.CreateLabel(vert).SetText('if checked will only give a fixed amount of armies');
-        booleanInputField3 = UI.CreateCheckBox(vert)        
-                .SetIsChecked(FixedArmies);
-	
-	UI.CreateLabel(vert).SetText('Random +/- limit');
-    numberInputField7 = UI.CreateNumberInputField(vert)
-		.SetSliderMinValue(1)
-		.SetSliderMaxValue(10)
-		.SetValue(difference);
+		
 	
 	UI.CreateLabel(vert).SetText('Card Cache related');   
 
@@ -181,7 +117,7 @@ local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
        		initalcheckbox = false; 
     	end
 	
-	local vert = CreateVert(GetRoot());
+	
 	
 	UI.CreateLabel(vert).SetText('amount of neutrals a player shall gain each turn');
     numberInputField = UI.CreateNumberInputField(vert)
@@ -205,14 +141,91 @@ end
 function showVillagesConfig()
   DestroyWindow();
   SetWindow("Villages");
-  -- show all settings of the Villages part
+  
+	local initialVillages = Mod.Settings.NumOfVillages;
+	local ON = Mod.Settings.ONeutrals;
+	local GainedArmies = Mod.Settings.Armies;
+	
+	if initialVillages == nil then
+		initialVillages = 3;
+	end
+	if ON == nil then 
+        	ON = true; 
+    	end
+	if GainedArmies == nil then
+		GainedArmies = 2;
+	end
+	
+	local vert = CreateVert(GetRoot());
+	
+	UI.CreateLabel(vert).SetText('Amount of Villages that will be created at the start of the game');
+   	 numberInputField3 = UI.CreateNumberInputField(vert)
+		.SetSliderMinValue(1)
+		.SetSliderMaxValue(10)
+		.SetValue(initialVillages);
+	
+	UI.CreateLabel(vert).SetText('Amount of armies that you will get with each new territory');
+   	 numberInputField4 = UI.CreateNumberInputField(vert)
+		.SetSliderMinValue(1)
+		.SetSliderMaxValue(15)
+		.SetValue(GainedArmies);
+	
+	UI.CreateLabel(vert).SetText('only neutrals territories shall be claimed (recommended)');
+        booleanInputField2 = UI.CreateCheckBox(vert)        
+                .SetIsChecked(ON);
+	
   CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig);
 end
 
 function showArmyCacheConfig()
   DestroyWindow();
   SetWindow("Army-Caches");
-  -- show all settings of the \rmy cache
+  
+	local initialACaches = Mod.Settings.NumOfACaches;
+	local GainedArmies = Mod.Settings.Armies;
+	local FixedArmies = Mod.Settings.FixedArmies;
+	local difference = Mod.Settings.aLuck;
+	
+	if initialACaches == nil then
+		initialACaches = 3;
+	end
+
+	if GainedArmies == nil then
+		GainedArmies = 5;
+	end
+	
+	if FixedArmies == nil then
+		FixedArmies = true;
+	end
+	
+	if difference == nil then 
+		difference = 5;
+	end
+	
+	local vert = CreateVert(GetRoot());
+	
+	UI.CreateLabel(vert).SetText('Amount of Army Caches that will spawn at the start of the game');
+   	 numberInputField5 = UI.CreateNumberInputField(vert)
+		.SetSliderMinValue(1)
+		.SetSliderMaxValue(20)
+		.SetValue(initialACaches);
+	
+	UI.CreateLabel(vert).SetText('Amount of armies that you will get for claiming a army cache');
+   	 numberInputField6 = UI.CreateNumberInputField(vert)
+		.SetSliderMinValue(1)
+		.SetSliderMaxValue(15)
+		.SetValue(GainedArmies);
+	
+	UI.CreateLabel(vert).SetText('if checked will only give a fixed amount of armies');
+        booleanInputField3 = UI.CreateCheckBox(vert)        
+                .SetIsChecked(FixedArmies);
+	
+	UI.CreateLabel(vert).SetText('Random +/- limit');
+    numberInputField7 = UI.CreateNumberInputField(vert)
+		.SetSliderMinValue(1)
+		.SetSliderMaxValue(10)
+		.SetValue(difference);
+	
   CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig);
 end
 
