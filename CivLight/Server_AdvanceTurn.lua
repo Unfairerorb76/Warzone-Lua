@@ -1,5 +1,4 @@
-require('Utilities');
-require('WLUtilities');
+require('UI');
 
 function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNewOrder)
       if order.proxyType == "GameOrderAttackTransfer" then 
