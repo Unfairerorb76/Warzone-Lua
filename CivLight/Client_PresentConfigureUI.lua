@@ -5,7 +5,7 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 local initialValueArmies = Mod.Settings.SetArmiesTo;
 local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
 	
-local vert = CreateVert(GetRoot());
+
        
 	if initialValueConvert == nil then
 		initialValueConvert = 2;
@@ -47,7 +47,7 @@ function showExpansionConfig()
   
 
 	
-	
+	local vert = CreateVert(GetRoot());
 	
 	
 	CreateLabel(vert).SetText('Allows players to gain a free neutral every turn (only on connected territories).').SetColor('#606060');
