@@ -4,6 +4,20 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
   local initialValueConvert = Mod.Settings.NumToConvert;
 local initialValueArmies = Mod.Settings.SetArmiesTo;
 local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
+	
+local vert = CreateVert(GetRoot());
+       
+	if initialValueConvert == nil then
+		initialValueConvert = 2;
+	end
+	
+	if initialValueArmies == nil then
+		initialValueArmies = 2;
+	end
+
+        if initalcheckbox == nil then 
+       		initalcheckbox = false; 
+    	end
   Init(rootParent);
   -- initiliase all default values for the inputs
   showMainConfig();
@@ -32,19 +46,7 @@ function showExpansionConfig()
    
   
 
-	local vert = CreateVert(GetRoot());
-       
-	if initialValueConvert == nil then
-		initialValueConvert = 2;
-	end
 	
-	if initialValueArmies == nil then
-		initialValueArmies = 2;
-	end
-
-        if initalcheckbox == nil then 
-       		initalcheckbox = false; 
-    	end
 	
 	
 	
