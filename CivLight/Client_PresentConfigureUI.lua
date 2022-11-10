@@ -4,18 +4,7 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	 Init(rootParent);
   -- initiliase all default values for the inputs
   showMainConfig();
-	
-	local AttackNeutral = Mod.Settings.AttackNeutral;
-	
-	if AttackNeutral == nil then
-		AttackNeutral = true;
-	end
-
- local vert = UI.CreateVerticalLayoutGroup(rootParent);
-	
-	UI.CreateLabel(vert).SetText('if checked will allow the player to claim neutral territories manually');
-	booleanInputField5 = UI.CreateCheckBox(vert)        
-			.SetIsChecked(AttackNeutral);
+		
 end
 
 function showMainConfig()
@@ -25,6 +14,7 @@ function showMainConfig()
   CreateButton(GetRoot()).SetText("Villages").SetOnClick(showVillagesConfig);
   CreateButton(GetRoot()).SetText("Army-Caches").SetOnClick(showArmyCacheConfig);
   CreateButton(GetRoot()).SetText("Card-Caches").SetOnClick(showCardCacheConfig);
+  CreateButton(GetRoot()).SetText("Misc").SetOnClick(showMiscConfig);
 end
 
 function showExpansionConfig()
@@ -211,6 +201,25 @@ function showCardCacheConfig()
   CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig);
 end
 
+function showMiscConfig()     -- 0 parameters!
+  DestroyWindow();          -- Destroys every UI object currently visible
+  SetWindow("Misc");  -- Allows you to do even more advanced shit
+  
+	local AttackNeutral = Mod.Settings.AttackNeutral;
+	
+	if AttackNeutral == nil then
+		AttackNeutral = true;
+	end
+
+       local vert = CreateVert(GetRoot());
+	
+	UI.CreateLabel(vert).SetText('if checked will allow the player to claim neutral territories manually');
+	booleanInputField5 = UI.CreateCheckBox(vert)        
+			.SetIsChecked(AttackNeutral);
+	
+	
+  CreateButton(parent).SetText("Return").SetOnClick(previousFunction);  -- Allows game creators to go back to the previous page
+end
 
 --[[
 basic template for functions:
