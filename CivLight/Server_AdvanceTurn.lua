@@ -28,8 +28,8 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 				terrModfrom.SetArmiesTo = (attackerTerr.NumArmies.NumArmies - orderResult.AttackingArmiesKilled.NumArmies);
 				
 				
-				addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, "placeholder",{}, {terrModfrom}), true);
-				addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, "placeholder", {}, {terrModTo}));
+				addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, "calculating damage done", {}, {terrModTo}));
+				addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, "returning damaged troops",{}, {terrModfrom}), true);
 				end
 		  end 
 	 end 
