@@ -47,7 +47,7 @@ local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
        		initalcheckbox = false; 
     	end
 	
-	
+	local vert = CreateVert(GetRoot());
 	
 	UI.CreateLabel(vert).SetText('amount of neutrals a player shall gain each turn');
     numberInputField = UI.CreateNumberInputField(vert)
@@ -183,6 +183,8 @@ function showCardCacheConfig()
 	if difference2 == nil then 
 		difference2 = 3;
 	end
+	
+	local vert = CreateVert(GetRoot());
 	
 	UI.CreateLabel(vert).SetText('Amount of Card Caches that will spawn at the start of the game (shown as resource cache)');
 	numberInputField8 = UI.CreateNumberInputField(vert)
