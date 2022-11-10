@@ -11,11 +11,11 @@ end
 function showMainConfig()
   DestroyWindow();
   SetWindow("Main");
-  CreateButton(GetRoot()).SetText("Expansion+").SetOnClick(showExpansionConfig);
-  CreateButton(GetRoot()).SetText("Villages").SetOnClick(showVillagesConfig);
-  CreateButton(GetRoot()).SetText("Army-Caches").SetOnClick(showArmyCacheConfig);
-  CreateButton(GetRoot()).SetText("Card-Caches").SetOnClick(showCardCacheConfig);
-  CreateButton(GetRoot()).SetText("Misc").SetOnClick(showMiscConfig);
+  CreateButton(GetRoot()).SetText("Expansion+").SetOnClick(showExpansionConfig).SetColor('#606060');
+  CreateButton(GetRoot()).SetText("Villages").SetOnClick(showVillagesConfig).SetColor('#606060');
+  CreateButton(GetRoot()).SetText("Army-Caches").SetOnClick(showArmyCacheConfig).SetColor('#606060');
+  CreateButton(GetRoot()).SetText("Card-Caches").SetOnClick(showCardCacheConfig).SetColor('#606060');
+  CreateButton(GetRoot()).SetText("Misc").SetOnClick(showMiscConfig).SetColor('#606060');
 end
 
 function showExpansionConfig()
@@ -41,7 +41,7 @@ local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
 	
 	local vert = CreateVert(GetRoot());
 	
-	CreateLabel(vert).SetText('Allows players to gain a free neutral every turn (only on connected territories).').SetColor('#94652E');
+	CreateLabel(vert).SetText('Allows players to gain a free neutral every turn (only on connected territories).').SetColor('#606060');
 	
 	UI.CreateLabel(vert).SetText('Amount of neutrals a player shall gain each turn');
     numberInputField = UI.CreateNumberInputField(vert)
@@ -59,7 +59,7 @@ local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
         booleanInputField = UI.CreateCheckBox(vert)        
                 .SetIsChecked(initalcheckbox);
 	
-  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig);
+  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig).SetColor('#94652E');
 end
 
 function showVillagesConfig()
@@ -82,7 +82,7 @@ function showVillagesConfig()
 	
 	local vert = CreateVert(GetRoot());
 	
-	UI.CreateLabel(vert).SetText('At the start of the game, "villages" will spawn around the map. Capturing a village will claim all the adjacent territories to your side. These are shown as Idle Mercenary Camps.').SetColor('#94652E');
+	UI.CreateLabel(vert).SetText('At the start of the game, "villages" will spawn around the map. Capturing a village will claim all the adjacent territories to your side. These are shown as Idle Mercenary Camps.').SetColor('#606060');
 	
 	UI.CreateLabel(vert).SetText('Amount of Villages that will be created at the start of the game');
    	 numberInputField3 = UI.CreateNumberInputField(vert)
@@ -100,7 +100,7 @@ function showVillagesConfig()
         booleanInputField2 = UI.CreateCheckBox(vert)        
                 .SetIsChecked(ON);
 	
-  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig);
+  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig).SetColor('#94652E');
 end
 
 function showArmyCacheConfig()
@@ -131,7 +131,7 @@ function showArmyCacheConfig()
 	
 	local vert = CreateVert(GetRoot());
 	
-	UI.CreateLabel(vert).SetText('Army Caches will spawn around the map, grab them to boost your income for the next turn only. These are shown as Idle Army Caches.').SetColor('#94652E');
+	UI.CreateLabel(vert).SetText('Army Caches will spawn around the map, grab them to boost your income for the next turn only. These are shown as Idle Army Caches.').SetColor('#606060');
 	
 	UI.CreateLabel(vert).SetText('Amount of Army Caches that will spawn at the start of the game');
    	 numberInputField5 = UI.CreateNumberInputField(vert)
@@ -155,7 +155,7 @@ function showArmyCacheConfig()
 		.SetSliderMaxValue(10)
 		.SetValue(difference);
 	
-  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig);
+  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig).SetColor('#94652E');
 end
 
 function showCardCacheConfig()
@@ -186,7 +186,7 @@ function showCardCacheConfig()
 	
 	local vert = CreateVert(GetRoot());
 	
-	UI.CreateLabel(vert).SetText('Card Caches will spawn around the map at the start of the game, claiming the territory it is on will give you pieces for one random card (cards that are enabled by host before hand). These are shown as Idle Resource Caches.').SetColor('#94652E');
+	UI.CreateLabel(vert).SetText('Card Caches will spawn around the map at the start of the game, claiming the territory it is on will give you pieces for one random card (cards that are enabled by host before hand). These are shown as Idle Resource Caches.').SetColor('#606060');
   
 	UI.CreateLabel(vert).SetText('Amount of Card Caches that will spawn at the start of the game (shown as resource cache)');
 	numberInputField8 = UI.CreateNumberInputField(vert)
@@ -210,7 +210,7 @@ function showCardCacheConfig()
 	.SetSliderMaxValue(10)
 	.SetValue(difference2);
 	
-  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig);
+  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig).SetColor('#94652E');
 end
 
 function showMiscConfig()     -- 0 parameters!
@@ -225,7 +225,7 @@ function showMiscConfig()     -- 0 parameters!
 
        local vert = CreateVert(GetRoot());
 	
-	UI.CreateLabel(vert).SetText('These are extra features that you can enable!').SetColor('#94652E');
+	UI.CreateLabel(vert).SetText('These are extra features that you can enable!').SetColor('#606060');
 	UI.CreateLabel(vert).SetText('if checked will allow the player to claim neutral territories manually');
 	booleanInputField5 = UI.CreateCheckBox(vert)        
 			.SetIsChecked(AttackNeutral);
