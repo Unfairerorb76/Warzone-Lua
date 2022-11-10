@@ -5,84 +5,14 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
   -- initiliase all default values for the inputs
   showMainConfig();
 	
-	
-	
-
-	local initialRCaches = Mod.Settings.NumOfRCaches;
-	local Pieces = Mod.Settings.cPieces;
-	local FixedPieces = Mod.Settings.FixedPieces;
-	local difference2 = Mod.Settings.rLuck
-
 	local AttackNeutral = Mod.Settings.AttackNeutral;
 	
-	
-	
-	
-	
-	
-
-	if initialRCaches == nil then
-		initialRCaches = 2;
-	end
-
-	if Pieces == nil then
-		Pieces = 3;
-	end
-	
-	if FixedPieces == nil then
-		FixedPieces = true;
-	end
-	
-	if difference2 == nil then 
-		difference2 = 3;
-	end
-
 	if AttackNeutral == nil then
 		AttackNeutral = true;
 	end
 
-    
  local vert = UI.CreateVerticalLayoutGroup(rootParent);
-local horz1 = UI.CreateHorizontalLayoutGroup(vert);  --not used
-local horz2 = UI.CreateHorizontalLayoutGroup(vert);  --not used but here for reference
 	
-	UI.CreateLabel(vert).SetText('Expansion+ Mod related:');
-	
-	
-	
-	UI.CreateLabel(vert).SetText('Village Mod related:');
-	
-	
-	
-	
-        UI.CreateLabel(vert).SetText('Army-Cache Mod related:');   
-	
-		
-	
-	UI.CreateLabel(vert).SetText('Card Cache related');   
-
-	UI.CreateLabel(vert).SetText('Amount of Card Caches that will spawn at the start of the game (shown as resource cache)');
-	numberInputField8 = UI.CreateNumberInputField(vert)
-	.SetSliderMinValue(1)
-	.SetSliderMaxValue(20)
-	.SetValue(initialRCaches);
-
-UI.CreateLabel(vert).SetText('Amount of card pieces that you will get for claiming a card cache');
-	numberInputField9 = UI.CreateNumberInputField(vert)
-	.SetSliderMinValue(1)
-	.SetSliderMaxValue(20)
-	.SetValue(Pieces);
-
-UI.CreateLabel(vert).SetText('if checked will only give a fixed amount of card pieces');
-	booleanInputField4 = UI.CreateCheckBox(vert)        
-			.SetIsChecked(FixedPieces);
-
-UI.CreateLabel(vert).SetText('Random +/- limit');
-numberInputField10 = UI.CreateNumberInputField(vert)
-	.SetSliderMinValue(1)
-	.SetSliderMaxValue(10)
-	.SetValue(difference2);
-
 	UI.CreateLabel(vert).SetText('if checked will allow the player to claim neutral territories manually');
 	booleanInputField5 = UI.CreateCheckBox(vert)        
 			.SetIsChecked(AttackNeutral);
@@ -232,7 +162,50 @@ end
 function showCardCacheConfig()
   DestroyWindow();
   SetWindow("Card-Caches");
-  -- show all settings of the \rmy cache
+  
+	local initialRCaches = Mod.Settings.NumOfRCaches;
+	local Pieces = Mod.Settings.cPieces;
+	local FixedPieces = Mod.Settings.FixedPieces;
+	local difference2 = Mod.Settings.rLuck
+	
+	if initialRCaches == nil then
+		initialRCaches = 2;
+	end
+
+	if Pieces == nil then
+		Pieces = 3;
+	end
+	
+	if FixedPieces == nil then
+		FixedPieces = true;
+	end
+	
+	if difference2 == nil then 
+		difference2 = 3;
+	end
+	
+	UI.CreateLabel(vert).SetText('Amount of Card Caches that will spawn at the start of the game (shown as resource cache)');
+	numberInputField8 = UI.CreateNumberInputField(vert)
+	.SetSliderMinValue(1)
+	.SetSliderMaxValue(20)
+	.SetValue(initialRCaches);
+
+	UI.CreateLabel(vert).SetText('Amount of card pieces that you will get for claiming a card cache');
+	numberInputField9 = UI.CreateNumberInputField(vert)
+	.SetSliderMinValue(1)
+	.SetSliderMaxValue(20)
+	.SetValue(Pieces);
+
+	UI.CreateLabel(vert).SetText('if checked will only give a fixed amount of card pieces');
+	booleanInputField4 = UI.CreateCheckBox(vert)        
+			.SetIsChecked(FixedPieces);
+
+	UI.CreateLabel(vert).SetText('Random +/- limit');
+	numberInputField10 = UI.CreateNumberInputField(vert)
+	.SetSliderMinValue(1)
+	.SetSliderMaxValue(10)
+	.SetValue(difference2);
+	
   CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig);
 end
 
