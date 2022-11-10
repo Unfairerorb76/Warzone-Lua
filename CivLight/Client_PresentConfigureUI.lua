@@ -20,8 +20,11 @@ function showMainConfig()
 	       
   
   CreateButton(GetRoot()).SetText("Villages").SetOnClick(showVillagesConfig).SetColor('#00FF8C');
+  InputField = UI.CreateCheckBox(horz).SetIsChecked(false).SetText("Disable Villages");	
   CreateButton(GetRoot()).SetText("Army-Caches").SetOnClick(showArmyCacheConfig).SetColor('#00FF8C');
+  InputField = UI.CreateCheckBox(horz).SetIsChecked(false).SetText("Disable ArmyCaches");
   CreateButton(GetRoot()).SetText("Card-Caches").SetOnClick(showCardCacheConfig).SetColor('#00FF8C');
+  InputField = UI.CreateCheckBox(horz).SetIsChecked(false).SetText("Disable Card Caches");
   CreateButton(GetRoot()).SetText("Misc Features").SetOnClick(showMiscConfig).SetColor('#AC0059');
 end
 
