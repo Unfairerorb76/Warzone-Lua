@@ -21,6 +21,7 @@ function showExpansionConfig()
   DestroyWindow();
   SetWindow("FreeExpansion");
    
+  
 local initialValueConvert = Mod.Settings.NumToConvert;
 local initialValueArmies = Mod.Settings.SetArmiesTo;
 local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
@@ -39,19 +40,21 @@ local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
 	
 	local vert = CreateVert(GetRoot());
 	
-	UI.CreateLabel(vert).SetText('amount of neutrals a player shall gain each turn');
+	UI.CreateLabel(vert).SetText('Allows players to gain a free neutral every turn (only on connected territories).');
+	
+	UI.CreateLabel(vert).SetText('Amount of neutrals a player shall gain each turn');
     numberInputField = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
 		.SetValue(initialValueConvert);
 	
-	 UI.CreateLabel(vert).SetText('amount of armies a player shall get with the territory');
+	 UI.CreateLabel(vert).SetText('Amount of armies a player shall get with the territory');
     numberInputField2 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
 		.SetValue(initialValueArmies); 
  
-        UI.CreateLabel(vert).SetText('only base neutral armies and less shall be claimed');
+        UI.CreateLabel(vert).SetText('Only base neutral armies and less shall be claimed');
         booleanInputField = UI.CreateCheckBox(vert)        
                 .SetIsChecked(initalcheckbox);
 	
@@ -78,6 +81,8 @@ function showVillagesConfig()
 	
 	local vert = CreateVert(GetRoot());
 	
+	UI.CreateLabel(vert).SetText('At the start of the game, "villages" will spawn around the map. Capturing a village will claim all the adjacent territories to your side. These are shown as Idle Mercenary Camps.');
+	
 	UI.CreateLabel(vert).SetText('Amount of Villages that will be created at the start of the game');
    	 numberInputField3 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
@@ -101,6 +106,7 @@ function showArmyCacheConfig()
   DestroyWindow();
   SetWindow("Army-Caches");
   
+	
 	local initialACaches = Mod.Settings.NumOfACaches;
 	local GainedArmies = Mod.Settings.Armies;
 	local FixedArmies = Mod.Settings.FixedArmies;
@@ -123,6 +129,8 @@ function showArmyCacheConfig()
 	end
 	
 	local vert = CreateVert(GetRoot());
+	
+	UI.CreateLabel(vert).SetText('Army Caches will spawn around the map, grab them to boost your income for the next turn only. These are shown as Idle Army Caches.');
 	
 	UI.CreateLabel(vert).SetText('Amount of Army Caches that will spawn at the start of the game');
    	 numberInputField5 = UI.CreateNumberInputField(vert)
@@ -152,6 +160,8 @@ end
 function showCardCacheConfig()
   DestroyWindow();
   SetWindow("Card-Caches");
+	
+	UI.CreateLabel(vert).SetText('Card Caches will spawn around the map at the start of the game, claiming the territory it is on will give you pieces for one random card (cards that are enabled by host before hand). These are shown as Idle Resource Caches.');
   
 	local initialRCaches = Mod.Settings.NumOfRCaches;
 	local Pieces = Mod.Settings.cPieces;
@@ -213,6 +223,7 @@ function showMiscConfig()     -- 0 parameters!
 
        local vert = CreateVert(GetRoot());
 	
+	UI.CreateLabel(vert).SetText('These are extra features that you can enable!');
 	UI.CreateLabel(vert).SetText('if checked will allow the player to claim neutral territories manually');
 	booleanInputField5 = UI.CreateCheckBox(vert)        
 			.SetIsChecked(AttackNeutral);
