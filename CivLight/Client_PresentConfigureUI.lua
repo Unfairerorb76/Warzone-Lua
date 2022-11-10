@@ -82,7 +82,7 @@ function showVillagesConfig()
 	
 	local vert = CreateVert(GetRoot());
 	
-	UI.CreateLabel(vert).SetText('At the start of the game, "villages" will spawn around the map. Capturing a village will claim all the adjacent territories to your side. These are shown as Idle Mercenary Camps.');
+	UI.CreateLabel(vert).SetText('At the start of the game, "villages" will spawn around the map. Capturing a village will claim all the adjacent territories to your side. These are shown as Idle Mercenary Camps.').SetColor('#94652E');
 	
 	UI.CreateLabel(vert).SetText('Amount of Villages that will be created at the start of the game');
    	 numberInputField3 = UI.CreateNumberInputField(vert)
@@ -131,7 +131,7 @@ function showArmyCacheConfig()
 	
 	local vert = CreateVert(GetRoot());
 	
-	UI.CreateLabel(vert).SetText('Army Caches will spawn around the map, grab them to boost your income for the next turn only. These are shown as Idle Army Caches.');
+	UI.CreateLabel(vert).SetText('Army Caches will spawn around the map, grab them to boost your income for the next turn only. These are shown as Idle Army Caches.').SetColor('#94652E');
 	
 	UI.CreateLabel(vert).SetText('Amount of Army Caches that will spawn at the start of the game');
    	 numberInputField5 = UI.CreateNumberInputField(vert)
@@ -162,7 +162,7 @@ function showCardCacheConfig()
   DestroyWindow();
   SetWindow("Card-Caches");
 	
-	UI.CreateLabel(vert).SetText('Card Caches will spawn around the map at the start of the game, claiming the territory it is on will give you pieces for one random card (cards that are enabled by host before hand). These are shown as Idle Resource Caches.');
+	UI.CreateLabel(vert).SetText('Card Caches will spawn around the map at the start of the game, claiming the territory it is on will give you pieces for one random card (cards that are enabled by host before hand). These are shown as Idle Resource Caches.').SetColor('#94652E');
   
 	local initialRCaches = Mod.Settings.NumOfRCaches;
 	local Pieces = Mod.Settings.cPieces;
@@ -224,13 +224,13 @@ function showMiscConfig()     -- 0 parameters!
 
        local vert = CreateVert(GetRoot());
 	
-	UI.CreateLabel(vert).SetText('These are extra features that you can enable!');
+	UI.CreateLabel(vert).SetText('These are extra features that you can enable!').SetColor('#94652E');
 	UI.CreateLabel(vert).SetText('if checked will allow the player to claim neutral territories manually');
 	booleanInputField5 = UI.CreateCheckBox(vert)        
 			.SetIsChecked(AttackNeutral);
 	
 	
-  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig);  -- Allows game creators to go back to the previous page
+  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig).SetColor('#94652E');  -- Allows game creators to go back to the previous page
 end
 
 --[[
