@@ -181,7 +181,7 @@ local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
        		initalcheckbox = false; 
     	end
 	
-	local vert = UI.CreateVerticalLayoutGroup(rootParent);
+	local vert = UI.CreateVerticalLayoutGroup(GetRoot());
 	
 	UI.CreateLabel(vert).SetText('amount of neutrals a player shall gain each turn');
     numberInputField = UI.CreateNumberInputField(vert)
