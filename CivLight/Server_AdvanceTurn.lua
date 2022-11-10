@@ -9,9 +9,9 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 		  local attackerTerr = game.ServerGame.LatestTurnStanding.Territories[order.From]; 
                 if attackedTerr.Structures ~= nil then 
                     if attackedTerr.Structures[WL.StructureType.MercenaryCamp] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked -- so now you can do what you want :p
-						if Mod.Settings.AttackNeutral == true then
+						
 			Village(game, addNewOrder, order.To, order.PlayerID)
-						end
+						
 		     	    end 
 				end
 				if (Mod.Settings.AttackNeutral == false) and (attackedTerr.OwnerPlayerID == WL.PlayerID.Neutral) then
