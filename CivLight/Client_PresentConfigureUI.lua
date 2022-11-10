@@ -3,7 +3,7 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	
 	 Init(rootParent);
   -- initiliase all default values for the inputs
-	
+	colorsList = {"Blue", "Light Blue", "Purple", "Dark Green", "Orange", "Red", "Dark Gray", "Green", "Hot Pink", "Brown", "Sea Green", "Orange Red", "Cyan", "Aqua", "Dark Magenta", "Deep Pink", "yellow", "Saddle Brown", "Ivory", "Copper Rose", "Electric Purple", "Tan", "Pink", "Lime", "Tan", "Tyrian Purple", "Smoky Black"};
   showMainConfig();
 		
 end
@@ -41,7 +41,7 @@ local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
 	
 	local vert = CreateVert(GetRoot());
 	
-	CreateLabel(vert).SetText('Allows players to gain a free neutral every turn (only on connected territories).').SetColor(GetColors("Saddle Brown"));
+	CreateLabel(vert).SetText('Allows players to gain a free neutral every turn (only on connected territories).').SetColor("Saddle Brown");
 	
 	UI.CreateLabel(vert).SetText('Amount of neutrals a player shall gain each turn');
     numberInputField = UI.CreateNumberInputField(vert)
