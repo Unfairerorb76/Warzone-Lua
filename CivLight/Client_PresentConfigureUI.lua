@@ -14,7 +14,7 @@ function showMainConfig()
   local vert = CreateVert(GetRoot());
   local horz = CreateHorz(GetRoot());
         InputField = UI.CreateCheckBox(horz)        
-                .SetIsChecked(false);
+                .SetIsChecked(false)
 	        .SetText("disable Expansion+");
   CreateButton(GetRoot()).SetText("Expansion+").SetOnClick(showExpansionConfig).SetColor('#00FF8C');
   CreateButton(GetRoot()).SetText("Villages").SetOnClick(showVillagesConfig).SetColor('#00FF8C');
