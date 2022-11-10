@@ -13,20 +13,11 @@ function showMainConfig()
 
   local vert = CreateVert(GetRoot());
   local horz = CreateHorz(GetRoot());
-  local InputField = false;
-	
-	 if InputField == nil then 
-       		InputField = false; 
-    	end
-  InputField = UI.CreateCheckBox(vert).SetIsChecked(InputField).SetText("Disable Expansion+");
-	
-  CreateButton(vert).SetText("Expansion+").SetOnClick(showExpansionConfig).SetColor('#00FF8C'); 
-		
-  InputField2 = UI.CreateCheckBox(vert).SetIsChecked(false).SetText("Disable Villages");	
+
+  	
+  CreateButton(vert).SetText("Expansion+").SetOnClick(showExpansionConfig).SetColor('#00FF8C'); 			
   CreateButton(vert).SetText("Villages").SetOnClick(showVillagesConfig).SetColor('#00FF8C');
-  InputField3 = UI.CreateCheckBox(vert).SetIsChecked(false).SetText("Disable ArmyCaches");
   CreateButton(vert).SetText("Army-Caches").SetOnClick(showArmyCacheConfig).SetColor('#00FF8C');
-  InputField4 = UI.CreateCheckBox(vert).SetIsChecked(false).SetText("Disable Card Caches");
   CreateButton(vert).SetText("Card-Caches").SetOnClick(showCardCacheConfig).SetColor('#00FF8C');
   
   CreateButton(vert).SetText("Misc Features").SetOnClick(showMiscConfig).SetColor('#AC0059');
@@ -41,7 +32,7 @@ local initialValueConvert = Mod.Settings.NumToConvert;
 local initialValueArmies = Mod.Settings.SetArmiesTo;
 local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
 	local vert = CreateVert(GetRoot());
-       if InputField == true then
+       
 	if initialValueConvert == nil then
 		initialValueConvert = 2;
 	end
@@ -57,6 +48,7 @@ local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
 	
 	
 	CreateLabel(vert).SetText('Allows players to gain a free neutral every turn (only on connected territories).').SetColor('#606060');
+	CreateLabel(vert).SetText('you can disable this by setting amount to 0.').SetColor('#606060');
 	
 	UI.CreateLabel(vert).SetText('Amount of neutrals a player shall gain each turn').SetColor('#23A0FF');
     numberInputField = UI.CreateNumberInputField(vert)
@@ -75,10 +67,7 @@ local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
                 .SetIsChecked(initalcheckbox);
 	
   CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig).SetColor('#94652E');
-	 else
-  UI.CreateLabel(vert).SetText('This has been disabled').SetColor('#FF0000');
-  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig).SetColor('#94652E');
-	 end
+
 end
 
 function showVillagesConfig()
@@ -102,6 +91,7 @@ function showVillagesConfig()
 	local vert = CreateVert(GetRoot());
 	
 	UI.CreateLabel(vert).SetText('At the start of the game, "villages" will spawn around the map. Capturing a village will claim all the adjacent territories to your side. These are shown as Idle Mercenary Camps.').SetColor('#606060');
+	CreateLabel(vert).SetText('you can disable this by setting amount to 0.').SetColor('#606060');
 	
 	UI.CreateLabel(vert).SetText('Amount of Villages that will be created at the start of the game').SetColor('#23A0FF');
    	 numberInputField3 = UI.CreateNumberInputField(vert)
@@ -151,6 +141,7 @@ function showArmyCacheConfig()
 	local vert = CreateVert(GetRoot());
 	
 	UI.CreateLabel(vert).SetText('Army Caches will spawn around the map, grab them to boost your income for the next turn only. These are shown as Idle Army Caches.').SetColor('#606060');
+	CreateLabel(vert).SetText('you can disable this by setting amount to 0.').SetColor('#606060');
 	
 	UI.CreateLabel(vert).SetText('Amount of Army Caches that will spawn at the start of the game').SetColor('#23A0FF');
    	 numberInputField5 = UI.CreateNumberInputField(vert)
@@ -206,7 +197,8 @@ function showCardCacheConfig()
 	local vert = CreateVert(GetRoot());
 	
 	UI.CreateLabel(vert).SetText('Card Caches will spawn around the map at the start of the game, claiming the territory it is on will give you pieces for one random card (cards that are enabled by host before hand). These are shown as Idle Resource Caches.').SetColor('#606060');
-  
+        CreateLabel(vert).SetText('you can disable this by setting amount to 0.').SetColor('#606060');
+	
 	UI.CreateLabel(vert).SetText('Amount of Card Caches that will spawn at the start of the game (shown as resource cache)').SetColor('#23A0FF');
 	numberInputField8 = UI.CreateNumberInputField(vert)
 	.SetSliderMinValue(1)
