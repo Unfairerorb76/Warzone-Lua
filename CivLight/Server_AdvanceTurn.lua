@@ -14,7 +14,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 						end
 		     	    end 
 				end
-				if (Mod.Settings.AttackNeutral == false) and (order.PlayerID == WL.PlayerID.Neutral) then
+				if (Mod.Settings.AttackNeutral == false) and (attackedTerr.OwnerPlayerID == WL.PlayerID.Neutral) then
 
 				
 				local terrModTo = WL.TerritoryModification.Create(order.To);   
