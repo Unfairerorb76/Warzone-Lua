@@ -48,7 +48,7 @@ local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
 	
 	
 	CreateLabel(vert).SetText('Allows players to gain a free neutral every turn (only on connected territories).').SetColor('#606060');
-	CreateLabel(vert).SetText('you can disable this by setting amount to 0.').SetColor('#606060');
+	CreateLabel(vert).SetText('you can disable this mod by setting amount to 0.').SetColor('#606060');
 	
 	UI.CreateLabel(vert).SetText('Amount of neutrals a player shall gain each turn').SetColor('#23A0FF');
     numberInputField = UI.CreateNumberInputField(vert)
@@ -91,7 +91,7 @@ function showVillagesConfig()
 	local vert = CreateVert(GetRoot());
 	
 	UI.CreateLabel(vert).SetText('At the start of the game, "villages" will spawn around the map. Capturing a village will claim all the adjacent territories to your side. These are shown as Idle Mercenary Camps.').SetColor('#606060');
-	CreateLabel(vert).SetText('you can disable this by setting amount to 0.').SetColor('#606060');
+	CreateLabel(vert).SetText('you can disable this mod by setting amount to 0.').SetColor('#606060');
 	
 	UI.CreateLabel(vert).SetText('Amount of Villages that will be created at the start of the game').SetColor('#23A0FF');
    	 numberInputField3 = UI.CreateNumberInputField(vert)
@@ -141,7 +141,7 @@ function showArmyCacheConfig()
 	local vert = CreateVert(GetRoot());
 	
 	UI.CreateLabel(vert).SetText('Army Caches will spawn around the map, grab them to boost your income for the next turn only. These are shown as Idle Army Caches.').SetColor('#606060');
-	CreateLabel(vert).SetText('you can disable this by setting amount to 0.').SetColor('#606060');
+	CreateLabel(vert).SetText('you can disable this mod by setting amount to 0.').SetColor('#606060');
 	
 	UI.CreateLabel(vert).SetText('Amount of Army Caches that will spawn at the start of the game').SetColor('#23A0FF');
    	 numberInputField5 = UI.CreateNumberInputField(vert)
@@ -197,7 +197,7 @@ function showCardCacheConfig()
 	local vert = CreateVert(GetRoot());
 	
 	UI.CreateLabel(vert).SetText('Card Caches will spawn around the map at the start of the game, claiming the territory it is on will give you pieces for one random card (cards that are enabled by host before hand). These are shown as Idle Resource Caches.').SetColor('#606060');
-        CreateLabel(vert).SetText('you can disable this by setting amount to 0.').SetColor('#606060');
+        CreateLabel(vert).SetText('you can disable this mod by setting amount to 0.').SetColor('#606060');
 	
 	UI.CreateLabel(vert).SetText('Amount of Card Caches that will spawn at the start of the game (shown as resource cache)').SetColor('#23A0FF');
 	numberInputField8 = UI.CreateNumberInputField(vert)
