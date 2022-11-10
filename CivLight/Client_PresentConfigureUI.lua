@@ -84,19 +84,19 @@ function showVillagesConfig()
 	
 	UI.CreateLabel(vert).SetText('At the start of the game, "villages" will spawn around the map. Capturing a village will claim all the adjacent territories to your side. These are shown as Idle Mercenary Camps.').SetColor('#606060');
 	
-	UI.CreateLabel(vert).SetText('Amount of Villages that will be created at the start of the game');
+	UI.CreateLabel(vert).SetText('Amount of Villages that will be created at the start of the game').SetColor('#23A0FF');
    	 numberInputField3 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
 		.SetValue(initialVillages);
 	
-	UI.CreateLabel(vert).SetText('Amount of armies that you will get with each new territory');
+	UI.CreateLabel(vert).SetText('Amount of armies that you will get with each new territory').SetColor('#23A0FF');
    	 numberInputField4 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(15)
 		.SetValue(GainedArmies);
 	
-	UI.CreateLabel(vert).SetText('only neutrals territories shall be claimed (recommended)');
+	UI.CreateLabel(vert).SetText('only neutrals territories shall be claimed (recommended)').SetColor('#23A0FF');
         booleanInputField2 = UI.CreateCheckBox(vert)        
                 .SetIsChecked(ON);
 	
@@ -133,23 +133,23 @@ function showArmyCacheConfig()
 	
 	UI.CreateLabel(vert).SetText('Army Caches will spawn around the map, grab them to boost your income for the next turn only. These are shown as Idle Army Caches.').SetColor('#606060');
 	
-	UI.CreateLabel(vert).SetText('Amount of Army Caches that will spawn at the start of the game');
+	UI.CreateLabel(vert).SetText('Amount of Army Caches that will spawn at the start of the game').SetColor('#23A0FF');
    	 numberInputField5 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(20)
 		.SetValue(initialACaches);
 	
-	UI.CreateLabel(vert).SetText('Amount of armies that you will get for claiming a army cache');
+	UI.CreateLabel(vert).SetText('Amount of armies that you will get for claiming a army cache').SetColor('#23A0FF');
    	 numberInputField6 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(15)
 		.SetValue(GainedArmies);
 	
-	UI.CreateLabel(vert).SetText('if checked will only give a fixed amount of armies');
+	UI.CreateLabel(vert).SetText('if checked will only give a fixed amount of armies').SetColor('#23A0FF');
         booleanInputField3 = UI.CreateCheckBox(vert)        
                 .SetIsChecked(FixedArmies);
 	
-	UI.CreateLabel(vert).SetText('Random +/- limit');
+	UI.CreateLabel(vert).SetText('Random +/- limit').SetColor('#23A0FF');
     numberInputField7 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
@@ -188,23 +188,23 @@ function showCardCacheConfig()
 	
 	UI.CreateLabel(vert).SetText('Card Caches will spawn around the map at the start of the game, claiming the territory it is on will give you pieces for one random card (cards that are enabled by host before hand). These are shown as Idle Resource Caches.').SetColor('#606060');
   
-	UI.CreateLabel(vert).SetText('Amount of Card Caches that will spawn at the start of the game (shown as resource cache)');
+	UI.CreateLabel(vert).SetText('Amount of Card Caches that will spawn at the start of the game (shown as resource cache)').SetColor('#23A0FF');
 	numberInputField8 = UI.CreateNumberInputField(vert)
 	.SetSliderMinValue(1)
 	.SetSliderMaxValue(20)
 	.SetValue(initialRCaches);
 
-	UI.CreateLabel(vert).SetText('Amount of card pieces that you will get for claiming a card cache');
+	UI.CreateLabel(vert).SetText('Amount of card pieces that you will get for claiming a card cache').SetColor('#23A0FF');
 	numberInputField9 = UI.CreateNumberInputField(vert)
 	.SetSliderMinValue(1)
 	.SetSliderMaxValue(20)
 	.SetValue(Pieces);
 
-	UI.CreateLabel(vert).SetText('if checked will only give a fixed amount of card pieces');
+	UI.CreateLabel(vert).SetText('if checked will only give a fixed amount of card pieces').SetColor('#23A0FF');
 	booleanInputField4 = UI.CreateCheckBox(vert)        
 			.SetIsChecked(FixedPieces);
 
-	UI.CreateLabel(vert).SetText('Random +/- limit');
+	UI.CreateLabel(vert).SetText('Random +/- limit').SetColor('#23A0FF');
 	numberInputField10 = UI.CreateNumberInputField(vert)
 	.SetSliderMinValue(1)
 	.SetSliderMaxValue(10)
@@ -226,7 +226,7 @@ function showMiscConfig()     -- 0 parameters!
        local vert = CreateVert(GetRoot());
 	
 	UI.CreateLabel(vert).SetText('These are extra features that you can enable!').SetColor('#606060');
-	UI.CreateLabel(vert).SetText('if checked will allow the player to claim neutral territories manually');
+	UI.CreateLabel(vert).SetText('if checked will allow the player to claim neutral territories manually').SetColor('#23A0FF');
 	booleanInputField5 = UI.CreateCheckBox(vert)        
 			.SetIsChecked(AttackNeutral);
 	
