@@ -41,7 +41,7 @@ local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
 	
 	local vert = CreateVert(GetRoot());
 	
-	CreateLabel(vert).SetText('Allows players to gain a free neutral every turn (only on connected territories).');
+	CreateLabel(vert).SetText('Allows players to gain a free neutral every turn (only on connected territories).').SetColor('#606060');
 	
 	UI.CreateLabel(vert).SetText('Amount of neutrals a player shall gain each turn').SetColor('#23A0FF');
     numberInputField = UI.CreateNumberInputField(vert)
