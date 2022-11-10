@@ -19,6 +19,9 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 				
 				local terrModTo = WL.TerritoryModification.Create(order.To);   
 				terrModTo.SetOwnerOpt = WL.PlayerID.Neutral;
+				
+				print(attackedTerr.NumArmies.NumArmies);
+				print(orderResult.AttackingArmiesKilled.NumArmies);
 				terrModTo.AddArmies = (attackedTerr.NumArmies.NumArmies + round(-orderResult.AttackingArmiesKilled.NumArmies));
               
 				local terrModfrom = WL.TerritoryModification.Create(order.From);
