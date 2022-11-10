@@ -25,7 +25,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 				terrModTo.SetArmiesTo = (attackedTerr.NumArmies.NumArmies - orderResult.DefendingArmiesKilled.NumArmies);
               
 				local terrModfrom = WL.TerritoryModification.Create(order.From);
-				terrModfrom.SetArmiesTo = (attackerTerr.NumArmies.NumArmies + orderResult.AttackingArmiesKilled.NumArmies);
+				terrModfrom.SetArmiesTo = (attackerTerr.NumArmies.NumArmies - orderResult.AttackingArmiesKilled.NumArmies);
 				
 				
 				addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, "placeholder",{}, {terrModfrom}), true);
