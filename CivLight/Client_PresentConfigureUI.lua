@@ -13,6 +13,7 @@ function showMainConfig()
 
   local vert = CreateVert(GetRoot());
   local horz = CreateHorz(GetRoot());
+  local InputField = false;
 	
 	 if InputField == nil then 
        		InputField = false; 
