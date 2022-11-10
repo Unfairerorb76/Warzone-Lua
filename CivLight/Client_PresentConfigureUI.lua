@@ -1,5 +1,9 @@
 function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	
+	 Init(rootParent);
+  -- initiliase all default values for the inputs
+  showMainConfig();
+	
 	local initialValueConvert = Mod.Settings.NumToConvert;
 	local initialValueArmies = Mod.Settings.SetArmiesTo;
     local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
@@ -172,3 +176,34 @@ numberInputField10 = UI.CreateNumberInputField(vert)
 	booleanInputField5 = UI.CreateCheckBox(vert)        
 			.SetIsChecked(AttackNeutral);
 end
+
+function showMainConfig()
+  DestroyWindow();
+  SetWindow("Main");
+  CreateButton(GetRoot()).SetText("Villages").SetOnClick(showVillagesConfig);
+  CreateButton(GetRoot()).SetText("FreeExpanion+").SetOnClick(showFreeExpansionConfig);
+end
+
+function showVillagesConfig()
+  DestroyWindow();
+  SetWindow("Villages");
+  -- show all settings of the Villages part
+  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig);
+end
+
+function showFreeExpansionConfig()
+  DestroyWindow();
+  SetWindow("FreeExpansion");
+  -- show all settings of the FreeExpansion part
+  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig);
+end
+
+--[[
+basic template for functions:
+function functionName()     -- 0 parameters!
+  DestroyWindow();          -- Destroys every UI object currently visible
+  SetWindow("WindowName");  -- Allows you to do even more advanced shit
+  -- do here what you want
+  CreateButton(parent).SetText("Return").SetOnClick(previousFunction);  -- Allows game creators to go back to the previous page
+end
+]]--
