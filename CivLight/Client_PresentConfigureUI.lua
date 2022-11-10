@@ -36,6 +36,7 @@ function showExpansionConfig()
 local initialValueConvert = Mod.Settings.NumToConvert;
 local initialValueArmies = Mod.Settings.SetArmiesTo;
 local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
+	local vert = CreateVert(GetRoot());
        if InputField == true then
 	if initialValueConvert == nil then
 		initialValueConvert = 2;
@@ -49,7 +50,7 @@ local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
        		initalcheckbox = false; 
     	end
 	
-	local vert = CreateVert(GetRoot());
+	
 	
 	CreateLabel(vert).SetText('Allows players to gain a free neutral every turn (only on connected territories).').SetColor('#606060');
 	
