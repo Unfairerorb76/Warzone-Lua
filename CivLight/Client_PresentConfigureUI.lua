@@ -70,7 +70,9 @@ local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
                 .SetIsChecked(initalcheckbox);
 	
   CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig).SetColor('#94652E');
-	 end
+	 else
+  UI.CreateLabel(vert).SetText('This has been disabled').SetColor('#FF0000');
+  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig).SetColor('#94652E');	
 end
 
 function showVillagesConfig()
