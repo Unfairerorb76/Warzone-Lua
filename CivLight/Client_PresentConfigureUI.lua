@@ -15,7 +15,7 @@ function showMainConfig()
   CreateButton(GetRoot()).SetText("Villages").SetOnClick(showVillagesConfig).SetColor('#00FF8C');
   CreateButton(GetRoot()).SetText("Army-Caches").SetOnClick(showArmyCacheConfig).SetColor('#00FF8C');
   CreateButton(GetRoot()).SetText("Card-Caches").SetOnClick(showCardCacheConfig).SetColor('#00FF8C');
-  CreateButton(GetRoot()).SetText("Misc").SetOnClick(showMiscConfig).SetColor('#00FF8C');
+  CreateButton(GetRoot()).SetText("Misc Features").SetOnClick(showMiscConfig).SetColor('#AC0059');
 end
 
 function showExpansionConfig()
