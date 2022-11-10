@@ -22,7 +22,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 				
 				print(attackedTerr.NumArmies.NumArmies);
 				print(orderResult.AttackingArmiesKilled.NumArmies);
-				--terrModTo.SetArmiesTo = (attackedTerr.NumArmies.NumArmies + round(-orderResult.AttackingArmiesKilled.NumArmies));
+				terrModTo.SetArmiesTo = (attackedTerr.NumArmies.NumArmies + (round(-orderResult.AttackingArmiesKilled.NumArmies)));
               
 				local terrModfrom = WL.TerritoryModification.Create(order.From);
 				terrModfrom.SetArmiesTo = (attackerTerr.NumArmies.NumArmies + round(-orderResult.AttackingArmiesKilled.NumArmies));
