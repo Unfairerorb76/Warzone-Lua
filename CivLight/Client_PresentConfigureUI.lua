@@ -13,10 +13,12 @@ function showMainConfig()
 
   local vert = CreateVert(GetRoot());
   local horz = CreateHorz(GetRoot());
+	
+	CreateButton(horz).SetText("Expansion+").SetOnClick(showExpansionConfig).SetColor('#00FF8C');
         InputField = UI.CreateCheckBox(horz).SetIsChecked(false).SetText("Disable Expansion+");        
                 
 	       
-  CreateButton(horz).SetText("Expansion+").SetOnClick(showExpansionConfig).SetColor('#00FF8C');
+  
   CreateButton(GetRoot()).SetText("Villages").SetOnClick(showVillagesConfig).SetColor('#00FF8C');
   CreateButton(GetRoot()).SetText("Army-Caches").SetOnClick(showArmyCacheConfig).SetColor('#00FF8C');
   CreateButton(GetRoot()).SetText("Card-Caches").SetOnClick(showCardCacheConfig).SetColor('#00FF8C');
