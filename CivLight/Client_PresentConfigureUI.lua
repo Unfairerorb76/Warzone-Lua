@@ -41,21 +41,21 @@ local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
 	
 	local vert = CreateVert(GetRoot());
 	
-	CreateLabel(vert).SetText('Allows players to gain a free neutral every turn (only on connected territories).').SetColor('#606060');
+	CreateLabel(vert).SetText('Allows players to gain a free neutral every turn (only on connected territories).');
 	
-	UI.CreateLabel(vert).SetText('Amount of neutrals a player shall gain each turn');
+	UI.CreateLabel(vert).SetText('Amount of neutrals a player shall gain each turn').SetColor('#23A0FF');
     numberInputField = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
 		.SetValue(initialValueConvert);
 	
-	 UI.CreateLabel(vert).SetText('Amount of armies a player shall get with the territory');
+	 UI.CreateLabel(vert).SetText('Amount of armies a player shall get with the territory').SetColor('#23A0FF');
     numberInputField2 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
 		.SetValue(initialValueArmies); 
  
-        UI.CreateLabel(vert).SetText('Only base neutral armies and less shall be claimed');
+        UI.CreateLabel(vert).SetText('Only base neutral armies and less shall be claimed').SetColor('#23A0FF');
         booleanInputField = UI.CreateCheckBox(vert)        
                 .SetIsChecked(initalcheckbox);
 	
