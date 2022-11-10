@@ -1,5 +1,5 @@
-require('Utilities');
-require('WLUtilities');
+require('UI');
+
 require('distributeRandomStructures');
 require('distributeRandomStructures2');
 
