@@ -15,7 +15,7 @@ function showMainConfig()
   local horz = CreateHorz(GetRoot());
 	
 	CreateButton(horz).SetText("Expansion+").SetOnClick(showExpansionConfig).SetColor('#00FF8C');
-        InputField = UI.CreateCheckBox(horz).SetIsChecked(false).SetText("Disable Expansion+").SetColor(#606060);;        
+        InputField = UI.CreateCheckBox(horz).SetIsChecked(false).SetText("Disable Expansion+").SetColor('#606060');        
                 
 	       
   
