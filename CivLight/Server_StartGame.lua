@@ -12,9 +12,9 @@ function Server_StartGame(game, standing)
 	
 
 if count > 0 then
-distributeRandomStructures2(standing, WL.StructureType.ResourceCache, Mod.Settings.NumOfRCaches, {maxPercentage = 50, numberOfStructures = 1, onlyPlaceOnNeutrals = true, allowMultipleStructures = true});
+distributeRandomStructures2(standing, WL.StructureType.ResourceCache, Mod.Settings.NumOfRCaches, {maxPercentage = 50, numberOfStructures = 2, onlyPlaceOnNeutrals = true, allowMultipleStructures = false});
 end
-distributeRandomStructures2(standing, WL.StructureType.ArmyCache, Mod.Settings.NumOfACaches, {maxPercentage = 50, numberOfStructures = 1, onlyPlaceOnNeutrals = true, allowMultipleStructures = true});
+distributeRandomStructures2(standing, WL.StructureType.ArmyCache, Mod.Settings.NumOfACaches, {maxPercentage = 50, numberOfStructures = 2, onlyPlaceOnNeutrals = true, allowMultipleStructures = false});
 distributeRandomStructures(standing, WL.StructureType.MercenaryCamp, 100, {maxPercentage = 50, numberOfStructures = 1, onlyPlaceOnNeutrals = true, allowMultipleStructures = false, allowConnectedTerrs = false, mapDetails = game.Map});
 end
 
