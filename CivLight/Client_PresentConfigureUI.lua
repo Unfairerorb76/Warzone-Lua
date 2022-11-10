@@ -218,7 +218,7 @@ function showMiscConfig()     -- 0 parameters!
 			.SetIsChecked(AttackNeutral);
 	
 	
-  CreateButton(parent).SetText("Return").SetOnClick(previousFunction);  -- Allows game creators to go back to the previous page
+  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig);  -- Allows game creators to go back to the previous page
 end
 
 --[[
