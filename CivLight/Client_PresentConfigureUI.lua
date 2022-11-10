@@ -14,7 +14,10 @@ function showMainConfig()
   local vert = CreateVert(GetRoot());
   local horz = CreateHorz(GetRoot());
 	
-  InputField = UI.CreateCheckBox(vert).SetIsChecked(false).SetText("Disable Expansion+");
+	 if InputField == nil then 
+       		InputField = false; 
+    	end
+  InputField = UI.CreateCheckBox(vert).SetIsChecked(InputField).SetText("Disable Expansion+");
 	
   CreateButton(vert).SetText("Expansion+").SetOnClick(showExpansionConfig).SetColor('#00FF8C'); 
 		
