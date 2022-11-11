@@ -11,9 +11,7 @@ function showMainConfig()
   DestroyWindow();
   SetWindow("Main");
 
-  local vert = CreateVert(GetRoot());
-  local horz = CreateHorz(GetRoot());
-
+  vert = CreateVert(GetRoot());
   	
   CreateButton(vert).SetText("Expansion+").SetOnClick(showExpansionConfig).SetColor('#00FF8C'); 			
   CreateButton(vert).SetText("Villages").SetOnClick(showVillagesConfig).SetColor('#00FF8C');
@@ -27,9 +25,9 @@ function showExpansionConfig()
   DestroyWindow();
   SetWindow("FreeExpansion");
    
-       local initialValueConvert = Mod.Settings.NumToConvert;
-local initialValueArmies = Mod.Settings.SetArmiesTo;
-local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
+        initialValueConvert = Mod.Settings.NumToConvert;
+	initialValueArmies = Mod.Settings.SetArmiesTo;
+        initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
 	       
 	if initialValueConvert == nil then
 		initialValueConvert = 2;
@@ -42,8 +40,6 @@ local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
         if initalcheckbox == nil then 
        		initalcheckbox = false; 
     	end
-	
-	local vert = CreateVert(GetRoot());
 	
 	CreateLabel(vert).SetText('Allows players to gain a free neutral every turn (only on connected territories).').SetColor('#606060');
 	CreateLabel(vert).SetText('you can disable this mod by setting amount to 0.').SetColor('#606060');
@@ -64,8 +60,14 @@ local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
         booleanInputField = UI.CreateCheckBox(vert)        
                 .SetIsChecked(initalcheckbox);
 	
-  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig).SetColor('#94652E');
+  CreateButton(GetRoot()).SetText("Return").SetOnClick(saveExpansionConfig).SetColor('#94652E');
+end
 
+function saveExpansionConfig()
+	
+	initialValueConvert = numberInputField.GetValue;
+	
+	showMainConfig();
 end
 
 function showVillagesConfig()
@@ -85,8 +87,6 @@ function showVillagesConfig()
 	if GainedArmies == nil then
 		GainedArmies = 2;
 	end
-	
-	local vert = CreateVert(GetRoot());
 	
 	UI.CreateLabel(vert).SetText('At the start of the game, "villages" will spawn around the map. Capturing a village will claim all the adjacent territories to your side. These are shown as Idle Mercenary Camps.').SetColor('#606060');
 	CreateLabel(vert).SetText('you can disable this mod by setting amount to 0.').SetColor('#606060');
@@ -135,8 +135,7 @@ function showArmyCacheConfig()
 	if difference == nil then 
 		difference = 5;
 	end
-	
-	local vert = CreateVert(GetRoot());
+
 	
 	UI.CreateLabel(vert).SetText('Army Caches will spawn around the map, grab them to boost your income for the next turn only. These are shown as Idle Army Caches.').SetColor('#606060');
 	CreateLabel(vert).SetText('you can disable this mod by setting amount to 0.').SetColor('#606060');
@@ -192,8 +191,6 @@ function showCardCacheConfig()
 		difference2 = 3;
 	end
 	
-	local vert = CreateVert(GetRoot());
-	
 	UI.CreateLabel(vert).SetText('Card Caches will spawn around the map at the start of the game, claiming the territory it is on will give you pieces for one random card (cards that are enabled by host before hand). These are shown as Idle Resource Caches.').SetColor('#606060');
         CreateLabel(vert).SetText('you can disable this mod by setting amount to 0.').SetColor('#606060');
 	
@@ -231,8 +228,6 @@ function showMiscConfig()     -- 0 parameters!
 	if AttackNeutral == nil then
 		AttackNeutral = true;
 	end
-
-       local vert = CreateVert(GetRoot());
 	
 	UI.CreateLabel(vert).SetText('These are extra features that you can enable!').SetColor('#606060');
 	UI.CreateLabel(vert).SetText('if checked will allow the player to claim neutral territories manually. (note that the player can still claim structures on bordering neutral territories)').SetColor('#23A0FF');
