@@ -1,23 +1,6 @@
 require('UI');
 function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
-	
-  local initialValueConvert = Mod.Settings.NumToConvert;
-local initialValueArmies = Mod.Settings.SetArmiesTo;
-local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
-	
-
-       
-	if initialValueConvert == nil then
-		initialValueConvert = 2;
-	end
-	
-	if initialValueArmies == nil then
-		initialValueArmies = 2;
-	end
-
-        if initalcheckbox == nil then 
-       		initalcheckbox = false; 
-    	end
+	 
   Init(rootParent);
   -- initiliase all default values for the inputs
   showMainConfig();
@@ -44,11 +27,23 @@ function showExpansionConfig()
   DestroyWindow();
   SetWindow("FreeExpansion");
    
-  
+       local initialValueConvert = Mod.Settings.NumToConvert;
+local initialValueArmies = Mod.Settings.SetArmiesTo;
+local initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
+	       
+	if initialValueConvert == nil then
+		initialValueConvert = 2;
+	end
+	
+	if initialValueArmies == nil then
+		initialValueArmies = 2;
+	end
 
+        if initalcheckbox == nil then 
+       		initalcheckbox = false; 
+    	end
 	
 	local vert = CreateVert(GetRoot());
-	
 	
 	CreateLabel(vert).SetText('Allows players to gain a free neutral every turn (only on connected territories).').SetColor('#606060');
 	CreateLabel(vert).SetText('you can disable this mod by setting amount to 0.').SetColor('#606060');
