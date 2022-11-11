@@ -66,7 +66,7 @@ end
 
 function saveExpansionConfig()
 	
-	initialValueConvert = numberInputField.GetValue;
+	initialValueConvert = numberInputField.GetValue();
 	
 	showMainConfig();
 end
