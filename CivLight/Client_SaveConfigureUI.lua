@@ -1,6 +1,6 @@
 function Client_SaveConfigureUI(alert)
     
-  if attackNeutralInputField.GetValue() == nil then
+  if attackNeutralInputField == nil then
      AttackNeutral = true;
   else
     Mod.Settings.AttackNeutral = attackNeutralInputField.GetIsChecked();
