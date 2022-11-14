@@ -60,7 +60,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 		if orderResult.IsAttack and hasNoPriest(game.ServerGame.LatestTurnStanding.Territories[order.To].NumArmies) then
 			if(orderResult.IsSuccessful == false)then
 				local p = order.PlayerID; -- the attacker
-				local p2 = game.ServerGame.LatestTurnStanding.Territories[order.To]OwnerPlayerID; --player that was attacked
+				local p2 = game.ServerGame.LatestTurnStanding.Territories[order.To].OwnerPlayerID; --player that was attacked
                			if game.Settings.Cards ~= nil then
 					if game.Settings.Cards[WL.CardID.Spy] ~= nil then
 							local instance = WL.NoParameterCardInstance.Create(WL.CardID.Diplomacy);
