@@ -1,6 +1,10 @@
 require('UI');
 function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	 
+         initialValueConvert = Mod.Settings.NumToConvert;
+	initialValueArmies = Mod.Settings.SetArmiesTo;
+        initalcheckbox = Mod.Settings.OnlyBaseNeutrals;	
+	
   Init(rootParent);
   -- initiliase all default values for the inputs
   showMainConfig();
@@ -25,9 +29,7 @@ function showExpansionConfig()
   DestroyWindow();
   SetWindow("FreeExpansion");
    
-        initialValueConvert = Mod.Settings.NumToConvert;
-	initialValueArmies = Mod.Settings.SetArmiesTo;
-        initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
+
 	       
 	if initialValueConvert == nil then
 		initialValueConvert = 2;
