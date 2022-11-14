@@ -4,21 +4,20 @@ function Client_SaveConfigureUI(alert)
     Mod.Settings.SetArmiesTo = ExpArmyInputField.GetValue();
     Mod.Settings.OnlyBaseNeutrals = ExpBaseInputField.GetIsChecked();
     
-     Mod.Settings.NumOfVillages = numberInputField3.GetValue();
-    Mod.Settings.Armies = numberInputField4.GetValue();
-    Mod.Settings.ONeutrals = booleanInputField2.GetIsChecked();
+     Mod.Settings.NumOfVillages = villageInputField.GetValue();
+    Mod.Settings.Armies = vValueInputField.GetValue();
+    Mod.Settings.ONeutrals = ONInputField.GetIsChecked();
     
-    Mod.Settings.NumOfACaches = numberInputField5.GetValue();
-    Mod.Settings.Armies = numberInputField6.GetValue();
-    Mod.Settings.FixedArmies = booleanInputField3.GetIsChecked();
-    Mod.Settings.aLuck = numberInputField7.GetValue();
+    Mod.Settings.NumOfACaches = armyCacheInputField.GetValue();
+    Mod.Settings.Armies = armyAmountInputField.GetValue();
+    Mod.Settings.FixedArmies = fixedArmyInputField.GetIsChecked();
+    Mod.Settings.aLuck = randArmyInputField.GetValue();
     
-    Mod.Settings.NumOfRCaches = numberInputField8.GetValue();
-    Mod.Settings.cPieces = numberInputField9.GetValue();
-    print(Mod.Settings.cPieces);
-    Mod.Settings.FixedPieces = booleanInputField4.GetIsChecked();
-    Mod.Settings.rLuck = numberInputField10.GetValue();
+    Mod.Settings.NumOfRCaches = cardCacheInputField.GetValue();
+    Mod.Settings.cPieces = PiecesInputField.GetValue();
+    Mod.Settings.FixedPieces = fixedPiecesInputField.GetIsChecked();
+    Mod.Settings.rLuck = randPiecesInputField.GetValue();
 
-    Mod.Settings.AttackNeutral = booleanInputField5.GetIsChecked();
+    Mod.Settings.AttackNeutral = attackNeutralInputField.GetIsChecked();
 
 end
