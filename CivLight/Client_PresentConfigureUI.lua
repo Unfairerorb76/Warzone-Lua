@@ -3,7 +3,19 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	 
          initialValueConvert = Mod.Settings.NumToConvert;
 	initialValueArmies = Mod.Settings.SetArmiesTo;
-        initalcheckbox = Mod.Settings.OnlyBaseNeutrals;	
+        initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
+	
+	if initialValueConvert == nil then
+		initialValueConvert = 2;
+	end
+	
+	if initialValueArmies == nil then
+		initialValueArmies = 2;
+	end
+
+        if initalcheckbox == nil then 
+       		initalcheckbox = false; 
+    	end
 	
   Init(rootParent);
   -- initiliase all default values for the inputs
@@ -31,17 +43,7 @@ function showExpansionConfig()
    
 
 	       
-	if initialValueConvert == nil then
-		initialValueConvert = 2;
-	end
 	
-	if initialValueArmies == nil then
-		initialValueArmies = 2;
-	end
-
-        if initalcheckbox == nil then 
-       		initalcheckbox = false; 
-    	end
 	local vert = CreateVert(GetRoot());
 	
 	CreateLabel(vert).SetText('Allows players to gain a free neutral every turn (only on connected territories).').SetColor('#606060');
