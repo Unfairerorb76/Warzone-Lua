@@ -46,19 +46,19 @@ function showExpansionConfig()
 	CreateLabel(vert).SetText('you can disable this mod by setting amount to 0.').SetColor('#606060');
 	
 	UI.CreateLabel(vert).SetText('Amount of neutrals a player shall gain each turn').SetColor('#23A0FF');
-    numberInputField = UI.CreateNumberInputField(vert)
+    neutralInputField = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
 		.SetValue(initialValueConvert);
 	
 	 UI.CreateLabel(vert).SetText('Amount of armies a player shall get with the territory').SetColor('#23A0FF');
-    numberInputField2 = UI.CreateNumberInputField(vert)
+    amountAInputField = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
 		.SetValue(initialValueArmies); 
  
         UI.CreateLabel(vert).SetText('Only base neutral armies and less shall be claimed').SetColor('#23A0FF');
-        booleanInputField = UI.CreateCheckBox(vert)        
+        baseInputField = UI.CreateCheckBox(vert)        
                 .SetIsChecked(initalcheckbox);
 	
   CreateButton(GetRoot()).SetText("Return").SetOnClick(saveExpansionConfig).SetColor('#94652E');
@@ -66,7 +66,7 @@ end
 
 function saveExpansionConfig()
 	
-	initialValueConvert = numberInputField.GetValue();
+	initialValueConvert = neutralInputField.GetValue();
 	
 	showMainConfig();
 end
