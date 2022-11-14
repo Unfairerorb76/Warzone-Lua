@@ -4,7 +4,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
     if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'BuyDiplomat_')) then  --look for the order that we inserted in Client_PresentCommercePurchaseUI
 		--in Client_PresentMenuUI, we stuck the territory ID after BuyDiplomat_.  Break it out and parse it to a number.
 		local targetTerritoryID = tonumber(string.sub(order.Payload, 9));
-		print(string.sub(order.Payload, 11));
+		print(string.sub(order.Payload, 9));
 		print(targetTerritoryID);
 		local targetTerritoryStanding = game.ServerGame.LatestTurnStanding.Territories[targetTerritoryID];
 		if (targetTerritoryStanding.OwnerPlayerID ~= order.PlayerID) then
