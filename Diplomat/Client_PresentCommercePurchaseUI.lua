@@ -57,7 +57,7 @@ function PresentBuyDiplomatsDialog(rootParent, setMaxSize, setScrollable, game, 
 	SelectTerritoryBtn = UI.CreateButton(vert).SetText("Select Territory").SetOnClick(SelectTerritoryClicked);
 	TargetTerritoryInstructionLabel = UI.CreateLabel(vert).SetText("");
 
-	BuyPriestBtn = UI.CreateButton(vert).SetInteractable(false).SetText("Complete Purchase").SetOnClick(CompletePurchaseClicked);
+	BuyDiplomatBtn = UI.CreateButton(vert).SetInteractable(false).SetText("Complete Purchase").SetOnClick(CompletePurchaseClicked);
 
 	SelectTerritoryClicked(); --just start us immediately in selection mode, no reason to require them to click the button
 end
