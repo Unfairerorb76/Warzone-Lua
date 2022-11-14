@@ -1,9 +1,5 @@
 function Client_SaveConfigureUI(alert)
         
-    Mod.Settings.NumToConvert = ExpansionInputField.GetValue();
-    Mod.Settings.SetArmiesTo = ExpArmyInputField.GetValue();
-    Mod.Settings.OnlyBaseNeutrals = ExpBaseInputField.GetIsChecked();
-    
      Mod.Settings.NumOfVillages = villageInputField.GetValue();
     Mod.Settings.Armies = vValueInputField.GetValue();
     Mod.Settings.ONeutrals = ONInputField.GetIsChecked();
