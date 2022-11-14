@@ -49,7 +49,7 @@ function PurchaseClicked()
 end
 
 
-function PresentBuyPriestsDialog(rootParent, setMaxSize, setScrollable, game, close)
+function PresentBuyDiplomatsDialog(rootParent, setMaxSize, setScrollable, game, close)
 	Close2 = close;
 
 	local vert = UI.CreateVerticalLayoutGroup(rootParent).SetFlexibleWidth(1); --set flexible width so things don't jump around while we change InstructionLabel
@@ -75,25 +75,25 @@ function TerritoryClicked(terrDetails)
 		--The click request was cancelled.   Return to our default state.
 		TargetTerritoryInstructionLabel.SetText("");
 		SelectedTerritory = nil;
-		BuyPriestBtn.SetInteractable(false);
+		BuyDiplomatBtn.SetInteractable(false);
 	else
 		--Territory was clicked, check it
 		if (Game.LatestStanding.Territories[terrDetails.ID].OwnerPlayerID ~= Game.Us.ID) then
-			TargetTerritoryInstructionLabel.SetText("You may only receive a priest on a territory you own.  Please try again.");
+			TargetTerritoryInstructionLabel.SetText("You may only receive a Diplomat on a territory you own.  Please try again.");
 		else
 			TargetTerritoryInstructionLabel.SetText("Selected territory: " .. terrDetails.Name);
 			SelectedTerritory = terrDetails;
-			BuyPriestBtn.SetInteractable(true);
+			BuyDiplomatBtn.SetInteractable(true);
 		end
 	end
 end
 
 function CompletePurchaseClicked()
-	local msg = 'Buy a priest on ' .. SelectedTerritory.Name;
-	local payload = 'BuyPriest_' .. SelectedTerritory.ID;
+	local msg = 'Buy a Diplomat on ' .. SelectedTerritory.Name;
+	local payload = 'BuyDiplomat_' .. SelectedTerritory.ID;
 
 	local orders = Game.Orders;
-	table.insert(orders, WL.GameOrderCustom.Create(Game.Us.ID, msg, payload,  { [WL.ResourceType.Gold] = Mod.Settings.CostToBuyPriest } ));
+	table.insert(orders, WL.GameOrderCustom.Create(Game.Us.ID, msg, payload,  { [WL.ResourceType.Gold] = Mod.Settings.CostToBuyDiplomat } ));
 	Game.Orders = orders;
 
 	Close2();
