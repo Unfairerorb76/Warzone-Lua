@@ -7,7 +7,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 		print(string.sub(order.Payload, 11));
 		local targetTerritoryStanding = game.ServerGame.LatestTurnStanding.Territories[targetTerritoryID];
 		if (targetTerritoryStanding.OwnerPlayerID ~= order.PlayerID) then
-			return; --can only buy a diplomat onto a territory you control
+			return; --can only buy a priest onto a territory you control
 		end
 		
 		if (order.CostOpt == nil) then
