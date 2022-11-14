@@ -33,7 +33,7 @@ function Client_PresentConfigureUI(rootParent)
 		.SetValue(maxDiplomats);
 	
 	local row3 = UI.CreateHorizontalLayoutGroup(vert);
-	UI.CreateLabel(row4).SetText('how many turns a Diplo card is played for');
+	UI.CreateLabel(row3).SetText('how many turns a Diplo card is played for');
 	turnField = UI.CreateNumberInputField(row3)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(6)
