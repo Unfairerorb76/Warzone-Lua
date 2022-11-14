@@ -62,7 +62,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 				local p = order.PlayerID; -- the attacker
 				local p2 = game.ServerGame.LatestTurnStanding.Territories[order.To].OwnerPlayerID; --player that was attacked
                			if game.Settings.Cards ~= nil then
-					if game.Settings.Cards[WL.CardID.Spy] ~= nil then
+					if game.Settings.Cards[WL.CardID.Diplomacy] ~= nil then
 							local instance = WL.NoParameterCardInstance.Create(WL.CardID.Diplomacy);
 							addNewOrder(WL.GameOrderReceiveCard.Create(p, {instance}));
 							addNewOrder(WL.GameOrderPlayCardSpy.Create(instance.ID, p, p, p2));
