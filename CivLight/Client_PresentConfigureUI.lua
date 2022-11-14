@@ -5,17 +5,21 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	initialValueArmies = Mod.Settings.SetArmiesTo;
         initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
 	
-	if initialValueConvert == nil then
-		initialValueConvert = 2;
-	end
+	initialVillages = Mod.Settings.NumOfVillages;
+	ON = Mod.Settings.ONeutrals;
+	GainedArmies = Mod.Settings.Armies;
 	
-	if initialValueArmies == nil then
-		initialValueArmies = 2;
-	end
-
-        if initalcheckbox == nil then 
-       		initalcheckbox = false; 
-    	end
+	initialACaches = Mod.Settings.NumOfACaches;
+	GainedArmies = Mod.Settings.Armies;
+	FixedArmies = Mod.Settings.FixedArmies;
+	difference = Mod.Settings.aLuck;
+	
+	initialRCaches = Mod.Settings.NumOfRCaches;
+	Pieces = Mod.Settings.cPieces;
+	FixedPieces = Mod.Settings.FixedPieces;
+	difference2 = Mod.Settings.rLuck;
+	
+	AttackNeutral = Mod.Settings.AttackNeutral;
 	
   Init(rootParent);
   -- initiliase all default values for the inputs
@@ -41,7 +45,17 @@ function showExpansionConfig()
   DestroyWindow();
   SetWindow("FreeExpansion");
    
+	if initialValueConvert == nil then
+		initialValueConvert = 2;
+	end
+	
+	if initialValueArmies == nil then
+		initialValueArmies = 2;
+	end
 
+        if initalcheckbox == nil then 
+       		initalcheckbox = false; 
+    	end
 	       
 	
 	local vert = CreateVert(GetRoot());
@@ -69,8 +83,9 @@ function showExpansionConfig()
 end
 
 function saveExpansionConfig()
-
 	initialValueConvert = ExpansionInputField.GetValue();
+	initialValueArmies = ExpArmyInputField.GetValue();
+	initialcheckbox = ExpBaseInputField.GetIsChecked();
 	showMainConfig();
 end
 
@@ -78,10 +93,6 @@ function showVillagesConfig()
   DestroyWindow();
   SetWindow("Villages");
   
-	local initialVillages = Mod.Settings.NumOfVillages;
-	local ON = Mod.Settings.ONeutrals;
-	local GainedArmies = Mod.Settings.Armies;
-	
 	if initialVillages == nil then
 		initialVillages = 3;
 	end
@@ -92,38 +103,40 @@ function showVillagesConfig()
 		GainedArmies = 2;
 	end
 	local vert = CreateVert(GetRoot());
+	
 	UI.CreateLabel(vert).SetText('At the start of the game, "villages" will spawn around the map. Capturing a village will claim all the adjacent territories to your side. These are shown as Idle Mercenary Camps.').SetColor('#606060');
 	CreateLabel(vert).SetText('you can disable this mod by setting amount to 0.').SetColor('#606060');
 	
 	UI.CreateLabel(vert).SetText('Amount of Villages that will be created at the start of the game').SetColor('#23A0FF');
-   	 numberInputField3 = UI.CreateNumberInputField(vert)
+   	 villageInputField = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
 		.SetValue(initialVillages);
 	
 	UI.CreateLabel(vert).SetText('Amount of armies that you will get with each new territory').SetColor('#23A0FF');
-   	 numberInputField4 = UI.CreateNumberInputField(vert)
+   	 vValueInputField = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(15)
 		.SetValue(GainedArmies);
 	
 	UI.CreateLabel(vert).SetText('only neutrals territories shall be claimed (recommended)').SetColor('#23A0FF');
-        booleanInputField2 = UI.CreateCheckBox(vert)        
+        ONInputField = UI.CreateCheckBox(vert)        
                 .SetIsChecked(ON);
 	
-  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig).SetColor('#94652E');
+  CreateButton(GetRoot()).SetText("Return").SetOnClick(saveVillageConfig).SetColor('#94652E');
+end
+
+function saveVillageConfig()
+	initialVillages = villageInputField.GetValue();
+	GainedArmies = vValueInputField.GetValue();
+	ON = ONInputField.GetIsChecked();
+	showMainConfig();
 end
 
 function showArmyCacheConfig()
   DestroyWindow();
   SetWindow("Army-Caches");
   
-	
-	local initialACaches = Mod.Settings.NumOfACaches;
-	local GainedArmies = Mod.Settings.Armies;
-	local FixedArmies = Mod.Settings.FixedArmies;
-	local difference = Mod.Settings.aLuck;
-	
 	if initialACaches == nil then
 		initialACaches = 3;
 	end
@@ -146,40 +159,41 @@ function showArmyCacheConfig()
 	CreateLabel(vert).SetText('you can disable this mod by setting amount to 0.').SetColor('#606060');
 	
 	UI.CreateLabel(vert).SetText('Amount of Army Caches that will spawn at the start of the game').SetColor('#23A0FF');
-   	 numberInputField5 = UI.CreateNumberInputField(vert)
+   	 armyCacheInputField = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(20)
 		.SetValue(initialACaches);
 	
 	UI.CreateLabel(vert).SetText('Amount of armies that you will get for claiming a army cache').SetColor('#23A0FF');
-   	 numberInputField6 = UI.CreateNumberInputField(vert)
+   	 armyAmountInputField = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(15)
 		.SetValue(GainedArmies);
 	
 	UI.CreateLabel(vert).SetText('if checked will only give a fixed amount of armies').SetColor('#23A0FF');
-        booleanInputField3 = UI.CreateCheckBox(vert)        
+        fixedArmyInputField = UI.CreateCheckBox(vert)        
                 .SetIsChecked(FixedArmies);
 	
 	UI.CreateLabel(vert).SetText('Random +/- limit').SetColor('#23A0FF');
-    numberInputField7 = UI.CreateNumberInputField(vert)
+    randArmyInputField = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
 		.SetValue(difference);
 	
-  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig).SetColor('#94652E');
+  CreateButton(GetRoot()).SetText("Return").SetOnClick(saveArmyConfig).SetColor('#94652E');
+end
+
+function saveArmyConfig()
+	initialACaches = armyCacheInputField.GetValue();
+	GainedArmies = armyAmountInputField.GetValue();
+	fixedArmies = fixedArmyInputField.GetIsChecked();
+	difference = randArmyInputField.GetValue();
+	showMainConfig();
 end
 
 function showCardCacheConfig()
   DestroyWindow();
   SetWindow("Card-Caches");
-	
-	
-	
-	local initialRCaches = Mod.Settings.NumOfRCaches;
-	local Pieces = Mod.Settings.cPieces;
-	local FixedPieces = Mod.Settings.FixedPieces;
-	local difference2 = Mod.Settings.rLuck
 	
 	if initialRCaches == nil then
 		initialRCaches = 2;
@@ -203,35 +217,41 @@ function showCardCacheConfig()
         CreateLabel(vert).SetText('you can disable this mod by setting amount to 0.').SetColor('#606060');
 	
 	UI.CreateLabel(vert).SetText('Amount of Card Caches that will spawn at the start of the game (shown as resource cache)').SetColor('#23A0FF');
-	numberInputField8 = UI.CreateNumberInputField(vert)
+	cardCacheInputField = UI.CreateNumberInputField(vert)
 	.SetSliderMinValue(1)
 	.SetSliderMaxValue(20)
 	.SetValue(initialRCaches);
 
 	UI.CreateLabel(vert).SetText('Amount of card pieces that you will get for claiming a card cache').SetColor('#23A0FF');
-	numberInputField9 = UI.CreateNumberInputField(vert)
+	PiecesInputField = UI.CreateNumberInputField(vert)
 	.SetSliderMinValue(1)
 	.SetSliderMaxValue(20)
 	.SetValue(Pieces);
 
 	UI.CreateLabel(vert).SetText('if checked will only give a fixed amount of card pieces').SetColor('#23A0FF');
-	booleanInputField4 = UI.CreateCheckBox(vert)        
+	fixedPiecesInputField = UI.CreateCheckBox(vert)        
 			.SetIsChecked(FixedPieces);
 
 	UI.CreateLabel(vert).SetText('Random +/- limit').SetColor('#23A0FF');
-	numberInputField10 = UI.CreateNumberInputField(vert)
+	randPiecesInputField = UI.CreateNumberInputField(vert)
 	.SetSliderMinValue(1)
 	.SetSliderMaxValue(10)
 	.SetValue(difference2);
 	
-  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig).SetColor('#94652E');
+  CreateButton(GetRoot()).SetText("Return").SetOnClick(saveCardCacheConfig).SetColor('#94652E');
+end
+
+function saveCardCacheConfig()
+	initialRCaches = cardCacheInputField.GetValue();
+	Pieces = PiecesInputField.GetValue();
+	fixedPieces = fixedArmyInputField.GetIsChecked();
+	difference2 = randPiecesInputField.GetValue();
+	showMainConfig();
 end
 
 function showMiscConfig()     -- 0 parameters!
   DestroyWindow();          -- Destroys every UI object currently visible
   SetWindow("Misc");  -- Allows you to do even more advanced shit
-  
-	local AttackNeutral = Mod.Settings.AttackNeutral;
 	
 	if AttackNeutral == nil then
 		AttackNeutral = true;
@@ -241,11 +261,15 @@ function showMiscConfig()     -- 0 parameters!
 	
 	UI.CreateLabel(vert).SetText('These are extra features that you can enable!').SetColor('#606060');
 	UI.CreateLabel(vert).SetText('if checked will allow the player to claim neutral territories manually. (note that the player can still claim structures on bordering neutral territories)').SetColor('#23A0FF');
-	booleanInputField5 = UI.CreateCheckBox(vert)        
+	attackNeutralInputField5 = UI.CreateCheckBox(vert)        
 			.SetIsChecked(AttackNeutral);
 	
-	
-  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMainConfig).SetColor('#94652E');  -- Allows game creators to go back to the previous page
+  CreateButton(GetRoot()).SetText("Return").SetOnClick(saveMiscConfig).SetColor('#94652E');  -- Allows game creators to go back to the previous page
+end
+
+function saveMiscConfig()
+	AttackNeutral = attackNeutralInputField.GetIsChecked();
+	showMainConfig();
 end
 
 --[[
