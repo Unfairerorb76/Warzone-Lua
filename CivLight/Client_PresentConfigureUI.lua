@@ -65,9 +65,10 @@ function showExpansionConfig()
 end
 
 function saveExpansionConfig()
-	
+	print(neutralInputField.GetValue());
+	print(initialValueConvert);
 	initialValueConvert = neutralInputField.GetValue();
-	
+	print(initialValueConvert);
 	showMainConfig();
 end
 
