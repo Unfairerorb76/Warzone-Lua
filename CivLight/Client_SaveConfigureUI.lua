@@ -1,5 +1,12 @@
 function Client_SaveConfigureUI(alert)
     
+  if attackNeutralInputField.GetValue() == nil then
+     AttackNeutral = true;
+  else
+    Mod.Settings.AttackNeutral = attackNeutralInputField.GetIsChecked();
+  end
+
+    
     Mod.Settings.NumToConvert = ExpansionInputField.GetValue();
     Mod.Settings.SetArmiesTo = ExpArmyInputField.GetValue();
     Mod.Settings.OnlyBaseNeutrals = ExpBaseInputField.GetIsChecked();
@@ -18,6 +25,6 @@ function Client_SaveConfigureUI(alert)
     Mod.Settings.FixedPieces = fixedPiecesInputField.GetIsChecked();
     Mod.Settings.rLuck = randPiecesInputField.GetValue();
 
-    Mod.Settings.AttackNeutral = attackNeutralInputField.GetIsChecked();
+    
 
 end
