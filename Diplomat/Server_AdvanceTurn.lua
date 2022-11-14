@@ -5,6 +5,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 		--in Client_PresentMenuUI, we stuck the territory ID after BuyDiplomat_.  Break it out and parse it to a number.
 		local targetTerritoryID = tonumber(string.sub(order.Payload, 11));
 		print(string.sub(order.Payload, 11));
+		print(targetTerritoryID);
 		local targetTerritoryStanding = game.ServerGame.LatestTurnStanding.Territories[targetTerritoryID];
 		if (targetTerritoryStanding.OwnerPlayerID ~= order.PlayerID) then
 			return; --can only buy a priest onto a territory you control
