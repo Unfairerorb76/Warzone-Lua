@@ -3,7 +3,7 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	 
          initialValueConvert = Mod.Settings.NumToConvert;
 	initialValueArmies = Mod.Settings.SetArmiesTo;
-        initalcheckbox = Mod.Settings.OnlyBaseNeutrals;
+        initialcheckbox = Mod.Settings.OnlyBaseNeutrals;
 	
 	initialVillages = Mod.Settings.NumOfVillages;
 	ON = Mod.Settings.ONeutrals;
@@ -53,8 +53,8 @@ function showExpansionConfig()
 		initialValueArmies = 2;
 	end
 
-        if initalcheckbox == nil then 
-       		initalcheckbox = false; 
+        if initialcheckbox == nil then 
+       		initialcheckbox = false; 
     	end
 	       
 	
@@ -77,7 +77,7 @@ function showExpansionConfig()
  
         UI.CreateLabel(vert).SetText('Only base neutral armies and less shall be claimed').SetColor('#23A0FF');
         ExpBaseInputField = UI.CreateCheckBox(vert)        
-                .SetIsChecked(initalcheckbox);
+                .SetIsChecked(initialcheckbox);
 	
   CreateButton(GetRoot()).SetText("Return").SetOnClick(saveExpansionConfig).SetColor('#94652E');
 end
@@ -186,7 +186,7 @@ end
 function saveArmyConfig()
 	initialACaches = armyCacheInputField.GetValue();
 	GainedArmies = armyAmountInputField.GetValue();
-	fixedArmies = fixedArmyInputField.GetIsChecked();
+	FixedArmies = fixedArmyInputField.GetIsChecked();
 	difference = randArmyInputField.GetValue();
 	showMainConfig();
 end
@@ -244,7 +244,7 @@ end
 function saveCardCacheConfig()
 	initialRCaches = cardCacheInputField.GetValue();
 	Pieces = PiecesInputField.GetValue();
-	fixedPieces = fixedArmyInputField.GetIsChecked();
+	FixedPieces = fixedArmyInputField.GetIsChecked();
 	difference2 = randPiecesInputField.GetValue();
 	showMainConfig();
 end
