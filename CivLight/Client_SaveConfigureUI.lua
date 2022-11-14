@@ -1,5 +1,15 @@
 function Client_SaveConfigureUI(alert)
         
+        if ExpansionInputField == nil then
+         Mod.Settings.NumToConvert = 2;
+         Mod.Settings.SetArmiesTo = 2;
+         Mod.Settings.OnlyBaseNeutrals = false;
+        else
+         Mod.Settings.NumToConvert = ExpansionInputField.GetValue();
+         Mod.Settings.SetArmiesTo = ExpArmyInputField.GetValue();
+         Mod.Settings.OnlyBaseNeutrals = ExpBaseInputField.GetIsChecked();
+        end
+        
      Mod.Settings.NumOfVillages = villageInputField.GetValue();
     Mod.Settings.Armies = vValueInputField.GetValue();
     Mod.Settings.ONeutrals = ONInputField.GetIsChecked();
@@ -13,16 +23,6 @@ function Client_SaveConfigureUI(alert)
     Mod.Settings.cPieces = PiecesInputField.GetValue();
     Mod.Settings.FixedPieces = fixedPiecesInputField.GetIsChecked();
     Mod.Settings.rLuck = randPiecesInputField.GetValue();
-    
-    if ExpansionInputField == nil then
-         Mod.Settings.NumToConvert = 2;
-         Mod.Settings.SetArmiesTo = 2;
-         Mod.Settings.OnlyBaseNeutrals = false;
-        else
-         Mod.Settings.NumToConvert = ExpansionInputField.GetValue();
-         Mod.Settings.SetArmiesTo = ExpArmyInputField.GetValue();
-         Mod.Settings.OnlyBaseNeutrals = ExpBaseInputField.GetIsChecked();
-        end
 
    if attackNeutralInputField == nil then
      Mod.Settings.AttackNeutral = true;
