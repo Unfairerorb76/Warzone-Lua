@@ -11,9 +11,6 @@ function Client_PresentConfigureUI(rootParent)
 
 	local maxDiplomats = Mod.Settings.MaxDiplomats;
 	if maxDiplomats == nil then maxDiplomats = 3; end;
-	
-	 local turns = Mod.Settings.turns;
-	if turns == nil then turns = 1; end
     
 	local vert = UI.CreateVerticalLayoutGroup(rootParent);
 
@@ -31,12 +28,5 @@ function Client_PresentConfigureUI(rootParent)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(5)
 		.SetValue(maxDiplomats);
-	
-	local row3 = UI.CreateHorizontalLayoutGroup(vert);
-	UI.CreateLabel(row3).SetText('how many turns a Diplo card is played for');
-	turnField = UI.CreateNumberInputField(row3)
-		.SetSliderMinValue(1)
-		.SetSliderMaxValue(6)
-		.SetValue(turns);
 
 end
