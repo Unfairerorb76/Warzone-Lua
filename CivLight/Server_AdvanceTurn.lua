@@ -119,6 +119,7 @@ if (Mod.Settings.OnlyBaseNeutrals == false) then
     		table.remove(arr, rand);
   		end
 		table.insert(pTable[p], WL.GameOrderEvent.Create(p,"new territory",{}, list));
+		list = {};
 	end
 
 	local i = 1;
@@ -190,7 +191,7 @@ end
     		table.remove(arr, rand);
   		end
 		table.insert(pTable[p], WL.GameOrderEvent.Create(p,"new territory",{}, list));
-
+		list = {};
 	end
 
 	local i = 1;
