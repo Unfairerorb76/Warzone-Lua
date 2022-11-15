@@ -29,6 +29,7 @@ function Client_PresentConfigureUI(rootParent)
 		.SetSliderMaxValue(5)
 		.SetValue(maxDiplomats);
 	
-	UI.CreateLabel(row1).SetText('When a Diplomat is killed it will play a Diplomacy card, this is set to 2 if the game has no card enabled or the same as the card duration');
+	local row3 = UI.CreateHorizontalLayoutGroup(vert);
+	UI.CreateLabel(row3).SetText('When a Diplomat is killed it will play a Diplomacy card, this is set to 2 if the game has no card enabled or the same as the card duration');
 
 end
