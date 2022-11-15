@@ -58,7 +58,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 	end
     if order.proxyType == "GameOrderAttackTransfer" then
 		if orderResult.IsAttack and hasNoDiplomat(game.ServerGame.LatestTurnStanding.Territories[order.To].NumArmies) then
-			if(orderResult.IsSuccessful == true) or (hasNoDiplomat(orderResult.DefendingArmiesKilled.NumArmies)) then
+			if(orderResult.IsSuccessful == true) or (deadDiplomat(orderResult.DefendingArmiesKilled.NumArmies)) then
 				local p = order.PlayerID; -- the attacker
 				local p2 = game.ServerGame.LatestTurnStanding.Territories[order.To].OwnerPlayerID; --player that was attacked
                			if game.Settings.Cards ~= nil then
@@ -85,6 +85,15 @@ end
 
 function hasNoDiplomat(armies)
     for _, sp in pairs(armies.SpecialUnits) do
+        if sp.Name == "Diplomat" then
+            return true;
+        end
+    end
+    return false;
+end
+
+function deadDiplomat(armies)
+    for _, sp in pairs(armies.SpecialUnit) do
         if sp.Name == "Diplomat" then
             return true;
         end
