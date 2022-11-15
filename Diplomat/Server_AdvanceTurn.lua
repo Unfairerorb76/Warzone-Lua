@@ -94,7 +94,7 @@ end
 
 function deadDiplomat(army)
     for _, sp in pairs(army.SpecialUnits) do
-        if sp.Name == "Diplomat" then
+        if sp.proxyType == "CustomSpecialUnit" and sp.Name == "Diplomat" then
             return true;
         end
     end
