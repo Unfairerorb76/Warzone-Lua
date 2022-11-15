@@ -6,7 +6,7 @@ function Client_PresentCommercePurchaseUI(rootParent, game, close)
 	
 	local vert = UI.CreateVerticalLayoutGroup(rootParent);
 
-	UI.CreateLabel(vert).SetText("each diplomat is as powerful as 1 army but cost " .. Mod.Settings.CostToBuyDiplomat .. " gold to purchase.  You may have up to " .. Mod.Settings.MaxDiplomats .. " Diplomats at a time. When a diplomat is killed by the enemy it will enforce a diplomatic card for " .. Mod.Settings.turns .. " turns.");
+	UI.CreateLabel(vert).SetText("each diplomat is as powerful as 1 army but cost " .. Mod.Settings.CostToBuyDiplomat .. " gold to purchase.  You may have up to " .. Mod.Settings.MaxDiplomats .. " Diplomats at a time. When a diplomat is killed by the enemy it will enforce a diplomatic card for " .. Game.Settings.Cards[WL.CardID.Diplomacy].Duration .. " turns.");
 	UI.CreateButton(vert).SetText("Purchase a Diplomat for " .. Mod.Settings.CostToBuyDiplomat .. " gold").SetOnClick(PurchaseClicked);
 end
 
