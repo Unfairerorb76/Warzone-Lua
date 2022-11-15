@@ -28,5 +28,7 @@ function Client_PresentConfigureUI(rootParent)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(5)
 		.SetValue(maxDiplomats);
+	
+	UI.CreateLabel(row1).SetText('When a Diplomat is killed it will play a Diplomacy card, this is set to 2 if the game has no card enabled or the same as the card duration');
 
 end
