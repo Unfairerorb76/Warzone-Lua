@@ -93,7 +93,7 @@ function hasNoDiplomat(armies)
 end
 
 function deadDiplomat(armies)
-    for _, sp in pairs(armies.SpecialUnit) do
+    for _, sp in pairs(armies.SpecialUnits) do
         if sp.Name == "Diplomat" then
             return true;
         end
