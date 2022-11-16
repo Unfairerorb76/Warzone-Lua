@@ -7,7 +7,7 @@ function Client_PresentConfigureUI(rootParent)
 	end
 
 	local cost = Mod.Settings.CostToBuyCapitalist;
-	if cost == nil then cost = 25; end
+	if cost == nil then cost = 20; end
 
 	local maxCapitalists = Mod.Settings.MaxCapitalists;
 	if maxCapitalists == nil then maxCapitalists = 3; end
