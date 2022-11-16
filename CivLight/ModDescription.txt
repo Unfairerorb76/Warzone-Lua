@@ -1,1 +1,2 @@
-Placeholder
+CivLight is an ongoing attempt to mimic other popular strategy games, compiled in this is a modpack of features designed to enhance the vanilla game, Each mod in this has been redesigned for compatibility.
+If you want to disable an individual feature or setting, or want to know more about it, click on the corresponding buttons below
