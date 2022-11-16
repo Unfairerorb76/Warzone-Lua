@@ -3,7 +3,7 @@ require('Utilities');
 function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNewOrder)
     if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'BuyCapitalist_')) then  --look for the order that we inserted in Client_PresentCommercePurchaseUI
 		--in Client_PresentMenuUI, we stuck the territory ID after BuyCapitalist_.  Break it out and parse it to a number.
-		local targetTerritoryID = tonumber(string.sub(order.Payload, 13));
+		local targetTerritoryID = tonumber(string.sub(order.Payload, 15));
 		print(string.sub(order.Payload, 15));
 		print(targetTerritoryID);
 		local targetTerritoryStanding = game.ServerGame.LatestTurnStanding.Territories[targetTerritoryID];
