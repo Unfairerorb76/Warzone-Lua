@@ -60,7 +60,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 		if orderResult.IsAttack and hasNoCapitalist(game.ServerGame.LatestTurnStanding.Territories[order.To].NumArmies) then
 			if deadCapitalist(orderResult.DefendingArmiesKilled) then
 				local p = order.PlayerID; -- the attacker
-				local IncomeAmount = PlayerIncome.Total;
+				local IncomeAmount = p.PlayerIncome.Total;
 				print(IncomeAmount);
 				IncomeAmount = IncomeAmount * (Mod.Settings.Percentage / 100);
 				addNewOrder(WL.GameOrderEvent.Create(p, "Updated income", {}, {terrMod}, {}, {WL.IncomeMod.Create(p, IncomeAmount, "You have killed a Capitalist and have been sanctioned")}));	
