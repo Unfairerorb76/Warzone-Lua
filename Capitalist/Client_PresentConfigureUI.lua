@@ -13,7 +13,7 @@ function Client_PresentConfigureUI(rootParent)
 	if maxCapitalists == nil then maxCapitalists = 3; end
 
 	local Percentage = Mod.Settings.Percentage;
-	if Percentage == nil then Percentage == 25; end
+	if Percentage == nil then Percentage = 25; end
     
 	local vert = UI.CreateVerticalLayoutGroup(rootParent);
 
