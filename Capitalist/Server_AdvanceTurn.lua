@@ -62,7 +62,6 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 				local p = order.PlayerID; -- the attacker
 				
 				local IncomeAmount = game.Game.PlayingPlayers[p].Income(0, game.LatestTurnStanding, false, false);
-				print(IncomeAmount.Total);
 				print(IncomeAmount);
 				
 				IncomeAmount = IncomeAmount * (Mod.Settings.Percentage / 100);
