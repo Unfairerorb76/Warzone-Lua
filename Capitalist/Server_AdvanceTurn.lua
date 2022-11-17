@@ -66,7 +66,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 				local IncomeAmount = currentIncome.Total;
 				print(IncomeAmount);
 				IncomeAmount = IncomeAmount * (Mod.Settings.Percentage / 100);
-				addNewOrder(WL.GameOrderEvent.Create(p, "Updated income", {}, {terrMod}, {}, {WL.IncomeMod.Create(p, IncomeAmount, "You have killed a Capitalist and have been sanctioned")}));	
+				addNewOrder(WL.GameOrderEvent.Create(p, "Updated income", {}, {terrMod}, {}, {WL.IncomeMod.Create(p, -IncomeAmount, "You have killed a Capitalist and have been sanctioned")}));	
 
 			end
 		end
