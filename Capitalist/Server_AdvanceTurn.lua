@@ -61,7 +61,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 			if deadCapitalist(orderResult.DefendingArmiesKilled) then
 				local p = order.PlayerID; -- the attacker
 				
-				local IncomeAmount = game.Game.PlayingPlayers[p].Income(0, game.LatestTurnStanding, false, false);
+				local IncomeAmount = game.Game.PlayingPlayers[p].Income(0, game.ServerGame.LatestTurnStanding, false, false);
 				print(IncomeAmount);
 				
 				IncomeAmount = IncomeAmount * (Mod.Settings.Percentage / 100);
