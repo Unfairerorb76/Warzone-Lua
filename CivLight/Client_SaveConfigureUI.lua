@@ -1,5 +1,8 @@
 function Client_SaveConfigureUI(alert)
         
+        if ExpansionInputField == nil or  villageInputField == nil or armyCacheInputField == nil or cardCacheInputField == nil or attackNeutralInputField == nil then
+                UI.Alert("You must open and close every button once before you can save settings (sorry).");
+        end
         if ExpansionInputField == nil then
          Mod.Settings.NumToConvert = 2;
          Mod.Settings.SetArmiesTo = 2;
