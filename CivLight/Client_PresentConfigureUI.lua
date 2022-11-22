@@ -244,7 +244,7 @@ end
 function saveCardCacheConfig()
 	initialRCaches = cardCacheInputField.GetValue();
 	Pieces = PiecesInputField.GetValue();
-	FixedPieces = fixedArmyInputField.GetIsChecked();
+	FixedPieces = fixedPiecesInputField.GetIsChecked();
 	difference2 = randPiecesInputField.GetValue();
 	showMainConfig();
 end
