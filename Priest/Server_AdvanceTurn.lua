@@ -98,7 +98,7 @@ end
 
 function hasNoPriest(armies)
     for _, sp in pairs(armies.SpecialUnits) do
-        if sp.Name == "Priest" then
+          if (sp.proxyType == "CustomSpecialUnit" and sp.Name == "Priest") then
             return true;
         end
     end
