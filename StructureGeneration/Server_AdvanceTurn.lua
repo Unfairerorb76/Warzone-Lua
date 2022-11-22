@@ -19,7 +19,7 @@ function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
         if terrSelected.Structures ~= nil then
             if terrSelected.Structures[WL.StructureType.MercenaryCamp] ~= nil then --finds each territory ID of territories with a merc camp
             local terrMod = WL.TerritoryModification.Create(terrID);
-            Init(rootParent);
+      
             showMainConfig(terrMod);
             
             end
