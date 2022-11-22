@@ -1,5 +1,4 @@
-require('Utilities');
-require('WLUtilities');
+require('UI');
 require('distributeRandomStructures');
 function Server_StartGame(game, standing)
 	
