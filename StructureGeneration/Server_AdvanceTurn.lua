@@ -12,11 +12,12 @@ end end end end end
 
 function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
 
-    local terr = {};  --table of neutral territories
+    
 
     for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
-        if terrID.Structures ~= nil then
-            if terrID.Structures[WL.StructureType.MercenaryCamp] ~= nil then --finds each territory ID of territories with a merc camp
+	local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
+        if terrSelected.Structures ~= nil then
+            if terrSelected.Structures[WL.StructureType.MercenaryCamp] ~= nil then --finds each territory ID of territories with a merc camp
             local terrMod = WL.TerritoryModification.Create(terrID);
             Init(rootParent);
             showMainConfig(terrMod);
