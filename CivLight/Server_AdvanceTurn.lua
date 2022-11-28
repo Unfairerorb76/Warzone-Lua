@@ -38,9 +38,9 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
           local TransferredTerr = game.ServerGame.LatestTurnStanding.Territories[order.To]; 
                 if TransferredTerr.Structures ~= nil then 
                     if TransferredTerr.Structures[WL.StructureType.ArmyCache] ~= nil then -- there is a army cache on the territory that was successfully attacked -- so now you can do what you want :p
-			ArmyCache(game, addNewOrder, order.To, order.PlayerID)
+			ArmyCache(game, addNewOrder, order.To, order.PlayerID);
 					end
-					if TransferredTerr.Structures[WL.StructureType.ResourceCache] ~= nil then
+		    if TransferredTerr.Structures[WL.StructureType.ResourceCache] ~= nil then
 			ResourceCache(game, addNewOrder, order.To, order.PlayerID);
 					end 
 
