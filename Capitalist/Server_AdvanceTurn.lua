@@ -85,7 +85,7 @@ end
 
 function hasNoCapitalist(armies)
     for _, sp in pairs(armies.SpecialUnits) do
-        if sp.Name == "Capitalist" then
+        if (sp.proxyType == 'CustomSpecialUnit' and sp.Name == "Capitalist") then
             return true;
         end
     end
