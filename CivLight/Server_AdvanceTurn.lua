@@ -240,7 +240,7 @@ function ResourceCache(game, addNewOrder, terrID, playerID)
 	                print(Mod.Settings.cPieces);
 			print(playerID);
 	                print(pieces);
-	                print(terrMod);
+	             
 			local cardEvent = WL.GameOrderEvent.Create(playerID, "Claimed a card cache and received " .. pieces .. " pieces for a random card", {}, {terrMod}, {}, {});
 			
 			t1[randomCard] = pieces;
