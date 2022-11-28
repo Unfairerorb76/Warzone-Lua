@@ -85,7 +85,7 @@ end
 
 function hasNoDiplomat(armies)
     for _, sp in pairs(armies.SpecialUnits) do
-        if sp.Name == "Diplomat" then
+        if sp.proxyType == "CustomSpecialUnit" and sp.Name == "Diplomat" then
             return true;
         end
     end
