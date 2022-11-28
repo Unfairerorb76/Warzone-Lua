@@ -41,7 +41,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 			ArmyCache(game, addNewOrder, order.To, order.PlayerID)
 					end
 					if TransferredTerr.Structures[WL.StructureType.ResourceCache] ~= nil then
-			ResourceCache(game,addNewOrder,order.To, order.PlayerID)
+			ResourceCache(game, addNewOrder, order.To, order.PlayerID);
 					end 
 
 
