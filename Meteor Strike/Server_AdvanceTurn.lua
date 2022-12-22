@@ -19,7 +19,7 @@ function inflictDamage(game, addNewOrder, num, damage)
 		table.insert(terr, terrID);   --gets each territory ID of neutrals
 	end
 	
-	for times = 1, math.max(num, #terr) do
+	for times = 1, math.min(num, #terr) do
 		local rand = math.random(#terr);
 		local randomNeutralTerr = terr[rand]; --picks random neutral then gives it too player
 		local terrMod = killArmiesOrTurnNeutral(game, game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr], damage);
