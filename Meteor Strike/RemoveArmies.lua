@@ -14,6 +14,7 @@ function killArmiesOrTurnNeutral(game, terr, damage)
 	local mod = WL.TerritoryModification.Create(terr.ID);
 	mod.AddArmies = math.max(-damage, -terr.NumArmies.NumArmies);
 	if terr.NumArmies.DefensePower <= damage or damage == 0 then
+		mod.AddArmies = -terr.NumArmies.NumArmies;
 		local t = {};
 		for _, sp in ipairs(terr.NumArmies.SpecialUnits) do
 			table.insert(t, sp.ID);
