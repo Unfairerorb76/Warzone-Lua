@@ -5,14 +5,14 @@ require('RemoveArmies');
 function Server_AdvanceTurn_End(game, addNewOrder)
 
 	if (Mod.Settings.EnableDoomsDay == true) and (game.ServerGame.Game.TurnNumber == Mod.Settings.TurnDoomsDay) then	
-		inflictDamage(game, math.max(getTableLength(game.ServerGame.LatestTurnStanding.Territories) - Mod.Settings.TerrSurvived, 0), 0) -- 0 is a special value that indicates that all armies and special units are removed, and the territory set to neutral
+		inflictDamage(game, addNewOrder, math.max(getTableLength(game.ServerGame.LatestTurnStanding.Territories) - Mod.Settings.TerrSurvived, 0), 0) -- 0 is a special value that indicates that all armies and special units are removed, and the territory set to neutral
 	else 
-		inflictDamage(game, Mod.Settings.NumOfStrikes, Mod.Settings.ArmiesKilled);
+		inflictDamage(game, addNewOrder, Mod.Settings.NumOfStrikes, Mod.Settings.ArmiesKilled);
 	end
 		
 end	--last end for the function	
 
-function inflictDamage(game, num, damage)
+function inflictDamage(game, addNewOrder, num, damage)
 	local terr = {};
 	
 	for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do	
