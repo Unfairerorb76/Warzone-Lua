@@ -20,8 +20,8 @@ function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
             --CreateMarket(terrMod);
             --showMainConfig(terrMod);
             structures = {};
-          --  structures[WL.StructureType.MercenaryCamp] = -1; 
-           structures[WL.StructureType.Market] = 1;				 terrMod.AddStructuresOpt = structures; addNewOrder(WL.GameOrderEvent.Create({}, 'Placeholder', {}, {terrMod}));
+            structures[WL.StructureType.MercenaryCamp] = -1; 
+          -- structures[WL.StructureType.Market] = 1;				 terrMod.AddStructuresOpt = structures; addNewOrder(WL.GameOrderEvent.Create({}, 'Placeholder', {}, {terrMod}));
             print(1);
             end
         end
