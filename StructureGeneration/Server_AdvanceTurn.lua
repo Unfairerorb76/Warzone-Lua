@@ -17,9 +17,9 @@ function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
         if terrSelected.Structures ~= nil then
             if terrSelected.Structures[WL.StructureType.MercenaryCamp] ~= nil then --finds each territory ID of territories with a merc camp
             local terrMod = WL.TerritoryModification.Create(terrID);
-      
+            CreateMarket(terrMod);
             --showMainConfig(terrMod);
-            
+            print(1);
             end
         end
 	end
@@ -35,12 +35,12 @@ function showMainConfig(terrMod)
 
 end
 
-function CreateMarket()
+function CreateMarket(terrMod)
     structures = {};
     structures[WL.StructureType.MercenaryCamp] = -1;
     structures[WL.StructureType.Market]	 = 1;				
     terrMod.AddStructuresOpt = structures;
-    DestroyWindow();
+    addNewOrder(WL.GameOrderEvent.Create({}, 'Placeholder', {}, {terrMod}));
 end
 
 
