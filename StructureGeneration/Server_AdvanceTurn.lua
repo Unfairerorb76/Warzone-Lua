@@ -19,7 +19,9 @@ function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
             CreateMarket(terrID, terrSelected, addNewOrder); 
             end
            if terrSelected.Structures[WL.StructureType.Market] ~= nil then
-             print(69);
+             if (terrSelected.IsNeutral == false) then
+              print(69);
+             end
            end
         end
 	end
