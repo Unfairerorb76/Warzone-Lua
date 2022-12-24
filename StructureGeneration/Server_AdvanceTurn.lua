@@ -12,12 +12,14 @@ end end end end
 
 local numDiplomatsAlreadyHave = 0;		
 for _,ts in pairs(game.ServerGame.LatestTurnStanding.Territories) do			
-if (ts.OwnerPlayerID == order.PlayerID) then				
+if (ts.OwnerPlayerID == order.PlayerID) then
+print(1);				
 numDiplomatsAlreadyHave = numDiplomatsAlreadyHave + UnitCount(ts.NumArmies, 'piggy-bank');			
 end		
 end 		
 
-if (numDiplomatsAlreadyHave >= 5) then			
+if (numDiplomatsAlreadyHave >= 5) then
+print(2);			
 addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'placeholder diplomat too much'));			
 return; --this player already has the maximum number of Diplomats possible, so skip adding a new one.		
 end
