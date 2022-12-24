@@ -1,9 +1,9 @@
 require('Utilities');
 require('WLUtilities');
-require('RemoveArmies');
+--require('RemoveArmies');
 
 function No_Server_AdvanceTurn_End(game, addNewOrder)
-
+return;
 	if (Mod.Settings.EnableDoomsDay == true) and (game.ServerGame.Game.TurnNumber == Mod.Settings.TurnDoomsDay) then	
 		inflictDamage(game, addNewOrder, math.max(getTableLength(game.ServerGame.LatestTurnStanding.Territories) - Mod.Settings.TerrSurvived, 0), 0) -- 0 is a special value that indicates that all armies and special units are removed, and the territory set to neutral
 	else 
