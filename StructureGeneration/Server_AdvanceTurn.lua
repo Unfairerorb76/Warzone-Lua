@@ -9,7 +9,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
                     if attackedTerr.Structures[WL.StructureType.MercenaryCamp] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked
 				
 end end end end 
-
+if (order.proxyType == 'GameOrderCustom') then
 local numDiplomatsAlreadyHave = 0;		
 for _,ts in pairs(game.ServerGame.LatestTurnStanding.Territories) do			
 if (ts.OwnerPlayerID == order.PlayerID) then				
@@ -23,6 +23,7 @@ print(2);
 --addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'placeholder diplomat too much'));			
 return; --this player already has the maximum number of Diplomats possible, so skip adding a new one.		
 end
+end 
 end   
 
 function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
