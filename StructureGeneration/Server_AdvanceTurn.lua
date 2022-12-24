@@ -36,7 +36,7 @@ function showMainConfig(terrMod, terrSelected)
 
 end
 
-function CreateMarket(terrID, terrSelected)
+function CreateMarket(terrID, terrSelected, addNewOrder)
     local terrMod = WL.TerritoryModification.Create(terrID);
     structures = {};
     structures[WL.StructureType.MercenaryCamp] = -1; 
