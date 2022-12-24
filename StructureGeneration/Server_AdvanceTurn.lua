@@ -42,6 +42,7 @@ function CreateMarket(terrID, terrSelected)
     structures[WL.StructureType.MercenaryCamp] = -1; 
     structures[WL.StructureType.Market] = 1;	
     terrMod.AddStructuresOpt = structures;
+    print(terrSelected);
     addNewOrder(WL.GameOrderEvent.Create(terrSelected.OwnerPlayerID , 'Placeholder', {}, {terrMod}));
 end
 
