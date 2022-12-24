@@ -20,7 +20,7 @@ function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
             end
            if terrSelected.Structures[WL.StructureType.Market] ~= nil then
              if (terrSelected.IsNeutral == false) then
-              print(69);
+              SpecialUnit(terrID, terrSelected, addNewOrder);
              end
            end
         end
@@ -46,6 +46,9 @@ function CreateMarket(terrID, terrSelected, addNewOrder)
     addNewOrder(WL.GameOrderEvent.Create(terrSelected.OwnerPlayerID , 'Placeholder', {}, {terrMod}));
 end
 
+function SpecialUnit(terrID, terrSelected, addNewOrder)
+
+end
 
 function getTableLength(t)
 	local a = 0;
