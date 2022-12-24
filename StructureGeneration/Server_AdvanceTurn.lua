@@ -48,8 +48,7 @@ end
 
 function SpecialUnit(terrID, terrSelected, addNewOrder)
 
-local targetTerritoryID = terrID;
-local targetTerritoryStanding = game.ServerGame.LatestTurnStanding.Territories[targetTerritoryID];		 		 		
+local targetTerritoryID = terrID;		 		 		
 
 local DiplomatPower = 5; 		
 local builder = WL.CustomSpecialUnitBuilder.Create(terrSelected.OwnerPlayerID);		
