@@ -49,12 +49,11 @@ end
 function SpecialUnit(terrID, terrSelected, addNewOrder)
 
 local targetTerritoryID = terrID;		 		 		
-
-local DiplomatPower = 5; 		
+		
 local builder = WL.CustomSpecialUnitBuilder.Create(terrSelected.OwnerPlayerID);		
-builder.Name = 'Diplomat';		
+builder.Name = 'Capitalist';		
 builder.IncludeABeforeName = true;		
-builder.ImageFilename = 'robe.png';		
+builder.ImageFilename = 'piggy-bank.png';		
 builder.AttackPower = 1;		
 builder.DefensePower = 1;		
 builder.CombatOrder = 1234; --defends commanders		
