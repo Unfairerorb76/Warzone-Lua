@@ -20,7 +20,7 @@ end
 
 if (numDiplomatsAlreadyHave >= 5) then
 print(2);			
-addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'placeholder diplomat too much'));			
+--addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'placeholder diplomat too much'));			
 return; --this player already has the maximum number of Diplomats possible, so skip adding a new one.		
 end
 end   
