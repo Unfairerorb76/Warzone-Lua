@@ -47,34 +47,15 @@ function CreateMarket(terrID, terrSelected, addNewOrder)
 end
 
 function SpecialUnit(terrID, terrSelected, addNewOrder)
-local targetTerritoryID = tonumber(string.sub(order.Payload, 13));
-print(string.sub(order.Payload, 13));
-print(targetTerritoryID);
-local targetTerritoryStanding = game.ServerGame.LatestTurnStanding.Territories[targetTerritoryID];		
-if (targetTerritoryStanding.OwnerPlayerID ~= order.PlayerID) then			
-return; --can only buy a priest onto a territory you control		
-end
-				
-if (order.CostOpt == nil) then			
-return; --shouldn't ever happen, unless another mod interferes		
-end 
-		
-local costFromOrder = order.CostOpt[WL.ResourceType.Gold]; --this is the cost from the order. We can't trust this is accurate, as someone could hack their client and put whatever cost they want in there. Therefore, we must calculate it ourselves, and only do the purchase if they match		
-local realCost = Mod.Settings.CostToBuyDiplomat; 		
-if (realCost > costFromOrder) then			
-return; --don't do the purchase if their cost didn't line up. This would only really happen if they hacked their client or another mod interfered		
-end 
 
-if (numDiplomatsAlreadyHave >= Mod.Settings.MaxDiplomats) then			
-addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Skipping Diplomat purchase since max is ' .. Mod.Settings.MaxDiplomats .. ' and you have ' .. numDiplomatsAlreadyHave));			
-return; --this player already has the maximum number of Diplomats possible, so skip adding a new one.		
-end 		
+local targetTerritoryID = terrID;
+local targetTerritoryStanding = game.ServerGame.LatestTurnStanding.Territories[targetTerritoryID];		 		 		
 
-local DiplomatPower = Mod.Settings.DiplomatPower; 		
-local builder = WL.CustomSpecialUnitBuilder.Create(order.PlayerID);		
+local DiplomatPower = 5; 		
+local builder = WL.CustomSpecialUnitBuilder.Create(terrSelected.OwnerPlayerID);		
 builder.Name = 'Diplomat';		
 builder.IncludeABeforeName = true;		
-builder.ImageFilename = 'truce.png';		
+builder.ImageFilename = 'robe.png';		
 builder.AttackPower = 1;		
 builder.DefensePower = 1;		
 builder.CombatOrder = 1234; --defends commanders		
@@ -87,7 +68,7 @@ builder.CanBeAirliftedToTeammate = true;
 builder.IsVisibleToAllPlayers = false;			
 local terrMod = WL.TerritoryModification.Create(targetTerritoryID);		
 terrMod.AddSpecialUnits = {builder.Build()};				
-addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Purchased a Diplomat', {}, {terrMod}));
+addNewOrder(WL.GameOrderEvent.Create(terrSelected.OwnerPlayerID, 'Purchased a Diplomat', {}, {terrMod}));
 end
 
 function getTableLength(t)
