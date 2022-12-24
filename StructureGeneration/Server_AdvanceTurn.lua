@@ -15,7 +15,7 @@ function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
     for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
 	local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
         if terrSelected.Structures ~= nil then
-            if terrSelected.Structures[WL.StructureType.MercenaryCamp] ~= nil then --finds each territory ID of territories with a merc camp
+            if (terrSelected.Structures[WL.StructureType.MercenaryCamp] ~= nil) and (terrSelected.IsNeutral == false) then --finds each territory ID of territories with a merc camp
             CreateMarket(terrID, terrSelected, addNewOrder); 
             end
            if terrSelected.Structures[WL.StructureType.Market] ~= nil then
