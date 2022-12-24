@@ -12,9 +12,9 @@ end end end end
 
 local numDiplomatsAlreadyHave = 0;		
 for _,ts in pairs(game.ServerGame.LatestTurnStanding.Territories) do			
-if (ts.OwnerPlayerID == order.PlayerID) then
-print(1);				
-numDiplomatsAlreadyHave = numDiplomatsAlreadyHave + UnitCount(ts.NumArmies, 'piggy-bank');			
+if (ts.OwnerPlayerID == order.PlayerID) then				
+numDiplomatsAlreadyHave = numDiplomatsAlreadyHave + UnitCount(ts.NumArmies, 'piggy-bank');
+print(numDiplomatsAlreadyHave);			
 end		
 end 		
 
