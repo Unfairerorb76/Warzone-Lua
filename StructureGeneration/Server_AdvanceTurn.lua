@@ -12,22 +12,22 @@ end end end end end
 
 function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
 
-    
-
     for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
 	local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
         if terrSelected.Structures ~= nil then
             if terrSelected.Structures[WL.StructureType.MercenaryCamp] ~= nil then --finds each territory ID of territories with a merc camp
-            local terrMod = WL.TerritoryModification.Create(terrID);
-      
-            showMainConfig(terrMod);
-            
+            CreateMarket(terrID, terrSelected, addNewOrder); 
             end
+           if terrSelected.Structures[WL.StructureType.Market] ~= nil then
+             if (terrSelected.IsNeutral == false) then
+              SpecialUnit(terrID, terrSelected, addNewOrder);
+             end
+           end
         end
 	end
 end
 
-function showMainConfig(terrMod)
+function showMainConfig(terrMod, terrSelected)
     DestroyWindow();
     SetWindow("Main");
 
@@ -37,14 +37,38 @@ function showMainConfig(terrMod)
 
 end
 
-function CreateMarket()
+function CreateMarket(terrID, terrSelected, addNewOrder)
+    local terrMod = WL.TerritoryModification.Create(terrID);
     structures = {};
-    structures[WL.StructureType.MercenaryCamp] = -1;
-    structures[WL.StructureType.Market]	 = 1;				
+    structures[WL.StructureType.MercenaryCamp] = -1; 
+    structures[WL.StructureType.Market] = 1;	
     terrMod.AddStructuresOpt = structures;
-    DestroyWindow();
+    addNewOrder(WL.GameOrderEvent.Create(terrSelected.OwnerPlayerID , 'Placeholder', {}, {terrMod}));
 end
 
+function SpecialUnit(terrID, terrSelected, addNewOrder)
+
+local targetTerritoryID = terrID;		 		 		
+
+local DiplomatPower = 5; 		
+local builder = WL.CustomSpecialUnitBuilder.Create(terrSelected.OwnerPlayerID);		
+builder.Name = 'Diplomat';		
+builder.IncludeABeforeName = true;		
+builder.ImageFilename = 'robe.png';		
+builder.AttackPower = 1;		
+builder.DefensePower = 1;		
+builder.CombatOrder = 1234; --defends commanders		
+builder.DamageToKill = 1;		
+builder.DamageAbsorbedWhenAttacked = 1;		
+builder.CanBeGiftedWithGiftCard = true;		
+builder.CanBeTransferredToTeammate = true;		
+builder.CanBeAirliftedToSelf = true;		
+builder.CanBeAirliftedToTeammate = true;		
+builder.IsVisibleToAllPlayers = false;			
+local terrMod = WL.TerritoryModification.Create(targetTerritoryID);		
+terrMod.AddSpecialUnits = {builder.Build()};				
+addNewOrder(WL.GameOrderEvent.Create(terrSelected.OwnerPlayerID, 'Purchased a Diplomat', {}, {terrMod}));
+end
 
 function getTableLength(t)
 	local a = 0;
