@@ -43,6 +43,7 @@ function CreateMarket(terrID, terrSelected)
     structures[WL.StructureType.Market] = 1;	
     terrMod.AddStructuresOpt = structures;
     print(terrSelected);
+    print(terrID);
     addNewOrder(WL.GameOrderEvent.Create(terrSelected.OwnerPlayerID , 'Placeholder', {}, {terrMod}));
 end
 
