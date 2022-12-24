@@ -6,9 +6,22 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
           local attackedTerr = game.ServerGame.LatestTurnStanding.Territories[order.To]; 
 
                 if attackedTerr.Structures ~= nil then 
-                    if attackedTerr.Structures[WL.StructureType.MercenaryCamp] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked	
+                    if attackedTerr.Structures[WL.StructureType.MercenaryCamp] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked
 				
-end end end end end   
+end end end end 
+
+local numDiplomatsAlreadyHave = 0;		
+for _,ts in pairs(game.ServerGame.LatestTurnStanding.Territories) do			
+if (ts.OwnerPlayerID == order.PlayerID) then				
+numDiplomatsAlreadyHave = numDiplomatsAlreadyHave + NumDiplomatsIn(ts.NumArmies, 'piggy-bank');			
+end		
+end 		
+
+if (numDiplomatsAlreadyHave >= 5) then			
+addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'placeholder diplomat too much'));			
+return; --this player already has the maximum number of Diplomats possible, so skip adding a new one.		
+end
+end   
 
 function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
 
@@ -67,6 +80,16 @@ builder.IsVisibleToAllPlayers = false;
 local terrMod = WL.TerritoryModification.Create(targetTerritoryID);		
 terrMod.AddSpecialUnits = {builder.Build()};				
 addNewOrder(WL.GameOrderEvent.Create(terrSelected.OwnerPlayerID, 'Purchased a Diplomat', {}, {terrMod}));
+end
+
+function UnitCount(armies, name)
+local ret = 0;	
+ for _,su in pairs(armies.SpecialUnits) do		
+  if (su.proxyType == 'CustomSpecialUnit' and su.Name == name) then			
+   ret = ret + 1;		
+  end	
+ end	
+return ret;
 end
 
 function getTableLength(t)
