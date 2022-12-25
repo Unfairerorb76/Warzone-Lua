@@ -12,13 +12,14 @@ end end end end
 
 if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'GetCapitalist_') ) then
 
-print(tonumber(string.sub(order.Payload, 10)));
+--print(tonumber(string.sub(order.Payload, 10)));
 --print(tonumber(order.Payload))
   local terrID = tonumber(string.sub(order.Payload, 13));
  -- print(terrID);
+  if terrID ~= nil then
   local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
   SpecialUnit(terrID, addNewOrder, order, game, terrSelected); 
-end
+end end
 end   
 
 function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
