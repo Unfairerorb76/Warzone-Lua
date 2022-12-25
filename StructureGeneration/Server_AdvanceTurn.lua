@@ -27,7 +27,7 @@ function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
 
 local numDiplomatsAlreadyHave = 0;		
 for _,ts in pairs(game.ServerGame.LatestTurnStanding.Territories) do			
-if (ts.OwnerPlayerID == order.PlayerID) then				
+if (terrSelected.OwnerPlayerID == order.PlayerID) then				
 numDiplomatsAlreadyHave = numDiplomatsAlreadyHave + UnitCount(ts.NumArmies, 'Capitalist');
 print(numDiplomatsAlreadyHave);			
 end		
