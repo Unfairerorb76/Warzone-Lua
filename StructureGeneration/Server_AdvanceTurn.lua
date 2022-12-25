@@ -12,7 +12,7 @@ end end end end
 
 if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'GetCapitalist_') ) then
 
-print(tonumber(string.sub(order.Payload, 13)));
+print(tonumber(string.sub(order.Payload, 5)));
 local terrMod = tonumber(string.sub(order.Payload, 13));
 
 local numDiplomatsAlreadyHave = 0;		
