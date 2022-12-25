@@ -30,11 +30,10 @@ local numDiplomatsAlreadyHave = 0;
 
 for _,ts in pairs(game.ServerGame.LatestTurnStanding.Territories) do			
 if (ts.OwnerPlayerID == terrSelected.OwnerPlayerID) then				
-numDiplomatsAlreadyHave = numDiplomatsAlreadyHave + UnitCount(ts.NumArmies, 'Capitalist');
-print( UnitCount(ts.NumArmies, 'Capitalist') );			
+numDiplomatsAlreadyHave = numDiplomatsAlreadyHave + UnitCount(ts.NumArmies, 'Capitalist');			
 end		
 end 		
-
+print(1);
 if (numDiplomatsAlreadyHave >= 5) then
 print(2);
 SpecialUnit(terrID, terrSelected, addNewOrder);			
