@@ -38,9 +38,6 @@ function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
              if (terrSelected.IsNeutral == false) then
 
              SpecialUnit(terrID, terrSelected, addNewOrder);			
-
-
-              
              end
            end
         end
@@ -87,6 +84,7 @@ builder.IsVisibleToAllPlayers = false;
 local terrMod = WL.TerritoryModification.Create(targetTerritoryID);		
 terrMod.AddSpecialUnits = {builder.Build()};				
 addNewOrder(WL.GameOrderEvent.Create(terrSelected.OwnerPlayerID, 'Purchased a Diplomat', {}, {terrMod}));
+addNewOrder(WL.GameOrderCustom.Create(terrSelected.OwnerPlayerID, 'custom order',  , nil);
 end
 
 function UnitCount(armies, name)
