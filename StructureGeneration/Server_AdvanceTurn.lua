@@ -10,7 +10,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 				
 end end end end 
 
-if (order.proxyType == 'GameOrderCustom') then
+if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'GetCapitalist_')) then
 
 local numDiplomatsAlreadyHave = 0;		
 for _,ts in pairs(game.ServerGame.LatestTurnStanding.Territories) do			
@@ -84,7 +84,7 @@ builder.IsVisibleToAllPlayers = false;
 local terrMod = WL.TerritoryModification.Create(targetTerritoryID);		
 terrMod.AddSpecialUnits = {builder.Build()};				
 addNewOrder(WL.GameOrderEvent.Create(terrSelected.OwnerPlayerID, 'Purchased a Diplomat', {}, {terrMod}));
-addNewOrder(WL.GameOrderCustom.Create(terrSelected.OwnerPlayerID, 'custom order',  , nil);
+addNewOrder(WL.GameOrderCustom.Create(terrSelected.OwnerPlayerID, 'custom order', 'GetCapitalist_' , nil);
 end
 
 function UnitCount(armies, name)
