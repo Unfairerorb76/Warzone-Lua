@@ -19,19 +19,36 @@ end end
 end   
 
 function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
-    
+ 
+local data = Mod.PublicGameData;
+data.Counters = {};
+for p, _ in pairs(game.Game.PlayingPlayers) do
+  data.Counters[p] = 0;
+end
+Mod.PublicGameData = data; 
+  
     for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
 	local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
         if terrSelected.Structures ~= nil then
             if (terrSelected.Structures[WL.StructureType.MercenaryCamp] ~= nil) and (terrSelected.IsNeutral == false) then --finds each territory ID of territories with a merc camp
             CreateMarket(terrID, terrSelected, addNewOrder); 
+
+-- initilization
+
+
+-- usage
+local data = Mod.PublicGameData;
+if conditionIsTrue then
+  data.Counters[PlayerID] = data.Counters[PlayerID] + 1;
+end
+Mod.PublicGameData = data;
+```
             end
            if terrSelected.Structures[WL.StructureType.Market] ~= nil then
              if (terrSelected.IsNeutral == false) then
-              local data = tostring(terrID);
-              
-             addNewOrder(WL.GameOrderCustom.Create(terrSelected.OwnerPlayerID, 'custom order', 'GetCapitalist_' .. data , {}));
-            -- SpecialUnit(terrID, terrSelected, addNewOrder);
+              local terrdata = tostring(terrID); 
+             addNewOrder(WL.GameOrderCustom.Create(terrSelected.OwnerPlayerID, 'custom order', 'GetCapitalist_' .. terrdata , {}));
+           
              
            			
              end
