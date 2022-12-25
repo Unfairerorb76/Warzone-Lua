@@ -14,7 +14,7 @@ if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'GetCapit
   print(1);
 --print(tonumber(string.sub(order.Payload, 10)));
 --print(tonumber(order.Payload))
-  local terrID = tonumber(string.sub(order.Payload, 14));
+  local terrID = tonumber(string.sub(order.Payload, 15));
   print(terrID);
   if terrID ~= nil then
 print(11);
