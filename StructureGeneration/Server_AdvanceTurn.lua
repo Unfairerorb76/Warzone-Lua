@@ -63,8 +63,9 @@ end
 
 function SpecialUnit(terrID, addNewOrder, order, game)
 
-local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
-local targetTerritoryID = terrID;		 		 		
+
+local targetTerritoryID = terrID;
+local terrSelected = game.ServerGame.LatestTurnStanding.Territories[targetTerritoryID];		 		 		
 
 local numDiplomatsAlreadyHave = 0;		
 for _,ts in pairs(game.ServerGame.LatestTurnStanding.Territories) do			
