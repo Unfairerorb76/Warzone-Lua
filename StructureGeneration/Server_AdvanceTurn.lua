@@ -15,7 +15,7 @@ end end end end
 end   
 
 function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
-
+    local numDiplomatsAlreadyHave = 0;
     for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
 	local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
         if terrSelected.Structures ~= nil then
@@ -25,7 +25,7 @@ function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
            if terrSelected.Structures[WL.StructureType.Market] ~= nil then
              if (terrSelected.IsNeutral == false) then
 for playerID, _ in pairs(game.Game.PlayingPlayers) do
-local numDiplomatsAlreadyHave = 0;		
+		
 for _,ts in pairs(game.ServerGame.LatestTurnStanding.Territories) do			
 if (terrSelected.OwnerPlayerID == playerID) then				
 numDiplomatsAlreadyHave = numDiplomatsAlreadyHave + UnitCount(ts.NumArmies, 'Capitalist');
