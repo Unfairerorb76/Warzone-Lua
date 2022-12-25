@@ -12,7 +12,7 @@ end end end end
 
 if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'GetCapitalist_') ) then
 
-print(tonumber(string.sub(order.Payload, 5)));
+print(tonumber(string.sub(order.Payload, 13)));
 local terrMod = tonumber(string.sub(order.Payload, 13));
 
 local numDiplomatsAlreadyHave = 0;		
@@ -25,6 +25,7 @@ if (numDiplomatsAlreadyHave >= 5) then
 addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Skipping Diplomat purchase since max is 5'));			
 return; --this player already has the maximum number of Diplomats possible, so skip adding a new one.
 else
+print(5);
 addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Purchased a Diplomat', {}, {terrMod}));		
 end
 
@@ -92,6 +93,7 @@ local terrMod = WL.TerritoryModification.Create(targetTerritoryID);
 terrMod.AddSpecialUnits = {builder.Build()};				
 
 local data = tostring(terrMod);
+print(data);
 addNewOrder(WL.GameOrderCustom.Create(terrSelected.OwnerPlayerID, 'custom order', 'GetCapitalist_' .. data , {}));
 end
 
