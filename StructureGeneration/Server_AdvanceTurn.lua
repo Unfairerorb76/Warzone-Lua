@@ -15,7 +15,7 @@ if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'GetCapit
 --print(tonumber(string.sub(order.Payload, 13)));
 --print(tonumber(order.Payload))
   local terrID = tonumber(string.sub(order.Payload, 13));
-  SpecialUnit(terrID, addNewOrder, order); 
+  SpecialUnit(terrID, addNewOrder, order, game); 
 end
 end   
 
@@ -61,7 +61,7 @@ function CreateMarket(terrID, terrSelected, addNewOrder)
 end
 
 
-function SpecialUnit(terrID, addNewOrder, order)
+function SpecialUnit(terrID, addNewOrder, order, game)
 
 local targetTerritoryID = terrID;		 		 		
 
