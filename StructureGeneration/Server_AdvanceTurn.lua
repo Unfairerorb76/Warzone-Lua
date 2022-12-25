@@ -12,7 +12,7 @@ end end end end
 
 if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'GetCapitalist_') ) then
 
-print(tonumber(string.sub(order.Payload, 12)));
+print(tonumber(string.sub(order.Payload, 10)));
 --print(tonumber(order.Payload))
   local terrID = tonumber(string.sub(order.Payload, 13));
  -- print(terrID);
