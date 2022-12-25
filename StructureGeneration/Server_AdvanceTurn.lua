@@ -11,15 +11,10 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 end end end end 
 
 if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'GetCapitalist_') ) then
-  print(1);
---print(tonumber(string.sub(order.Payload, 10)));
---print(tonumber(order.Payload))
+
   local terrID = tonumber(string.sub(order.Payload, 15));
-  print(terrID);
   if terrID ~= nil then
-print(11);
-  local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
-  SpecialUnit(terrID, addNewOrder, order, game, terrSelected); 
+  SpecialUnit(terrID, addNewOrder, order, game); 
 end end
 end   
 
@@ -65,21 +60,26 @@ function CreateMarket(terrID, terrSelected, addNewOrder)
 end
 
 
-function SpecialUnit(terrID, addNewOrder, order, game, terrSelected)
+function SpecialUnit(terrID, addNewOrder, order, game)
 
-print(2);
+local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
 local targetTerritoryID = terrID;		 		 		
 
-local numDiplomatsAlreadyHave = 0;		
+local numUnitsAlreadyHave = 0;		
 for _,ts in pairs(game.ServerGame.LatestTurnStanding.Territories) do			
 if (ts.OwnerPlayerID == order.PlayerID) then				
-numDiplomatsAlreadyHave = numDiplomatsAlreadyHave + UnitCount(ts.NumArmies, 'Capitalist');			
+numUnitsAlreadyHave = numUnitsAlreadyHave + UnitCount(ts.NumArmies, 'Capitalist');			
 end		
-end 	
+end 
 	
-if (numDiplomatsAlreadyHave >= 5) then			
-addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Skipping Diplomat purchase since max is 5'));			
-return; --this player already has the maximum number of Diplomats possible, so skip adding a new one.
+local limit = false;
+if limit == true then
+   return;
+end	
+if (numUnitsAlreadyHave >= 5) then			
+addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Skipping Capitalist creation since maximum is 5'));
+limit = true;			
+return; --this player already has the maximum number of Capitalists possible, so skip adding a new one.
 end
 		
 local builder = WL.CustomSpecialUnitBuilder.Create(terrSelected.OwnerPlayerID);		
