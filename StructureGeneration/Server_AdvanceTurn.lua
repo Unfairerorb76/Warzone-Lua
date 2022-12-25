@@ -34,12 +34,12 @@ numDiplomatsAlreadyHave = numDiplomatsAlreadyHave + UnitCount(ts.NumArmies, 'Cap
 end		
 end 		
 print(1);
-if (numDiplomatsAlreadyHave >= 5) then
+--if (numDiplomatsAlreadyHave >= 5) then
 print(2);
 SpecialUnit(terrID, terrSelected, addNewOrder);			
 --addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'placeholder diplomat too much');			
 return; --this player already has the maximum number of Diplomats possible, so skip adding a new one.		
-end end
+end --end
 
               
              end
