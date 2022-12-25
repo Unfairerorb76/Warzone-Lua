@@ -44,7 +44,7 @@ end end
              end
            end
         end
-	end
+	
 end
 
 function showMainConfig(terrMod, terrSelected)
