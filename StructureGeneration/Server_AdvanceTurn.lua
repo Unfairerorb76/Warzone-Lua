@@ -9,21 +9,9 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
                     if attackedTerr.Structures[WL.StructureType.MercenaryCamp] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked
 				
 end end end end 
-if (order.proxyType == 'GameOrderCustom') then
-local numDiplomatsAlreadyHave = 0;		
-for _,ts in pairs(game.ServerGame.LatestTurnStanding.Territories) do			
-if (ts.OwnerPlayerID == order.PlayerID) then				
-numDiplomatsAlreadyHave = numDiplomatsAlreadyHave + UnitCount(ts.NumArmies, 'Capitalist');
-print(numDiplomatsAlreadyHave);			
-end		
-end 		
 
-if (numDiplomatsAlreadyHave >= 5) then
-print(2);			
---addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'placeholder diplomat too much'));			
-return; --this player already has the maximum number of Diplomats possible, so skip adding a new one.		
-end
-end 
+
+
 end   
 
 function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
@@ -36,7 +24,23 @@ function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
             end
            if terrSelected.Structures[WL.StructureType.Market] ~= nil then
              if (terrSelected.IsNeutral == false) then
-              SpecialUnit(terrID, terrSelected, addNewOrder);
+
+local numDiplomatsAlreadyHave = 0;		
+for _,ts in pairs(game.ServerGame.LatestTurnStanding.Territories) do			
+if (ts.OwnerPlayerID == order.PlayerID) then				
+numDiplomatsAlreadyHave = numDiplomatsAlreadyHave + UnitCount(ts.NumArmies, 'Capitalist');
+print(numDiplomatsAlreadyHave);			
+end		
+end 		
+
+if (numDiplomatsAlreadyHave >= 5) then
+print(2);
+SpecialUnit(terrID, terrSelected, addNewOrder);			
+--addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'placeholder diplomat too much');			
+return; --this player already has the maximum number of Diplomats possible, so skip adding a new one.		
+end
+
+              
              end
            end
         end
