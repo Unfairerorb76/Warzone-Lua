@@ -15,7 +15,7 @@ end end end end
 end   
 
 function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
-
+for playerID, _ in pairs(game.Game.PlayingPlayers) do
     for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
 	local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
         if terrSelected.Structures ~= nil then
@@ -27,7 +27,7 @@ function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
 
 local numDiplomatsAlreadyHave = 0;		
 for _,ts in pairs(game.ServerGame.LatestTurnStanding.Territories) do			
-if (terrSelected.OwnerPlayerID == order.PlayerID) then				
+if (terrSelected.OwnerPlayerID == playerID) then				
 numDiplomatsAlreadyHave = numDiplomatsAlreadyHave + UnitCount(ts.NumArmies, 'Capitalist');
 print(numDiplomatsAlreadyHave);			
 end		
@@ -38,7 +38,7 @@ print(2);
 SpecialUnit(terrID, terrSelected, addNewOrder);			
 --addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'placeholder diplomat too much');			
 return; --this player already has the maximum number of Diplomats possible, so skip adding a new one.		
-end
+end end
 
               
              end
