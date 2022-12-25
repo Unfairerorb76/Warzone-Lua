@@ -29,7 +29,7 @@ for playerID, _ in pairs(game.Game.PlayingPlayers) do
 local numDiplomatsAlreadyHave = 0;
 
 for _,ts in pairs(game.ServerGame.LatestTurnStanding.Territories) do			
-if (ts.OwnerPlayerID == playerID) then				
+if (ts.OwnerPlayerID == terrSelected.OwnerPlayerID) then				
 numDiplomatsAlreadyHave = numDiplomatsAlreadyHave + UnitCount(ts.NumArmies, 'Capitalist');
 print(numDiplomatsAlreadyHave);			
 end		
