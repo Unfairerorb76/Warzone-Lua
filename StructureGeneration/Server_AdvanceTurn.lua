@@ -83,8 +83,8 @@ builder.CanBeAirliftedToTeammate = true;
 builder.IsVisibleToAllPlayers = false;			
 local terrMod = WL.TerritoryModification.Create(targetTerritoryID);		
 terrMod.AddSpecialUnits = {builder.Build()};				
-addNewOrder(WL.GameOrderEvent.Create(terrSelected.OwnerPlayerID, 'Purchased a Diplomat', {}, {terrMod}));
-addNewOrder(WL.GameOrderCustom.Create(terrSelected.OwnerPlayerID, 'custom order', 'GetCapitalist_' , nil);
+--addNewOrder(WL.GameOrderEvent.Create(terrSelected.OwnerPlayerID, 'Purchased a Diplomat', {}, {terrMod}));
+addNewOrder(WL.GameOrderCustom.Create(terrSelected.OwnerPlayerID, 'custom order', 'GetCapitalist_' , nil));
 end
 
 function UnitCount(armies, name)
