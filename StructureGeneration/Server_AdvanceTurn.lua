@@ -11,7 +11,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 end end end end 
 
 if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'GetCapitalist_') ) then
-
+  print(1);
 --print(tonumber(string.sub(order.Payload, 10)));
 --print(tonumber(order.Payload))
   local terrID = tonumber(string.sub(order.Payload, 13));
@@ -33,7 +33,7 @@ function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
            if terrSelected.Structures[WL.StructureType.Market] ~= nil then
              if (terrSelected.IsNeutral == false) then
               local data = tostring(terrID);
-              print(data);
+              
              addNewOrder(WL.GameOrderCustom.Create(terrSelected.OwnerPlayerID, 'custom order', 'GetCapitalist_' .. data , {}));
             -- SpecialUnit(terrID, terrSelected, addNewOrder);
              
@@ -66,7 +66,7 @@ end
 
 function SpecialUnit(terrID, addNewOrder, order, game, terrSelected)
 
-
+print(2);
 local targetTerritoryID = terrID;		 		 		
 
 local numDiplomatsAlreadyHave = 0;		
