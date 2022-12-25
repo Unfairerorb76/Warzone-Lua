@@ -14,9 +14,8 @@ if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'GetCapit
 
 --print(tonumber(string.sub(order.Payload, 13)));
 --print(tonumber(order.Payload))
---local terrMod = tonumber(string.sub(order.Payload, 13));
-
-
+  local terrID = tonumber(string.sub(order.Payload, 13));
+  SpecialUnit(terrID, addNewOrder, order); 
 end
 end   
 
@@ -30,8 +29,10 @@ function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
             end
            if terrSelected.Structures[WL.StructureType.Market] ~= nil then
              if (terrSelected.IsNeutral == false) then
-             addNewOrder(WL.GameOrderCustom.Create(terrSelected.OwnerPlayerID, 'custom order', 'GetCapitalist_' , {}));
-            -- SpecialUnit(terrID, terrSelected, addNewOrder, order);
+              local data = tostring(terrID);
+              print(data);
+             addNewOrder(WL.GameOrderCustom.Create(terrSelected.OwnerPlayerID, 'custom order', 'GetCapitalist_' .. data , {}));
+            -- SpecialUnit(terrID, terrSelected, addNewOrder);
              
            			
              end
@@ -60,7 +61,7 @@ function CreateMarket(terrID, terrSelected, addNewOrder)
 end
 
 
-function SpecialUnit(terrID, terrSelected, addNewOrder, order)
+function SpecialUnit(terrID, addNewOrder, order)
 
 local targetTerritoryID = terrID;		 		 		
 
@@ -93,9 +94,8 @@ builder.IsVisibleToAllPlayers = false;
 local terrMod = WL.TerritoryModification.Create(targetTerritoryID);		
 terrMod.AddSpecialUnits = {builder.Build()};				
 
-local data = tostring(terrMod);
-print(data);
-addNewOrder(WL.GameOrderEvent.Create(terrSelected.OwnerPlayerID, 'Creating Unit',  , {terrMod}));
+addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Purchased a Diplomat', {}, {terrMod}));		
+
 end
 
 function UnitCount(armies, name)
