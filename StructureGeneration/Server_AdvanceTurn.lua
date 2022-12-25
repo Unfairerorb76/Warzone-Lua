@@ -10,8 +10,20 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 				
 end end end end 
 
+if (order.proxyType == 'GameOrderCustom') then
 
+local numDiplomatsAlreadyHave = 0;		
+for _,ts in pairs(game.ServerGame.LatestTurnStanding.Territories) do			
+if (ts.OwnerPlayerID == order.PlayerID) then				
+numDiplomatsAlreadyHave = numDiplomatsAlreadyHave + UnitCount(ts.NumArmies, 'Capitalist');			
+end		
+end 		
+if (numDiplomatsAlreadyHave >= 5) then			
+addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Skipping Diplomat purchase since max is 5'));			
+return; --this player already has the maximum number of Diplomats possible, so skip adding a new one.		
+end
 
+end
 end   
 
 function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
