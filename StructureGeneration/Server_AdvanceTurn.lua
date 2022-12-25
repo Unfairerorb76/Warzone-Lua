@@ -10,7 +10,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 				
 end end end end 
 
-if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'GetCapitalist_')) then
+if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'GetCapitalist_') ~= nil ) then
 
 local numDiplomatsAlreadyHave = 0;		
 for _,ts in pairs(game.ServerGame.LatestTurnStanding.Territories) do			
