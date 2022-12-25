@@ -15,6 +15,7 @@ if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'GetCapit
 --print(tonumber(string.sub(order.Payload, 13)));
 --print(tonumber(order.Payload))
   local terrID = tonumber(string.sub(order.Payload, 13));
+  print(terrID);
   local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
   SpecialUnit(terrID, addNewOrder, order, game, terrSelected); 
 end
