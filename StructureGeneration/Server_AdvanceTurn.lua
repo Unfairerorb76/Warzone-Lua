@@ -15,7 +15,8 @@ if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'GetCapit
 --print(tonumber(string.sub(order.Payload, 13)));
 --print(tonumber(order.Payload))
   local terrID = tonumber(string.sub(order.Payload, 13));
-  SpecialUnit(terrID, addNewOrder, order, game); 
+  local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
+  SpecialUnit(terrID, addNewOrder, order, game, terrSelected); 
 end
 end   
 
@@ -61,11 +62,10 @@ function CreateMarket(terrID, terrSelected, addNewOrder)
 end
 
 
-function SpecialUnit(terrID, addNewOrder, order, game)
+function SpecialUnit(terrID, addNewOrder, order, game, terrSelected)
 
 
-local targetTerritoryID = terrID;
-local terrSelected = game.ServerGame.LatestTurnStanding.Territories[order.ID];		 		 		
+local targetTerritoryID = terrID;		 		 		
 
 local numDiplomatsAlreadyHave = 0;		
 for _,ts in pairs(game.ServerGame.LatestTurnStanding.Territories) do			
