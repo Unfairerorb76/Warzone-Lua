@@ -71,14 +71,9 @@ if (ts.OwnerPlayerID == order.PlayerID) then
 numUnitsAlreadyHave = numUnitsAlreadyHave + UnitCount(ts.NumArmies, 'Capitalist');			
 end		
 end 
-	
-local limit = false;
-if limit == true then
-   return;
-end	
+		
 if (numUnitsAlreadyHave >= 5) then			
-addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Skipping Capitalist creation since maximum is 5'));
-limit = true;			
+addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Skipping Capitalist creation since maximum is 5'));			
 return; --this player already has the maximum number of Capitalists possible, so skip adding a new one.
 end
 		
@@ -99,7 +94,7 @@ builder.IsVisibleToAllPlayers = false;
 local terrMod = WL.TerritoryModification.Create(targetTerritoryID);		
 terrMod.AddSpecialUnits = {builder.Build()};				
 
-addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Purchased a Diplomat', {}, {terrMod}));		
+addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Purchased a Capitalist', {}, {terrMod}));		
 
 end
 
