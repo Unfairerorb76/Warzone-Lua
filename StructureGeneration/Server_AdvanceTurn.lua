@@ -12,6 +12,9 @@ end end end end
 
 if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'GetCapitalist_') ) then
 
+print(tonumber(string.sub(order.Payload, 13)));
+local terrMod = tonumber(string.sub(order.Payload, 13));
+
 local numDiplomatsAlreadyHave = 0;		
 for _,ts in pairs(game.ServerGame.LatestTurnStanding.Territories) do			
 if (ts.OwnerPlayerID == order.PlayerID) then				
@@ -20,7 +23,9 @@ end
 end 		
 if (numDiplomatsAlreadyHave >= 5) then			
 addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Skipping Diplomat purchase since max is 5'));			
-return; --this player already has the maximum number of Diplomats possible, so skip adding a new one.		
+return; --this player already has the maximum number of Diplomats possible, so skip adding a new one.
+else
+addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Purchased a Diplomat', {}, {terrMod}));		
 end
 
 end
@@ -37,7 +42,9 @@ function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
            if terrSelected.Structures[WL.StructureType.Market] ~= nil then
              if (terrSelected.IsNeutral == false) then
 
-             SpecialUnit(terrID, terrSelected, addNewOrder);			
+             SpecialUnit(terrID, terrSelected, addNewOrder);
+             
+           			
              end
            end
         end
@@ -83,8 +90,9 @@ builder.CanBeAirliftedToTeammate = true;
 builder.IsVisibleToAllPlayers = false;			
 local terrMod = WL.TerritoryModification.Create(targetTerritoryID);		
 terrMod.AddSpecialUnits = {builder.Build()};				
---addNewOrder(WL.GameOrderEvent.Create(terrSelected.OwnerPlayerID, 'Purchased a Diplomat', {}, {terrMod}));
-addNewOrder(WL.GameOrderCustom.Create(terrSelected.OwnerPlayerID, 'custom order', 'GetCapitalist_' , {}));
+
+local data = tostring(terrMod);
+addNewOrder(WL.GameOrderCustom.Create(terrSelected.OwnerPlayerID, 'custom order', 'GetCapitalist_' .. data , {}));
 end
 
 function UnitCount(armies, name)
