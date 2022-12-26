@@ -13,6 +13,6 @@ function Client_GameRefresh(game)
 local data = Mod.PublicGameData;
 
   --UI.Alert(data.Counters[game.Us]);
-    UI.Alert("placeholder" .. data.Counters);
+    UI.Alert("placeholder" .. data.Counters[game.Us]);
 
 end
