@@ -38,5 +38,5 @@ function Market()
  CreateLabel(vert).SetText('The Market structure produces Capitalists, if the Capitalist is killed, it will reduce 10% of income that the opponent that killed it holds').SetColor('#606060');
  
  CreateButton(vert).SetText("Convert").SetOnClick(createMarket).SetColor('#00FF8C');
-
+ CreateButton(GetRoot()).SetText("Return").SetOnClick(showMenu).SetColor('#94652E')
 end
