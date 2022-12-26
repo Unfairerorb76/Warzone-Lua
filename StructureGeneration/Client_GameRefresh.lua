@@ -9,6 +9,10 @@ function Client_GameRefresh(game)
 	if(game.Us == nil)then
 		return;
 	end
+        if game.Game.TurnNumber < 1 then
+	 close();		
+         return;	
+        end	 
 
 for p, _ in pairs(game.Game.PlayingPlayers) do
  if p == game.Us.ID then
