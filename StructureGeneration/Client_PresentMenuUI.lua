@@ -57,8 +57,8 @@ function showMarket()
 end
 
 function createMarket()
-data.Market[Game.Us.ID] = data.Market[Game.Us.ID] + 1;
 data.Counters[Game.Us.ID] = data.Counters[Game.Us.ID] - 1;
+data.Markets[Game.Us.ID] = data.Markets[Game.Us.ID] + 1;
 showMenu(Game);
 end
 
