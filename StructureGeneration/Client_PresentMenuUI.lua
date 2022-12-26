@@ -16,11 +16,11 @@ Init(rootParent);
        return;	
     end	 
 
-    showMenu();
+    showMenu(game);
     
 end
 
-function showMenu()
+function showMenu(game)
 
   DestroyWindow();
   SetWindow("Main");
