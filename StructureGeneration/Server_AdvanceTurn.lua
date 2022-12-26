@@ -32,7 +32,7 @@ Mod.PublicGameData = data;
      
         if terrSelected.Structures ~= nil then
             if (terrSelected.Structures[WL.StructureType.MercenaryCamp] ~= nil) and (terrSelected.IsNeutral == false) then --finds each territory ID of territories with a merc camp
-            data.Counters[terrSelected.OwnerPlayerID] = data.Counters[OwnerPlayerID] + 1;
+            data.Counters[terrSelected.OwnerPlayerID] = data.Counters[terrSelected.OwnerPlayerID] + 1;
             CreateMarket(terrID, terrSelected, addNewOrder); 
             print(data.Counters[terrSelected.OwnerPlayerID]);
             end
