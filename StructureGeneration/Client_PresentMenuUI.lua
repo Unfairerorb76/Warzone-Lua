@@ -36,7 +36,7 @@ print(3);
   print(data.Counters[game.Us.ID]);
     if data.Counters[game.Us.ID] > 0 then
   CreateLabel(vert).SetText('you currently have ' .. data.Counters[game.Us.ID] .. ' Villages to convert.');
-  CreateButton(vert).SetText("Market").SetOnClick(showMarket).SetColor('#00FF8C');
+  CreateButton(vert).SetText("Market").SetOnClick(showMarket(game)).SetColor('#00FF8C');
     print(51);
   else
     print(52);
@@ -44,7 +44,7 @@ print(3);
 end			
 end
 
-function showMarket()
+function showMarket(game)
   DestroyWindow();
   SetWindow("Market");
 
@@ -52,14 +52,14 @@ function showMarket()
 
  CreateLabel(vert).SetText('The Market structure produces Capitalists, if the Capitalist is killed, it will reduce 10% of income that the opponent that killed it holds').SetColor('#606060');
  
- CreateButton(vert).SetText("Convert").SetOnClick(createMarket).SetColor('#00FF8C');
+ CreateButton(vert).SetText("Convert").SetOnClick(createMarket(game)).SetColor('#00FF8C');
  CreateButton(GetRoot()).SetText("Return").SetOnClick(menuReturn).SetColor('#94652E')
 end
 
-function createMarket()
+function createMarket(game)
 data.Market[game.Us.ID] = data.Market[game.Us.ID] + 1;
 data.Counters[game.Us.ID] = data.Counters[game.Us.ID] - 1;
-showMain();
+showMenu(game);
 end
 
 function menuReturn()
