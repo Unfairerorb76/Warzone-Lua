@@ -59,6 +59,7 @@ end
 function createMarket()
 data.Counters[Game.Us.ID] = data.Counters[Game.Us.ID] - 1;
 data.Markets[Game.Us.ID] = data.Markets[Game.Us.ID] + 1;
+Mod.PublicGameData = data;
 showMenu(Game);
 end
 
