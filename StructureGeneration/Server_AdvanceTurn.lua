@@ -29,8 +29,6 @@ local list = {};
 
             data.Counters[terrSelected.OwnerPlayerID] = data.Counters[terrSelected.OwnerPlayerID] + 1;
             table.insert(list, terrID);
-
-            CreateMarket(terrID, terrSelected, addNewOrder); 
             
            end
            if terrSelected.Structures[WL.StructureType.Market] ~= nil then
