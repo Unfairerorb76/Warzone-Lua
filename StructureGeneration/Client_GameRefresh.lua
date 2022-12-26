@@ -11,18 +11,18 @@ function Client_GameRefresh(game)
 	end
 
 for p, _ in pairs(game.Game.PlayingPlayers) do
- if p == game.Us then
+ if p == game.Us.ID then
    print(123);
  end
 end
 
 local data = Mod.PublicGameData;
 print(data);
-if data.Counters[game.Us] == nil then
-data.Counters[game.Us] = 0;
+if data.Counters[game.Us.ID] == nil then
+data.Counters[game.Us.ID] = 0;
 print(data.Counters);
 end
-    UI.Alert(data.Counters[game.Us]);
-    UI.Alert("placeholder" .. data.Counters[game.Us]);
+    UI.Alert(data.Counters[game.Us.ID]);
+    UI.Alert("placeholder" .. data.Counters[game.Us.ID]);
 
 end
