@@ -1,7 +1,11 @@
 require("UI");
 
 function Client_PresentMenuUI(rootParent, setMaxSize, setScrollable, game, close)  
+
 print(1);
+
+data = Mod.PublicGameData;
+Game = game;
 Init(rootParent);    
     setMaxSize(500, 400);
     setSize = setMaxSize;
@@ -20,7 +24,7 @@ print(2);
 end
 
 function showMenu(game)
-data = Mod.PublicGameData; 
+ 
 print(3);
   DestroyWindow();
   SetWindow("Main");
@@ -49,11 +53,15 @@ function showMarket()
  CreateLabel(vert).SetText('The Market structure produces Capitalists, if the Capitalist is killed, it will reduce 10% of income that the opponent that killed it holds').SetColor('#606060');
  
  CreateButton(vert).SetText("Convert").SetOnClick(createMarket).SetColor('#00FF8C');
- CreateButton(GetRoot()).SetText("Return").SetOnClick(showMenu).SetColor('#94652E')
+ CreateButton(GetRoot()).SetText("Return").SetOnClick(return).SetColor('#94652E')
 end
 
 function createMarket()
 data.Market[game.Us.ID] = data.Market[game.Us.ID] + 1;
 data.Counters[game.Us.ID] = data.Counters[game.Us.ID] - 1;
 showMain();
+end
+
+function return()
+showMenu(Game);
 end
