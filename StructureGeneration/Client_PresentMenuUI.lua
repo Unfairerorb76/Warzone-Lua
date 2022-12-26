@@ -34,7 +34,8 @@ function showMenu()
   CreateButton(vert).SetText("Market").SetOnClick(showMarket).SetColor('#00FF8C');
 
   else
-   CreateLabel(vert).SetText('Structures will be shown when you control at least one village that meeds converting').SetColor('#606060');			
+   CreateLabel(vert).SetText('Structures will be shown when you control at least one village that meeds converting').SetColor('#606060');
+end			
 end
 
 function Market()
