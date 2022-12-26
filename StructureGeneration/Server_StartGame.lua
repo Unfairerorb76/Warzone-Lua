@@ -6,7 +6,7 @@ distributeRandomStructures(standing, WL.StructureType.MercenaryCamp, 100, {maxPe
 
 local data = Mod.PublicGameData;
 data.Counters = {};
-data.Markets[p] = {};
+data.Markets = {};
 for p, _ in pairs(game.Game.PlayingPlayers) do
  data.Counters[p] = 0;
  data.Markets[p] = 0;
