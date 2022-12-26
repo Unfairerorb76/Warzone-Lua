@@ -48,6 +48,7 @@ for times = 1, #list do
    
 local rand = math.random(#list);
 local terrSelected = game.ServerGame.LatestTurnStanding.Territories[rand];
+print(rand);
 print(terrSelected);
 print(data.Markets[terrSelected.OwnerPlayerID]);
  if data.Markets[terrSelected.OwnerPlayerID] > 0 then
