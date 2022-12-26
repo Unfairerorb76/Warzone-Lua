@@ -47,8 +47,8 @@ local list = {};
 local count = 0;
 for times = 1, math.min(count, math.floor(#list)) do
 local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
- If data.Markets > 0 then
-   data.Markets 
+ If data.Markets[terrSelected.OwnerPlayerID] > 0 then
+   data.Markets = data.Markets
  end 
 end
 
