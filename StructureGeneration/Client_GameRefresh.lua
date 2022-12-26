@@ -11,13 +11,12 @@ function Client_GameRefresh(game)
 	end
 
 local data = Mod.PublicGameData;
-print(11);
-print(data.Counters[game.Us]);
+print(data);
 if data.Counters[game.Us] == nil then
 data.Counters[game.Us] = 0;
-print(2);
+print(data.Counters[game.Us]);
 end
-  --UI.Alert(data.Counters[game.Us]);
+    UI.Alert(data.Counters[game.Us]);
     UI.Alert("placeholder" .. data.Counters[game.Us]);
 
 end
