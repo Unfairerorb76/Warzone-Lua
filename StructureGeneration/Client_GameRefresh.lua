@@ -10,6 +10,12 @@ function Client_GameRefresh(game)
 		return;
 	end
 
+for p, _ in pairs(game.Game.PlayingPlayers) do
+ if p == game.Us then
+   print(123);
+ end
+end
+
 local data = Mod.PublicGameData;
 print(data);
 if data.Counters[game.Us] == nil then
