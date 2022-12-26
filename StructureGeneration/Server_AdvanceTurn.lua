@@ -28,7 +28,7 @@ local data = Mod.PublicGameData;
 
             data.Counters[terrSelected.OwnerPlayerID] = data.Counters[terrSelected.OwnerPlayerID] + 1;
             CreateMarket(terrID, terrSelected, addNewOrder); 
-           
+            print(data.Counters[terrSelected.OwnerPlayerID]);
            end
            if terrSelected.Structures[WL.StructureType.Market] ~= nil then
              if (terrSelected.IsNeutral == false) then
@@ -42,6 +42,7 @@ local data = Mod.PublicGameData;
         end
      end
 Mod.PublicGameData = data;
+
 end
 
 function showMainConfig(terrMod, terrSelected)
