@@ -47,7 +47,7 @@ local count = 0;
 for times = 1, #list do
    
 local rand = math.random(#list);
-local terrSelected = game.ServerGame.LatestTurnStanding.Territories[rand];
+local terrSelected = game.ServerGame.LatestTurnStanding.Territories[list[rand]];
 print(rand);
 print(terrSelected);
 print(data.Markets[terrSelected.OwnerPlayerID]);
