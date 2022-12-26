@@ -20,7 +20,7 @@ end
 
 function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
 local data = Mod.PublicGameData;
-Local VillageCheck = false;
+local VillageCheck = false;
 
 local list = {};
 
