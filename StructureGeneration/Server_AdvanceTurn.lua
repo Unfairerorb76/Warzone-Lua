@@ -20,6 +20,7 @@ end
 
 function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
 local data = Mod.PublicGameData;
+
 local list = {};
 
     for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
@@ -44,9 +45,10 @@ local list = {};
      end
 local count = 0;
 for times = 1, #list do
-
+   
 local rand = math.random(#list);
 local terrSelected = game.ServerGame.LatestTurnStanding.Territories[rand];
+print(terrSelected);
 print(data.Markets[terrSelected.OwnerPlayerID]);
  if data.Markets[terrSelected.OwnerPlayerID] > 0 then
    data.Markets[terrSelected.OwnerPlayerID] = data.Markets[terrSelected.OwnerPlayerID] - 1;
