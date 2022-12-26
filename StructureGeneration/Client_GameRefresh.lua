@@ -11,6 +11,8 @@ function Client_GameRefresh(game)
 	end
 
 local data = Mod.PublicGameData;
+print(11);
+print(data.Counters[game.Us]);
 if data.Counters[game.Us] == nil then
 data.Counters[game.Us] = 0;
 print(2);
