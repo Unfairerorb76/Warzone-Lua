@@ -13,6 +13,18 @@ function Client_PresentMenuUI(rootParent, setMaxSize, setScrollable, game, close
        close();		
        return;	
     end	 
-
+    
     showMenu();
+end
+
+function showMenu();
+
+  DestroyWindow();
+  SetWindow("Main");
+
+  local vert = CreateVert(GetRoot());
+  
+  CreateLabel(vert).SetText('Convert your village to a new structure! Each structure has its own associated special unit that it can create.').SetColor('#606060');
+
+  CreateButton(vert).SetText("Market").SetOnClick(showMarket).SetColor('#00FF8C'); 			
 end
