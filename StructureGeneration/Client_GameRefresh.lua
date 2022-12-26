@@ -11,7 +11,9 @@ function Client_GameRefresh(game)
 	end
 
 local data = Mod.PublicGameData;
-
+if data.Counters[game.Us] == nil then
+data.Counters[game.Us] = 0;
+end
   --UI.Alert(data.Counters[game.Us]);
     UI.Alert("placeholder" .. data.Counters[game.Us]);
 
