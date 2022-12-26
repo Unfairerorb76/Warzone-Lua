@@ -23,6 +23,6 @@ data.Counters[game.Us.ID] = 0;
 print(data.Counters);
 end
     UI.Alert(data.Counters[game.Us.ID]);
-    UI.Alert("placeholder" .. data.Counters[game.Us.ID]);
+    UI.Alert("you have " .. data.Counters[game.Us.ID] .. " villages to convert");
 
 end
