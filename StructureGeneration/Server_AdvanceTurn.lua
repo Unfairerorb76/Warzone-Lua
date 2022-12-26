@@ -30,7 +30,7 @@ local list = {};
 
             data.Counters[terrSelected.OwnerPlayerID] = data.Counters[terrSelected.OwnerPlayerID] + 1;
             table.insert(list, terrID);
-            
+            print(terrID);
            end
            if terrSelected.Structures[WL.StructureType.Market] ~= nil then
              if (terrSelected.IsNeutral == false) then
