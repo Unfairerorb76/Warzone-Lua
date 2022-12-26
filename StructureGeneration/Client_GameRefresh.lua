@@ -15,7 +15,7 @@ function Client_GameRefresh(game)
 
 for p, _ in pairs(game.Game.PlayingPlayers) do
  if p == game.Us.ID then
-   print(123);
+   
  end
 end
 
@@ -23,6 +23,6 @@ if data.Counters[game.Us.ID] == nil then
 data.Counters[game.Us.ID] = 0;
 end
     UI.Alert(data.Counters[game.Us.ID]);
-    UI.Alert("you have " .. data.Counters[game.Us.ID] .. " villages to convert");
+    UI.Alert("you have " .. data.Counters[game.Us.ID] .. " village(s) to convert");
 
 end
