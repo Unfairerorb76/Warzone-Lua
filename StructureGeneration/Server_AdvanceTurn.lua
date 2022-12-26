@@ -47,21 +47,12 @@ local list = {};
 local count = 0;
 for times = 1, math.min(count, math.floor(#list)) do
 local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
- print(69); 
+ If data.Markets > 0 then
+   data.Markets 
+ end 
 end
-
 
 Mod.PublicGameData = data;
-
-end
-
-function showMainConfig(terrMod, terrSelected)
-    DestroyWindow();
-    SetWindow("Main");
-
-    local vert = CreateVert(GetRoot());
-
-    CreateButton(vert).SetText("create a market").SetOnClick(CreateMarket).SetColor('#00FF8C'); 
 
 end
 
