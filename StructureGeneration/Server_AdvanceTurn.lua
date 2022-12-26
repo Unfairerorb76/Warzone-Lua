@@ -20,6 +20,7 @@ end
 
 function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
 local data = Mod.PublicGameData;
+local list = {};
 
     for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
 	local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
@@ -27,8 +28,10 @@ local data = Mod.PublicGameData;
             if (terrSelected.Structures[WL.StructureType.MercenaryCamp] ~= nil) and (terrSelected.IsNeutral == false) then --finds each territory ID of territories with a merc camp
 
             data.Counters[terrSelected.OwnerPlayerID] = data.Counters[terrSelected.OwnerPlayerID] + 1;
+            table.insert(list, terrID);
+
             CreateMarket(terrID, terrSelected, addNewOrder); 
-            print(data.Counters[terrSelected.OwnerPlayerID]);
+            
            end
            if terrSelected.Structures[WL.StructureType.Market] ~= nil then
              if (terrSelected.IsNeutral == false) then
@@ -41,6 +44,13 @@ local data = Mod.PublicGameData;
            end
         end
      end
+local count = 0;
+for times = 1, math.min(count, math.floor(#list)) do
+local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
+ print(69); 
+end
+
+
 Mod.PublicGameData = data;
 
 end
