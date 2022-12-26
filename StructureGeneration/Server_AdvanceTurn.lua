@@ -29,20 +29,12 @@ Mod.PublicGameData = data;
   
     for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
 	local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
+     
         if terrSelected.Structures ~= nil then
             if (terrSelected.Structures[WL.StructureType.MercenaryCamp] ~= nil) and (terrSelected.IsNeutral == false) then --finds each territory ID of territories with a merc camp
+            data.Counters[terrSelected.OwnerPlayerID] = data.Counters[OwnerPlayerID] + 1;
             CreateMarket(terrID, terrSelected, addNewOrder); 
-
--- initilization
-
-
--- usage
-local data = Mod.PublicGameData;
-if conditionIsTrue then
-  data.Counters[PlayerID] = data.Counters[PlayerID] + 1;
-end
-Mod.PublicGameData = data;
-```
+            print(data.Counters[terrSelected.OwnerPlayerID]);
             end
            if terrSelected.Structures[WL.StructureType.Market] ~= nil then
              if (terrSelected.IsNeutral == false) then
@@ -55,6 +47,7 @@ Mod.PublicGameData = data;
            end
         end
      end
+Mod.PublicGameData = data;
 end
 
 function showMainConfig(terrMod, terrSelected)
