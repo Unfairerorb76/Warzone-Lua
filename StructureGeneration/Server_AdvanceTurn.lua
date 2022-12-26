@@ -46,7 +46,7 @@ local list = {};
 local count = 0;
 for times = 1, #list do
    
-local rand = math.random(#list);
+local rand = math.random(list);
 local terrSelected = game.ServerGame.LatestTurnStanding.Territories[rand];
 print(rand);
 print(terrSelected);
