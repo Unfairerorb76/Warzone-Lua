@@ -45,10 +45,13 @@ local list = {};
         end
      end
 local count = 0;
-for times = 1, math.min(count, math.floor(#list)) do
+for times = 1, #list do
 local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
+local rand = math.random(#list);
  If data.Markets[terrSelected.OwnerPlayerID] > 0 then
-   data.Markets = data.Markets
+   data.Markets[terrSelected.OwnerPlayerID] = data.Markets[terrSelected.OwnerPlayerID] - 1;
+   CreateMarket(rand, terrSelected, addNewOrder);
+   break;
  end 
 end
 
