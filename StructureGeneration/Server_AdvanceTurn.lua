@@ -19,13 +19,6 @@ end end
 end   
 
 function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
- 
-local data = Mod.PublicGameData;
-data.Counters = {};
-for p, _ in pairs(game.Game.PlayingPlayers) do
-  data.Counters[p] = 0; 
-end
-Mod.PublicGameData = data; 
   
     for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
 	local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
