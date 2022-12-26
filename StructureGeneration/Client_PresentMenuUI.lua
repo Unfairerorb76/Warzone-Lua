@@ -30,7 +30,7 @@ function showMenu()
   CreateLabel(vert).SetText('Convert your village to a new structure! Each structure has its own associated special unit that it can create.').SetColor('#606060');
   
     if data.Counters[game.Us.ID] > 0 then
-  CreateLabel(vert).SetText('you currently have ' .. data.Counters[game.Us.ID] .. ' Villages to convert')
+  CreateLabel(vert).SetText('you currently have ' .. data.Counters[game.Us.ID] .. ' Villages to convert').SetColor('#606060')
   CreateButton(vert).SetText("Market").SetOnClick(showMarket).SetColor('#00FF8C');
 
   else
