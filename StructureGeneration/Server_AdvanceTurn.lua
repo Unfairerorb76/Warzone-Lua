@@ -30,7 +30,7 @@ local list = {};
             if (terrSelected.Structures[WL.StructureType.MercenaryCamp] ~= nil) and (terrSelected.IsNeutral == false) then --finds each territory ID of territories with a merc camp
              if VillageCheck == false then
               data.Counters[terrSelected.OwnerPlayerID] = 0;
-              VillageCheck == true;
+              VillageCheck = true;
              end
             data.Counters[terrSelected.OwnerPlayerID] = data.Counters[terrSelected.OwnerPlayerID] + 1;
             table.insert(list, terrID);
