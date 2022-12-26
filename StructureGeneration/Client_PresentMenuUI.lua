@@ -40,3 +40,7 @@ function Market()
  CreateButton(vert).SetText("Convert").SetOnClick(createMarket).SetColor('#00FF8C');
  CreateButton(GetRoot()).SetText("Return").SetOnClick(showMenu).SetColor('#94652E')
 end
+
+function createMarket()
+showMain();
+end
