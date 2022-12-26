@@ -30,7 +30,6 @@ local list = {};
              
             data.Counters[terrSelected.OwnerPlayerID] = data.Counters[terrSelected.OwnerPlayerID] + 1;
             table.insert(list, terrID);
-            print(terrID);
            end
            if terrSelected.Structures[WL.StructureType.Market] ~= nil then
              if (terrSelected.IsNeutral == false) then
@@ -48,10 +47,9 @@ for times = 1, #list do
    
 local rand = math.random(#list);
 local terrSelected = game.ServerGame.LatestTurnStanding.Territories[list[rand]];
-print(rand);
-print(terrSelected);
 print(data.Markets[terrSelected.OwnerPlayerID]);
  if data.Markets[terrSelected.OwnerPlayerID] > 0 then
+   print(10);
    data.Markets[terrSelected.OwnerPlayerID] = data.Markets[terrSelected.OwnerPlayerID] - 1;
    CreateMarket(rand, terrSelected, addNewOrder);
    table.remove(list, rand);
