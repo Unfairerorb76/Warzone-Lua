@@ -19,10 +19,11 @@ function killArmiesOrTurnNeutral(game, terr, damage)
 		for _, sp in ipairs(terr.NumArmies.SpecialUnits) do
 			table.insert(t, sp.ID);
 		end
-		mod.RemoveSpecialUnitsOpt = t;
+		if #t != 0 then
+			mod.RemoveSpecialUnitsOpt = t;
+		end
 		mod.SetOwnerOpt = WL.PlayerID.Neutral;
 	else
-		mod.RemoveSpecialUnitsOpt = {};
 		local spInOrder = {};
 		for _, sp in ipairs(terr.NumArmies.SpecialUnits) do
 			local co = getCombatOrder(sp);
@@ -55,7 +56,9 @@ function killArmiesOrTurnNeutral(game, terr, damage)
 			damage = damage - getHealth(sp);
 			if damage <= 0 then break; end
 		end
-		mod.RemoveSpecialUnitsOpt = t;
+		if #t != 0 then
+			mod.RemoveSpecialUnitsOpt = t;
+		end
 	end
 	return mod;
 end
