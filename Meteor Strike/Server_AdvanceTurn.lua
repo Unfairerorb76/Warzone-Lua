@@ -24,7 +24,6 @@ function inflictDamage(game, addNewOrder, num, damage)
 		local randomNeutralTerr = terr[rand]; --picks random neutral then gives it too player
 		local terrMod = killArmiesOrTurnNeutral(game, game.ServerGame.LatestTurnStanding.Territories[randomNeutralTerr], damage);
 		local event = WL.GameOrderEvent.Create(WL.PlayerID.Neutral, "Meteor Strike at " .. game.Map.Territories[randomNeutralTerr].Name, {}, {terrMod});
-		print(event.VisibleToOpt);
 		event.JumpToActionSpotOpt = WL.RectangleVM.Create(game.Map.Territories[randomNeutralTerr].MiddlePointX, game.Map.Territories[randomNeutralTerr].MiddlePointY, game.Map.Territories[randomNeutralTerr].MiddlePointX, game.Map.Territories[randomNeutralTerr].MiddlePointY);
 		addNewOrder(event, true);
 		table.remove(terr, rand);
