@@ -19,16 +19,17 @@ function killArmiesOrTurnNeutral(game, terr, damage)
 		for _, sp in ipairs(terr.NumArmies.SpecialUnits) do
 			table.insert(t, sp.ID);
 		end
-		mod.RemoveSpecialUnitsOpt = t;
+		if #t ~= 0 then
+			mod.RemoveSpecialUnitsOpt = t;
+		end
 		mod.SetOwnerOpt = WL.PlayerID.Neutral;
 	else
-		mod.RemoveSpecialUnitsOpt = {};
 		local spInOrder = {};
 		for _, sp in ipairs(terr.NumArmies.SpecialUnits) do
-			local co = getCombatOrder(sp);
+			local co = sp.CombatOrder
 			local b = false;
 			for i, sp2 in ipairs(spInOrder) do
-				if getCombatOrder(sp2) > co then
+				if sp2.CombatOrder > co then
 					table.insert(spInOrder, i, sp);
 					b = true;
 					break;
@@ -38,24 +39,23 @@ function killArmiesOrTurnNeutral(game, terr, damage)
 				table.insert(spInOrder, sp);
 			end
 		end
-		for i, v in pairs(spInOrder) do
-			print(getCombatOrder(v), v.proxyType, getHealth(v));
-		end
 		damage = damage - terr.NumArmies.NumArmies;
 		local t = {};
 		for _, sp in ipairs(spInOrder) do
-			if getHealth(sp) < damage then
+			if getHealth(sp) <= damage then
 				table.insert(t, sp.ID);
-			elseif unitHasHealth(sp) then
+	--[[		elseif unitHasHealth(sp) then
 				table.insert(t, sp);
 				if damage - getHealth(sp) < 0 then
 					mod.AddSpecialUnits = {getClone(sp, damage)}
-				end
+				end	]]--
 			end
 			damage = damage - getHealth(sp);
 			if damage <= 0 then break; end
 		end
-		mod.RemoveSpecialUnitsOpt = t;
+		if #t ~= 0 then
+			mod.RemoveSpecialUnitsOpt = t;
+		end
 	end
 	return mod;
 end
@@ -80,37 +80,6 @@ function getClone(sp, damage)
 	copy = copy.Build();
 	return copy;
 end
-
-
-
---	This function gives the CombatOrder of the passed SpecialUnit
---	Note that the CombatOrder of all Bosses are unknown, so keep up to date if I ever update this file!
---
---	Input:
---		sp			[SpecialUnit]				The unit you want to know the CombatOrder from
---
--- 	Output:
---					[Integer]					The CombatOrder of the unit
-
-function getCombatOrder(sp)
-	if sp.proxyType ~= "CustomSpecialUnit" then
-		if sp.proxyType == "Commander" then
-			return 10000;
-		elseif sp.proxyType == "Boss4" then
-			return 9999;
-		elseif sp.proxyType == "Boss3" then
-			return 9998;
-		elseif sp.proxyType == "Boss2" then
-			return 9997;
-		elseif sp.proxyType == "Boss1" then
-			return 9996;
-		end
-	else
-		return sp.CombatOrder;
-	end
-end
-
-
 
 --	Returns a boolean based on if the passed unit uses the field [Health] instead of [DamageAbsorbedWhenAttacked]
 --
