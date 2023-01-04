@@ -39,9 +39,6 @@ function killArmiesOrTurnNeutral(game, terr, damage)
 				table.insert(spInOrder, sp);
 			end
 		end
-		for i, v in pairs(spInOrder) do
-			print(getCombatOrder(v), v.proxyType, getHealth(v));
-		end
 		damage = damage - terr.NumArmies.NumArmies;
 		local t = {};
 		for _, sp in ipairs(spInOrder) do
