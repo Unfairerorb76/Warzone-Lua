@@ -45,13 +45,13 @@ function killArmiesOrTurnNeutral(game, terr, damage)
 		damage = damage - terr.NumArmies.NumArmies;
 		local t = {};
 		for _, sp in ipairs(spInOrder) do
-			if getHealth(sp) < damage then
+			if getHealth(sp) <= damage then
 				table.insert(t, sp.ID);
-			elseif unitHasHealth(sp) then
+	--[[		elseif unitHasHealth(sp) then
 				table.insert(t, sp);
 				if damage - getHealth(sp) < 0 then
 					mod.AddSpecialUnits = {getClone(sp, damage)}
-				end
+				end	]]--
 			end
 			damage = damage - getHealth(sp);
 			if damage <= 0 then break; end
