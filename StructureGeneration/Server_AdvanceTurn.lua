@@ -59,7 +59,7 @@ local list = {};
    --table.remove(list, rand);
    --break;
  --end 
-end
+
 
 Mod.PublicGameData = data;
 
