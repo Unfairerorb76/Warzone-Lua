@@ -23,7 +23,7 @@ end
 function showMenu(game)
   DestroyWindow();
   SetWindow("Main");
-  data = Mod.PublicGameData;
+ 
     
     local vert = CreateVert(GetRoot());
      CreateLabel(vert).SetText('This is the main menu screen, select the buttons below related on what you want to do.').SetColor('#606060');
@@ -35,7 +35,7 @@ function buildMenu()
  
   DestroyWindow();
   SetWindow("build");
-   
+  data = Mod.PublicGameData;
   local vert = CreateVert(GetRoot());
   
   CreateLabel(vert).SetText('Convert your village to a new structure! Each structure has its own associated special unit that it can create.').SetColor('#606060');
