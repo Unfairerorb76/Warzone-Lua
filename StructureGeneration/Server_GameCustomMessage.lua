@@ -3,7 +3,7 @@ local data = Mod.PublicGameData;
   --We need this if statement to ensure that the mod does not break if payload == nil
   if not payload then
       return;
-    else
+  end
   
   --Need to get the payload type to find out what action to take
   if payload.Type == "UpdatingCounter" then
