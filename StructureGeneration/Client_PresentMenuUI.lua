@@ -54,7 +54,7 @@ end
 
 function createMarket()    
 Game.SendGameCustomMessage('Updating Markets', {type = "UpdatingMarkets", numStruct = data.Markets[Game.Us.ID]}, function(UpdateMarket) 
-                                                                                                                                       showMenu(Game); end   
+                                                                                                                                       showMenu(Game); end);   
 end
 
 function menuReturn()
