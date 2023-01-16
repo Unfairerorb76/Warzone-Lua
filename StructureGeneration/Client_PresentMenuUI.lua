@@ -21,10 +21,18 @@ Init(rootParent);
 end
 
 function showMenu(game)
- data = Mod.PublicGameData;
-print(data.Counters[Game.Us.ID]); 
-  DestroyWindow();
+ DestroyWindow();
   SetWindow("Main");
+   data = Mod.PublicGameData;
+print(data.Counters[Game.Us.ID]);
+    CreateButton(vert).SetText("build").SetOnClick(build).SetColor('#00FF8C');
+    CreateButton(vert).SetText("information").SetOnClick(build).SetColor('#00FF8C');
+end
+
+function buildMenu(game)
+ 
+  DestroyWindow();
+  SetWindow("build");
   
   local vert = CreateVert(GetRoot());
   
