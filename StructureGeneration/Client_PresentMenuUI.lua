@@ -23,7 +23,7 @@ end
 function showMenu(game)
   DestroyWindow();
   SetWindow("Main");
-
+  data = Mod.PublicGameData;
     
     local vert = CreateVert(GetRoot());
      CreateLabel(vert).SetText('This is the main menu screen, select the buttons below related on what you want to do.').SetColor('#606060');
@@ -31,17 +31,17 @@ function showMenu(game)
     CreateButton(vert).SetText("information").SetOnClick(buildMenu).SetColor('#00FF8C');
 end
 
-function buildMenu(game)
+function buildMenu()
  
   DestroyWindow();
   SetWindow("build");
-   data = Mod.PublicGameData;
+   
   local vert = CreateVert(GetRoot());
   
   CreateLabel(vert).SetText('Convert your village to a new structure! Each structure has its own associated special unit that it can create.').SetColor('#606060');
   
-    if data.Counters[game.Us.ID] > 0 then
-  CreateLabel(vert).SetText('you currently have ' .. data.Counters[game.Us.ID] .. ' Villages to convert.');
+    if data.Counters[Game.Us.ID] > 0 then
+  CreateLabel(vert).SetText('you currently have ' .. data.Counters[Game.Us.ID] .. ' Villages to convert.');
   CreateButton(vert).SetText("Market").SetOnClick(showMarket).SetColor('#00FF8C');
     
   else
