@@ -28,8 +28,8 @@ print(data.Counters[Game.Us.ID]);
     
     local vert = CreateVert(GetRoot());
      CreateLabel(vert).SetText('This is the main menu screen, select the buttons below related on what you want to do.').SetColor('#606060');
-    CreateButton(vert).SetText("build").SetOnClick(build).SetColor('#00FF8C');
-    CreateButton(vert).SetText("information").SetOnClick(build).SetColor('#00FF8C');
+    CreateButton(vert).SetText("build").SetOnClick(buildMenu).SetColor('#00FF8C');
+    CreateButton(vert).SetText("information").SetOnClick(buildMenu).SetColor('#00FF8C');
 end
 
 function buildMenu(game)
