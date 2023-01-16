@@ -16,7 +16,7 @@ local data = Mod.PublicGameData;
     print(data.Counters[playerId]);
     --input data to server
     Mod.PublicGameData = data;
-    SetReturn(data.Counters[playerId]);  
+    return(data.Counters[playerId]);  
   end
 
   if payload.type == "UpdatingMarkets" then
@@ -26,7 +26,7 @@ local data = Mod.PublicGameData;
     data.Markets[playerId] = numMarket + 1;
     --need to input the data to server and end function
     Mod.PublicGameData = data;
-    setReturn(data.Markets[playerId]);
+    return(data.Markets[playerId]);
   end
   --Next type to go below with an elseif instead of the end above
 end
