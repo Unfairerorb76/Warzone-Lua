@@ -26,6 +26,13 @@ local list = {};
     for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
 	local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
         if terrSelected.Structures ~= nil then
+	   if terrSelected.Structures[WL.StructureType.Market] ~= nil then
+             if (terrSelected.IsNeutral == false) then
+              local terrdata = tostring(terrID); 
+             addNewOrder(WL.GameOrderCustom.Create(terrSelected.OwnerPlayerID, 'custom order', 'GetCapitalist_' .. terrdata , {}));
+              break;			
+             end
+           end
             if (terrSelected.Structures[WL.StructureType.MercenaryCamp] ~= nil) and (terrSelected.IsNeutral == false) then --finds each territory ID of territories with a merc camp
              
             data.Counters[terrSelected.OwnerPlayerID] = data.Counters[terrSelected.OwnerPlayerID] + 1;
@@ -36,15 +43,7 @@ local list = {};
 	       break;
 	    end			
            end
-           if terrSelected.Structures[WL.StructureType.Market] ~= nil then
-             if (terrSelected.IsNeutral == false) then
-              local terrdata = tostring(terrID); 
-             addNewOrder(WL.GameOrderCustom.Create(terrSelected.OwnerPlayerID, 'custom order', 'GetCapitalist_' .. terrdata , {}));
-           
-             
-           			
-             end
-           end
+
         end
      end
 --local count = 0;
@@ -67,6 +66,7 @@ Mod.PublicGameData = data;
 end
 
 function CreateMarket(terrID, terrSelected, addNewOrder)
+    print(100);
     local terrMod = WL.TerritoryModification.Create(terrID);
     structures = {};
     structures[WL.StructureType.MercenaryCamp] = -1; 
