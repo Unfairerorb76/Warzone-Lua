@@ -8,9 +8,9 @@ local data = Mod.PublicGameData;
   --Need to get the payload type to find out what action to take
   if payload.Type == "UpdatingCounter" then
     --Init variables
-    Count = payload.numStruct;
+    count = payload.numStruct;
    --take away one from players total
-    data.Counters[playerId] = Count - 1;
+    data.Counters[playerId] = count - 1;
     --input data to server
     Mod.PublicGameData = data;
     SetReturn(data.Counters[playerId]);  
