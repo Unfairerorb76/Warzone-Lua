@@ -35,13 +35,14 @@ local list = {};
            end
             if (terrSelected.Structures[WL.StructureType.MercenaryCamp] ~= nil) and (terrSelected.IsNeutral == false) then --finds each territory ID of territories with a merc camp
              
-            data.Counters[terrSelected.OwnerPlayerID] = data.Counters[terrSelected.OwnerPlayerID] + 1;
+            
             --table.insert(list, terrID);
 	    if data.Markets[terrSelected.OwnerPlayerID] > 0 then
 	       data.Markets[terrSelected.OwnerPlayerID] = data.Markets[terrSelected.OwnerPlayerID] - 1;
 	       CreateMarket(terrID, terrSelected, addNewOrder);
 	       break;
-	    end			
+	    end	
+		data.Counters[terrSelected.OwnerPlayerID] = data.Counters[terrSelected.OwnerPlayerID] + 1;
            end
 
         end
