@@ -9,8 +9,11 @@ local data = Mod.PublicGameData;
   if payload.Type == "UpdatingCounter" then
     --Init variables
     count = payload.numStruct;
+    print(count);
    --take away one from players total
+    print(data.Counters[playerId]);
     data.Counters[playerId] = count - 1;
+    print(data.Counters[playerId]);
     --input data to server
     Mod.PublicGameData = data;
     SetReturn(data.Counters[playerId]);  
