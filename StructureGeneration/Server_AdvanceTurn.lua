@@ -1,14 +1,17 @@
 require('UI');
 
 function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNewOrder)
-      if order.proxyType == "GameOrderAttackTransfer" then 
-          if orderResult.IsAttack and orderResult.IsSuccessful then 
-          local attackedTerr = game.ServerGame.LatestTurnStanding.Territories[order.To]; 
-
-                if attackedTerr.Structures ~= nil then 
-                    if attackedTerr.Structures[WL.StructureType.MercenaryCamp] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked
-				
-end end end end 
+    if order.proxyType == "GameOrderAttackTransfer" then
+		if orderResult.IsAttack and UnitCount(game.ServerGame.LatestTurnStanding.Territories[order.To].NumArmies, 'Capitalist') then
+			if DeadUnit(orderResult.DefendingArmiesKilled, 'Capitalist') then
+				local p = order.PlayerID; -- the attacker
+				local currentIncome = game.Game.PlayingPlayers[p].Income(0, game.ServerGame.LatestTurnStanding, false, false);
+				local IncomeAmount = currentIncome.Total;
+				IncomeAmount = IncomeAmount * (0.10);
+				addNewOrder(WL.GameOrderEvent.Create(p, "Updated income", {}, {terrMod}, {}, {WL.IncomeMod.Create(p, -IncomeAmount, "You have killed a Capitalist and have been sanctioned")}));	
+			end
+		end
+    end 
 
 if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'GetCapitalist_') ) then
 
@@ -123,6 +126,15 @@ local ret = 0;
   end	
  end	
 return ret;
+end
+
+function DeadUnit(army, name)
+    for _, su in pairs(army.SpecialUnits) do
+        if su.proxyType == "CustomSpecialUnit" and su.Name == name then
+            return true;
+        end
+    end
+    return false;
 end
 
 function getTableLength(t)
