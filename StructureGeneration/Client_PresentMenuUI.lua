@@ -19,8 +19,12 @@ Init(rootParent);
        return;	
     end	 
 
-    showMenu(game);
+    initMenu(game);
     
+end
+
+function initMenu(game)
+    showMenu(game);
 end
 
 function showMenu(game)
@@ -57,9 +61,9 @@ end
 
 function createMarket()
 Game.SendGameCustomMessage('Updating Counter', {type = "UpdatingCounter", numStruct = data.Counters[Game.Us.ID]}, function(UpdateMarket)
-                                                                                                                                     showMenu(Game);   end);
+                                                                                                                                     initMenu(Game);   end);
 Game.SendGameCustomMessage('Updating Markets', {type = "UpdatingMarkets", numStruct = data.Markets[Game.Us.ID]}, function(UpdateMarket) 
-                                                                                                                                     showMenu(Game);   end);
+                                                                                                                                     initMenu(Game);   end);
 showMenu(Game);
 end
 
