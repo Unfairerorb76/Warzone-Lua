@@ -2,9 +2,6 @@ require("UI");
 
 function Client_PresentMenuUI(rootParent, setMaxSize, setScrollable, game, close)  
 
-
-
-data = Mod.PublicGameData;
 Game = game;
 Init(rootParent);    
     setMaxSize(500, 400);
@@ -24,6 +21,7 @@ Init(rootParent);
 end
 
 function initMenu(game)
+    data = Mod.PublicGameData;
     showMenu(game);
 end
 
