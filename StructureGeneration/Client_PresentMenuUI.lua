@@ -2,7 +2,7 @@ require("UI");
 
 function Client_PresentMenuUI(rootParent, setMaxSize, setScrollable, game, close)  
 
-print(1);
+
 
 data = Mod.PublicGameData;
 Game = game;
@@ -18,28 +18,28 @@ Init(rootParent);
        close();		
        return;	
     end	 
-print(2);
+
     showMenu(game);
     
 end
 
 function showMenu(game)
  
-print(3);
+
   DestroyWindow();
   SetWindow("Main");
 
   local vert = CreateVert(GetRoot());
   
   CreateLabel(vert).SetText('Convert your village to a new structure! Each structure has its own associated special unit that it can create.').SetColor('#606060');
-  print(4);
+  
   print(data.Counters[game.Us.ID]);
     if data.Counters[game.Us.ID] > 0 then
   CreateLabel(vert).SetText('you currently have ' .. data.Counters[game.Us.ID] .. ' Villages to convert.');
   CreateButton(vert).SetText("Market").SetOnClick(showMarket).SetColor('#00FF8C');
-    print(51);
+    
   else
-    print(52);
+    
    CreateLabel(vert).SetText('Structures will be shown when you control at least one village that meeds converting.').SetColor('#606060');
 end			
 end
