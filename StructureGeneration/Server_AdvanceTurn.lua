@@ -29,7 +29,12 @@ local list = {};
             if (terrSelected.Structures[WL.StructureType.MercenaryCamp] ~= nil) and (terrSelected.IsNeutral == false) then --finds each territory ID of territories with a merc camp
              
             data.Counters[terrSelected.OwnerPlayerID] = data.Counters[terrSelected.OwnerPlayerID] + 1;
-            table.insert(list, terrID);
+            --table.insert(list, terrID);
+	    if data.Markets[terrSelected.OwnerPlayerID] > 0 then
+	       data.Markets[terrSelected.OwnerPlayerID] = data.Markets[terrSelected.OwnerPlayerID] - 1;
+	       CreateMarket(terrID, terrSelected, addNewOrder);
+	       break;
+	    end			
            end
            if terrSelected.Structures[WL.StructureType.Market] ~= nil then
              if (terrSelected.IsNeutral == false) then
@@ -42,19 +47,19 @@ local list = {};
            end
         end
      end
-local count = 0;
-for times = 1, #list do
+--local count = 0;
+--for times = 1, #list do
    
-local rand = math.random(#list);
-local terrSelected = game.ServerGame.LatestTurnStanding.Territories[list[rand]];
-print(data.Markets[terrSelected.OwnerPlayerID]);
- if data.Markets[terrSelected.OwnerPlayerID] > 0 then
-   print(10);
-   data.Markets[terrSelected.OwnerPlayerID] = data.Markets[terrSelected.OwnerPlayerID] - 1;
-   CreateMarket(rand, terrSelected, addNewOrder);
-   table.remove(list, rand);
-   break;
- end 
+--local rand = math.random(#list);
+--local terrSelected = game.ServerGame.LatestTurnStanding.Territories[list[rand]];
+
+ --if data.Markets[terrSelected.OwnerPlayerID] > 0 then
+   --print(10);
+   --data.Markets[terrSelected.OwnerPlayerID] = data.Markets[terrSelected.OwnerPlayerID] - 1;
+   --CreateMarket(rand, terrSelected, addNewOrder);
+   --table.remove(list, rand);
+   --break;
+ --end 
 end
 
 Mod.PublicGameData = data;
