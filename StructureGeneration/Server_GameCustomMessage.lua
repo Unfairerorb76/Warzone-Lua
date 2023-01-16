@@ -6,7 +6,7 @@ local data = Mod.PublicGameData;
   end
   
   --Need to get the payload type to find out what action to take
-  if payload.Type == "UpdatingCounter" then
+  if payload.type == "UpdatingCounter" then
     --Init variables
     count = payload.numStruct;
     print(count);
@@ -19,7 +19,7 @@ local data = Mod.PublicGameData;
     SetReturn(data.Counters[playerId]);  
   end
 
-  if payload.Type == "UpdatingMarkets" then
+  if payload.type == "UpdatingMarkets" then
     --Init variables
     numMarket = payload.numStruct;   
     --Add one to players Market total 
