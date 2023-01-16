@@ -22,7 +22,7 @@ end
 
 function showMenu(game)
  data = Mod.PublicGameData;
-
+print(data.Counters[Game.Us.ID]); 
   DestroyWindow();
   SetWindow("Main");
   
