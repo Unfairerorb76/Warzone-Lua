@@ -59,6 +59,7 @@ end
 function createMarket()
 Game.SendGameCustomMessage('Updating Counter', {type = "UpdatingCounter", numStruct = data.Counters[Game.Us.ID]}, function(showMarket) end);
 Game.SendGameCustomMessage('Updating Markets', {type = "UpdatingMarkets", numStruct = data.Markets[Game.Us.ID]}, function(showMarket) end);
+print(data.Markets[Game.Us.ID]);
 --data.Counters[Game.Us.ID] = data.Counters[Game.Us.ID] - 1;
 --data.Markets[Game.Us.ID] = data.Markets[Game.Us.ID] + 1;
 showMenu(Game);
