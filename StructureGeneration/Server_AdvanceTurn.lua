@@ -1,4 +1,10 @@
 require('UI');
+function Server_AdvanceTurn_Start(game, addNewOrder, rootParent)
+data = Mod.PublicGameData;
+for p, _ in pairs(game.Game.PlayingPlayers) do
+ data.Counters[p] = 0;
+end
+end
 
 function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNewOrder)
     if order.proxyType == "GameOrderAttackTransfer" then
@@ -7,7 +13,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 				local p = order.PlayerID; -- the attacker
 				local currentIncome = game.Game.PlayingPlayers[p].Income(0, game.ServerGame.LatestTurnStanding, false, false);
 				local IncomeAmount = currentIncome.Total;
-				IncomeAmount = IncomeAmount * (0.10);
+				IncomeAmount = IncomeAmount * (0.20);
 				addNewOrder(WL.GameOrderEvent.Create(p, "Updated income", {}, {terrMod}, {}, {WL.IncomeMod.Create(p, -IncomeAmount, "You have killed a Capitalist and have been sanctioned")}));	
 			end
 		end
@@ -22,7 +28,6 @@ end end
 end   
 
 function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
-local data = Mod.PublicGameData;
 
 local list = {};
 
