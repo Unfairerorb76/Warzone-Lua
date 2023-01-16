@@ -52,13 +52,8 @@ function showMarket()
  CreateButton(GetRoot()).SetText("Return").SetOnClick(menuReturn).SetColor('#94652E');
 end
 
-function createMarket()
-print(data.Counters[Game.Us.ID]);    
-Game.SendGameCustomMessage('Updating Counter', {type = "UpdatingCounter", numStruct = data.Counters[Game.Us.ID]}, function(UpdateMarket)
-                                                                                                                                     showMenu(Game);   end);
+function createMarket()    
 Game.SendGameCustomMessage('Updating Markets', {type = "UpdatingMarkets", numStruct = data.Markets[Game.Us.ID]}, function(UpdateMarket) 
-                                                                                                                                     showMenu(Game);   end);
-print(data.Counters[Game.Us.ID]); 
 --showMenu(Game);    
 end
 
