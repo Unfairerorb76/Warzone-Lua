@@ -16,21 +16,16 @@ Init(rootParent);
        return;	
     end	 
 
-    initMenu(game);
+    showMenu(game);
     
 end
 
-function initMenu(game)
-   
-    showMenu(game);
-end
-
 function showMenu(game)
- 
+ data = Mod.PublicGameData;
 
   DestroyWindow();
   SetWindow("Main");
-   data = Mod.PublicGameData;
+  
   local vert = CreateVert(GetRoot());
   
   CreateLabel(vert).SetText('Convert your village to a new structure! Each structure has its own associated special unit that it can create.').SetColor('#606060');
@@ -58,11 +53,13 @@ function showMarket()
 end
 
 function createMarket()
+print(data.Counters[Game.Us.ID]);    
 Game.SendGameCustomMessage('Updating Counter', {type = "UpdatingCounter", numStruct = data.Counters[Game.Us.ID]}, function(UpdateMarket)
-                                                                                                                                     initMenu(Game);   end);
+                                                                                                                                     showMenu(Game);   end);
 Game.SendGameCustomMessage('Updating Markets', {type = "UpdatingMarkets", numStruct = data.Markets[Game.Us.ID]}, function(UpdateMarket) 
-                                                                                                                                     initMenu(Game);   end);
-showMenu(Game);
+                                                                                                                                     showMenu(Game);   end);
+print(data.Counters[Game.Us.ID]); 
+--showMenu(Game);    
 end
 
 function menuReturn()
