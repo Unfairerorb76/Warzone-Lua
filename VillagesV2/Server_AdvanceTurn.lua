@@ -85,25 +85,25 @@ if (order.proxyType == 'GameOrderCustom') then
   if (startsWith(order.Payload, 'GetCapitalist_')) then
     local terrID = tonumber(string.sub(order.Payload, 15));
     if terrID ~= nil then
-      SpecialUnit(terrID, addNewOrder, order, game, 'Capitalist', 'piggy-bank.png', 3415); 
+      SpecialUnit(terrID, addNewOrder, order, game, 'Capitalist', 'piggy-bank.png', 3415, Mod.Settings.CapitalistLimit); 
     end 
   end
   if (startsWith(order.Payload, 'GetMedic_')) then
     local terrID = tonumber(string.sub(order.Payload, 10));
     if terrID ~= nil then
-      SpecialUnit(terrID, addNewOrder, order, game, 'Medic', 'Medic.png', 9120); 
+      SpecialUnit(terrID, addNewOrder, order, game, 'Medic', 'Medic.png', 9120, Mod.Settings.MedicLimit); 
     end 
   end
   if (startsWith(order.Payload, 'GetDiplomat_')) then
     local terrID = tonumber(string.sub(order.Payload, 13));
     if terrID ~= nil then
-      SpecialUnit(terrID, addNewOrder, order, game, 'Diplomat', 'truce.png', 3414); 
+      SpecialUnit(terrID, addNewOrder, order, game, 'Diplomat', 'truce.png', 3414, Mod.Settings.DiplomatLimit); 
     end 
   end
   if (startsWith(order.Payload, 'GetPriest_')) then
     local terrID = tonumber(string.sub(order.Payload, 11));
     if terrID ~= nil then
-      SpecialUnit(terrID, addNewOrder, order, game, 'Priest', 'robe.png', 3413); 
+      SpecialUnit(terrID, addNewOrder, order, game, 'Priest', 'robe.png', 3413, Mod.Settings.PriestLimit); 
     end 
   end
 end
@@ -188,7 +188,7 @@ function CreateStructure(terrID, terrSelected, addNewOrder, struct)
 end
 
 
-function SpecialUnit(terrID, addNewOrder, order, game, name, filename, combatOrder)
+function SpecialUnit(terrID, addNewOrder, order, game, name, filename, combatOrder, limit)
 
 local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
 local targetTerritoryID = terrID;		 		 		
@@ -198,8 +198,8 @@ if (ts.OwnerPlayerID == order.PlayerID) then
 numUnitsAlreadyHave = numUnitsAlreadyHave + UnitCount(ts.NumArmies, name);			
 end		
 end 		
-if (numUnitsAlreadyHave >= 5) then			
-addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Skipping '.. name .. ' creation since maximum is 5'));			
+if (numUnitsAlreadyHave >= limit) then			
+addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Skipping '.. name .. ' creation since maximum is ' .. limit));			
 return; --this player already has the maximum number of Capitalists possible, so skip adding a new one.
 end	
 local builder = WL.CustomSpecialUnitBuilder.Create(terrSelected.OwnerPlayerID);		
