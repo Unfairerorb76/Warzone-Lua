@@ -1,1 +1,6 @@
-placeholder
+This mod is an upgrade to the Villages mod:
+
+At the start of the game, "villages" will spawn around the map
+Capturing a village will claim all the adjacent territories to your side
+
+Upon Capturing a village, you will then be able to convert this into one of four structures, each structure can generate its own type of special unit, consisting of Priests, Diplomats, Capitalists and Medics. Each has its own special ability that can be utilised to the players advantage.
