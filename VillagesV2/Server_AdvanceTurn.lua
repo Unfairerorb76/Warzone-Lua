@@ -39,9 +39,11 @@ if order.proxyType == "GameOrderAttackTransfer" then
   if orderResult.IsAttack and UnitCount(game.ServerGame.LatestTurnStanding.Territories[order.From].NumArmies, 'Priest') then
     local fromTerr = game.ServerGame.LatestTurnStanding.Territories[order.From]; 
     local terrMod = WL.TerritoryModification.Create(order.From);
-    local p;
+    local p = fromTerr.OwnerPlayerID;
+    print(order.From);
+    print(orderResult.AttackingArmiesKilled.NumArmies);
     terrMod.AddArmies = round(orderResult.AttackingArmiesKilled.NumArmies * (10 / 100));
-    p = fromTerr.OwnerPlayerID;
+
     if terrMod.AddArmies ~= nil and terrMod.AddArmies > 0 then
       local event = WL.GameOrderEvent.Create(p, "priest converted " .. terrMod.AddArmies .. " armies", {}, {terrMod});
       addNewOrder(event, true);
