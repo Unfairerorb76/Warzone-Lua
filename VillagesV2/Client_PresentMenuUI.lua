@@ -43,9 +43,9 @@ function buildMenu()
     if data.Counters[Game.Us.ID] > 0 then
   CreateLabel(vert).SetText('you currently have ' .. data.Counters[Game.Us.ID] .. ' Villages to convert.');
   CreateButton(vert).SetText("Market").SetOnClick(showMarket).SetColor('#00FF8C');
-  CreateButton(vert).SetText("Hospital").SetOnClick(showMarket).SetColor('#00FF8C');
-  CreateButton(vert).SetText("Embassy").SetOnClick(showMarket).SetColor('#00FF8C');
-  CreateButton(vert).SetText("Church").SetOnClick(showMarket).SetColor('#00FF8C'); 
+  CreateButton(vert).SetText("Hospital").SetOnClick(showHospital).SetColor('#00FF8C');
+  CreateButton(vert).SetText("Embassy").SetOnClick(showEmbassy).SetColor('#00FF8C');
+  CreateButton(vert).SetText("Church").SetOnClick(showChurch).SetColor('#00FF8C'); 
   CreateButton(GetRoot()).SetText("Return").SetOnClick(menuReturn).SetColor('#94652E'); 
   else
     
