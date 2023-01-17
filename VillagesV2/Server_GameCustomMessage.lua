@@ -11,7 +11,7 @@ data = Mod.PublicGameData;
     --Add one to players Market total 
     data.Markets[playerId] = numMarket + 1;
     --subtract one from players village count
-    data.Counters[playerId] = PlayerCount(data.Counters[playerId]);
+    data.Counters[playerId] = data.Counters[playerId] - 1;
     --need to input the data to server and end function
     Mod.PublicGameData = data;
     return(data.Markets[playerId]);
@@ -22,7 +22,7 @@ data = Mod.PublicGameData;
     --Add one to players Market total 
     data.Hospitals[playerId] = numHospital + 1;
     --subtract one from players village count
-    data.Counters[playerId] = PlayerCount(data.Counters[playerId]);
+    data.Counters[playerId] = data.Counters[playerId] - 1;
     --need to input the data to server and end function
     Mod.PublicGameData = data;
     return(data.Hospitals[playerId]);  
@@ -33,7 +33,7 @@ data = Mod.PublicGameData;
     --Add one to players Market total 
     data.Embassys[playerId] = numEmbassy + 1;
     --subtract one from players village count
-    data.Counters[playerId] = PlayerCount(data.Counters[playerId]);
+    data.Counters[playerId] = data.Counters[playerId] - 1;
     --need to input the data to server and end function
     Mod.PublicGameData = data;
     return(data.Embassys[playerId]);
@@ -44,7 +44,7 @@ data = Mod.PublicGameData;
     --Add one to players Market total 
     data.Churchs[playerId] = numChurch + 1;
     --subtract one from players village count
-    data.Counters[playerId] = PlayerCount(data.Counters[playerId]);
+    data.Counters[playerId] = data.Counters[playerId] - 1;
     --need to input the data to server and end function
     Mod.PublicGameData = data;
     return(data.Churchs[playerId]);  
