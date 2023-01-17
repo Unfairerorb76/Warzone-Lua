@@ -125,28 +125,20 @@ local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
       end
     end
     if (terrSelected.Structures[WL.StructureType.MercenaryCamp] ~= nil) and (terrSelected.IsNeutral == false) then --finds each territory ID of territories with a merc camp
-
      if data.Markets[terrSelected.OwnerPlayerID] > 0 then
         data.Markets[terrSelected.OwnerPlayerID] = data.Markets[terrSelected.OwnerPlayerID] - 1;
         CreateStructure(terrID, terrSelected, addNewOrder, WL.StructureType.Market);
-       
-      else if data.Hospitals[terrSelected.OwnerPlayerID] > 0 then
+      elseif data.Hospitals[terrSelected.OwnerPlayerID] > 0 then
         data.Hospitals[terrSelected.OwnerPlayerID] = data.Hospitals[terrSelected.OwnerPlayerID] - 1;
         CreateStructure(terrID, terrSelected, addNewOrder, WL.StructureType.Hospital);
-        
-	
-      else if data.Embassys[terrSelected.OwnerPlayerID] > 0 then
+      elseif data.Embassys[terrSelected.OwnerPlayerID] > 0 then
         data.Embassys[terrSelected.OwnerPlayerID] = data.Embassys[terrSelected.OwnerPlayerID] - 1;
-        CreateStructure(terrID, terrSelected, addNewOrder, WL.StructureType.Recipe);
-     
-	    	
-      else if data.Markets[terrSelected.OwnerPlayerID] > 0 then
+        CreateStructure(terrID, terrSelected, addNewOrder, WL.StructureType.Recipe);     	    	
+      elseif data.Markets[terrSelected.OwnerPlayerID] > 0 then
         data.Churchs[terrSelected.OwnerPlayerID] = data.Churchs[terrSelected.OwnerPlayerID] - 1;
         CreateStructure(terrID, terrSelected, addNewOrder, WL.StructureType.Arena);
-     
       else  
-	data.Counters[terrSelected.OwnerPlayerID] = data.Counters[terrSelected.OwnerPlayerID] + 1;
-								
+	data.Counters[terrSelected.OwnerPlayerID] = data.Counters[terrSelected.OwnerPlayerID] + 1;							
      end	 
     end
 end end
