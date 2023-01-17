@@ -42,7 +42,7 @@ if order.proxyType == "GameOrderAttackTransfer" then
     local p = fromTerr.OwnerPlayerID;
     terrMod.AddArmies = round(orderResult.AttackingArmiesKilled.NumArmies * (10 / 100));
     if terrMod.AddArmies ~= nil and terrMod.AddArmies > 0 then
-      local event = WL.GameOrderEvent.Create(p, "priest converted " .. terrMod.AddArmies .. " armies", {}, {terrMod});
+      local event = WL.GameOrderEvent.Create(p, "priest converted " .. terrMod.AddArmies .. " of the defending armies", {}, {terrMod});
       addNewOrder(event, true);
     end
   end 	
@@ -59,32 +59,51 @@ if order.proxyType == "GameOrderAttackTransfer" then
       end
     end 
   end
-	
+
+   for connID, _ in pairs(game.Map.Territories[order.To].ConnectedTo) do
+            if (UnitCount(game.ServerGame.LatestTurnStanding.Territories[connID].NumArmies) > 0 and connID ~= order.From) then
+                local terrMod = WL.TerritoryModification.Create(connID);
+                local p;
+                if game.ServerGame.LatestTurnStanding.Territories[order.To].OwnerPlayerID == game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID then
+                    terrMod.AddArmies = round(orderResult.DefendingArmiesKilled.NumArmies * (20 / 100));
+                    p = game.ServerGame.LatestTurnStanding.Territories[order.To].OwnerPlayerID;
+                elseif game.ServerGame.LatestTurnStanding.Territories[order.From].OwnerPlayerID == game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID then
+                    terrMod.AddArmies = round(orderResult.AttackingArmiesKilled.NumArmies * (20 / 100));
+                    p = game.ServerGame.LatestTurnStanding.Territories[order.From].OwnerPlayerID;
+                end
+                if terrMod.AddArmies ~= nil and terrMod.AddArmies > 0 then
+                    local event = WL.GameOrderEvent.Create(p, "Medic recovered " .. mod.AddArmies .. " armies", {}, {mod});
+                    event.JumpToActionSpotOpt = WL.RectangleVM.Create(game.Map.Territories[connID].MiddlePointX, game.Map.Territories[connID].MiddlePointY, game.Map.Territories[connID].MiddlePointX, game.Map.Territories[connID].MiddlePointY);
+                    addNewOrder(event, true);
+                end
+            end
+        end
+		
 end
 
 if (order.proxyType == 'GameOrderCustom') then
   if (startsWith(order.Payload, 'GetCapitalist_')) then
     local terrID = tonumber(string.sub(order.Payload, 15));
     if terrID ~= nil then
-      SpecialUnit(terrID, addNewOrder, order, game, 'Capitalist', 'piggy-bank.png'); 
+      SpecialUnit(terrID, addNewOrder, order, game, 'Capitalist', 'piggy-bank.png', 3415); 
     end 
   end
   if (startsWith(order.Payload, 'GetMedic_')) then
     local terrID = tonumber(string.sub(order.Payload, 10));
     if terrID ~= nil then
-      SpecialUnit(terrID, addNewOrder, order, game, 'Medic', 'Medic.png'); 
+      SpecialUnit(terrID, addNewOrder, order, game, 'Medic', 'Medic.png', 9120); 
     end 
   end
   if (startsWith(order.Payload, 'GetDiplomat_')) then
     local terrID = tonumber(string.sub(order.Payload, 13));
     if terrID ~= nil then
-      SpecialUnit(terrID, addNewOrder, order, game, 'Diplomat', 'truce.png'); 
+      SpecialUnit(terrID, addNewOrder, order, game, 'Diplomat', 'truce.png', 3414); 
     end 
   end
   if (startsWith(order.Payload, 'GetPriest_')) then
     local terrID = tonumber(string.sub(order.Payload, 11));
     if terrID ~= nil then
-      SpecialUnit(terrID, addNewOrder, order, game, 'Priest', 'robe.png'); 
+      SpecialUnit(terrID, addNewOrder, order, game, 'Priest', 'robe.png', 3413); 
     end 
   end
 end
@@ -169,7 +188,7 @@ function CreateStructure(terrID, terrSelected, addNewOrder, struct)
 end
 
 
-function SpecialUnit(terrID, addNewOrder, order, game, name, filename)
+function SpecialUnit(terrID, addNewOrder, order, game, name, filename, combatOrder)
 
 local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
 local targetTerritoryID = terrID;		 		 		
@@ -189,7 +208,7 @@ builder.IncludeABeforeName = true;
 builder.ImageFilename = filename;		
 builder.AttackPower = 1;		
 builder.DefensePower = 1;		
-builder.CombatOrder = 1234; --defends commanders		
+builder.CombatOrder = combatOrder; --defends commanders		
 builder.DamageToKill = 1;		
 builder.DamageAbsorbedWhenAttacked = 1;		
 builder.CanBeGiftedWithGiftCard = true;		
@@ -199,7 +218,7 @@ builder.CanBeAirliftedToTeammate = true;
 builder.IsVisibleToAllPlayers = false;			
 local terrMod = WL.TerritoryModification.Create(targetTerritoryID);		
 terrMod.AddSpecialUnits = {builder.Build()};				
-addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Purchased a ' .. name, {}, {terrMod}));		
+addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Created a ' .. name, {}, {terrMod}));		
 end
 
 function UnitCount(armies, name)
