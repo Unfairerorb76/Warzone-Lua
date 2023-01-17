@@ -134,7 +134,7 @@ local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
       elseif data.Embassys[terrSelected.OwnerPlayerID] > 0 then
         data.Embassys[terrSelected.OwnerPlayerID] = data.Embassys[terrSelected.OwnerPlayerID] - 1;
         CreateStructure(terrID, terrSelected, addNewOrder, WL.StructureType.Recipe);     	    	
-      elseif data.Markets[terrSelected.OwnerPlayerID] > 0 then
+      elseif data.Churchs[terrSelected.OwnerPlayerID] > 0 then
         data.Churchs[terrSelected.OwnerPlayerID] = data.Churchs[terrSelected.OwnerPlayerID] - 1;
         CreateStructure(terrID, terrSelected, addNewOrder, WL.StructureType.Arena);
       else  
