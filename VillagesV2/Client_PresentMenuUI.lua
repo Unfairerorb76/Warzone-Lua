@@ -66,7 +66,7 @@ function showHospital()
   DestroyWindow();
   SetWindow("Hospital");
   local vert = CreateVert(GetRoot());
- CreateLabel(vert).SetText('The Hospital structure produces Medics, the medic can heal armies on connected territories as well as the territory it sits on').SetColor('#606060');
+ CreateLabel(vert).SetText('The Hospital structure produces Medics, the medic can heal 20% of armies on connected territories as well as the territory it sits on').SetColor('#606060');
  CreateButton(vert).SetText("Convert").SetOnClick(createHospital).SetColor('#00FF8C');
  CreateButton(GetRoot()).SetText("Return").SetOnClick(buildReturn).SetColor('#94652E');
 end
