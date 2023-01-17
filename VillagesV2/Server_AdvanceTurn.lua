@@ -94,7 +94,7 @@ function Server_AdvanceTurn_End(game, addNewOrder, rootParent)
 
 local list = {};
 for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
-	local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
+local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
   if terrSelected.Structures ~= nil then
     if terrSelected.Structures[WL.StructureType.Market] ~= nil then
       if (terrSelected.IsNeutral == false) then
@@ -125,28 +125,29 @@ for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) d
       end
     end
     if (terrSelected.Structures[WL.StructureType.MercenaryCamp] ~= nil) and (terrSelected.IsNeutral == false) then --finds each territory ID of territories with a merc camp
- data.Counters[terrSelected.OwnerPlayerID] = data.Counters[terrSelected.OwnerPlayerID] + 1;
+
      if data.Markets[terrSelected.OwnerPlayerID] > 0 then
         data.Markets[terrSelected.OwnerPlayerID] = data.Markets[terrSelected.OwnerPlayerID] - 1;
         CreateStructure(terrID, terrSelected, addNewOrder, WL.StructureType.Market);
        
-	    end
-      if data.Hospitals[terrSelected.OwnerPlayerID] > 0 then
+      else if data.Hospitals[terrSelected.OwnerPlayerID] > 0 then
         data.Hospitals[terrSelected.OwnerPlayerID] = data.Hospitals[terrSelected.OwnerPlayerID] - 1;
         CreateStructure(terrID, terrSelected, addNewOrder, WL.StructureType.Hospital);
         
-	end
-      if data.Embassys[terrSelected.OwnerPlayerID] > 0 then
+	
+      else if data.Embassys[terrSelected.OwnerPlayerID] > 0 then
         data.Embassys[terrSelected.OwnerPlayerID] = data.Embassys[terrSelected.OwnerPlayerID] - 1;
         CreateStructure(terrID, terrSelected, addNewOrder, WL.StructureType.Recipe);
      
-	    end	
-      if data.Markets[terrSelected.OwnerPlayerID] > 0 then
+	    	
+      else if data.Markets[terrSelected.OwnerPlayerID] > 0 then
         data.Churchs[terrSelected.OwnerPlayerID] = data.Churchs[terrSelected.OwnerPlayerID] - 1;
         CreateStructure(terrID, terrSelected, addNewOrder, WL.StructureType.Arena);
      
-	    end			
-		 
+      else  
+	data.Counters[terrSelected.OwnerPlayerID] = data.Counters[terrSelected.OwnerPlayerID] + 1;
+								
+end	 
     end
   end
 end
