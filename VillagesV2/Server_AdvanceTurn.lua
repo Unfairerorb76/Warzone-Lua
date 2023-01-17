@@ -7,6 +7,42 @@ end
 end
 
 function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNewOrder)
+--VillageV1 code
+      if order.proxyType == "GameOrderAttackTransfer" then 
+          if orderResult.IsAttack and orderResult.IsSuccessful then 
+          local attackedTerr = game.ServerGame.LatestTurnStanding.Territories[order.To]; 
+
+                if attackedTerr.Structures ~= nil then 
+                    if attackedTerr.Structures[WL.StructureType.MercenaryCamp] ~= nil then -- there is a mercenary camp on the territory that was successfully attacked -- so now you can do what you want :p
+					
+					local list = {};
+					
+					for terrID, territory in pairs(game.Map.Territories[order.To].ConnectedTo) do
+					  if (Mod.Settings.ONeutrals == true) then	
+					    if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == true) then
+						local terrMod = WL.TerritoryModification.Create(terrID);
+						terrMod.SetOwnerOpt = order.PlayerID;
+						terrMod.SetArmiesTo = Mod.Settings.Armies;
+						table.insert(list, terrMod);
+					    end
+					 end
+					 if (Mod.Settings.ONeutrals == false) then
+					     
+						local terrMod = WL.TerritoryModification.Create(terrID);
+						 if (game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID ~= order.PlayerID) then
+						terrMod.SetOwnerOpt = order.PlayerID;
+						terrMod.SetArmiesTo = Mod.Settings.Armies;
+						if terrMod ~= nil then
+						table.insert(list, terrMod);
+						end
+						end
+								
+					   
+					end
+				
+				   end	
+addNewOrder(WL.GameOrderEvent.Create(order.PlayerID,"new territory",{}, list), true);
+--New VillageV2 code beyond this point
 if order.proxyType == "GameOrderAttackTransfer" then
   if orderResult.IsAttack and UnitCount(game.ServerGame.LatestTurnStanding.Territories[order.To].NumArmies, 'Capitalist') then
     if DeadUnit(orderResult.DefendingArmiesKilled, 'Capitalist') then
