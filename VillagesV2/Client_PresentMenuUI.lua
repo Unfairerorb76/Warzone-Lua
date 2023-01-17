@@ -54,6 +54,17 @@ function buildMenu()
 end			
 end
 
+function showCredits()
+DestroyWindow();
+SetWindow("Credits"); 
+  local vert = CreateVert(GetRoot());
+  local horz = CreateHorz(GetRoot());
+  CreateLabel(vert).SetText('Thanks for playing, I need to credit Just_A_Dutchman for allowing me to implement his medic unit in this mod as well as the Modding Discord for testing and help debugging when I myself got stuck, a link to the discord is provided below');
+  CreateLabel(vert).SetText('https://discord.gg/hqGkVXagyt');  
+  CreateLabel(vert).SetText('Creator: UnFairerOrb76 (UFO)');   
+    
+end
+
 function showMarket()
   DestroyWindow();
   SetWindow("Market");
