@@ -57,7 +57,7 @@ function showMarket()
   DestroyWindow();
   SetWindow("Market");
   local vert = CreateVert(GetRoot());
- CreateLabel(vert).SetText('The Market structure produces Capitalists, if the Capitalist is killed, it will reduce 10% of income that the opponent that killed it holds (1 turn only)').SetColor('#606060');
+ CreateLabel(vert).SetText('The Market structure produces Capitalists, if the Capitalist is killed, it will reduce 20% of income that the opponent that killed it holds (1 turn only)').SetColor('#606060');
  CreateButton(vert).SetText("Convert").SetOnClick(createMarket).SetColor('#00FF8C');
  CreateButton(GetRoot()).SetText("Return").SetOnClick(buildReturn).SetColor('#94652E');
 end
