@@ -60,7 +60,7 @@ SetWindow("Credits");
   local vert = CreateVert(GetRoot());
   local horz = CreateHorz(GetRoot());
   CreateLabel(vert).SetText('Thanks for playing, I need to credit Just_A_Dutchman for allowing me to implement his medic unit in this mod as well as the Modding Discord for testing and help debugging when I myself got stuck, a link to the discord is provided below');
-  CreateTextInputField.SetText('https://discord.gg/hqGkVXagyt');  
+  CreateTextInputField(vert).SetText('https://discord.gg/hqGkVXagyt');  
   CreateLabel(vert).SetText('Creator: UnFairerOrb76 (UFO)');   
   CreateButton(GetRoot()).SetText("Return").SetOnClick(menuReturn).SetColor('#94652E'); 
 end
