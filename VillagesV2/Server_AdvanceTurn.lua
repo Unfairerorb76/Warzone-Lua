@@ -149,7 +149,7 @@ local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
 								
      end	 
     end
-end
+end end
 --local count = 0;
 --for times = 1, #list do
    
