@@ -40,8 +40,9 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 					   
 					end
 				
-				   end	
+				   end
 addNewOrder(WL.GameOrderEvent.Create(order.PlayerID,"new territory",{}, list), true);
+end end end end	
 --New VillageV2 code beyond this point
 if order.proxyType == "GameOrderAttackTransfer" then
   if orderResult.IsAttack and UnitCount(game.ServerGame.LatestTurnStanding.Territories[order.To].NumArmies, 'Capitalist') then
