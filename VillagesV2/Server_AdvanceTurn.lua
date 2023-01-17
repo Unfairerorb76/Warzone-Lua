@@ -129,22 +129,22 @@ for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) d
      if data.Markets[terrSelected.OwnerPlayerID] > 0 then
         data.Markets[terrSelected.OwnerPlayerID] = data.Markets[terrSelected.OwnerPlayerID] - 1;
         CreateStructure(terrID, terrSelected, addNewOrder, WL.StructureType.Market);
-        break;
+       
 	    end
       if data.Hospitals[terrSelected.OwnerPlayerID] > 0 then
         data.Hospitals[terrSelected.OwnerPlayerID] = data.Hospitals[terrSelected.OwnerPlayerID] - 1;
         CreateStructure(terrID, terrSelected, addNewOrder, WL.StructureType.Hospital);
-        break;
-	    end
+        
+	end
       if data.Embassys[terrSelected.OwnerPlayerID] > 0 then
         data.Embassys[terrSelected.OwnerPlayerID] = data.Embassys[terrSelected.OwnerPlayerID] - 1;
         CreateStructure(terrID, terrSelected, addNewOrder, WL.StructureType.Recipe);
-        break;
+     
 	    end	
       if data.Markets[terrSelected.OwnerPlayerID] > 0 then
         data.Churchs[terrSelected.OwnerPlayerID] = data.Churchs[terrSelected.OwnerPlayerID] - 1;
         CreateStructure(terrID, terrSelected, addNewOrder, WL.StructureType.Arena);
-        break;
+     
 	    end			
 		 
     end
