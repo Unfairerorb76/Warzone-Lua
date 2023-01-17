@@ -61,16 +61,18 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 		.SetSliderMaxValue(5)
 		.SetValue(dipLimit);
 	
+		UI.CreateLabel(vert).SetText('Maximum amount of Priests you can own at any one time. When an priest attacks or is attacked it will convert armies that are killed, 10% in offensive attacks, 20% in defensive.');
+   	 numberInputField6 = UI.CreateNumberInputField(vert)
+		.SetSliderMinValue(1)
+		.SetSliderMaxValue(5)
+		.SetValue(priLimit);
+	
 	UI.CreateLabel(vert).SetText('Maximum amount of Medics you can own at any one time. The Medic can heal 20% of armies on connected territories as well as the territory it sits on');
    	 numberInputField5 = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(5)
 		.SetValue(medLimit);	
 
-	UI.CreateLabel(vert).SetText('Maximum amount of Priests you can own at any one time. When an priest attacks or is attacked it will convert armies that are killed, 10% in offensive attacks, 20% in defensive.');
-   	 numberInputField6 = UI.CreateNumberInputField(vert)
-		.SetSliderMinValue(1)
-		.SetSliderMaxValue(5)
-		.SetValue(priLimit);
+
 		
 end
