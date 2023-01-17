@@ -29,7 +29,7 @@ function showMenu(game)
     local horz = CreateHorz(GetRoot());
      CreateLabel(vert).SetText('This is the main menu screen, select the buttons below related on what you want to do.').SetColor('#606060');
     CreateButton(horz).SetText("Build").SetOnClick(buildMenu).SetColor('#00FF8C');
-    CreateButton(horz).SetText("Credits").SetOnClick(buildMenu).SetColor('#C04000');
+    CreateButton(horz).SetText("Credits").SetOnClick(showCredits).SetColor('#C04000');
 end
 
 function buildMenu()
@@ -62,7 +62,7 @@ SetWindow("Credits");
   CreateLabel(vert).SetText('Thanks for playing, I need to credit Just_A_Dutchman for allowing me to implement his medic unit in this mod as well as the Modding Discord for testing and help debugging when I myself got stuck, a link to the discord is provided below');
   CreateLabel(vert).SetText('https://discord.gg/hqGkVXagyt');  
   CreateLabel(vert).SetText('Creator: UnFairerOrb76 (UFO)');   
-    
+  CreateButton(GetRoot()).SetText("Return").SetOnClick(menuReturn).SetColor('#94652E'); 
 end
 
 function showMarket()
