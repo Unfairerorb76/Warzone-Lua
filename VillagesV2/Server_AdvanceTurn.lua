@@ -147,10 +147,10 @@ local terrSelected = game.ServerGame.LatestTurnStanding.Territories[terrID];
       else  
 	data.Counters[terrSelected.OwnerPlayerID] = data.Counters[terrSelected.OwnerPlayerID] + 1;
 								
-end	 
+     end	 
     end
   end
-end
+end end
 --local count = 0;
 --for times = 1, #list do
    
