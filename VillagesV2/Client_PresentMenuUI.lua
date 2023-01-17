@@ -38,15 +38,15 @@ function buildMenu()
   SetWindow("build");
   data = Mod.PublicGameData;
   local vert = CreateVert(GetRoot());
-  
+  local horz = CreateHorz(GetRoot());
   CreateLabel(vert).SetText('Convert your village to a new structure! Each structure has its own associated special unit that it can create.').SetColor('#FFAF56');
   
     if data.Counters[Game.Us.ID] > 0 then
   CreateLabel(vert).SetText('you currently have ' .. data.Counters[Game.Us.ID] .. ' Villages to convert.');
-  CreateButton(vert).SetText("Market").SetOnClick(showMarket).SetColor('#00FF8C');
-  CreateButton(vert).SetText("Hospital").SetOnClick(showHospital).SetColor('#00FF8C');
-  CreateButton(vert).SetText("Embassy").SetOnClick(showEmbassy).SetColor('#00FF8C');
-  CreateButton(vert).SetText("Church").SetOnClick(showChurch).SetColor('#00FF8C'); 
+  CreateButton(horz).SetText("Market").SetOnClick(showMarket).SetColor('#00FF8C');
+  CreateButton(horz).SetText("Hospital").SetOnClick(showHospital).SetColor('#00FF8C');
+  CreateButton(horz).SetText("Embassy").SetOnClick(showEmbassy).SetColor('#00FF8C');
+  CreateButton(horz).SetText("Church").SetOnClick(showChurch).SetColor('#00FF8C'); 
   CreateButton(GetRoot()).SetText("Return").SetOnClick(menuReturn).SetColor('#94652E'); 
   else
     
