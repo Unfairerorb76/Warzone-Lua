@@ -100,28 +100,28 @@ for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) d
       if (terrSelected.IsNeutral == false) then
         local terrdata = tostring(terrID); 
         addNewOrder(WL.GameOrderCustom.Create(terrSelected.OwnerPlayerID, 'custom order', 'GetCapitalist_' .. terrdata , {}));
-        break;			
+        			
       end
     end
     if terrSelected.Structures[WL.StructureType.Hospital] ~= nil then
       if (terrSelected.IsNeutral == false) then
         local terrdata = tostring(terrID); 
         addNewOrder(WL.GameOrderCustom.Create(terrSelected.OwnerPlayerID, 'custom order', 'GetMedic_' .. terrdata , {}));
-        break;			
+        		
       end
     end
     if terrSelected.Structures[WL.StructureType.Recipe] ~= nil then
       if (terrSelected.IsNeutral == false) then
         local terrdata = tostring(terrID); 
         addNewOrder(WL.GameOrderCustom.Create(terrSelected.OwnerPlayerID, 'custom order', 'GetDiplomat_' .. terrdata , {}));
-        break;			
+        			
       end
     end
     if terrSelected.Structures[WL.StructureType.Arena] ~= nil then
       if (terrSelected.IsNeutral == false) then
         local terrdata = tostring(terrID); 
         addNewOrder(WL.GameOrderCustom.Create(terrSelected.OwnerPlayerID, 'custom order', 'GetPriest_' .. terrdata , {}));
-        break;			
+        			
       end
     end
     if (terrSelected.Structures[WL.StructureType.MercenaryCamp] ~= nil) and (terrSelected.IsNeutral == false) then --finds each territory ID of territories with a merc camp
