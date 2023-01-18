@@ -10,11 +10,13 @@ function Server_AdvanceTurn_End(game, addNewOrder)
             -- you should make it so only territories without special units can be lost imo
             local numArmies = terr.NumArmies.NumArmies
             local index = 1;
+	       print(numArmies);
+	       print(game.ServerGame.LatestTurnStanding.Territories[terr2].NumArmies.NumArmies);
             for i, terr2 in pairs(playerTerrs[terr.OwnerPlayerID]) do
                 if game.ServerGame.LatestTurnStanding.Territories[terr2].NumArmies.NumArmies > numArmies then
                     index = i;
-		    print(numArmies);
-		    print(game.ServerGame.LatestTurnStanding.Territories[terr2].NumArmies.NumArmies);
+		    print(100);
+		   
                     break;
                 end
             end
