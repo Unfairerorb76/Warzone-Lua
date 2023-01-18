@@ -13,7 +13,8 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 			table.insert(count[game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID], terrID);
 		end
 	end
-	print(getTableLength(count[playerID]))
+	print(getTableLength(count[playerID]));
+	print(count);
 	end
 	
 end
