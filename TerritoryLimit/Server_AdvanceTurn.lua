@@ -37,7 +37,7 @@ print(min);
 		end
 	end
 	if getTableLength(list) ~= nil then
-print(2
+print(2);
 	table.insert(pTable[playerID], WL.GameOrderEvent.Create(playerID,"removing territory",{}, list));
 	end 
 	local i = 1;
