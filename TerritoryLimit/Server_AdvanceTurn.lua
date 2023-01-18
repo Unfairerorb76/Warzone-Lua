@@ -13,7 +13,8 @@ function Server_AdvanceTurn_End(game, addNewOrder)
             for i, terr2 in pairs(playerTerrs[terr.OwnerPlayerID]) do
                 if game.ServerGame.LatestTurnStanding.Territories[terr2].NumArmies.NumArmies > numArmies then
                     index = i;
-		    print(index);
+		    print(numArmies);
+		    print(game.ServerGame.LatestTurnStanding.Territories[terr2].NumArmies.NumArmies);
                     break;
                 end
             end
