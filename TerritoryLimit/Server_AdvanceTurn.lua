@@ -35,7 +35,9 @@ function Server_AdvanceTurn_End(game, addNewOrder)
         print(1);
         print(list);
         print(p);
-        addNewOrder(WL.GameOrderEvent.Create(p, "Territory cap", {}, {list}));
+        local event = WL.GameOrderEvent.Create(p, "Territory cap", {}, {list});
+        print(event);
+        addNewOrder(event);
         print(2);
     end
 end
