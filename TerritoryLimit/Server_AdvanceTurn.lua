@@ -19,7 +19,6 @@ function Server_AdvanceTurn_End(game, addNewOrder)
             if index == 1 and #playerTerrs[terr.OwnerPlayerID] ~= 0 then
                 index = #playerTerrs[terr.OwnerPlayerID];
             end
-	    print(index);
             table.insert(playerTerrs[terr.OwnerPlayerID], index, terr.ID);
         end
     end
@@ -29,6 +28,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
     for p, arr in pairs(playerTerrs) do
         local list = {};
         for i = #arr, 2, -1 do      -- the '2' here is the stopping point of the loop. It will stop when it has reached i = 1 (i < 2)
+	    print(i);
             local mod = WL.TerritoryModification.Create(arr[i]);
             mod.SetOwnerOpt = WL.PlayerID.Neutral
             table.insert(list, mod);
