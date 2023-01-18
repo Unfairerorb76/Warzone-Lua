@@ -6,7 +6,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
     end
 
     for _, terr in pairs(game.ServerGame.LatestTurnStanding.Territories) do
-        if terr.OwnerplayerID ~= WL.PlayerID.Neutral then
+        if terr.OwnerPlayerID ~= WL.PlayerID.Neutral then
             -- you should make it so only territories without special units can be lost imo
             local numArmies = terr.NumArmies.NumArmies
             local index = 1;
