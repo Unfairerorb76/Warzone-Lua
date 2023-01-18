@@ -39,7 +39,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 print(2);
 	--table.insert(pTable[playerID], WL.GameOrderEvent.Create(playerID,"removing territory",{}, list));
 
-        addNewOrder(WL.GameOrderEvent.Create(playerID,"removing territory",{}, list));
+        addNewOrder(WL.GameOrderEvent.Create(p,"removing territory",{}, list));
         
 	end
         end 
