@@ -16,9 +16,8 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 		print(numArmies);
 		print(game.ServerGame.LatestTurnStanding.Territories[terr2].NumArmies.NumArmies);
                 if game.ServerGame.LatestTurnStanding.Territories[terr2].NumArmies.NumArmies > numArmies then
-                    index = i + 1;
+                    index = i;
 		    print(100);
-		   
                     break;
                 end
             end
