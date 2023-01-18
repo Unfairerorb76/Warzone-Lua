@@ -1,68 +1,39 @@
 require('UI');
 function Server_AdvanceTurn_End(game, addNewOrder)
+    local playerTerrs = {};
+    for p, _ in pairs(game.Game.PlayingPlayers) do
+        playerTerrs[p] = {};
+    end
 
-	list = {};
-	count = {};
-	local pTable = {};
+    for _, terr in pairs(game.ServerGame.LatestTurnStanding.Territories) do
+        if terr.OwnerplayerID ~= WL.PlayerID.Neutral then
+            -- you should make it so only territories without special units can be lost imo
+            local numArmies = terr.NumArmies.NumArmies
+            local index = 1;
+            for i, terr2 in pairs(playerTerrs[terr.OwnerPlayerID]) do
+                if terr2.NumArmies.NumArmies > numArmies then
+                    index = i;
+                    break;
+                end
+            end
+            if index == 1 and #playerTerrs[terr.OwnerPlayerID] != 0 then
+                index = #playerTerrs[terr.OwnerPlayerID];
+            end
+            table.insert(playerTerrs[terr.OwnerPlayerID], index, terr.ID);
+        end
+    end
 
-	for p, _ in pairs(game.Game.PlayingPlayers) do
-		count[p] = {};
-		pTable[p] = {};
-	end
+    -- Now playerTerrs is a table with as key a PlayerID and as value a sorted array, with at index 1 the one with the most armies and the last index the terr with the least
 
-	for playerID, _ in pairs(game.Game.PlayingPlayers) do
-	for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
-		if (game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID == playerID) then
-			table.insert(count[game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID], terrID);
-		end
-	end
-        local min = 9999;
-        print(getTableLength(count[playerID]));
-	for p, arr in pairs(count[playerID]) do
-		if getTableLength(count[playerID]) > 1 then
-
-			for p, arr in pairs(count[playerID]) do
-			if game.ServerGame.LatestTurnStanding.Territories[arr].NumArmies.NumArmies < min then
-				local PlayerTerr = game.ServerGame.LatestTurnStanding.Territories[arr];
-				min = PlayerTerr.NumArmies.NumArmies;
-			end
-			end
-
-			if PlayerTerr == nill then break; end
-print(PlayerTerr);
-			local terrMod = WL.TerritoryModification.Create(PlayerTerr);
-			terrMod.SetOwnerOpt = WL.PlayerID.Neutral;
-addNewOrder(WL.GameOrderEvent.Create(playerID,"removing territory",{}, terrMod));
-        
-			table.insert(list, terrMod);
-			table.remove(arr, rand);
-		end
-	end
-	if getTableLength(list) ~= nil then
-print(2);
-	--table.insert(pTable[playerID], WL.GameOrderEvent.Create(playerID,"removing territory",{}, list));
-
-        --addNewOrder(WL.GameOrderEvent.Create(playerID,"removing territory",{}, list));
-        
-	end
-        end 
-	--local i = 1;
-	--local addedOrders = true;
-	--while addedOrders do
- 	-- addedOrders = false;
- 	-- for p, _  in pairs(game.Game.PlayingPlayers) do
-           
-    	--   if pTable[p][i] ~= nil then
-     	 --  addedOrders = true;
-       --    addNewOrder(pTable[p][i]);
-    	--   end
-	-- end
-      --   i = i + 1;
-	--end
-	
-	
-
-
+    for p, arr in pairs(playerTerrs) do
+        local list = {};
+        for i = #arr, 2, -1 do      -- the '2' here is the stopping point of the loop. It will stop when it has reached i = 1 (i < 2)
+            local mod = WL.TerritoryModification.Create(arr[i]);
+            mod.SetOwnerOpt = WL.PlayerID.Neutral
+            table.insert(list, mod);
+        end
+        addNewOrder(WL.GameOrderEvent.Create(p, "Territory cap", {}, {list}));
+    end
 end
 
 function getTableLength(t)
