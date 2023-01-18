@@ -36,8 +36,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 	print(pTable[playerID]);
 	if getTableLength(list) ~= nil then
 	table.insert(pTable[playerID], WL.GameOrderEvent.Create(playerID,"new territory",{}, list));
-	end end
-	
+	end 
 	local i = 1;
 	local addedOrders = true;
 	while addedOrders do
@@ -50,6 +49,9 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 	 end
          i = i + 1;
 	end
+	end
+	
+
 
 end
 
