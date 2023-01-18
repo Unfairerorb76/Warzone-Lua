@@ -21,8 +21,8 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 			local min = 9999;
 			for p, arr in pairs(count[playerID]) do
 			if game.ServerGame.LatestTurnStanding.Territories[arr].NumArmies.NumArmies < min then
-				local PlayerTerr = game.ServerGame.LatestTurnStanding.Territories[arr].NumArmies.NumArmies;
-				min = PlayerTerr.NumArmies;
+				local PlayerTerr = game.ServerGame.LatestTurnStanding.Territories[arr];
+				min = PlayerTerr.NumArmies.NumArmies;
 			end
 			end
 			if PlayerTerr == nill then break; end
