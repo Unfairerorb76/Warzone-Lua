@@ -27,6 +27,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 
     for p, arr in pairs(playerTerrs) do
         local list = {};
+	print(232323);
         for i = #arr, 2, -1 do      -- the '2' here is the stopping point of the loop. It will stop when it has reached i = 1 (i < 2)
 	    print(i);
             local mod = WL.TerritoryModification.Create(arr[i]);
