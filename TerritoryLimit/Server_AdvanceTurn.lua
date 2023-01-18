@@ -16,9 +16,10 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 			table.insert(count[game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID], terrID);
 		end
 	end
+        local min = 9999;
 	for p, arr in pairs(count[playerID]) do
 		if getTableLength(count[playerID]) > 10 then
-			local min = 9999;
+			
 			for p, arr in pairs(count[playerID]) do
 			if game.ServerGame.LatestTurnStanding.Territories[arr].NumArmies.NumArmies < min then
 				local PlayerTerr = game.ServerGame.LatestTurnStanding.Territories[arr];
