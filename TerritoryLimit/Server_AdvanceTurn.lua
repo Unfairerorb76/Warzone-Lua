@@ -29,9 +29,10 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 			end
 
 			if PlayerTerr == nill then break; end
+print(PlayerTerr);
 			local terrMod = WL.TerritoryModification.Create(PlayerTerr);
 			terrMod.SetOwnerOpt = WL.PlayerID.Neutral;
-addNewOrder(WL.GameOrderEvent.Create(playerID,"removing territory",{}, terrMod), true);
+addNewOrder(WL.GameOrderEvent.Create(playerID,"removing territory",{}, terrMod));
         
 			table.insert(list, terrMod);
 			table.remove(arr, rand);
