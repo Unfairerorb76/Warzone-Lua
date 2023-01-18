@@ -33,6 +33,8 @@ function Server_AdvanceTurn_End(game, addNewOrder)
             table.insert(list, mod);
         end
         print(1);
+        print(list);
+        print(p);
         addNewOrder(WL.GameOrderEvent.Create(p, "Territory cap", {}, {list}));
         print(2);
     end
