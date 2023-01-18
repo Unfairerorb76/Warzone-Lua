@@ -32,8 +32,9 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 			table.remove(arr, rand);
 		end
 	end
+	if list ~= nil then
 	table.insert(pTable[p], WL.GameOrderEvent.Create(p,"new territory",{}, list));
-	end
+	end end
 	
 	local i = 1;
 	local addedOrders = true;
