@@ -37,22 +37,24 @@ print(min);
 	end
 	if getTableLength(list) ~= nil then
 print(2);
-	table.insert(pTable[playerID], WL.GameOrderEvent.Create(playerID,"removing territory",{}, list));
-	end
+	--table.insert(pTable[playerID], WL.GameOrderEvent.Create(playerID,"removing territory",{}, list));
+        addNewOrder(WL.GameOrderEvent.Create(playerID,"removing territory",{}, list));
+        
+	
         end 
-	local i = 1;
-	local addedOrders = true;
-	while addedOrders do
- 	 addedOrders = false;
- 	 for p, _  in pairs(game.Game.PlayingPlayers) do
-           print(1234);
-    	   if pTable[p][i] ~= nil then
-     	   addedOrders = true;
-           addNewOrder(pTable[p][i]);
-    	   end
-	 end
-         i = i + 1;
-	end
+	--local i = 1;
+	--local addedOrders = true;
+	--while addedOrders do
+ 	-- addedOrders = false;
+ 	-- for p, _  in pairs(game.Game.PlayingPlayers) do
+           
+    	--   if pTable[p][i] ~= nil then
+     	 --  addedOrders = true;
+       --    addNewOrder(pTable[p][i]);
+    	--   end
+	-- end
+      --   i = i + 1;
+	--end
 	
 	
 
