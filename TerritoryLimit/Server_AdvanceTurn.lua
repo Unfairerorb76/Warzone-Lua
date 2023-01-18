@@ -27,7 +27,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 				min = PlayerTerr.NumArmies.NumArmies;
 			end
 			end
-print(min);
+
 			if PlayerTerr == nill then break; end
 			local terrMod = WL.TerritoryModification.Create(PlayerTerr);
 			terrMod.SetOwnerOpt = WL.PlayerID.Neutral;
