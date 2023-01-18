@@ -32,6 +32,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
             mod.SetOwnerOpt = WL.PlayerID.Neutral
             table.insert(list, mod);
         end
+        print(1);
         addNewOrder(WL.GameOrderEvent.Create(p, "Territory cap", {}, {list}));
     end
 end
