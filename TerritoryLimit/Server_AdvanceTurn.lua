@@ -7,7 +7,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 		count[p] = {};
 	end
 
-	for playerID, _ in pairs(game.Game.PlayingPlayers)
+	for playerID, _ in pairs(game.Game.PlayingPlayers) do
 	for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
 		if (game.ServerGame.LatestTurnStanding.Territories[terrID].IsNeutral == false) then
 			table.insert(count[game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID], terrID);
