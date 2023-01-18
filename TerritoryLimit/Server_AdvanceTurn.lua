@@ -13,7 +13,6 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 	for playerID, _ in pairs(game.Game.PlayingPlayers) do
 	for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
 		if (game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID == playerID) then
-print(1);
 			table.insert(count[game.ServerGame.LatestTurnStanding.Territories[terrID].OwnerPlayerID], terrID);
 		end
 	end
