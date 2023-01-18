@@ -18,7 +18,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
                 end
             end
             if index == 1 and #playerTerrs[terr.OwnerPlayerID] ~= 0 then
-                index = #playerTerrs[terr.OwnerPlayerID];
+                index = #playerTerrs[terr.OwnerPlayerID] + 1;
 		print(123456);
             end
             table.insert(playerTerrs[terr.OwnerPlayerID], index, terr.ID);
