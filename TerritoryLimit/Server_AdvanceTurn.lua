@@ -18,7 +18,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 	end
         local min = 9999;
 	for p, arr in pairs(count[playerID]) do
-		if getTableLength(count[playerID]) > 10 then
+		if getTableLength(count[playerID]) > 1 then
 			
 			for p, arr in pairs(count[playerID]) do
 			if game.ServerGame.LatestTurnStanding.Territories[arr].NumArmies.NumArmies < min then
