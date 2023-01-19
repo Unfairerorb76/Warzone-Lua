@@ -2,8 +2,8 @@ function advert()
 	local adverts = {
 	"Breaking news: Rick Ashley’s body was stolen by cultists from the cemetery today, body snatchers post video stating that they “are never gonna give him up”",
     	"Police provide public statement on latest abduction of Rick Ashley’s body: “we promise to never let you down in our hunt for the thief”",
-	"Docu-series: the tragedy of clan league 42 has released today with critics saying it’s an instant horror classic",
-	"Tired of your boring life, where everything is always the same old crap? Start a new life!	UFO Abduction Services® makes leaving your past life behind an outer world experience! Contact us at UFO-76-UFO-76 for a free trial probing!",
+	"Docu-series: the tragedy of clan league 42 has released today, with critics saying it’s an instant horror classic",
+	"Tired of your boring life, where everything is always the same old crap? Start a new life! UFO Abduction Services® makes leaving your past life behind an outer world experience! Contact us at UFO-76-UFO-76 for a free trial probing!",
 	"Help Wanted: Participant in cut-throat competition involving deceit, betrayal, and a BOX!",
 	"HangFire's Amusement Park - Featuring Day and Night Demolition Shows. Open Tuesday thru Sunday 9 AM to Midnight. First time visitors and children under 12 receive one free stick of dynamite and 50% off Entry fee.",
 	"HangFire's Amusement Park - Activities include: M-60 Firing Range, Grenade Pit, Mortar and Bazooka Range, Close Quarters Combat, Landmine Racing and more!",
