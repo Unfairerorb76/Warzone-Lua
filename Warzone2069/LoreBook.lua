@@ -55,5 +55,6 @@ function advert()
 end
 
 function introduction()
-local intro = "The year is 2069, global warming has ravaged the planet, some countries are inhospital from radiation and Warzone has become the most popular game on the planet. 2 billion people play the game concurrently, with the games influence is so powerful that most companies use the game to advertise their own products, most countries use it in their own wargame simulations.";
+local intro = "The year is 2069, global warming has ravaged the planet, some countries are inhospital from radiation and Warzone has become the most popular game on the planet. 2 billion people play the game concurrently, with the games influence being so powerful that most companies use the game to advertise their own products, most countries even use it in their own wargame simulations.";
+return intro;
 end
