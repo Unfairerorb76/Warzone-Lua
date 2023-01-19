@@ -9,22 +9,17 @@ function Server_AdvanceTurn_End(game, addNewOrder)
         if terr.OwnerPlayerID ~= WL.PlayerID.Neutral then
             -- you should make it so only territories without special units can be lost imo
             local numArmies = terr.NumArmies.NumArmies
-            local index = 1;
-	       
-	       
+            local index = 0;
             for i, terr2 in pairs(playerTerrs[terr.OwnerPlayerID]) do
-		print(numArmies);
-		print(game.ServerGame.LatestTurnStanding.Territories[terr2].NumArmies.NumArmies);
                 if game.ServerGame.LatestTurnStanding.Territories[terr2].NumArmies.NumArmies > numArmies then
                     index = i;
 		    print(100);
                     break;
                 end
             end
-            if index == 1 and #playerTerrs[terr.OwnerPlayerID] ~= 0 then
-                index = #playerTerrs[terr.OwnerPlayerID];
-		print(123456);
-            end
+            if index == 0 then
+                index = #playerTerrs[terr.OwnerPlayerID] + 1;
+	    end
             table.insert(playerTerrs[terr.OwnerPlayerID], index, terr.ID);
         end
     end
@@ -34,7 +29,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
     for p, arr in pairs(playerTerrs) do
         local list = {};
 	
-        for i = #arr, 3, -1 do      -- the '2' here is the stopping point of the loop. It will stop when it has reached i = 1 (i < 2)
+        for i = 1, #arr - 5 do      -- I reversed the loop now xD
 	   
             local mod = WL.TerritoryModification.Create(arr[i]);
             mod.SetOwnerOpt = WL.PlayerID.Neutral
