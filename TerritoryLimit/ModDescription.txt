@@ -1,3 +1,1 @@
-Allows players to gain a free neutral every turn (only on connected territories).
-
-The game creator can configure how many neutrals a player will get per turn.
+This mod sets a limit on the amount of territories that can be owned by each player
