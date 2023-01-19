@@ -11,7 +11,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
             local numArmies = terr.NumArmies.NumArmies
             local index = 0;
             for i, terr2 in pairs(playerTerrs[terr.OwnerPlayerID]) do
-                if game.ServerGame.LatestTurnStanding.Territories[terr2].NumArmies.NumArmies > numArmies  and game.ServerGame.LatestTurnStanding.Territories[terr2].NumArmies.SpecialUnits == nil then
+                if game.ServerGame.LatestTurnStanding.Territories[terr2].NumArmies.NumArmies > numArmies then
                     index = i;
 		    print(100);
                     break;
@@ -20,7 +20,9 @@ function Server_AdvanceTurn_End(game, addNewOrder)
             if index == 0 then
                 index = #playerTerrs[terr.OwnerPlayerID] + 1;
 	    end
+	    if game.ServerGame.LatestTurnStanding.Territories[terr2].NumArmies.SpecialUnits == nil then
             table.insert(playerTerrs[terr.OwnerPlayerID], index, terr.ID);
+	    end
         end
     end
 
