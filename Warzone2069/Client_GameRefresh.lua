@@ -10,6 +10,9 @@ function Client_GameRefresh(game)
 	if(game.Us == nil)then
 		return;
 	end
+
+  local intro = introduction();
+  UI.Alert(intro);
 	 
   local advert = advert();
   UI.Alert(advert);
