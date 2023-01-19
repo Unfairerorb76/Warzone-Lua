@@ -38,7 +38,6 @@ function Server_AdvanceTurn_End(game, addNewOrder)
         local event = WL.GameOrderEvent.Create(p, "Territory cap", {}, list);
         addNewOrder(event);
     end
-Mod.PublicGameData = data;
 end
 
 function getTableLength(t)
