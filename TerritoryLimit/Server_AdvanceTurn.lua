@@ -36,8 +36,8 @@ function Server_AdvanceTurn_End(game, addNewOrder)
             local mod = WL.TerritoryModification.Create(arr[i]);
             mod.SetOwnerOpt = WL.PlayerID.Neutral
 	  if game.ServerGame.LatestTurnStanding.Territories[arr[i]].NumArmies.SpecialUnits ~= nil then
-	    
-            mod.RemoveSpecialUnitsOpt = 0;		
+	    local specialUnit = game.ServerGame.LatestTurnStanding.Territories[arr[i]].NumArmies.SpecialUnits.ID
+            mod.RemoveSpecialUnitsOpt = specialUnit;		
 	  end
             table.insert(list, mod);
         end
