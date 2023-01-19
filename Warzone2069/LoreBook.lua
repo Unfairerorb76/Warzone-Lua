@@ -40,7 +40,7 @@ function advert()
 	"New element was found today, Scientists are calling it 'fizzium'",
 	"UN declares that all future conflicts must take place on Warzone after the deadly 1 day war kills 5% of world population",
 	"UN declares that doplhins are as intelligent as people, ambassador for the species to be met today",
-	"JK_3, the alt master, overruns server with 1000's of accounts. Find out more at ZoneWar weekly!"
+	"JK_3, the alt master, overruns server with 1000's of accounts. Find out more at ZoneWar weekly!",
 	"Just_A_Dutchman completes 1000th mod, wins noble prize. Find out more at ZoneWar weekly",
 	"Grover's Cafe launchs first cafe on the moon, 'It was actually quite easy, barely an inconvenience' - Grover",
     	"Fizzer becomes first trillionaire. Find out more at ZoneWar weekly",
