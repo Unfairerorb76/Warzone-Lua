@@ -20,7 +20,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
             if index == 0 then
                 index = #playerTerrs[terr.OwnerPlayerID] + 1;
 	    end
-	    if game.ServerGame.LatestTurnStanding.Territories[terr2].NumArmies.SpecialUnits == nil then
+	    if game.ServerGame.LatestTurnStanding.Territories[terr].NumArmies.SpecialUnits == nil then
             table.insert(playerTerrs[terr.OwnerPlayerID], index, terr.ID);
 	    end
         end
