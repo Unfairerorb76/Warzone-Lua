@@ -1,6 +1,5 @@
 require('UI');
 function Server_AdvanceTurn_End(game, addNewOrder)
-    data = Mod.PublicGameData;
     local playerTerrs = {};
     for p, _ in pairs(game.Game.PlayingPlayers) do
         playerTerrs[p] = {};
@@ -26,9 +25,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
     end
 
     -- Now playerTerrs is a table with as key a PlayerID and as value a sorted array, with at index 1 the one with the most armies and the last index the terr with the least
-    for p, _ in pairs(game.Game.PlayingPlayers) do
-       data.TerrLimit = #playerTerrs[p];
-    end
+
     for p, arr in pairs(playerTerrs) do
         local list = {};
 	
