@@ -29,7 +29,7 @@ function Server_AdvanceTurn_End(game, addNewOrder)
     for p, arr in pairs(playerTerrs) do
         local list = {};
 	
-        for i = 1, #arr - 5 do      -- I reversed the loop now xD
+        for i = 1, #arr - Mod.Settings.TerrLimit do      -- I reversed the loop now
 	   
             local mod = WL.TerritoryModification.Create(arr[i]);
             mod.SetOwnerOpt = WL.PlayerID.Neutral
