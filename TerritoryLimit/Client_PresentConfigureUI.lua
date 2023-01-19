@@ -3,7 +3,7 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
         local limit = Mod.Settings.TerrLimit;
 	
         if limit == nil then 
-                cost = 20; 
+                limit = 20; 
         end
         
         local vert = UI.CreateVerticalLayoutGroup(rootParent);
