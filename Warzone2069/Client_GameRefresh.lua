@@ -14,5 +14,5 @@ function Client_GameRefresh(game)
          return;	
         end	 
   
-  UI.Alert(advert());
+  UI.Alert(advert);
 end
