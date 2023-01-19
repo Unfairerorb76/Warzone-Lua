@@ -45,7 +45,10 @@ function advert()
 	"Grover's Cafe launchs first cafe on the moon, 'It was actually quite easy, barely an inconvenience' - Grover",
     	"Fizzer becomes first trillionaire. Find out more at ZoneWar weekly",
 	"Join the Warzone Modding discord at: https://discord.gg/2FzGWFPv",
-	"Error: Idiot has joined the game"
+	"Error: Idiot has joined the game",
+        "Zombie outbreak starts in the USA. contained within 1 hour with 6 dead(er)",
+        "Half Life 3 announcement today, company Valve states "we have reached the midpoint in development",
+        "Do you ever wonder why we are here?"
 };
 	local rand = adverts[math.random(#adverts)]
 	return rand
