@@ -20,9 +20,9 @@ function Server_AdvanceTurn_End(game, addNewOrder)
             if index == 0 then
                 index = #playerTerrs[terr.OwnerPlayerID] + 1;
 	    end
-	    if game.ServerGame.LatestTurnStanding.Territories[terr].NumArmies.SpecialUnits == nil then
+	  
             table.insert(playerTerrs[terr.OwnerPlayerID], index, terr.ID);
-	    end
+	    
         end
     end
 
@@ -35,6 +35,10 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 	   
             local mod = WL.TerritoryModification.Create(arr[i]);
             mod.SetOwnerOpt = WL.PlayerID.Neutral
+	  if game.ServerGame.LatestTurnStanding.Territories[arr[i]].NumArmies.SpecialUnits ~= nil then
+	    
+            mod.RemoveSpecialUnitsOpt		
+	  end
             table.insert(list, mod);
         end
         local event = WL.GameOrderEvent.Create(p, "Territory cap", {}, list);
