@@ -30,17 +30,17 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 
     for p, arr in pairs(playerTerrs) do
         local list = {};
-	
+	local t = {};
         for i = 1, #arr - Mod.Settings.TerrLimit do      -- I reversed the loop now
-	   
+	     local terr = game.ServerGame.LatestTurnStanding.Territories[arr[i]];
             local mod = WL.TerritoryModification.Create(arr[i]);
             mod.SetOwnerOpt = WL.PlayerID.Neutral
-	  if game.ServerGame.LatestTurnStanding.Territories[arr[i]].NumArmies.SpecialUnits ~= nil then
-	    local specialUnit = game.ServerGame.LatestTurnStanding.Territories[arr[i]].NumArmies.SpecialUnits.ID
-            mod.RemoveSpecialUnitsOpt = specialUnit;
-	    print(69);
-	    print(specialUnit);
-	  end
+	    for _, sp in ipairs(terr.NumArmies.SpecialUnits) do
+			table.insert(t, sp.ID);
+	    end	
+	    if #t ~= 0 then
+		mod.RemoveSpecialUnitsOpt = t;
+	    end
             table.insert(list, mod);
         end
         local event = WL.GameOrderEvent.Create(p, "Territory cap", {}, list);
