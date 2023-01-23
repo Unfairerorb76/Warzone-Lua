@@ -286,3 +286,6 @@ function getTableLength(t)
 	return a;
 end
 
+function round(n) 
+return math.floor(n + 0.5);
+end
