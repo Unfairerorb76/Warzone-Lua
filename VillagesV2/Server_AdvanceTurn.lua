@@ -98,9 +98,10 @@ if order.proxyType == "GameOrderAttackTransfer" then
   end
 
    for connID, _ in pairs(game.Map.Territories[order.To].ConnectedTo) do
-            if (UnitCount(game.ServerGame.LatestTurnStanding.Territories[connID].NumArmies, 'Medic') > 0 and connID ~= order.From) then
+            if (DeadUnit(game.ServerGame.LatestTurnStanding.Territories[connID].NumArmies, 'Medic') and connID ~= order.From) then
                 local terrMod = WL.TerritoryModification.Create(connID);
                 local p;
+		print(1000);
                 if game.ServerGame.LatestTurnStanding.Territories[order.To].OwnerPlayerID == game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID then
                     terrMod.AddArmies = round(orderResult.DefendingArmiesKilled.NumArmies * (20 / 100));
                     p = game.ServerGame.LatestTurnStanding.Territories[order.To].OwnerPlayerID;
@@ -109,6 +110,7 @@ if order.proxyType == "GameOrderAttackTransfer" then
                     p = game.ServerGame.LatestTurnStanding.Territories[order.From].OwnerPlayerID;
                 end
                 if terrMod.AddArmies ~= nil and terrMod.AddArmies > 0 then
+		    print(20000);
                     local event = WL.GameOrderEvent.Create(p, "Medic recovered " .. mod.AddArmies .. " armies", {}, {mod});
                     event.JumpToActionSpotOpt = WL.RectangleVM.Create(game.Map.Territories[connID].MiddlePointX, game.Map.Territories[connID].MiddlePointY, game.Map.Territories[connID].MiddlePointX, game.Map.Territories[connID].MiddlePointY);
                     addNewOrder(event, true);
