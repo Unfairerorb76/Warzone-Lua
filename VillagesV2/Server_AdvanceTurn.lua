@@ -103,10 +103,10 @@ if order.proxyType == "GameOrderAttackTransfer" then
                 local p;
 		print(1000);
                 if game.ServerGame.LatestTurnStanding.Territories[order.To].OwnerPlayerID == game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID then
-                    terrMod.AddArmies = round(orderResult.DefendingArmiesKilled.NumArmies * (100 / 100));
+                    terrMod.AddArmies = round(orderResult.DefendingArmiesKilled.NumArmies * (20 / 100));
                     p = game.ServerGame.LatestTurnStanding.Territories[order.To].OwnerPlayerID;
                 elseif game.ServerGame.LatestTurnStanding.Territories[order.From].OwnerPlayerID == game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID then
-                    terrMod.AddArmies = round(orderResult.AttackingArmiesKilled.NumArmies * (100 / 100));
+                    terrMod.AddArmies = round(orderResult.AttackingArmiesKilled.NumArmies * (20 / 100));
                     p = game.ServerGame.LatestTurnStanding.Territories[order.From].OwnerPlayerID;
                 end
                 if terrMod.AddArmies ~= nil and terrMod.AddArmies > 0 then
