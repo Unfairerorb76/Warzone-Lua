@@ -98,7 +98,7 @@ if order.proxyType == "GameOrderAttackTransfer" then
   end
 
    for connID, _ in pairs(game.Map.Territories[order.To].ConnectedTo) do
-            if (UnitCount(game.ServerGame.LatestTurnStanding.Territories[connID].NumArmies) > 0 and connID ~= order.From) then
+            if (UnitCount(game.ServerGame.LatestTurnStanding.Territories[connID].NumArmies, 'Medic') > 0 and connID ~= order.From) then
                 local terrMod = WL.TerritoryModification.Create(connID);
                 local p;
                 if game.ServerGame.LatestTurnStanding.Territories[order.To].OwnerPlayerID == game.ServerGame.LatestTurnStanding.Territories[connID].OwnerPlayerID then
