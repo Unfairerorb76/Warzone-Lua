@@ -29,7 +29,7 @@ function showMenu(game)
     local horz = CreateHorz(GetRoot());
     CreateLabel(vert).SetText('This is the main menu screen, select the buttons below related on what you want to do.').SetColor('#606060');
     CreateButton(horz).SetText("Build").SetOnClick(buildMenu).SetColor('#00FF8C');
-    CreateButton(horz).SetText("Build").SetOnClick(infoMenu).SetColor('#00FF8C');
+    CreateButton(horz).SetText("Information").SetOnClick(infoMenu);
     CreateButton(horz).SetText("Credits").SetOnClick(showCredits).SetColor('#C04000');
 end
 
@@ -62,14 +62,14 @@ function infoMenu()
   local vert = CreateVert(GetRoot());
   local horz = CreateHorz(GetRoot());
   CreateLabel(vert).SetText('This menu will provide a description for what each Special Unit does').SetColor('#606060');
-  CreateLabel(vert).SetText('Capitalist');
-  CreateLabel(vert).SetText('The Market structure produces Capitalists, if the Capitalist is killed, it will reduce 20% of income that the opponent that killed it holds (1 turn only)').SetColor('#FFAF56');
-  CreateLabel(vert).SetText('Diplomat');  
-  CreateLabel(vert).SetText('The Embassy structure produces Diplomats, if the Diplomat is killed in defense of itself, it will enforce a diplomacy card between the killer and the person who owns it (1 turn only)').SetColor('#FFAF56');
-  CreateLabel(vert).SetText('Priest');
-  CreateLabel(vert).SetText('The Church structure produces Priests, When an priest attacks or is attacked it will convert armies that are killed, 10% in offensive attacks, 20% in defensive.').SetColor('#FFAF56');
-  CreateLabel(vert).SetText('Medic');
-  CreateLabel(vert).SetText('The Hospital structure produces Medics, the medic can heal 20% of armies on connected territories as well as the territory it sits on').SetColor('#FFAF56');
+  CreateLabel(vert).SetText('Capitalist').SetColor('#FFAF56');
+  CreateLabel(vert).SetText('The Market structure produces Capitalists, if the Capitalist is killed, it will reduce 20% of income that the opponent that killed it holds (1 turn only)')
+  CreateLabel(vert).SetText('Diplomat').SetColor('#FFAF56');  
+  CreateLabel(vert).SetText('The Embassy structure produces Diplomats, if the Diplomat is killed in defense of itself, it will enforce a diplomacy card between the killer and the person who owns it (1 turn only)')
+  CreateLabel(vert).SetText('Priest').SetColor('#FFAF56');
+  CreateLabel(vert).SetText('The Church structure produces Priests, When an priest attacks or is attacked it will convert armies that are killed, 10% in offensive attacks, 20% in defensive.')
+  CreateLabel(vert).SetText('Medic').SetColor('#FFAF56');
+  CreateLabel(vert).SetText('The Hospital structure produces Medics, the medic can heal 20% of armies on connected territories as well as the territory it sits on')
   CreateButton(GetRoot()).SetText("Return").SetOnClick(showMenu).SetColor('#94652E');
 end
 
