@@ -111,7 +111,7 @@ if order.proxyType == "GameOrderAttackTransfer" then
                 end
                 if terrMod.AddArmies ~= nil and terrMod.AddArmies > 0 then
 		    print(20000);
-                    local event = WL.GameOrderEvent.Create(p, "Medic recovered " .. mod.AddArmies .. " armies", {}, {mod});
+                    local event = WL.GameOrderEvent.Create(p, "Medic recovered " .. terrMod.AddArmies .. " armies", {}, {terrMod});
                     event.JumpToActionSpotOpt = WL.RectangleVM.Create(game.Map.Territories[connID].MiddlePointX, game.Map.Territories[connID].MiddlePointY, game.Map.Territories[connID].MiddlePointX, game.Map.Territories[connID].MiddlePointY);
                     addNewOrder(event, true);
                 end
