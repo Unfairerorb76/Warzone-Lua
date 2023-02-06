@@ -20,6 +20,7 @@ end
 function showMenu()
   DestroyWindow();
   SetWindow("Main");
+  data = Mod.PublicGameData;
     local r = math.random(1,50);
     local vert = CreateVert(GetRoot());
     local horz = CreateHorz(GetRoot());
