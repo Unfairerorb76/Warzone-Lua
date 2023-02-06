@@ -24,7 +24,7 @@ function showMenu(game)
     local vert = CreateVert(GetRoot());
     local horz = CreateHorz(GetRoot());
     CreateLabel(vert).SetText('This is the main menu screen, select the buttons below related on what you want to do.').SetColor('#606060');
-    CreateButton(horz).SetText("Shop").SetOnClick(ShopMenu).SetColor('#00FF8C');
+    CreateButton(horz).SetText("Shop").SetOnClick(shopMenu).SetColor('#00FF8C');
     CreateButton(horz).SetText("Battlepass").SetOnClick(BPMenu);
     CreateButton(horz).SetText("Credits").SetOnClick(showCredits).SetColor('#C04000');
 end
