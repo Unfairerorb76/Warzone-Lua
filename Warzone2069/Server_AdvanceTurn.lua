@@ -1,10 +1,11 @@
 function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNewOrder)
 
    if order.proxyType == "GameOrderAttackTransfer" then
-    local r = math.random(1,20);
+    if orderResult.IsSuccessful then
+    local r = math.random(1,25);
     print(r);
-	if (r == 20) then
-          print(2);
+	if (r == 25) then
+          
      	end
    end
   
