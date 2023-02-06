@@ -16,6 +16,6 @@ function Client_GameRefresh(game)
          UI.Alert(advert);	
          return;	
    end	 
-  print(data.Gullible);
+  print(data.Gullible[game.Us.Id]);
   
 end
