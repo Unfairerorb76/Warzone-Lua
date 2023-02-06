@@ -238,7 +238,7 @@ numUnitsAlreadyHave = numUnitsAlreadyHave + UnitCount(ts.NumArmies, name);
 end		
 end 		
 if (numUnitsAlreadyHave >= limit) then			
-addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Skipping '.. name .. ' creation since maximum is ' .. limit));			
+addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Skipping '.. name .. ' creation since maximum is ' .. limit, {}));			
 return; --this player already has the maximum number of Capitalists possible, so skip adding a new one.
 end	
 local builder = WL.CustomSpecialUnitBuilder.Create(terrSelected.OwnerPlayerID);		
