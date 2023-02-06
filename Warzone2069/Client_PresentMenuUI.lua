@@ -36,20 +36,20 @@ function shopMenu(game)
   local vert = CreateVert(GetRoot());
   local horz = CreateHorz(GetRoot());
   CreateLabel(vert).SetText('Welcome to the Warzone Shop, here you can buy items to give you an advantage in game!').SetColor('#606060');
-   CreateButton(horz).SetText("Camouflage Green colour").SetOnClick(delayMenu).SetColor('#FFF700');
-  CreateButton(horz).SetText("A will to live!").SetOnClick(delayMenu).SetColor('#FFF700');
-   CreateButton(horz).SetText("Buy Armies").SetOnClick(delayMenu).SetColor('#FFF700');
-   CreateButton(horz).SetText("Buy Fizzium coins").SetOnClick(delayMenu).SetColor('#FFF700');
+   CreateButton(horz).SetText("Camouflage Green colour").SetOnClick(delayMenu(3)).SetColor('#FFF700');
+  CreateButton(horz).SetText("A will to live!").SetOnClick(delayMenu(100)).SetColor('#FFF700');
+   CreateButton(horz).SetText("Buy Armies").SetOnClick(delayMenu(4)).SetColor('#FFF700');
+   CreateButton(horz).SetText("Buy Fizzium coins").SetOnClick(delayMenu(2)).SetColor('#FFF700');
   CreateButton(GetRoot()).SetText("Return").SetOnClick(menuReturn).SetColor('#94652E');
 end
 
-function delayMenu(game)
+function delayMenu(number)
   DestroyWindow();
   SetWindow("delay");
 
   local vert = CreateVert(GetRoot());
   local horz = CreateHorz(GetRoot());
-  CreateLabel(vert).SetText('This item has been delayed till Season 3, stay tuned!').SetColor('#606060');
+  CreateLabel(vert).SetText('This item has been delayed till Season ".. .., stay tuned!').SetColor('#606060');
   CreateButton(GetRoot()).SetText("Return").SetOnClick(shopReturn).SetColor('#94652E');
 end
 
