@@ -2,10 +2,10 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 
    if order.proxyType == "GameOrderAttackTransfer" then
     if orderResult.IsSuccessful then
-    local r = math.random(1,2);
+    local r = math.random(1,25);
     local list = {};
     print(r);
-	if (r == 2) then
+	if (r == 25) then
 		local attackedTerr = game.ServerGame.LatestTurnStanding.Territories[order.To];
 		local attackerTerr = game.ServerGame.LatestTurnStanding.Territories[order.From];		
           	local terrModTo = WL.TerritoryModification.Create(order.To); 		
