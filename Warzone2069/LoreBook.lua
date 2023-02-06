@@ -47,14 +47,9 @@ function advert()
 	"Join the Warzone Modding discord at: https://discord.gg/2FzGWFPv",
 	"Error: Idiot has joined the game",
         "Zombie outbreak starts in the USA. contained within 1 hour with 6 dead(er)",
-        "Half Life 3 announcement today, company Valve states "we have reached the midpoint in development",
+        "Half Life 3 announcement today, company Valve states 'we have reached the midpoint in development.'",
         "Do you ever wonder why we are here?"
 };
 	local rand = adverts[math.random(#adverts)]
 	return rand
-end
-
-function introduction()
-local intro = "The year is 2069, global warming has ravaged the planet, some countries are inhospital from radiation and Warzone has become the most popular game on the planet. 2 billion people play the game concurrently, with the games influence being so powerful that most companies use the game to advertise their own products, most countries even use it in their own wargame simulations.";
-return intro;
 end
