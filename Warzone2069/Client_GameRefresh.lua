@@ -10,12 +10,6 @@ function Client_GameRefresh(game)
 	if(game.Us == nil)then
 		return;
 	end
-
-  if game.Game.TurnNumber < 2 then
-         local intro = introduction();
-         UI.Alert(intro);	
-         return;	
-   end	 
  if game.Game.TurnNumber >= 2 then
          local advert = advert();
          UI.Alert(advert);	
