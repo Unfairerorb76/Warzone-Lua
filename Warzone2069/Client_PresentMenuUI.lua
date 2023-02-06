@@ -14,10 +14,10 @@ Init(rootParent);
        close();		
        return;	
     end	 
-    showMenu(game);
+    showMenu();
 end
 
-function showMenu(game)
+function showMenu()
   DestroyWindow();
   SetWindow("Main");
     local r = math.random(1,50);
@@ -44,6 +44,11 @@ function shopMenu(game)
    CreateButton(horz).SetText("Buy Armies").SetOnClick(delayMenu).SetColor('#FFF700');
    CreateButton(horz).SetText("Buy Fizzium coins").SetOnClick(delayMenu).SetColor('#FFF700');
   CreateButton(GetRoot()).SetText("Return").SetOnClick(menuReturn).SetColor('#94652E');
+end
+
+function adminMenu()
+    Game.SendGameCustomMessage('Gullible Player', {type = "UpdatingGullible", p = data.Gullible[Game.Us.ID]}, function(UpdateMarket)
+                                                                                                                                showMenu(Game); end);
 end
 
 function delayMenu(number)
