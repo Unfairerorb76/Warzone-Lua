@@ -20,7 +20,7 @@ function advert()
 	"Fancy dot's appear all over western hemisphere, scientists are baffled!",
 	"Warzone: 2069, created and sponsored by a flying UFO!",
 	"Latest study shows that 86% of office hours are spent playing Warzone instead of working.",
-	"new calendar explodes into popularity, years are now marked as BW (Before Warzone) and AW (After Warzone), 0AW set to be what was once 2020",
+	"New calendar explodes into popularity, years are now marked as BW (Before Warzone) and AW (After Warzone), 0AW set to be what was once 2020",
 	"Breaking news: a new study finds that 95% of people will believe 'facts' if you claim it is a new study.",
 	"A man was admitted to the hospital with 25 toy horses shoved up his rectum. Doctors described his condition as stable.",
 	"Doctor was too busy with CW to even visit the patient. Diagnosis considered questionable.",
@@ -48,7 +48,22 @@ function advert()
 	"Error: Idiot has joined the game",
         "Zombie outbreak starts in the USA. contained within 1 hour with 6 dead(er)",
         "Half Life 3 announcement today, company Valve states 'we have reached the midpoint in development.'",
-        "Do you ever wonder why we are here?"
+        "Do you ever wonder why we are here?",
+	"Clan League XXIII: peepee poo MASTERs absorbed by 10ONE!st. Can Python ever win Clan League?",
+	"Scandal: mod is no Modder. Does he has to rename?",
+	"ZoneWar and the Riemann hypothesis: are strategies linked to position of zeros?",
+	"Breaking news: 2+2=5 for sufficiently large values of 2",
+	"Person wakes up from coma, plays a Wasteland Earth 1 Small, then asks his opponent whether the Riemann hypothesis has been solved",
+	"Shop: Pi sells Totally Real Proof of the Lindelof Hypothesis for 31415 coins! Come buy now! Comes free with Premium Pumpkin Pie colour!",
+	"Powerup: Game Tree Solved, Badly: Get the AI to play for you, like Autopilot, but for free! Only 5900 coins! Buy now! Definitely cheaper than a LTM!",
+	"Fizzer: Fizzer fizzers Fizzer's Fizzerpicks to fizzer Fizzer's Flunky Fizzers",
+	"Silence is golden and speech is silver:",
+	"Get off Warzone, your mum misses you.",
+	"Probing victim blames UFO",
+	"UFO identifies as Identified Flying Object",
+	"Coming soon: Warzone VR - bringing the full experience of war to you",
+	"Experience WW3 allover again in the WZ Classic app under Open Games",
+	"Top story: Warzone denies allegations of banning those worshiping Activision, counter claim sent"
 };
 	local rand = adverts[math.random(#adverts)]
 	return rand
