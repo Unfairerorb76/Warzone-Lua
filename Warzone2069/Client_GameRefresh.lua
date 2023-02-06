@@ -15,5 +15,6 @@ function Client_GameRefresh(game)
          UI.Alert(advert);	
          return;	
    end	 
+  print(data.Gullible);
   
 end
