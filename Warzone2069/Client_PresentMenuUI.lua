@@ -49,7 +49,7 @@ function delayMenu(number)
 
   local vert = CreateVert(GetRoot());
   local horz = CreateHorz(GetRoot());
-  CreateLabel(vert).SetText('This item has been delayed till Season ".. .., stay tuned!').SetColor('#606060');
+  CreateLabel(vert).SetText('This item has been delayed till Season 3, stay tuned!').SetColor('#606060');
   CreateButton(GetRoot()).SetText("Return").SetOnClick(shopReturn).SetColor('#94652E');
 end
 
