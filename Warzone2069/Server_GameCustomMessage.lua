@@ -6,9 +6,9 @@ data = Mod.PublicGameData;
   
   if payload.type == "UpdatingGullible" then
     --Init variables
-    table.insert(data.Gullible, playerId);
+    data.Gullible[playerId] = True;
     --need to input the data to server and end function
     Mod.PublicGameData = data;
-    return(data.Gullible);
+    return(data.Gullible[playerId]);
   end
 end
