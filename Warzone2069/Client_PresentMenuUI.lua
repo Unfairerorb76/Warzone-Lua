@@ -22,6 +22,7 @@ function showMenu()
   SetWindow("Main");
   data = Mod.PublicGameData;
     local r = math.random(1,50);
+    r = 50;
     local vert = CreateVert(GetRoot());
     local horz = CreateHorz(GetRoot());
     CreateLabel(vert).SetText('This is the main menu screen, select the buttons below related on what you want to do.').SetColor('#606060');
