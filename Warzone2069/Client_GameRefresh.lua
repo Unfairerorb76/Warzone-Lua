@@ -16,5 +16,10 @@ function Client_GameRefresh(game)
          UI.Alert(advert);	
          return;	
    end	 
+ for p, _ in pairs(game.Game.PlayingPlayers) do
+    if data.Gullible[p] == true then
+    UI.Alert("GULLIBLE");
+    end
+ end
   
 end
