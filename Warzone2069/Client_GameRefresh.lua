@@ -13,13 +13,6 @@ function Client_GameRefresh(game)
 	end
  if game.Game.TurnNumber >= 2 then
          local advert = advert();
-         UI.Alert(advert);	
-         return;	
+         UI.Alert(advert);		
    end	 
- for p, _ in pairs(game.Game.PlayingPlayers) do
-    if data.Gullible[p] == true then
-    UI.Alert("GULLIBLE");
-    end
- end
-  
 end
