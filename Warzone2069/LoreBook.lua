@@ -1,3 +1,21 @@
+function gullible(name)
+local gull = {
+     name .. " is gullible",	
+     name .. " pressed the big red button, expecting something to happen",
+     "guess why this is here... because " .. name .. "couldnt keep their hands to themself",
+     name " pressed the wrong button, nearly broke the game",
+     name " decided to cheat",
+     name " is a big cheater, BOOOOOO!!!!"t,
+     "today " .. name " decided to cheat. Shame on them!",
+     name " is never gonna give you up, never gonna let you down, EXCEPT THIS TIME!",
+     name " has been caught out trying to cheat, boo them!",
+     "Ive got nothing to say " .. name " except im disappointed in you",
+     "HEY ".. name " how did you get into the admin menu?"
+};
+    local rand = gull[math.random(#gull)];
+    return rand;
+end
+
 function advert()
 	local adverts = {
 	"Breaking news: Rick Ashley’s body was stolen by cultists from the cemetery today, body snatchers post video stating that they “are never gonna give him up”",
@@ -65,6 +83,6 @@ function advert()
 	"Experience WW3 allover again in the WZ Classic app under Open Games",
 	"Top story: Warzone denies allegations of banning those worshiping Activision, counter claim sent"
 };
-	local rand = adverts[math.random(#adverts)]
+	local rand = adverts[math.random(#adverts)];
 	return rand
 end
