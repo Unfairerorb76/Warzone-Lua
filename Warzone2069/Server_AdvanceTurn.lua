@@ -25,10 +25,10 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 local data = Mod.PublicGameData;
 local count = 0;
 local t = {};
-for p, _ in pairs(game.Game.PlayingPlayers) do
+for p, player in pairs(game.Game.PlayingPlayers) do
 	local IncomeAmount = 1;
 	addNewOrder(WL.GameOrderEvent.Create(p, "Paying Taxes", {}, {}, {}, {WL.IncomeMod.Create(p, -IncomeAmount, "Paying taxes")}));
-	if data.Viewed[p] == true or data.Viewed[p].IsAI == true then
+	if data.Viewed[p] == true or player.IsAI == true then
 		table.insert(t, data.Viewed[p]);
 	end
 	count = count + 1;
