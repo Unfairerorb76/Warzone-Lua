@@ -14,9 +14,10 @@ function Client_GameRefresh(game)
          	local advert = advert();
          	UI.Alert(advert);		
    	end
-if data.Viewed[game.Us.ID] == false then
+
 for p, player in pairs(game.Game.PlayingPlayers) do
  if data.Gullible[p] == true then
+   if data.Viewed[game.Us.ID] == false then
 	local name = player.DisplayName(nil, false)	
 	UI.Alert(gullible(name));
 	data.Viewed[game.Us.ID] = true;
