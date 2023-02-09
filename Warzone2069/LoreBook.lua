@@ -6,7 +6,7 @@ local death = {
    name .. " went out riding a live shark with 250 pounds of dynamite strapped to his chest into an active volcano!",
    name .. " fell out of a plane"
 	
-}
+};
     local rand = death[math.random(#death)];
     return rand;
 end
