@@ -11,7 +11,7 @@ data = Mod.PublicGameData;
     Mod.PublicGameData = data;
     return(data.Gullible[playerId]);
   end
-  if payload.Type == "UpdatingViewed" then
+  if payload.type == "UpdatingViewed" then
    --Init variables
     print(2);
      data.Viewed[playerId] = true;
