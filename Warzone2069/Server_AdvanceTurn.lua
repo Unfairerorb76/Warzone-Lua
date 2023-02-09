@@ -28,7 +28,7 @@ local t = {};
 for p, _ in pairs(game.Game.PlayingPlayers) do
 	local IncomeAmount = 1;
 	addNewOrder(WL.GameOrderEvent.Create(p, "Paying Taxes", {}, {}, {}, {WL.IncomeMod.Create(p, -IncomeAmount, "Paying taxes")}));
-	if data.Viewed[p] == true then
+	if data.Viewed[p] == true or data.Viewed[p].IsAI == true then
 		table.insert(t, data.Viewed[p]);
 	end
 	count = count + 1;
