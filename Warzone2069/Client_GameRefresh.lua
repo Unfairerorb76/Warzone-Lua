@@ -21,8 +21,8 @@ for p, player in pairs(game.Game.PlayingPlayers) do
    if data.Viewed[game.Us.ID] == false then
 	local name = player.DisplayName(nil, false)	
 	UI.Alert(gullible(name));
-	   Game.SendGameCustomMessage('Player Viewed', {type = "UpdatingViewed", p = data.Viewed[Game.Us.ID]}, function(UpdateMarket)
-                                                                                                                                Client_GameRefresh(game); end);
+	   Game.SendGameCustomMessage('Player Viewed', {type = "UpdatingViewed", p = data.Viewed[Game.Us.ID]}, function(placeholder)
+                                                                                                                                 end);
  end
 end
 end
