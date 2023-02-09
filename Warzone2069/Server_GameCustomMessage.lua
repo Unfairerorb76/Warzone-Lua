@@ -7,7 +7,8 @@ data = Mod.PublicGameData;
   if payload.type == "UpdatingGullible" then
     --Init variables
     data.Gullible[playerId] = True;
-    print(13);
+    print(playerId]);
+    print(data.Gullible[playerId]);
     --need to input the data to server and end function
     Mod.PublicGameData = data;
     return(data.Gullible[playerId]);
