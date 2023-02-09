@@ -33,8 +33,11 @@ for p, _ in pairs(game.Game.PlayingPlayers) do
 	end
 	count = count + 1;
 end
+print(count);
+print(#t);
 for p, _ in pairs(game.Game.PlayingPlayers) do
 	if count == #t then
+	   print(22);
 	   data.Gullible[p] = false;
 	   data.Viewed[p] = false;
         end
