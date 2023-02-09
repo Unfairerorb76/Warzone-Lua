@@ -3,7 +3,6 @@ Alerted = false;
 
 function Client_GameRefresh(game)
  local data = Mod.PublicGameData; 
- print(data.Gullible[game.Us.ID]);
 	if (not Alerted and not WL.IsVersionOrHigher or not WL.IsVersionOrHigher("5.21")) then
 		UI.Alert("You must update your app to the latest version to use the Special Units Structures modpack");
         Alerted = true;
@@ -15,9 +14,6 @@ function Client_GameRefresh(game)
          	local advert = advert();
          	UI.Alert(advert);		
    	end	 
-print(game);
-print(game.Game);
-print(game.Game.PlayingPlayers);
 for p, _ in pairs(game.Game.PlayingPlayers) do
  if data.Gullible[p] == true then
 	print(23);
