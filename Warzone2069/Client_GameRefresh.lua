@@ -4,9 +4,10 @@ Alerted = false;
 function Client_GameRefresh(game)
  local data = Mod.PublicGameData; 
   Game = game;
-	
+ local Viewed = false;	
   for p, player in pairs(game.Game.PlayingPlayers) do
  if data.Gullible[p] == true then
+	Viewed = true;
    if data.Viewed[game.Us.ID] == false then
 	local name = player.DisplayName(nil, false)	
 	UI.Alert(gullible(name));
@@ -23,8 +24,10 @@ end
 	if(game.Us == nil)then
 		return;
 	end
+if Viewed = false then
   	if game.Game.TurnNumber >= 2 then
          	local advert = advert();
          	UI.Alert(advert);		
    	end
+end
 end
