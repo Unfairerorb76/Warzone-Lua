@@ -13,11 +13,14 @@ function Client_GameRefresh(game)
   	if game.Game.TurnNumber >= 2 then
          	local advert = advert();
          	UI.Alert(advert);		
-   	end	 
-for p, _ in pairs(game.Game.PlayingPlayers) do
+   	end
+if data.Viewed[game.Us.ID] == false then
+for p, player in pairs(game.Game.PlayingPlayers) do
  if data.Gullible[p] == true then
-	local name = _.DisplayName(nil, false)	
+	local name = player.DisplayName(nil, false)	
 	UI.Alert(gullible(name));
+	data.Viewed[game.Us.ID] = true;
  end
+end
 end
 end
