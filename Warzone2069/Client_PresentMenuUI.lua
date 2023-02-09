@@ -81,8 +81,8 @@ SetWindow("Credits");
   local horz = CreateHorz(GetRoot());
   CreateLabel(vert).SetText("List of dead players:");
    for p, _ in pairs(game.Game.Players) do
-    if p.GamePlayerState = false then 
-          print(1100000);  
+    for i, v in pairs(WL.GamePlayerState) do
+        print(i, v);
     end
    end
   CreateLabel(vert).SetText('Thanks for playing, Hope you arent too annoyed by the mod :)');
