@@ -80,11 +80,11 @@ SetWindow("Credits");
   local vert = CreateVert(GetRoot());
   local horz = CreateHorz(GetRoot());
   CreateLabel(vert).SetText("List of dead players:");
-   for p, _ in pairs(game.Game.Players) do
+  -- for p, _ in pairs(game.Game.Players) do
     for i, v in pairs(WL.GamePlayerState) do
         print(i, v);
     end
-   end
+   --end
   CreateLabel(vert).SetText('Thanks for playing, Hope you arent too annoyed by the mod :)');
   CreateTextInputField(vert).SetText('https://discord.gg/hqGkVXagyt');  
   CreateLabel(vert).SetText('Creator: UnFairerOrb76 (UFO)');   
