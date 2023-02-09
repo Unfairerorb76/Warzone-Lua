@@ -82,7 +82,7 @@ SetWindow("Credits");
   CreateLabel(vert).SetText("List of dead players:");
    for p, player in pairs(Game.Game.Players) do
     if (player.State == 3 or player.State == 7) then
-           CreateLabel(vert).SetText(CauseOfDeath(player.DisplayName(nil, false));
+           CreateLabel(vert).SetText(CauseOfDeath(player.DisplayName(nil, false)));
     end
    end
   CreateLabel(vert).SetText('Thanks for playing, Hope you arent too annoyed by the mod :)');
