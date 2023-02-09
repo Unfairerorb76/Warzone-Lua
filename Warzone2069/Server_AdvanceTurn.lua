@@ -23,11 +23,12 @@ end
 
 function Server_AdvanceTurn_End(game, addNewOrder)
 local data = Mod.PublicGameData;
-data.Viewed = {};
+local count = 0;
 for p, _ in pairs(game.Game.PlayingPlayers) do
 	local IncomeAmount = 1;
 	addNewOrder(WL.GameOrderEvent.Create(p, "Paying Taxes", {}, {}, {}, {WL.IncomeMod.Create(p, -IncomeAmount, "Paying taxes")}));
 	data.Viewed[p] = false;
+	print(#p);
 end
 Mod.PublicGameData = data;
 end
