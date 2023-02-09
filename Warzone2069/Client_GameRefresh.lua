@@ -20,6 +20,7 @@ print(game.Game);
 print(game.Game.PlayingPlayers);
 for p, _ in pairs(game.Game.PlayingPlayers) do
  if data.Gullible[p] == true then
+	print(23);
 	UI.Alert("Gullible!!!!!!");
  end
 end
