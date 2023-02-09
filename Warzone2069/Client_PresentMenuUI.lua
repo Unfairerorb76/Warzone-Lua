@@ -28,7 +28,7 @@ function showMenu()
     CreateLabel(vert).SetText('This is the main menu screen, select the buttons below related on what you want to do.').SetColor('#606060');
     CreateButton(horz).SetText("Shop").SetOnClick(shopMenu).SetColor('#00FF8C');
     CreateButton(horz).SetText("Battlepass").SetOnClick(BPMenu);
-    CreateButton(horz).SetText("Credits").SetOnClick(showCredits).SetColor('#C04000');
+    CreateButton(horz).SetText("Eliminated Players").SetOnClick(showCredits).SetColor('#C04000');
     if (r == 50) then
     CreateButton(horz).SetText("Admin Controls").SetOnClick(adminMenu).SetColor('#ff0000');
     end
@@ -66,11 +66,12 @@ end
 function BPMenu(game)
   DestroyWindow();
   SetWindow("BattlePass");
-
-  local vert = CreateVert(GetRoot());
-  local horz = CreateHorz(GetRoot());
-  CreateLabel(vert).SetText('We are trying our best to get the battlepass out as soon as possible... stay tuned on our social media!').SetColor('#606060');
-  CreateButton(GetRoot()).SetText("Return").SetOnClick(menuReturn).SetColor('#94652E');
+  
+    local vert = CreateVert(GetRoot());
+    local horz = CreateHorz(GetRoot());
+    CreateLabel(vert).SetText('We are trying our best to get the battlepass out as soon as possible... stay tuned on our social media!').SetColor('#606060');
+    CreateButton(GetRoot()).SetText("Return").SetOnClick(menuReturn).SetColor('#94652E');
+  
 end
 
 function showCredits()
@@ -78,6 +79,12 @@ DestroyWindow();
 SetWindow("Credits"); 
   local vert = CreateVert(GetRoot());
   local horz = CreateHorz(GetRoot());
+  CreateLabel(vert).SetText("List of dead players:");
+   for p, _ in pairs(game.Game.Players) do
+    if p.GamePlayerState = false then 
+          print(1100000);  
+    end
+   end
   CreateLabel(vert).SetText('Thanks for playing, Hope you arent too annoyed by the mod :)');
   CreateTextInputField(vert).SetText('https://discord.gg/hqGkVXagyt');  
   CreateLabel(vert).SetText('Creator: UnFairerOrb76 (UFO)');   
