@@ -1,3 +1,16 @@
+function CauseOfDeath(name)
+local death = {
+   name .. " fell down the stairs!",
+   name .. " got stepped on by an elephant",
+   name .. " went out as they lived, a nobody",
+   name .. " went out riding a live shark with 250 pounds of dynamite strapped to his chest into an active volcano!",
+   name .. " fell out of a plane"
+	
+}
+    local rand = death[math.random(#death)];
+    return rand;
+end
+
 function gullible(name)
 local gull = {
      name .. " is gullible",	
