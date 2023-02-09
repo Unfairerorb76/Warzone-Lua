@@ -11,11 +11,10 @@ function Client_GameRefresh(game)
 	if(game.Us == nil)then
 		return;
 	end
- if game.Game.TurnNumber >= 2 then
-         local advert = advert();
-         UI.Alert(advert);		
-   end	 
-end
+  	if game.Game.TurnNumber >= 2 then
+         	local advert = advert();
+         	UI.Alert(advert);		
+   	end	 
 print(game);
 print(game.Game);
 print(game.Game.PlayingPlayers);
