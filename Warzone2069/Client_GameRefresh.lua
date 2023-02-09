@@ -23,3 +23,4 @@ for p, _ in pairs(game.Game.PlayingPlayers) do
 	UI.Alert("Gullible!!!!!!");
  end
 end
+end
