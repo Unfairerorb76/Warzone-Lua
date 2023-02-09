@@ -16,8 +16,7 @@ function Client_GameRefresh(game)
    	end	 
 for p, _ in pairs(game.Game.PlayingPlayers) do
  if data.Gullible[p] == true then
-	print(23);
-	UI.Alert("Gullible!!!!!!");
+	UI.Alert(p.DisplayName(nil, false) .. " is Gullible);
  end
 end
 end
