@@ -23,7 +23,7 @@ end
 
 function Server_AdvanceTurn_End(game, addNewOrder)
 local data = Mod.PublicGameData;
-local count = 1;
+local count = 0;
 local t = {};
 for p, _ in pairs(game.Game.PlayingPlayers) do
 	local IncomeAmount = 1;
