@@ -80,8 +80,8 @@ SetWindow("Credits");
   local vert = CreateVert(GetRoot());
   local horz = CreateHorz(GetRoot());
   CreateLabel(vert).SetText("List of dead players:");
-   for p, _ in pairs(Game.Game.Players) do
-    if (p.GamePlayerState == 3 or p.GamePlayerState == 7) then
+   for p, player in pairs(Game.Game.Players) do
+    if (player.GamePlayerState == 3 or player.GamePlayerState == 7) then
            print(7);
     --for i, v in pairs(WL.GamePlayerState) do
     --    print(i, v);
