@@ -12,7 +12,8 @@ data = Mod.PublicGameData;
     return(data.Gullible[playerId]);
   end
   if payload.Type == "UpdatingViewed" then
-   --Init variables 
+   --Init variables
+    print(2);
      data.Viewed[playerId] = true;
     --need to input the data to server and end function
     Mod.PublicGameData = data;
