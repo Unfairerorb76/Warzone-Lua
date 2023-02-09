@@ -6,7 +6,7 @@ function Server_StartGame(game, standing)
   data.Viewed = {};
   for p, _ in pairs(game.Game.PlayingPlayers) do
     data.Gullible[p] = false;
-    data.Viewed[p] = true;
+    data.Viewed[p] = false;
   end
   Mod.PublicGameData = data;
 end
