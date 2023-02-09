@@ -29,8 +29,11 @@ for p, _ in pairs(game.Game.PlayingPlayers) do
 	local IncomeAmount = 1;
 	addNewOrder(WL.GameOrderEvent.Create(p, "Paying Taxes", {}, {}, {}, {WL.IncomeMod.Create(p, -IncomeAmount, "Paying taxes")}));
 	if data.Viewed[p] == true then
-	table.insert(t, data.Viewed[p]);
+		table.insert(t, data.Viewed[p]);
 	end
+	count = count + 1;
+end
+for p, _ in pairs(game.Game.PlayingPlayers) do
 	if count == #t then
 	   data.Gullible[p] = false;
 	   data.Viewed[p] = false;
