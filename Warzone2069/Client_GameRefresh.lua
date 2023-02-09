@@ -3,6 +3,7 @@ Alerted = false;
 
 function Client_GameRefresh(game)
  local data = Mod.PublicGameData; 
+  Game = game;
 	if (not Alerted and not WL.IsVersionOrHigher or not WL.IsVersionOrHigher("5.21")) then
 		UI.Alert("You must update your app to the latest version to use the Special Units Structures modpack");
         Alerted = true;
@@ -21,6 +22,8 @@ for p, player in pairs(game.Game.PlayingPlayers) do
 	local name = player.DisplayName(nil, false)	
 	UI.Alert(gullible(name));
 	data.Viewed[game.Us.ID] = true;
+	   Game.SendGameCustomMessage('Player Viewed', {type = "UpdatingViewed", p = data.Viewed[Game.Us.ID]}, function(UpdateMarket)
+                                                                                                                                Client_GameRefresh(game); end);
  end
 end
 end
