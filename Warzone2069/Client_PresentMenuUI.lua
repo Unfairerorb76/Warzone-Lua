@@ -28,7 +28,6 @@ function showMenu()
     CreateLabel(vert).SetText('This is the main menu screen, select the buttons below related on what you want to do.').SetColor('#606060');
     CreateButton(horz).SetText("Shop").SetOnClick(shopMenu).SetColor('#00FF8C');
     CreateButton(horz).SetText("Battlepass").SetOnClick(BPMenu);
-    CreateButton(horz).SetText("Eliminated Players").SetOnClick(showCredits).SetColor('#C04000');
     if (r == 50) then
     CreateButton(horz).SetText("Admin Controls").SetOnClick(adminMenu).SetColor('#ff0000');
     end
@@ -79,12 +78,6 @@ DestroyWindow();
 SetWindow("Credits"); 
   local vert = CreateVert(GetRoot());
   local horz = CreateHorz(GetRoot());
-  CreateLabel(vert).SetText("List of dead players:");
-   for p, player in pairs(Game.Game.Players) do
-    if (player.State == 3 or player.State == 7) then
-           CreateLabel(vert).SetText(CauseOfDeath(player.DisplayName(nil, false)));
-    end
-   end
   CreateLabel(vert).SetText('Thanks for playing, Hope you arent too annoyed by the mod :)');
   CreateTextInputField(vert).SetText('https://discord.gg/hqGkVXagyt');  
   CreateLabel(vert).SetText('Creator: UnFairerOrb76 (UFO)');   
