@@ -9,7 +9,7 @@ function Client_GameRefresh(game)
 	if(game.Us == nil)then
 		return;
 	end
-        if game.Game.TurnNumber < 1 or data.Counters[game.Us.ID] == 0 then		
+        if game.Game.TurnNumber < 1 or data.Counters[game.Us.ID] == 0 or game.Us.State ~= WL.GamePlayerState.Playing then		
          return;	
         end	 
 
