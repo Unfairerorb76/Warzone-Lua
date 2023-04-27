@@ -6,7 +6,7 @@ function Client_PresentCommercePurchaseUI(rootParent, game, close)
 	
 	local vert = UI.CreateVerticalLayoutGroup(rootParent);
 
-	UI.CreateLabel(vert).SetText("each Worker is as powerful as 3 army but cost " .. Mod.Settings.CostToBuyWorker .. " gold to purchase.  You may have up to " .. Mod.Settings.MaxWorkers .. ". If a Worker survives at the end of the turn it will generate " .. Mod.Settings.NumCities .." armies on that territory");
+	UI.CreateLabel(vert).SetText("each Worker is as powerful as 3 army but cost " .. Mod.Settings.CostToBuyWorker .. " gold to purchase.  You may have up to " .. Mod.Settings.MaxWorkers .. ". If a Worker survives at the end of the turn it will construct " .. Mod.Settings.NumCities .." cities on that territory");
 	UI.CreateButton(vert).SetText("Purchase a Worker for " .. Mod.Settings.CostToBuyWorker .. " gold").SetOnClick(PurchaseClicked);
 end
 
