@@ -62,8 +62,11 @@ local numWorkers = NumWorkersIn(territory.NumArmies);
 		
 if numWorkers > 0 then
     local terrMod = WL.TerritoryModification.Create(terrID);
+			
     structures = {}
     structures[WL.StructureType.City] = Mod.Settings.NumCities * numWorkers;
+    terrMod.AddStructuresOpt = structures;
+			
     addNewOrder(WL.GameOrderEvent.Create(territory.OwnerPlayerID, "New cities built", {}, {terrMod}));
 end
 			
