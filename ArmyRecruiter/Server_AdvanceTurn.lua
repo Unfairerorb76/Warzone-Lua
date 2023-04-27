@@ -59,7 +59,6 @@ end
 function Server_AdvanceTurn_End(game, addNewOrder)
 	
 for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
-	local terr = game.ServerGame.LatestTurnStanding.Territories[terrID];
 	if (territory.IsNeutral == false) then	
  		if hasNoRecruiter(territory.NumArmies) then
 			for times = 1, NumRecruitersIn(territory.NumArmies) do
