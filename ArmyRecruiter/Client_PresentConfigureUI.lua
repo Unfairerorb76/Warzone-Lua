@@ -5,37 +5,37 @@ function Client_PresentConfigureUI(rootParent)
 		return;
 	end
 
-	local cost = Mod.Settings.CostToBuyCapitalist;
-	if cost == nil then cost = 20; end
+	local cost = Mod.Settings.CostToBuyRecruiter;
+	if cost == nil then cost = 10; end
 
-	local maxCapitalists = Mod.Settings.MaxCapitalists;
-	if maxCapitalists == nil then maxCapitalists = 3; end
+	local maxRecruiters = Mod.Settings.MaxRecruiters;
+	if maxRecruiters == nil then maxRecruiters = 3; end
 
-	local Percentage = Mod.Settings.Percentage;
-	if Percentage == nil then Percentage = 25; end
+	local armies = Mod.Settings.NumArmies;
+	if armies == nil then armies = 2; end
     
 	local vert = UI.CreateVerticalLayoutGroup(rootParent);
 
     local row1 = UI.CreateHorizontalLayoutGroup(vert);
-	UI.CreateLabel(row1).SetText('How much gold it costs to buy a Capitalist');
+	UI.CreateLabel(row1).SetText('How much gold it costs to buy a Recruiter?');
     costInputField = UI.CreateNumberInputField(row1)
 		.SetSliderMinValue(1)
-		.SetSliderMaxValue(40)
+		.SetSliderMaxValue(30)
 		.SetValue(cost);
 
 
 	local row2 = UI.CreateHorizontalLayoutGroup(vert);
-	UI.CreateLabel(row2).SetText('How many Capitalists each player can have at a time.');
-	maxCapitalistsField = UI.CreateNumberInputField(row2)
+	UI.CreateLabel(row2).SetText('How many Recruiters each player can have at a time.');
+	maxRecruitersField = UI.CreateNumberInputField(row2)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(5)
-		.SetValue(maxCapitalists);
+		.SetValue(maxRecruiters);
 	
 	local row3 = UI.CreateHorizontalLayoutGroup(vert);
-	UI.CreateLabel(row3).SetText('Percentage of income taken away from the enemy upon them killing the Capitalist.');
-	PercentageField = UI.CreateNumberInputField(row3)
+	UI.CreateLabel(row3).SetText('Number of Armies a Recruiter creates per turn');
+	armiesField = UI.CreateNumberInputField(row3)
 		.SetSliderMinValue(1)
-		.SetSliderMaxValue(100)
-		.SetValue(Percentage);
+		.SetSliderMaxValue(15)
+		.SetValue(armies);
 	
 end
