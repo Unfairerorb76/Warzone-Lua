@@ -63,11 +63,11 @@ for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) d
 	if (terr.IsNeutral == false) then
 			
  		if hasNoRecruiter(terr.NumArmies) then
-			--for (times = 1, NumRecruitersIn(terr.NumArmies)) do
+			for (times = 1, NumRecruitersIn(terr.NumArmies)) do
 				local terrMod = WL.TerritoryModification.Create(game.ServerGame.LatestTurnStanding.Territories[terrID]);
 				terrMod.SetArmiesTo = terr.NumArmies + Mod.Settings.NumArmies;
 				addNewOrder(WL.GameOrderEvent.Create(terr.OwnerPlayerID, "New armies recruited", {}, terrMod));
-			--end
+			end
 		end
 	end
 end 
@@ -79,7 +79,7 @@ end
 function NumRecruitersIn(armies)
 	local ret = 0;
 	for _,su in pairs(armies.SpecialUnits) do
-		if (su.proxyType == 'CustomSpecialUnit' and su.Name == 'Capitalist') then
+		if (su.proxyType == 'CustomSpecialUnit' and su.Name == 'Recruiter') then
 			ret = ret + 1;
 		end
 	end
