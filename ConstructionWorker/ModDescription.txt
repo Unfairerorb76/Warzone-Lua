@@ -1,0 +1,1 @@
+This special unit constructs cities on the territory it occupies at the end of each time, number of cities is configurable by the host
