@@ -61,10 +61,11 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
 
 local armiesToAdd = Mod.Settings.NumArmies * NumRecruitersIn(territory.NumArmies);
-
+print(armiesToAdd);
 if armiesToAdd > 0 then
     local terrMod = WL.TerritoryModification.Create(terrID);
     terrMod.SetArmiesTo = territory.NumArmies.NumArmies + armiesToAdd;
+    print(territoryz.NumArmies.NumArmies + armiesToAdd);
     addNewOrder(WL.GameOrderEvent.Create(territory.OwnerPlayerID, "New armies recruited", {}, terrMod));
 end
 			
