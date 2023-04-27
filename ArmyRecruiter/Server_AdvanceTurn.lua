@@ -30,7 +30,7 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 		end
 
 		if (numRecruitersAlreadyHave >= Mod.Settings.MaxRecruiters) then
-			addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Skipping Recruiter purchase since max is ' .. Mod.Settings.MaxRecruiters .. ' and you have ' .. numRecruitersAlreadyHave));]
+			addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Skipping Recruiter purchase since max is ' .. Mod.Settings.MaxRecruiters .. ' and you have ' .. numRecruitersAlreadyHave));
 			return; --this player already has the maximum number of Recruiters possible, so skip adding a new one.
 		end
 
