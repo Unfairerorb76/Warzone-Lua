@@ -60,7 +60,7 @@ for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) d
 
 local numRecruiters = NumRecruitersIn(territory.NumArmies);
 
-if numRecruiters > 0 do
+if numRecruiters > 0 then
     local terrMod = WL.TerritoryModification.Create(terrID);
     terrMod.AddArmiesTo = Mod.Settings.NumArmies * numRecruiters;
     addNewOrder(WL.GameOrderEvent.Create(territory.OwnerPlayerID, "New armies recruited", {}, terrMod));
