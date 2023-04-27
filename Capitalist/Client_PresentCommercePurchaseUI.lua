@@ -64,7 +64,7 @@ end
 
 function SelectTerritoryClicked()
 	UI.InterceptNextTerritoryClick(TerritoryClicked);
-	TargetTerritoryInstructionLabel.SetText("Please click on the territory you wish to receive the Priest unit on. If needed, you can move this dialog out of the way.");
+	TargetTerritoryInstructionLabel.SetText("Please click on the territory you wish to receive the Capitalist unit on. If needed, you can move this dialog out of the way.");
 	SelectTerritoryBtn.SetInteractable(false);
 end
 
