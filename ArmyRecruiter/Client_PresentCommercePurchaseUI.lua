@@ -10,7 +10,7 @@ function Client_PresentCommercePurchaseUI(rootParent, game, close)
 	UI.CreateButton(vert).SetText("Purchase a Recruiter for " .. Mod.Settings.CostToBuyRecruiter .. " gold").SetOnClick(PurchaseClicked);
 end
 
-function NumRecruiterIn(armies)
+function NumRecruitersIn(armies)
 	local ret = 0;
 	for _,su in pairs(armies.SpecialUnits) do
 		if (su.proxyType == 'CustomSpecialUnit' and su.Name == 'Recruiter') then
