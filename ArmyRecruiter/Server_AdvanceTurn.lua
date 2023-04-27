@@ -2,7 +2,7 @@ require('Utilities');
 
 function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNewOrder)
     if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'BuyRecruiter_')) then  --look for the order that we inserted in Client_PresentCommercePurchaseUI
-		--in Client_PresentMenuUI, we stuck the territory ID after BuyCapitalist_.  Break it out and parse it to a number.
+		--in Client_PresentMenuUI, we stuck the territory ID after BuyRecruiter_.  Break it out and parse it to a number.
 		local targetTerritoryID = tonumber(string.sub(order.Payload, 14));
 		print(string.sub(order.Payload, 14));
 		print(targetTerritoryID);
@@ -16,35 +16,33 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 		end
 
 		local costFromOrder = order.CostOpt[WL.ResourceType.Gold]; --this is the cost from the order.  We can't trust this is accurate, as someone could hack their client and put whatever cost they want in there.  Therefore, we must calculate it ourselves, and only do the purchase if they match
-		local realCost = Mod.Settings.CostToBuyCapitalist;
+		local realCost = Mod.Settings.CostToBuyRecruiter;
 
 		if (realCost > costFromOrder) then
 			return; --don't do the purchase if their cost didn't line up.  This would only really happen if they hacked their client or another mod interfered
 		end
 
-		local numCapitalistsAlreadyHave = 0;
+		local numRecruitersAlreadyHave = 0;
 		for _,ts in pairs(game.ServerGame.LatestTurnStanding.Territories) do
 			if (ts.OwnerPlayerID == order.PlayerID) then
-				numCapitalistsAlreadyHave = numCapitalistsAlreadyHave + NumCapitalistsIn(ts.NumArmies);
+				numRecruitersAlreadyHave = numRecruitersAlreadyHave + NumRecruitersIn(ts.NumArmies);
 			end
 		end
 
-		if (numCapitalistsAlreadyHave >= Mod.Settings.MaxCapitalists) then
-			addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Skipping Capitalist purchase since max is ' .. Mod.Settings.MaxCapitalists .. ' and you have ' .. numCapitalistsAlreadyHave));
-			return; --this player already has the maximum number of Capitalists possible, so skip adding a new one.
+		if (numRecruitersAlreadyHave >= Mod.Settings.MaxRecruiters) then
+			addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Skipping Recruiter purchase since max is ' .. Mod.Settings.MaxRecruiters .. ' and you have ' .. numRecruitersAlreadyHave));]
+			return; --this player already has the maximum number of Recruiters possible, so skip adding a new one.
 		end
 
-		local CapitalistPower = Mod.Settings.CapitalistPower;
-
 		local builder = WL.CustomSpecialUnitBuilder.Create(order.PlayerID);
-		builder.Name = 'Capitalist';
+		builder.Name = 'Recruiter';
 		builder.IncludeABeforeName = true;
-		builder.ImageFilename = 'piggy-bank.png';
-		builder.AttackPower = 1;
-		builder.DefensePower = 1;
-		builder.CombatOrder = 3415; --defends commanders
-		builder.DamageToKill = 1;
-		builder.DamageAbsorbedWhenAttacked = 1;
+		builder.ImageFilename = 'drum.png';
+		builder.AttackPower = 3;
+		builder.DefensePower = 3;
+		builder.CombatOrder = 3416; --defends commanders
+		builder.DamageToKill = 3;
+		builder.DamageAbsorbedWhenAttacked = 3;
 		builder.CanBeGiftedWithGiftCard = true;
 		builder.CanBeTransferredToTeammate = true;
 		builder.CanBeAirliftedToSelf = true;
@@ -54,21 +52,44 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
 		local terrMod = WL.TerritoryModification.Create(targetTerritoryID);
 		terrMod.AddSpecialUnits = {builder.Build()};
 		
-		addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Purchased a Capitalist', {}, {terrMod}));
+		addNewOrder(WL.GameOrderEvent.Create(order.PlayerID, 'Purchased a Recruiter', {}, {terrMod}));
 	end
-    if order.proxyType == "GameOrderAttackTransfer" then
-		if orderResult.IsAttack and hasNoCapitalist(game.ServerGame.LatestTurnStanding.Territories[order.To].NumArmies) then
-			if deadCapitalist(orderResult.DefendingArmiesKilled) then
-				local p = order.PlayerID; -- the attacker
-				
-				local currentIncome = game.Game.PlayingPlayers[p].Income(0, game.ServerGame.LatestTurnStanding, false, false);
-				
-				local IncomeAmount = currentIncome.Total;
-				print(IncomeAmount);
-				IncomeAmount = IncomeAmount * (Mod.Settings.Percentage / 100);
-				addNewOrder(WL.GameOrderEvent.Create(p, "Updated income", {}, {terrMod}, {}, {WL.IncomeMod.Create(p, -IncomeAmount, "You have killed a Capitalist and have been sanctioned")}));	
+end
 
+function Server_AdvanceTurn_End(game, addNewOrder)
+	
+for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
+	local terr = game.ServerGame.LatestTurnStanding.Territories[terrID];
+	if (terr.IsNeutral == false) then
+ 		if hasNoRecruiter(terr.NumArmies)
+			for (NumRecruitersIn(terr.NumArmies)) do
+				local terrMod = WL.TerritoryModification.Create(terr);
+				terrMod.SetArmiesTo = terr.NumArmies + Mod.Settings.NumArmies;
+				addNewOrder(WL.GameOrderEvent.Create(terr.OwnerPlayerID, "New armies recruited", {}, terrMod)):	
 			end
 		end
+	end
+end 
+	
+	
+	
+end
+
+function NumRecruitersIn(armies)
+	local ret = 0;
+	for _,su in pairs(armies.SpecialUnits) do
+		if (su.proxyType == 'CustomSpecialUnit' and su.Name == 'Capitalist') then
+			ret = ret + 1;
+		end
+	end
+	return ret;
+end
+	
+function hasNoRecruiter(armies)
+    for _, sp in pairs(armies.SpecialUnits) do
+        if (sp.proxyType == 'CustomSpecialUnit' and sp.Name == "Recruiter") then
+            return true;
+        end
     end
+    return false;
 end
