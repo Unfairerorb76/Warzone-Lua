@@ -4,8 +4,6 @@ function Server_AdvanceTurn_Order(game, order, orderResult, skipThisOrder, addNe
     if (order.proxyType == 'GameOrderCustom' and startsWith(order.Payload, 'BuyRecruiter_')) then  --look for the order that we inserted in Client_PresentCommercePurchaseUI
 		--in Client_PresentMenuUI, we stuck the territory ID after BuyRecruiter_.  Break it out and parse it to a number.
 		local targetTerritoryID = tonumber(string.sub(order.Payload, 14));
-		print(string.sub(order.Payload, 14));
-		print(targetTerritoryID);
 		local targetTerritoryStanding = game.ServerGame.LatestTurnStanding.Territories[targetTerritoryID];
 		if (targetTerritoryStanding.OwnerPlayerID ~= order.PlayerID) then
 			return; --can only buy a priest onto a territory you control
@@ -61,8 +59,9 @@ function Server_AdvanceTurn_End(game, addNewOrder)
 for terrID, territory in pairs(game.ServerGame.LatestTurnStanding.Territories) do
 
 local armiesToAdd = Mod.Settings.NumArmies * NumRecruitersIn(territory.NumArmies);
-print(armiesToAdd);
+
 if armiesToAdd > 0 then
+    print(armiesToAdd);
     local terrMod = WL.TerritoryModification.Create(terrID);
     terrMod.SetArmiesTo = territory.NumArmies.NumArmies + armiesToAdd;
     print(territoryz.NumArmies.NumArmies + armiesToAdd);
