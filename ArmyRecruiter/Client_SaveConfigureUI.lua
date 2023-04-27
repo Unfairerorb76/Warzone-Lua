@@ -5,7 +5,7 @@ function Client_SaveConfigureUI(alert)
     Mod.Settings.CostToBuyRecruiter = cost;
 
     local maxRecruiters = maxRecruitersField.GetValue();
-    if maxCapitalists < 1 or maxCapitalists > 5 then alert("Max number of Recruiters per player must be between 1 and 5"); end
+    if maxRecruiters < 1 or maxRecruiters > 5 then alert("Max number of Recruiters per player must be between 1 and 5"); end
     Mod.Settings.MaxRecruiters = maxRecruiters;
 
     Mod.Settings.NumArmies = armiesField.GetValue();
