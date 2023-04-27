@@ -63,7 +63,7 @@ local armiesToAdd = Mod.Settings.NumArmies * NumRecruitersIn(territory.NumArmies
 if armiesToAdd > 0 then
     print(armiesToAdd);
     local terrMod = WL.TerritoryModification.Create(terrID);
-    terrMod.SetArmiesTo = territory.NumArmies.NumArmies + armiesToAdd;
+    terrMod.SetArmiesTo = game.ServerGame.LatestTurnStanding.Territories[terrID].NumArmies.NumArmies + armiesToAdd;
     print(territoryz.NumArmies.NumArmies + armiesToAdd);
     addNewOrder(WL.GameOrderEvent.Create(territory.OwnerPlayerID, "New armies recruited", {}, terrMod));
 end
