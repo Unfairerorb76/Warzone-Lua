@@ -232,7 +232,9 @@ function ResourceCache(game, addNewOrder, terrID, playerID)
 			    local pieces = Mod.Settings.cPieces;
 			 
 			    if Mod.Settings.FixedPieces == false then
+				if Mod.Settings.Luck ~= nil then
 			    	pieces = pieces + math.random(-Mod.Settings.Luck, Mod.Settings.Luck);
+				end
 			    if pieces < 0 then
 					pieces = 0;
 			    end
