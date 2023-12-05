@@ -265,10 +265,11 @@ function ArmyCache(game, addNewOrder, terrID, playerID)
 						addNewOrder(WL.GameOrderEvent.Create(playerID, "Updated income", {}, {terrMod}, {}, {WL.IncomeMod.Create(playerID, IncomeAmount, "You have captured an army cache")}));
 					 end
 					if Mod.Settings.FixedArmies == false then
+		                               local luck = Mod.Settings.Luck;
 						if Mod.Settings.Luck == nil then
-							Mod.Settings.Luck = 10;
+							luck = 10;
 						end 
-						IncomeAmount = (IncomeAmount + math.random(-Mod.Settings.Luck, Mod.Settings.Luck));
+						IncomeAmount = (IncomeAmount + math.random(-luck, luck));
 						addNewOrder(WL.GameOrderEvent.Create(playerID, "Updated income", {}, {terrMod}, {}, {WL.IncomeMod.Create(playerID, IncomeAmount, "You have captured an army cache")}));	
 					 end						   
 end 
