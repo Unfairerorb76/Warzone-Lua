@@ -1,7 +1,7 @@
 require('UI');
 function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 	 
-         initialValueConvert = Mod.Settings.NumToConvert;
+        initialValueConvert = Mod.Settings.NumToConvert;
 	initialValueArmies = Mod.Settings.SetArmiesTo;
         initialcheckbox = Mod.Settings.OnlyBaseNeutrals;
 	
@@ -28,22 +28,22 @@ function Client_PresentConfigureUI(rootParent, rootParent2, rootParent3)
 end
 
 function showMainConfig()
-  DestroyWindow();
-  SetWindow("Main");
+	DestroyWindow();
+  	SetWindow("Main");
 
-  local vert = CreateVert(GetRoot());
+	local vert = CreateVert(GetRoot());
+	  	
+	CreateButton(vert).SetText("Expansion+").SetOnClick(showExpansionConfig).SetColor('#00FF8C'); 			
+	CreateButton(vert).SetText("Villages").SetOnClick(showVillagesConfig).SetColor('#00FF8C');
+	CreateButton(vert).SetText("Army-Caches").SetOnClick(showArmyCacheConfig).SetColor('#00FF8C');
+	CreateButton(vert).SetText("Card-Caches").SetOnClick(showCardCacheConfig).SetColor('#00FF8C');
   	
-  CreateButton(vert).SetText("Expansion+").SetOnClick(showExpansionConfig).SetColor('#00FF8C'); 			
-  CreateButton(vert).SetText("Villages").SetOnClick(showVillagesConfig).SetColor('#00FF8C');
-  CreateButton(vert).SetText("Army-Caches").SetOnClick(showArmyCacheConfig).SetColor('#00FF8C');
-  CreateButton(vert).SetText("Card-Caches").SetOnClick(showCardCacheConfig).SetColor('#00FF8C');
-  
-  CreateButton(vert).SetText("Misc Features").SetOnClick(showMiscConfig).SetColor('#AC0059');
+  	CreateButton(vert).SetText("Misc Features").SetOnClick(showMiscConfig).SetColor('#AC0059');
 end
 
 function showExpansionConfig()
-  DestroyWindow();
-  SetWindow("FreeExpansion");
+  	DestroyWindow();
+  	SetWindow("FreeExpansion");
    
 	if initialValueConvert == nil then
 		initialValueConvert = 2;
@@ -76,7 +76,7 @@ function showExpansionConfig()
 		.SetValue(initialValueArmies); 
  
         UI.CreateLabel(vert).SetText('Only base neutral armies and less shall be claimed').SetColor('#23A0FF');
-        ExpBaseInputField = UI.CreateCheckBox(vert)        
+    ExpBaseInputField = UI.CreateCheckBox(vert)        
                 .SetIsChecked(initialcheckbox);
 	
   CreateButton(GetRoot()).SetText("Return").SetOnClick(saveExpansionConfig).SetColor('#94652E');
@@ -90,8 +90,8 @@ function saveExpansionConfig()
 end
 
 function showVillagesConfig()
-  DestroyWindow();
-  SetWindow("Villages");
+ 	DestroyWindow();
+  	SetWindow("Villages");
   
 	if initialVillages == nil then
 		initialVillages = 3;
@@ -123,7 +123,7 @@ function showVillagesConfig()
         ONInputField = UI.CreateCheckBox(vert)        
                 .SetIsChecked(ON);
 	
-  CreateButton(GetRoot()).SetText("Return").SetOnClick(saveVillageConfig).SetColor('#94652E');
+  	CreateButton(GetRoot()).SetText("Return").SetOnClick(saveVillageConfig).SetColor('#94652E');
 end
 
 function saveVillageConfig()
@@ -134,8 +134,8 @@ function saveVillageConfig()
 end
 
 function showArmyCacheConfig()
-  DestroyWindow();
-  SetWindow("Army-Caches");
+  	DestroyWindow();
+  	SetWindow("Army-Caches");
   
 	if initialACaches == nil then
 		initialACaches = 3;
@@ -175,12 +175,12 @@ function showArmyCacheConfig()
                 .SetIsChecked(FixedArmies);
 	
 	UI.CreateLabel(vert).SetText('Random +/- limit').SetColor('#23A0FF');
-    randArmyInputField = UI.CreateNumberInputField(vert)
+    	randArmyInputField = UI.CreateNumberInputField(vert)
 		.SetSliderMinValue(1)
 		.SetSliderMaxValue(10)
 		.SetValue(difference);
 	
-  CreateButton(GetRoot()).SetText("Return").SetOnClick(saveArmyConfig).SetColor('#94652E');
+  	CreateButton(GetRoot()).SetText("Return").SetOnClick(saveArmyConfig).SetColor('#94652E');
 end
 
 function saveArmyConfig()
@@ -192,8 +192,8 @@ function saveArmyConfig()
 end
 
 function showCardCacheConfig()
-  DestroyWindow();
-  SetWindow("Card-Caches");
+  	DestroyWindow();
+  	SetWindow("Card-Caches");
 	
 	if initialRCaches == nil then
 		initialRCaches = 2;
@@ -250,8 +250,8 @@ function saveCardCacheConfig()
 end
 
 function showMiscConfig()     -- 0 parameters!
-  DestroyWindow();          -- Destroys every UI object currently visible
-  SetWindow("Misc");  -- Allows you to do even more advanced shit
+  	DestroyWindow();          -- Destroys every UI object currently visible
+  	SetWindow("Misc");  -- Allows you to do even more advanced shit
 	
 	if AttackNeutral == nil then
 		AttackNeutral = true;
